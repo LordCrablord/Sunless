@@ -87,7 +87,7 @@ public class WorldGrid : MonoBehaviour
 			}
 		}
 
-		BlurPenaltyMap(3);
+		BlurPenaltyMap(1);
 	}
 
 	void BlurPenaltyMap(int blurSize)
