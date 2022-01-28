@@ -8,6 +8,7 @@ public class MousePosition : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     [SerializeField] private GameObject mouseClick;
+    [SerializeField] private GameObject playerTarget;
 
     // Update is called once per frame
     void Update()
@@ -19,8 +20,9 @@ public class MousePosition : MonoBehaviour
             {
                 GameObject click = Instantiate(mouseClick);
                 click.transform.position = raycastHit.point;
+                playerTarget.transform.position = raycastHit.point;
 
-                GetComponent<Unit>().target = click.transform;
+                GetComponent<Unit>().target = playerTarget.transform;
             }
         }
     }
