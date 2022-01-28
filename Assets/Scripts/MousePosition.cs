@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MousePosition : MonoBehaviour
 {
-    [SerializeField] private Camera camera;
+    [SerializeField] private Camera myCamera;
     [SerializeField] private LayerMask groundLayer;
     
     // Update is called once per frame
@@ -12,10 +12,11 @@ public class MousePosition : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = myCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, groundLayer))
             {
-                transform.position = raycastHit.point;
+                
+                //raycastHit.point;
             }
         }
     }
