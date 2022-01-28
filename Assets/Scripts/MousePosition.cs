@@ -6,7 +6,9 @@ public class MousePosition : MonoBehaviour
 {
     [SerializeField] private Camera myCamera;
     [SerializeField] private LayerMask groundLayer;
-    
+
+    [SerializeField] private GameObject mouseClick;
+
     // Update is called once per frame
     void Update()
     {
@@ -15,8 +17,10 @@ public class MousePosition : MonoBehaviour
             Ray ray = myCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, groundLayer))
             {
-                
-                //raycastHit.point;
+                GameObject click = Instantiate(mouseClick);
+                click.transform.position = raycastHit.point;
+
+                GetComponent<Unit>().target = click.transform;
             }
         }
     }

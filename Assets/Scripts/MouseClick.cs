@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class MouseClick : MonoBehaviour
 {
-    
-    public void OnAnimationFinished()
+	private void Start()
+	{
+		GetComponent<Animator>().Play("MousePointClick");
+	}
+	public void OnAnimationFinished()
 	{
         Destroy(this.gameObject);
 	}
