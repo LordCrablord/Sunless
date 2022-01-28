@@ -55,7 +55,10 @@ public class Unit : MonoBehaviour
 	{
 		bool followingPath = true;
 		int pathIndex = 0;
-		transform.LookAt(path.lookPoints[0]);
+		if (path.lookPoints.Length != 0)
+			transform.LookAt(path.lookPoints[0]);
+		else
+			followingPath = false;
 
 		while (followingPath)
 		{
