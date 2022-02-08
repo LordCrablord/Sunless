@@ -240,10 +240,11 @@ MonoBehaviour:
   mainCamera: {fileID: 963194228}
   target: {fileID: 1862654480}
   defaultOffset: {x: 0, y: 13, z: -12}
-  minOffset: {x: 0, y: 0, z: 0}
-  maxOffset: {x: 0, y: 0, z: 0}
+  minOffset: {x: 0, y: 6, z: -5}
+  maxOffset: {x: 0, y: 20, z: -19}
   zoomStep: {x: 0, y: 1, z: -1}
   smoothTime: 0.3
+  rotationSpeed: 200
 --- !u!1001 &328561365
 PrefabInstance:
   m_ObjectHideFlags: 0

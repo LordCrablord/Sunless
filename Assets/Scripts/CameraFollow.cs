@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
     public Vector3 maxOffset;
     public Vector3 zoomStep;
     public float smoothTime = 0.3f;
+    public float rotationSpeed = 15;
     Vector3 offset;
     Vector3 velocity = Vector3.zero;
 
@@ -43,6 +44,10 @@ public class CameraFollow : MonoBehaviour
             transform.rotation = new Quaternion();
         }
 
-
+		if (Input.GetKey(KeyCode.Mouse2))
+		{
+            Vector3 rotation = new Vector3(0, rotationSpeed, 0) * Input.GetAxis("Mouse X") * Time.deltaTime;
+            transform.Rotate(rotation);
+		}
     }
 }
