@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    public Transform mainCamera;
     public Transform target;
     public Vector3 defaultOffset;
     public Vector3 minOffset;
     public Vector3 maxOffset;
     public Vector3 zoomStep;
     public float smoothTime = 0.3f;
+    float objectOffsetY = 13;
     Vector3 offset;
     Vector3 velocity = Vector3.zero;
 
 	private void Start()
 	{
         offset = defaultOffset;
+        transform.position = new Vector3(target.transform.position.x, target.transform.position.y+objectOffsetY, target.transform.position.z);
 	}
 
 	void Update()
@@ -27,6 +30,7 @@ public class CameraFollow : MonoBehaviour
         if (offset.y > maxOffset.y || offset.z < maxOffset.z)
             offset = maxOffset;
 
-        transform.position = Vector3.SmoothDamp(transform.position,target.transform.position + offset, ref velocity, smoothTime);
+        mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position,target.transform.position + offset, ref velocity, smoothTime);
+        transform.position = new Vector3(target.transform.position.x, target.transform.position.y + objectOffsetY, target.transform.position.z);
     }
 }
