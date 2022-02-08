@@ -27,11 +27,10 @@ public class CameraFollow : MonoBehaviour
             offset = offset + zoomStep * Input.mouseScrollDelta.y * -1;
             mainCamera.transform.localPosition = offset;
         }
-        //mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, target.transform.position + offset, ref cameraVelocity, smoothTime);
-        /*if (offset.y < minOffset.y || offset.z > minOffset.z)
+        if (offset.y < minOffset.y || offset.z > minOffset.z)
             offset = minOffset;
         if (offset.y > maxOffset.y || offset.z < maxOffset.z)
-            offset = maxOffset;*/
+            offset = maxOffset;
 
         transform.position = Vector3.SmoothDamp(transform.position,target.transform.position, ref velocity, smoothTime);
 

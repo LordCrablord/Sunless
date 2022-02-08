@@ -237,12 +237,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4244a6480024051458eb3e7b06681013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 963194228}
   target: {fileID: 1862654480}
   defaultOffset: {x: 0, y: 13, z: -12}
   minOffset: {x: 0, y: 0, z: 0}
   maxOffset: {x: 0, y: 0, z: 0}
-  zoomStep: {x: 0, y: 0, z: 0}
+  zoomStep: {x: 0, y: 1, z: -1}
   smoothTime: 0.3
 --- !u!1001 &328561365
 PrefabInstance:
