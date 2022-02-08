@@ -13,7 +13,6 @@ public class CameraFollow : MonoBehaviour
     public float smoothTime = 0.3f;
     Vector3 offset;
     Vector3 velocity = Vector3.zero;
-    Vector3 cameraVelocity = Vector3.zero;
 
     private void Start()
 	{
@@ -25,17 +24,24 @@ public class CameraFollow : MonoBehaviour
         if (Input.mouseScrollDelta.y != 0)
         {
             offset = offset + zoomStep * Input.mouseScrollDelta.y * -1;
+            if (offset.y < minOffset.y || offset.z > minOffset.z)
+                offset = minOffset;
+            if (offset.y > maxOffset.y || offset.z < maxOffset.z)
+                offset = maxOffset;
+
             mainCamera.transform.localPosition = offset;
         }
-        if (offset.y < minOffset.y || offset.z > minOffset.z)
-            offset = minOffset;
-        if (offset.y > maxOffset.y || offset.z < maxOffset.z)
-            offset = maxOffset;
+        
 
         transform.position = Vector3.SmoothDamp(transform.position,target.transform.position, ref velocity, smoothTime);
 
-       /* if (Input.GetKeyDown(KeyCode.L))
-            offset = defaultOffset;*/
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            offset = defaultOffset;
+            mainCamera.transform.localPosition = offset;
+            transform.position = target.transform.position;
+            transform.rotation = new Quaternion();
+        }
 
 
     }
