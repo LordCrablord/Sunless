@@ -28,5 +28,8 @@ public class CameraFollow : MonoBehaviour
             offset = maxOffset;
 
         transform.position = Vector3.SmoothDamp(transform.position,target.transform.position + offset, ref velocity, smoothTime);
+
+        if (Input.GetKeyDown(KeyCode.L))
+            offset = defaultOffset;
     }
 }
