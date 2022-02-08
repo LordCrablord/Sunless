@@ -32,11 +32,8 @@ public class CameraFollow : MonoBehaviour
 
             mainCamera.transform.localPosition = offset;
         }
-        
 
-        transform.position = Vector3.SmoothDamp(transform.position,target.transform.position, ref velocity, smoothTime);
-
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetAxis("Reset Position") > 0)
         {
             offset = defaultOffset;
             mainCamera.transform.localPosition = offset;
@@ -44,10 +41,13 @@ public class CameraFollow : MonoBehaviour
             transform.rotation = new Quaternion();
         }
 
-		if (Input.GetKey(KeyCode.Mouse2))
-		{
+        if (Input.GetKey(KeyCode.Mouse2))
+        {
             Vector3 rotation = new Vector3(0, rotationSpeed, 0) * Input.GetAxis("Mouse X") * Time.deltaTime;
             transform.Rotate(rotation);
-		}
+        }
+
+        transform.position = Vector3.SmoothDamp(transform.position,target.transform.position, ref velocity, smoothTime);
+               
     }
 }
