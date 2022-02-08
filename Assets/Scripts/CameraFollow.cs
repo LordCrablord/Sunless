@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    public Transform mainCamera;
     public Transform target;
     public Vector3 defaultOffset;
     public Vector3 minOffset;
@@ -15,21 +16,23 @@ public class CameraFollow : MonoBehaviour
 
 	private void Start()
 	{
-        offset = defaultOffset;
+        //offset = defaultOffset;
 	}
 
 	void Update()
     {
-        if (Input.mouseScrollDelta.y != 0)
+        /*if (Input.mouseScrollDelta.y != 0)
             offset = offset + zoomStep * Input.mouseScrollDelta.y * -1;
         if (offset.y < minOffset.y || offset.z > minOffset.z)
             offset = minOffset;
         if (offset.y > maxOffset.y || offset.z < maxOffset.z)
-            offset = maxOffset;
+            offset = maxOffset;*/
 
         transform.position = Vector3.SmoothDamp(transform.position,target.transform.position + offset, ref velocity, smoothTime);
 
-        if (Input.GetKeyDown(KeyCode.L))
-            offset = defaultOffset;
+       /* if (Input.GetKeyDown(KeyCode.L))
+            offset = defaultOffset;*/
+
+
     }
 }
