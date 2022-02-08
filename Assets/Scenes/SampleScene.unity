@@ -3385,7 +3385,7 @@ MonoBehaviour:
   target: {fileID: 1862654480}
   speed: 5
   turnSpeed: 3
-  turnDistance: 5
+  turnDistance: 1
 --- !u!136 &1862654477
 CapsuleCollider:
   m_ObjectHideFlags: 0
