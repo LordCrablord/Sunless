@@ -15,10 +15,12 @@ public class CameraFollow : MonoBehaviour
     public float smoothTime = 0.3f;
     public float rotationSpeed = 15;
 
+    public float freeFlyCameraSpeed = 3;
+
     Vector3 offset;
     Vector3 velocity = Vector3.zero;
 
-    bool lockedOnTarget = true;
+    public bool lockedOnTarget = true;
 
     private void Start()
 	{
@@ -27,7 +29,7 @@ public class CameraFollow : MonoBehaviour
 
 	void Update()
     {
-        if (Input.GetAxis("Lock On Target") > 0)
+        if (Input.GetKeyDown(KeyCode.L))
         {
             ResetPosition();
             lockedOnTarget = !lockedOnTarget;
@@ -71,6 +73,9 @@ public class CameraFollow : MonoBehaviour
 
     void ManageCameraMovement()
 	{
-
-	}
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(freeFlyCameraSpeed * horizontal, 0, freeFlyCameraSpeed * vertical).normalized;
+        transform.position += direction;
+    }
 }
