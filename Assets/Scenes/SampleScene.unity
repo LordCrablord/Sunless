@@ -1893,6 +1893,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1862654480}
   defaultOffset: {x: 0, y: 13, z: -12}
+  minOffset: {x: 0, y: 6, z: -6}
+  zoomStep: {x: 0, y: 1, z: -1}
+  smoothTime: 0.3
 --- !u!4 &1043512678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35cf7f2729d6f944a81b94cc313a27ae,
