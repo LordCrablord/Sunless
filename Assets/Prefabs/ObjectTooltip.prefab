@@ -164,8 +164,9 @@ GameObject:
   - component: {fileID: 9026709689952379721}
   - component: {fileID: 9026709689952379722}
   - component: {fileID: 9026709689952379723}
+  - component: {fileID: 1180768285260288505}
   m_Layer: 5
-  m_Name: SettlementTooltip
+  m_Name: ObjectTooltip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,6 +264,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949830a40b7e31d48ac8c33c5c4330ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1180768285260288505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9026709689952379724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f4db1077795804fb21322f500f780f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleTMP: {fileID: 9026709690077580325}
+  bodyTMP: {fileID: 9026709690736840250}
 --- !u!1 &9026709690077580325
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tretogor
+  m_text: Title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -460,7 +475,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lonely castle with old walls, small reprive before venturing ahead
+  m_text: Body
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -5,8 +5,9 @@ using UnityEngine;
 public class SettlementTooltip : MonoBehaviour
 {
 	public float tooltipWait = 0.5f;
-
 	public GameObject tooltipPrefab;
+	public string tooltipTitle;
+	public string tooltipBody;
 
 	GameObject tooltip;
 	private void OnMouseEnter()
@@ -27,5 +28,6 @@ public class SettlementTooltip : MonoBehaviour
 
 		Vector3 objectPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		tooltip = Instantiate(tooltipPrefab, transform.position, Quaternion.identity);
+		tooltip.GetComponent<Tooltip>().SetTooltipText(tooltipTitle, tooltipBody);
 	}
 }

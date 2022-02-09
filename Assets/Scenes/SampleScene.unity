@@ -4223,6 +4223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipWait: 0.5
+  tooltipPrefab: {fileID: 9026709689952379724, guid: c1eff040a175bf44d9a936eb42949fd6,
+    type: 3}
 --- !u!1001 &2112603959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4622,15 +4624,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9026709689952379720, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 9026709689952379724, guid: c1eff040a175bf44d9a936eb42949fd6,
         type: 3}
       propertyPath: m_Name
       value: SettlementTooltip
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026709689952379724, guid: c1eff040a175bf44d9a936eb42949fd6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
         type: 3}
