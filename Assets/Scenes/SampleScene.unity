@@ -3860,6 +3860,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2110945697}
+  - component: {fileID: 2110945698}
+  - component: {fileID: 2110945699}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Untagged
@@ -3882,6 +3884,32 @@ Transform:
   m_Father: {fileID: 1964261209}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2110945698
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110945696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.909245, y: 3.8623123, z: 11.218811}
+  m_Center: {x: 31.850672, y: 0.93115616, z: -74.63521}
+--- !u!114 &2110945699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110945696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2b3d98624246d418fe973ec054a2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipWait: 0.5
 --- !u!1001 &2112603959
 PrefabInstance:
   m_ObjectHideFlags: 0
