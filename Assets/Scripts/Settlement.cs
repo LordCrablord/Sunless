@@ -6,7 +6,7 @@ public class Settlement : MonoBehaviour
 {
     public SettlementData settlementData;
     public GameObject settlementUI;
-    GameObject settlementUIObject;
+    GameObject settUIObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,8 @@ public class Settlement : MonoBehaviour
 	{
         if (collision.gameObject.name == "PlayerCharacter")
         {
-            settlementUIObject = Instantiate(settlementUI);
+            settUIObject = Instantiate(settlementUI);
+            settUIObject.GetComponent<SettlementUI>().SetTitle(settlementData.settlementName);
         }
     }
 }

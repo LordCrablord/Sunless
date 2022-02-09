@@ -14,7 +14,7 @@ public class SettlementUI : MonoBehaviour
 
     public void SetTitle(string title)
 	{
-
+        titleTMP.GetComponent<TextMeshProUGUI>().text = title;
 	}
 
     public void CloseUI()
