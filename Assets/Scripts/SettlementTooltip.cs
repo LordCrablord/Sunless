@@ -19,7 +19,7 @@ public class SettlementTooltip : MonoBehaviour
 	{
 		StopCoroutine("ShowTooltip");
 		if(tooltip!=null)
-			Destroy(tooltip);
+			tooltip.GetComponent<Tooltip>().DestroyTooltip();
 	}
 
 	IEnumerator ShowTooltip()
