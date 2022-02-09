@@ -6,6 +6,9 @@ public class SettlementTooltip : MonoBehaviour
 {
 	public float tooltipWait = 0.5f;
 
+	public GameObject tooltipPrefab;
+
+	GameObject tooltip;
 	private void OnMouseEnter()
 	{
 		StartCoroutine("ShowTooltip");
@@ -14,11 +17,15 @@ public class SettlementTooltip : MonoBehaviour
 	private void OnMouseExit()
 	{
 		StopCoroutine("ShowTooltip");
+		if(tooltip!=null)
+			Destroy(tooltip);
 	}
 
 	IEnumerator ShowTooltip()
 	{
 		yield return new WaitForSeconds(tooltipWait);
-		print(gameObject.name);
+
+		Vector3 objectPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		tooltip = Instantiate(tooltipPrefab, transform.position, Quaternion.identity);
 	}
 }
