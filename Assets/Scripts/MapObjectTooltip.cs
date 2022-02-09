@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettlementTooltip : MonoBehaviour
+public class MapObjectTooltip : MonoBehaviour
 {
 	public float tooltipWait = 0.5f;
 	public GameObject tooltipPrefab;
