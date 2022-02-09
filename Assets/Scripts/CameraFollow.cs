@@ -75,7 +75,7 @@ public class CameraFollow : MonoBehaviour
 	{
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(freeFlyCameraSpeed * horizontal, 0, freeFlyCameraSpeed * vertical).normalized;
-        transform.Translate(direction);
+        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+        transform.Translate(direction * freeFlyCameraSpeed * Time.deltaTime);
     }
 }
