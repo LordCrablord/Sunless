@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Settlement : MonoBehaviour
 {
-    public string settlementName;
+    public SettlementData settlementData;
+    public GameObject settlementUI;
+    GameObject settlementUIObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,7 @@ public class Settlement : MonoBehaviour
 	{
         if (collision.gameObject.name == "PlayerCharacter")
         {
-            print("Player entered the city");
+            settlementUIObject = Instantiate(settlementUI);
         }
     }
 }

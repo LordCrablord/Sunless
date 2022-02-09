@@ -16,4 +16,9 @@ public class SettlementUI : MonoBehaviour
 	{
 
 	}
+
+    public void CloseUI()
+	{
+        Destroy(gameObject);
+	}
 }
