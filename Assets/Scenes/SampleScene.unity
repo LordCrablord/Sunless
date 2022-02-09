@@ -528,7 +528,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2548,7 +2548,7 @@ GameObject:
   - component: {fileID: 957636124}
   - component: {fileID: 957636123}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button Leave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3425,7 +3425,7 @@ GameObject:
   - component: {fileID: 1276535725}
   - component: {fileID: 1276535724}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3908,6 +3908,7 @@ GameObject:
   - component: {fileID: 1570612092}
   - component: {fileID: 1570612091}
   - component: {fileID: 1570612090}
+  - component: {fileID: 1570612094}
   m_Layer: 5
   m_Name: SettlementCanvas
   m_TagString: Untagged
@@ -3996,6 +3997,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1570612094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570612089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d60edbe23d5c0744925fc19c086bf57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleTMP: {fileID: 390647169}
 --- !u!1001 &1572939499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4371,7 +4385,7 @@ GameObject:
   - component: {fileID: 1708341822}
   - component: {fileID: 1708341821}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CityParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
