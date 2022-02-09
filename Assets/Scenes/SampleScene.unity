@@ -2831,6 +2831,23 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5859973344361178179, guid: 92a1c95cb426fa34b8f998a00addfcc2, type: 3}
+--- !u!114 &1460512446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460512441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2b3d98624246d418fe973ec054a2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipWait: 0.5
+  tooltipPrefab: {fileID: 9026709689952379724, guid: c1eff040a175bf44d9a936eb42949fd6,
+    type: 3}
+  tooltipTitle: House of healer
+  tooltipBody: Small and from the looks abandoned house where healer lives
 --- !u!1 &1470301807 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ce025c6ffc836948878ffe59c5bfe08,
@@ -4225,6 +4242,8 @@ MonoBehaviour:
   tooltipWait: 0.5
   tooltipPrefab: {fileID: 9026709689952379724, guid: c1eff040a175bf44d9a936eb42949fd6,
     type: 3}
+  tooltipTitle: Tretogor
+  tooltipBody: Lonely castle with old walls, small reprive before venturing ahead
 --- !u!1001 &2112603959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4617,127 +4636,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6761982728742378153}
   m_Mesh: {fileID: -5720556590480990760, guid: eab503cff8d123e46a4053951359e6e7, type: 3}
---- !u!1001 &9026709689824080599
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 9026709689952379724, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_Name
-      value: SettlementTooltip
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379724, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 376
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 376
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -39.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 13.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 8.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026709689952379767, guid: c1eff040a175bf44d9a936eb42949fd6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c1eff040a175bf44d9a936eb42949fd6, type: 3}
