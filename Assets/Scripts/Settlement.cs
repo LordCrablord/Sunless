@@ -19,6 +19,7 @@ public class Settlement : MonoBehaviour
         {
             settUIObject = Instantiate(settlementUI);
             settUIObject.GetComponent<SettlementUI>().SetTitle(settlementData.settlementName);
+            
         }
     }
 }

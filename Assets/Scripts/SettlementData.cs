@@ -6,4 +6,5 @@ using UnityEngine;
 public class SettlementData : ScriptableObject
 {
     public string settlementName;
+    public List<int> temp;
 }
