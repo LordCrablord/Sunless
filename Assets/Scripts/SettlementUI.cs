@@ -6,6 +6,9 @@ using TMPro;
 public class SettlementUI : MonoBehaviour
 {
     public GameObject titleTMP;
+
+    //int eventMouseEnterAnimHash = Animator.StringToHash("UIEventButtonMouseEnter");
+    //int eventMouseExitAnimHash = Animator.StringToHash("UIEventButtonMouseExit");
     // Start is called before the first frame update
     void Start()
     {
@@ -21,4 +24,10 @@ public class SettlementUI : MonoBehaviour
 	{
         Destroy(gameObject);
 	}
+
+    /*public void playMouseEnterOnEventAnim(bool mouseEntered)
+	{
+		if (mouseEntered) { 
+        }
+	}*/
 }
