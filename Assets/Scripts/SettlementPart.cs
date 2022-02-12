@@ -5,5 +5,9 @@ using UnityEngine;
 
 public class SettlementPart : ScriptableObject
 {
+
+    
     public string settlementPartName;
+
+    
 }
