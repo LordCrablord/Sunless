@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -9,17 +10,24 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DialogueData test;
+        DialogueData test = JsonUtility.FromJson<DialogueData>(dialoguesDataJSON.text);
+        DialogueDataItem currentItem = test.items.Find(t => t.id == 1);
 
-        //DialogueData test = JsonUtility.FromJson<DialogueData>(dialoguesDataJSON.text);
-        //foreach (string t in test.text)
-        //    Debug.Log(t);
+        foreach (string t in currentItem.text)
+            Debug.Log(t);
     }
 
-    private struct DialogueData
+    [Serializable]
+    public class DialogueData
 	{
-        public List<string> text;
+        public List<DialogueDataItem> items;
 	}
+    [Serializable]
+    public class DialogueDataItem
+    {
+        public int id;
+        public List<string> text;
+    }
 
     /*public class Demo
     {

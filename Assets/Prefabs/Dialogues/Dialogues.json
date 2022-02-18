@@ -1,12 +1,16 @@
 {
-	"1":{
-		"text":["Hi! All good now",
-		"Congratulations, you are being rescued! Please do not resist"
-		]
-	}
-	"2":{
-		"text":["You don't have to be here",
-		"Go, now, and newer come back!!!"
-		]
-	}
+	"items":[
+	  {
+		  	"id":1,
+			"text":["Hi! All good now",
+			"Congratulations, you are being rescued! Please do not resist"
+			]
+	  },
+	  {
+	  		"id":2,
+			"text":["You don't have to be here",
+			"Go, now, and newer come back!!!"
+			]
+	  }
+	]
 }
