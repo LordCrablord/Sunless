@@ -2,14 +2,16 @@
 	"items":[
 	  {
 		  	"id":1,
-			"text":["Hi! All good now",
-			"Congratulations, you are being rescued! Please do not resist"
+			"dialogue":[
+				{"name": "Narrator", "text": "Hi! All good now"},
+				{"name": "Narrator", "text": "Congratulations, you are being rescued! Please do not resist"}
 			]
 	  },
 	  {
 	  		"id":2,
-			"text":["You don't have to be here",
-			"Go, now, and newer come back!!!"
+			"dialogue":[
+				{"name": "Narrator", "text": "You don't have to be here"},
+				{"name": "Narrator", "text": "Go, now, and newer come back!!!"}
 			]
 	  }
 	]

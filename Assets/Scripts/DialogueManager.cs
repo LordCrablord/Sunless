@@ -19,15 +19,12 @@ public class DialogueManager : MonoBehaviour
         currentItem = test.items.Find(t => t.id == 1);
         currentTextIndex = 0;
 
-        foreach (string t in currentItem.text)
-            Debug.Log(t);
-
         setTextUI();
     }
 
     void setTextUI()
 	{
-        textTMP.text = currentItem.text[currentTextIndex];
+        textTMP.text = currentItem.dialogue[currentTextIndex].text;
 	}
 
     [Serializable]
@@ -39,7 +36,13 @@ public class DialogueManager : MonoBehaviour
     public class DialogueDataItem
     {
         public int id;
-        public List<string> text;
+        public List<DialogueDataItemString> dialogue;
+    }
+    [Serializable]
+    public class DialogueDataItemString
+    {
+        public string name;
+        public string text;
     }
 
 }
