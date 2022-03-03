@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
 {
     [SerializeField] TextAsset dialoguesDataJSON;
     [SerializeField] TextMeshProUGUI textTMP;
+    [SerializeField] TextMeshProUGUI nameTMP;
 
     DialogueData test;
     DialogueDataItem currentItem;
@@ -25,7 +26,8 @@ public class DialogueManager : MonoBehaviour
     void setTextUI()
 	{
         textTMP.text = currentItem.dialogue[currentTextIndex].text;
-	}
+        nameTMP.text = currentItem.dialogue[currentTextIndex].name;
+    }
 
     [Serializable]
     public class DialogueData
