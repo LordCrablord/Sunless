@@ -3,15 +3,31 @@
 	  {
 		  	"id":1,
 			"dialogue":[
-				{"name": "Narrator", "text": "Hi! All good now"},
-				{"name": "Narrator", "text": "Congratulations, you are being rescued! Please do not resist"}
+				{
+					"name": "Narrator",
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "A strange gentleman is going in your way"
+				},
+				{
+					"name": "Bernan", 
+					"imagePath": "Sprites/Characters/BernanIcon",
+					"text": "Congratulations, you are being rescued! Please do not resist"
+				}
 			]
 	  },
 	  {
 	  		"id":2,
 			"dialogue":[
-				{"name": "Narrator", "text": "You don't have to be here"},
-				{"name": "Narrator", "text": "Go, now, and newer come back!!!"}
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "You don't have to be here"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "Go, now, and newer come back!!!"
+				}
 			]
 	  }
 	]

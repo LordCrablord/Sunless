@@ -897,6 +897,7 @@ MonoBehaviour:
   dialoguesDataJSON: {fileID: 4900000, guid: 63ebb77205781ce4088eb8682deb87bb, type: 3}
   textTMP: {fileID: 1419886196}
   nameTMP: {fileID: 1713602865}
+  characterImage: {fileID: 1629821508}
 --- !u!4 &596082213
 Transform:
   m_ObjectHideFlags: 0
