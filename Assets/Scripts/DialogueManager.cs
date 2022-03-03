@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] TextAsset dialoguesDataJSON;
+    [SerializeField] GameObject dialogueUI;
     [SerializeField] TextMeshProUGUI textTMP;
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
@@ -22,10 +23,11 @@ public class DialogueManager : MonoBehaviour
         currentItem = test.items.Find(t => t.id == 1);
         currentTextIndex = 0;
 
-        setUI();
+        SetUI();
+        currentTextIndex++;
     }
 
-    void setUI()
+    void SetUI()
 	{
         textTMP.text = currentItem.dialogue[currentTextIndex].text;
         nameTMP.text = currentItem.dialogue[currentTextIndex].name;
@@ -33,7 +35,23 @@ public class DialogueManager : MonoBehaviour
         characterImage.sprite = Resources.Load<Sprite>(currentItem.dialogue[currentTextIndex].imagePath);
     }
 
+    public void NextDialogueString()
+	{
+        if (currentTextIndex == currentItem.dialogue.Count)
+		{
+            CloseDialogueUI();
+            return;
+        }
+            
 
+        SetUI();
+        currentTextIndex++;
+    }
+
+    void CloseDialogueUI()
+	{
+        dialogueUI.SetActive(false);
+	}
 
 	[Serializable]
     public class DialogueData

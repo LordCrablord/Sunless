@@ -895,6 +895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguesDataJSON: {fileID: 4900000, guid: 63ebb77205781ce4088eb8682deb87bb, type: 3}
+  dialogueUI: {fileID: 644452133}
   textTMP: {fileID: 1419886196}
   nameTMP: {fileID: 1713602865}
   characterImage: {fileID: 1629821508}
@@ -3084,7 +3085,7 @@ GameObject:
   - component: {fileID: 1124379015}
   - component: {fileID: 1124379018}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ButtonContinue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3152,7 +3153,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1124379016}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 596082212}
+        m_MethodName: NextDialogueString
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1124379016
 MonoBehaviour:
   m_ObjectHideFlags: 0
