@@ -39,12 +39,22 @@ public class DialogueManager : MonoBehaviour
 	{
         if (currentTextIndex == currentDialogue.Count)
 		{
-            CloseDialogueUI();
+            ManageActions();
             return;
         }
             
         SetUI();
         currentTextIndex++;
+    }
+
+    void ManageActions()
+	{
+        List<DialogueAction> currentActions = dialogueAction.GetDialogueActions();
+        if(currentActions.Count == 0)
+		{
+            CloseDialogueUI();
+            return;
+        }
     }
 
     void CloseDialogueUI()
@@ -63,6 +73,7 @@ public class DialogueDataItem
 {
     public int id;
     public List<DialogueDataItemString> dialogue;
+    public List<DialogueAction> actions;
 }
 [Serializable]
 public class DialogueDataItemString
@@ -70,4 +81,10 @@ public class DialogueDataItemString
     public string name;
     public string imagePath;
     public string text;
+}
+[Serializable]
+public class DialogueAction
+{
+    public int action_type;
+    public int action_id;
 }

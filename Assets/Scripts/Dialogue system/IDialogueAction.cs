@@ -6,4 +6,5 @@ public interface IDialogueAction
 {
     void ManageAction();
     List<DialogueDataItemString> GetCurrentDialogue();
+    List<DialogueAction> GetDialogueActions();
 }

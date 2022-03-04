@@ -16,6 +16,11 @@ public class SimpleDialogueAction : IDialogueAction
 		return currentItem.dialogue;
 	}
 
+	public List<DialogueAction> GetDialogueActions()
+	{
+		return currentItem.actions;
+	}
+
 	public SimpleDialogueAction(TextAsset dialoguesDataJSON, int jsonId)
 	{
 		currentData = JsonUtility.FromJson<DialogueData>(dialoguesDataJSON.text);

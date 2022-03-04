@@ -13,6 +13,9 @@
 					"imagePath": "Sprites/Characters/BernanIcon",
 					"text": "Hey, you! Yes you."
 				}
+			],
+			"actions":[
+				{"action_type": 1, "action_id": 2}
 			]
 	  },
 	  {
@@ -28,6 +31,9 @@
 					"imagePath": "Sprites/Characters/Narrator",
 					"text": "Go, now, and newer come back!!!"
 				}
+			],
+			"actions":[
+				{"action_type": 2, "action_id": 1}
 			]
 	  }
 	]
