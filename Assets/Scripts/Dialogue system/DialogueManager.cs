@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -20,6 +18,11 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialogueAction = new SimpleDialogueAction(dialoguesDataJSON, 1);
+        dialogueAction.DoAction(this.gameObject);
+    }
+
+    public void PrepareUIForSimpleDialogue()
+	{
         currentDialogue = dialogueAction.GetCurrentDialogue();
         currentTextIndex = 0;
 
@@ -55,7 +58,30 @@ public class DialogueManager : MonoBehaviour
             CloseDialogueUI();
             return;
         }
+        for(int i = 0; i<currentActions.Count; i++)
+		{
+            IDialogueAction currentDialogueAction = GetDialogueAction(currentActions[i]);
+            if (i == currentActions.Count - 1)
+            {
+                dialogueAction = currentDialogueAction;
+            }
+
+            currentDialogueAction.DoAction(this.gameObject);
+
+			
+        }
     }
+
+    IDialogueAction GetDialogueAction(DialogueAction actionJSON)
+	{
+        switch (actionJSON.action_type)
+		{
+            case 1:
+                return new SimpleDialogueAction(dialoguesDataJSON, actionJSON.action_id);
+            default:
+                return null;
+		}
+	}
 
     void CloseDialogueUI()
 	{

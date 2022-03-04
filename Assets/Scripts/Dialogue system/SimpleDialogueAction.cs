@@ -6,9 +6,9 @@ public class SimpleDialogueAction : IDialogueAction
 {
 	DialogueData currentData;
 	DialogueDataItem currentItem;
-	public void ManageAction()
+	public void DoAction(GameObject dialogueManager)
 	{
-		throw new System.NotImplementedException();
+		dialogueManager.GetComponent<DialogueManager>().PrepareUIForSimpleDialogue();
 	}
 
 	public List<DialogueDataItemString> GetCurrentDialogue()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IDialogueAction
 {
-    void ManageAction();
+    void DoAction(GameObject dialogueManager);
     List<DialogueDataItemString> GetCurrentDialogue();
     List<DialogueAction> GetDialogueActions();
 }
