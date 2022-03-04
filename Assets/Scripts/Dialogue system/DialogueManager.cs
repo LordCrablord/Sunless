@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Image characterImage;
 
     IDialogueAction dialogueAction;
-    List<DialogueDataItemString> currentDialogue;
+    List<DialogueDataItemString> currentDialogues;
     int currentTextIndex;
     void Start()
     {
@@ -21,9 +21,9 @@ public class DialogueManager : MonoBehaviour
         dialogueAction.DoAction(this.gameObject);
     }
 
-    public void PrepareUIForSimpleDialogue()
+    public void PrepareUIForDialogue(List<DialogueDataItemString> dialogues)
 	{
-        currentDialogue = dialogueAction.GetCurrentDialogue();
+        currentDialogues = dialogues;
         currentTextIndex = 0;
 
         SetUI();
@@ -32,15 +32,15 @@ public class DialogueManager : MonoBehaviour
 
     void SetUI()
 	{
-        textTMP.text = currentDialogue[currentTextIndex].text;
-        nameTMP.text = currentDialogue[currentTextIndex].name;
-        var image = Resources.Load<Sprite>(currentDialogue[currentTextIndex].imagePath);
-        characterImage.sprite = Resources.Load<Sprite>(currentDialogue[currentTextIndex].imagePath);
+        textTMP.text = currentDialogues[currentTextIndex].text;
+        nameTMP.text = currentDialogues[currentTextIndex].name;
+        var image = Resources.Load<Sprite>(currentDialogues[currentTextIndex].imagePath);
+        characterImage.sprite = Resources.Load<Sprite>(currentDialogues[currentTextIndex].imagePath);
     }
 
     public void NextDialogueString()
 	{
-        if (currentTextIndex == currentDialogue.Count)
+        if (currentTextIndex == currentDialogues.Count)
 		{
             ManageActions();
             return;
@@ -67,8 +67,6 @@ public class DialogueManager : MonoBehaviour
             }
 
             currentDialogueAction.DoAction(this.gameObject);
-
-			
         }
     }
 
