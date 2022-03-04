@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
         dialogueAction.DoAction(this.gameObject);
     }
 
-    void ResetButtons()
+    public void ResetButtons()
 	{
         foreach(GameObject button in buttons)
 		{
@@ -39,7 +39,7 @@ public class DialogueManager : MonoBehaviour
         buttons[0].GetComponent<Button>().onClick.AddListener(NextDialogueString);
 	}
 
-    void StartDialogueSetup(List<DialogueDataItemString> dialogues)
+    public void StartDialogueSetup(List<DialogueDataItemString> dialogues)
 	{
         currentDialogues = dialogues;
         currentTextIndex = 0;
@@ -80,7 +80,7 @@ public class DialogueManager : MonoBehaviour
         currentTextIndex++;
     }
 
-    void ManageActions()
+    public void ManageActions()
 	{
         List<DialogueAction> currentActions = dialogueAction.GetFutureDialogueActions();
         if(currentActions.Count == 0)
