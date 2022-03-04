@@ -1,0 +1,40 @@
+{
+	"items":[
+	  {
+		  	"id":1,
+			"dialogue":[
+				{
+					"name": "Narrator",
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "A strange gentleman is going in your way"
+				},
+				{
+					"name": "Bernan", 
+					"imagePath": "Sprites/Characters/BernanIcon",
+					"text": "Hey, you! Yes you."
+				}
+			],
+			"actions":[
+				{"action_type": 1, "action_id": 2}
+			]
+	  },
+	  {
+	  		"id":2,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "You don't have to be here"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "Go, now, and newer come back!!!"
+				}
+			],
+			"actions":[
+				
+			]
+	  }
+	]
+}
