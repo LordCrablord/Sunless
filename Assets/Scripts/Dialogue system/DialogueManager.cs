@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] TextAsset dialoguesDataJSON;
+    [SerializeField] TextAsset dialogueBranchesDataJSON;
+
     [SerializeField] GameObject dialogueUI;
     [SerializeField] TextMeshProUGUI textTMP;
     [SerializeField] TextMeshProUGUI nameTMP;
@@ -85,30 +87,4 @@ public class DialogueManager : MonoBehaviour
 	{
         dialogueUI.SetActive(false);
 	}
-}
-
-[Serializable]
-public class DialogueData
-{
-    public List<DialogueDataItem> items;
-}
-[Serializable]
-public class DialogueDataItem
-{
-    public int id;
-    public List<DialogueDataItemString> dialogue;
-    public List<DialogueAction> actions;
-}
-[Serializable]
-public class DialogueDataItemString
-{
-    public string name;
-    public string imagePath;
-    public string text;
-}
-[Serializable]
-public class DialogueAction
-{
-    public int action_type;
-    public int action_id;
 }
