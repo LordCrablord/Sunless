@@ -4,18 +4,26 @@
 		  	"id":1,
 			"dialogue":[
 				{
-					"name": "Narrator",
-					"imagePath": "Sprites/Characters/Narrator",
-					"text": "A strange gentleman is going in your way"
-				},
-				{
 					"name": "Bernan", 
 					"imagePath": "Sprites/Characters/BernanIcon",
-					"text": "Hey, you! Yes you."
+					"text": "I need some help here"
 				}
 			],
-			"actions":[
-				{"action_type": 1, "action_id": 2}
+			"branches":[
+				{
+					"branch_id": 1,
+					"text": "Accept",
+					"actions": [
+						{"action_type": 1, "action_id": 2}
+					]
+				},
+				{
+					"branch_id": 2,
+					"text": "Decline",
+					"actions": [
+						
+					]
+				}
 			]
 	  }
 	]

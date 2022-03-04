@@ -24,12 +24,12 @@
 				{
 					"name": "Narrator", 
 					"imagePath": "Sprites/Characters/Narrator",
-					"text": "You don't have to be here"
+					"text": "Dwarf rubs his hands"
 				},
 				{
-					"name": "Narrator", 
-					"imagePath": "Sprites/Characters/Narrator",
-					"text": "Go, now, and newer come back!!!"
+					"name": "Bernan", 
+					"imagePath": "Sprites/Characters/BernanIcon",
+					"text": "Splendid! In that case, lets move."
 				}
 			],
 			"actions":[
