@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IDialogueAction
 {
-    void ManageAction();    
+    void ManageAction();
+    List<DialogueDataItemString> GetCurrentDialogue();
 }
