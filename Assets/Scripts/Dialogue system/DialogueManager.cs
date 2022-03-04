@@ -45,7 +45,6 @@ public class DialogueManager : MonoBehaviour
         currentTextIndex = 0;
 
         SetUI();
-        currentTextIndex++;
     }
 
     public void SetSimpleDialogueUISetup(List<DialogueDataItemString> dialogues)
