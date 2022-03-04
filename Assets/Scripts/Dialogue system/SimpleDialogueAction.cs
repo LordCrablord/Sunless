@@ -11,11 +11,6 @@ public class SimpleDialogueAction : IDialogueAction
 		dialogueManager.GetComponent<DialogueManager>().PrepareUIForDialogue(currentItem.dialogue);
 	}
 
-	public List<DialogueDataItemString> GetCurrentDialogue()
-	{
-		return currentItem.dialogue;
-	}
-
 	public List<DialogueAction> GetDialogueActions()
 	{
 		return currentItem.actions;
