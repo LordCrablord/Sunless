@@ -49,7 +49,7 @@ public class DialogueBranchesDataItem
 [Serializable]
 public class DialogueBranch
 {
-    public int id;
+    public int branch_id;
     public string text;
     public List<DialogueAction> actions;
 }

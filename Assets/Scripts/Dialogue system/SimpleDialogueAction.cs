@@ -8,10 +8,10 @@ public class SimpleDialogueAction : IDialogueAction
 	DialogueDataItem currentItem;
 	public void DoAction(GameObject dialogueManager)
 	{
-		dialogueManager.GetComponent<DialogueManager>().PrepareUIForDialogue(currentItem.dialogue);
+		dialogueManager.GetComponent<DialogueManager>().StartDialoguePreparations(currentItem.dialogue);
 	}
 
-	public List<DialogueAction> GetDialogueActions()
+	public List<DialogueAction> GetFutureDialogueActions()
 	{
 		return currentItem.actions;
 	}
