@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
 
+    [SerializeField] List<GameObject> buttons;
+
     IDialogueAction dialogueAction;
     List<DialogueDataItemString> currentDialogues;
     int currentTextIndex;
@@ -22,7 +24,22 @@ public class DialogueManager : MonoBehaviour
         dialogueAction.DoAction(this.gameObject);
     }
 
-    public void StartDialoguePreparations(List<DialogueDataItemString> dialogues)
+    void ResetButtons()
+	{
+        foreach(GameObject button in buttons)
+		{
+            button.GetComponent<Button>().onClick.RemoveAllListeners();
+            button.SetActive(false);
+		}
+	}
+
+    void SetContinueButton()
+	{
+        buttons[0].SetActive(true);
+        buttons[0].GetComponent<Button>().onClick.AddListener(NextDialogueString);
+	}
+
+    void StartDialogueSetup(List<DialogueDataItemString> dialogues)
 	{
         currentDialogues = dialogues;
         currentTextIndex = 0;
@@ -30,6 +47,18 @@ public class DialogueManager : MonoBehaviour
         SetUI();
         currentTextIndex++;
     }
+
+    public void SetSimpleDialogueUISetup(List<DialogueDataItemString> dialogues)
+    {
+        ResetButtons();
+        SetContinueButton();
+        StartDialogueSetup(dialogues);
+    }
+
+    public List<GameObject> GetButtons()
+	{
+        return buttons;
+	}
 
     void SetUI()
 	{

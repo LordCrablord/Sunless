@@ -10,7 +10,17 @@ public class BranchDialogueAction : IDialogueAction
 	public void DoAction(GameObject manager)
 	{
 		this.dialogueManager = manager;
-		Debug.Log(currentItem.branches[0].text);
+		
+	}
+
+	void SetButtons()
+	{
+		List<GameObject> buttons = dialogueManager.GetComponent<DialogueManager>().GetButtons();
+
+		foreach(DialogueBranch branch in currentItem.branches)
+		{
+			buttons[branch.branch_id].SetActive(true);
+		}
 	}
 
 	public List<DialogueAction> GetFutureDialogueActions()
