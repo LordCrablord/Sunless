@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,10 +6,14 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] TextAsset dialoguesDataJSON;
+    [SerializeField] TextAsset dialogueBranchesDataJSON;
+
     [SerializeField] GameObject dialogueUI;
     [SerializeField] TextMeshProUGUI textTMP;
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
+
+    [SerializeField] List<GameObject> buttons;
 
     IDialogueAction dialogueAction;
     List<DialogueDataItemString> currentDialogues;
@@ -21,14 +24,40 @@ public class DialogueManager : MonoBehaviour
         dialogueAction.DoAction(this.gameObject);
     }
 
-    public void PrepareUIForDialogue(List<DialogueDataItemString> dialogues)
+    public void ResetButtons()
+	{
+        foreach(GameObject button in buttons)
+		{
+            button.GetComponent<Button>().onClick.RemoveAllListeners();
+            button.SetActive(false);
+		}
+	}
+
+    void SetContinueButton()
+	{
+        buttons[0].SetActive(true);
+        buttons[0].GetComponent<Button>().onClick.AddListener(NextDialogueString);
+	}
+
+    public void StartDialogueSetup(List<DialogueDataItemString> dialogues)
 	{
         currentDialogues = dialogues;
         currentTextIndex = 0;
 
         SetUI();
-        currentTextIndex++;
     }
+
+    public void SetSimpleDialogueUISetup(List<DialogueDataItemString> dialogues)
+    {
+        ResetButtons();
+        SetContinueButton();
+        StartDialogueSetup(dialogues);
+    }
+
+    public List<GameObject> GetButtons()
+	{
+        return buttons;
+	}
 
     void SetUI()
 	{
@@ -50,9 +79,9 @@ public class DialogueManager : MonoBehaviour
         currentTextIndex++;
     }
 
-    void ManageActions()
+    public void ManageActions()
 	{
-        List<DialogueAction> currentActions = dialogueAction.GetDialogueActions();
+        List<DialogueAction> currentActions = dialogueAction.GetFutureDialogueActions();
         if(currentActions.Count == 0)
 		{
             CloseDialogueUI();
@@ -76,6 +105,8 @@ public class DialogueManager : MonoBehaviour
 		{
             case 1:
                 return new SimpleDialogueAction(dialoguesDataJSON, actionJSON.action_id);
+            case 2:
+                return new BranchDialogueAction(dialogueBranchesDataJSON, actionJSON.action_id);
             default:
                 return null;
 		}
@@ -85,30 +116,4 @@ public class DialogueManager : MonoBehaviour
 	{
         dialogueUI.SetActive(false);
 	}
-}
-
-[Serializable]
-public class DialogueData
-{
-    public List<DialogueDataItem> items;
-}
-[Serializable]
-public class DialogueDataItem
-{
-    public int id;
-    public List<DialogueDataItemString> dialogue;
-    public List<DialogueAction> actions;
-}
-[Serializable]
-public class DialogueDataItemString
-{
-    public string name;
-    public string imagePath;
-    public string text;
-}
-[Serializable]
-public class DialogueAction
-{
-    public int action_type;
-    public int action_id;
 }

@@ -15,7 +15,7 @@
 				}
 			],
 			"actions":[
-				{"action_type": 1, "action_id": 2}
+				{"action_type": 2, "action_id": 1}
 			]
 	  },
 	  {
@@ -24,12 +24,12 @@
 				{
 					"name": "Narrator", 
 					"imagePath": "Sprites/Characters/Narrator",
-					"text": "You don't have to be here"
+					"text": "Dwarf rubs his hands"
 				},
 				{
-					"name": "Narrator", 
-					"imagePath": "Sprites/Characters/Narrator",
-					"text": "Go, now, and newer come back!!!"
+					"name": "Bernan", 
+					"imagePath": "Sprites/Characters/BernanIcon",
+					"text": "Splendid! In that case, lets move."
 				}
 			],
 			"actions":[

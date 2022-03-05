@@ -1,0 +1,30 @@
+{
+	"items":[
+	  {
+		  	"id":1,
+			"dialogue":[
+				{
+					"name": "Bernan", 
+					"imagePath": "Sprites/Characters/BernanIcon",
+					"text": "I need some help here"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 1,
+					"text": "Accept",
+					"actions": [
+						{"action_type": 1, "action_id": 2}
+					]
+				},
+				{
+					"branch_id": 2,
+					"text": "Decline",
+					"actions": [
+						
+					]
+				}
+			]
+	  }
+	]
+}
