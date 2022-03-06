@@ -9,10 +9,10 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI maxHpTMP;
     [SerializeField] Slider healthSlider;
     [SerializeField] TextMeshProUGUI nameTMP;
-    CharacterStats characterStats;
+    PlayerCharacterStats characterStats;
 
 
-    public void SetCharacterUI(CharacterStats stats)
+    public void SetCharacterUI(PlayerCharacterStats stats)
 	{
         characterStats = stats;
 

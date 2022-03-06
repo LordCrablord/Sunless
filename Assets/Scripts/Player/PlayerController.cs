@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    CharacterStats characterStats;
+    PlayerCharacterStats characterStats;
     void Start()
     {
-        characterStats = gameObject.GetComponent<CharacterStats>();
+        characterStats = gameObject.GetComponent<PlayerCharacterStats>();
 
         StatModifier stat1 = new StatModifier { modifierFromID = 1, modifierTo = Stats.HP_MAX, value = 5 };
         StatModifier stat2 = new StatModifier { modifierFromID = 1, modifierTo = Stats.HP_MAX, value = 0.2f};
