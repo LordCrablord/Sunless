@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 public enum Stats {HP}
-public class CharacterStats:MonoBehaviour
+public class CharacterStats
 {
     float hp;
     public int Hp
@@ -12,8 +12,7 @@ public class CharacterStats:MonoBehaviour
 		get
 		{
 			return Mathf.RoundToInt(
-				hp+AddAdditiveBonuses(additiveBonuses, Stats.HP)
-				
+				(hp + AddAllBonuses(additiveBonuses, Stats.HP)) + (hp + AddAllBonuses(additiveBonuses, Stats.HP)) * AddAllBonuses(multiplyingBonuses, Stats.HP)
 				);
 		}
 		set
@@ -31,7 +30,7 @@ public class CharacterStats:MonoBehaviour
 		multiplyingBonuses = new List<StatModifier>();
 	}
 
-	float AddAdditiveBonuses(List<StatModifier> modifiersList, Stats stat)
+	float AddAllBonuses(List<StatModifier> modifiersList, Stats stat)
 	{
 		return modifiersList.FindAll(st => st.modifierTo == stat).Sum(s => s.value);
 	}
