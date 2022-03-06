@@ -9,8 +9,15 @@ public class PlayerController : MonoBehaviour
     {
         characterStats = gameObject.GetComponent<CharacterStats>();
 
-        characterStats.AddAdditiveModifierToList(new StatModifier { modifierFromID = 1, modifierTo = Stats.HP, value = 5 });
-        characterStats.AddMultiplyingModifierToList(new StatModifier { modifierFromID = 1, modifierTo = Stats.HP, value = 0.2f });
+        StatModifier stat1 = new StatModifier { modifierFromID = 1, modifierTo = Stats.HP, value = 5 };
+        StatModifier stat2 = new StatModifier { modifierFromID = 1, modifierTo = Stats.HP, value = 0.2f};
+
+        characterStats.AddAdditiveModToList(stat1);
+        characterStats.AddMultiplyingModToList(stat2);
+
+        Debug.Log("Player hp:" + characterStats.Hp);
+
+        characterStats.RemoveAdditiveModFromList(stat1);
 
         Debug.Log("Player hp:" + characterStats.Hp);
     }

@@ -35,14 +35,24 @@ public class CharacterStats:MonoBehaviour
 		return modifiersList.FindAll(st => st.modifierTo == stat).Sum(s => s.value);
 	}
 
-	public void AddAdditiveModifierToList(StatModifier statModifier)
+	public void AddAdditiveModToList(StatModifier statModifier)
 	{
 		additiveBonuses.Add(statModifier);
 	}
 
-	public void AddMultiplyingModifierToList(StatModifier statModifier)
+	public void RemoveAdditiveModFromList(StatModifier mod)
+	{
+		additiveBonuses.Remove(mod);
+	}
+
+	public void AddMultiplyingModToList(StatModifier statModifier)
 	{
 		multiplyingBonuses.Add(statModifier);
+	}
+
+	public void RemoveMultiplyingModFromList(StatModifier mod)
+	{
+		multiplyingBonuses.Remove(mod);
 	}
 }
 
