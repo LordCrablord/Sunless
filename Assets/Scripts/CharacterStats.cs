@@ -37,7 +37,7 @@ public class CharacterStats:MonoBehaviour
 	List<StatModifier> additiveBonuses;
 	List<StatModifier> multiplyingBonuses;
 
-	CharacterStats()
+	protected CharacterStats()
 	{
 		additiveBonuses = new List<StatModifier>();
 		multiplyingBonuses = new List<StatModifier>();
