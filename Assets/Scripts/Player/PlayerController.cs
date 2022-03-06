@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
         characterStats.RemoveAdditiveModFromList(stat1);
 
         Debug.Log("Player hp:" + characterStats.Hp);
+
+        
     }
 
     // Update is called once per frame
@@ -27,4 +29,5 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+
 }
