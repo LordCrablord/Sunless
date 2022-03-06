@@ -6,6 +6,7 @@ using UnityEngine;
 public enum Stats {HP, HP_MAX}
 public class CharacterStats:MonoBehaviour
 {
+	public string characterName;
     [SerializeField] float hpMax;
     public int HpMax
 	{
@@ -31,7 +32,7 @@ public class CharacterStats:MonoBehaviour
 			else hp = value;
 		}
 	}
-	
+
 
 	List<StatModifier> additiveBonuses;
 	List<StatModifier> multiplyingBonuses;

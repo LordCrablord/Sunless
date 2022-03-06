@@ -3405,7 +3405,7 @@ GameObject:
   - component: {fileID: 703690722}
   - component: {fileID: 703690721}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: Other
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3424,7 +3424,7 @@ RectTransform:
   m_Children:
   - {fileID: 821719415}
   m_Father: {fileID: 1510468998}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5799,7 +5799,7 @@ GameObject:
   - component: {fileID: 1050111350}
   - component: {fileID: 1050111349}
   m_Layer: 5
-  m_Name: Panel (2)
+  m_Name: Equipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5899,7 +5899,7 @@ RectTransform:
   - {fileID: 1231253493}
   - {fileID: 433364968}
   m_Father: {fileID: 1510468998}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8605,7 +8605,7 @@ GameObject:
   - component: {fileID: 1488882280}
   - component: {fileID: 1488882279}
   m_Layer: 5
-  m_Name: XP (2)
+  m_Name: HealthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8933,11 +8933,11 @@ RectTransform:
   - {fileID: 737130976}
   - {fileID: 1640526096}
   - {fileID: 1652984536}
-  - {fileID: 703690720}
+  - {fileID: 1057743434}
   - {fileID: 1195637397}
   - {fileID: 1488882278}
   - {fileID: 118941450}
-  - {fileID: 1057743434}
+  - {fileID: 703690720}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8960,6 +8960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHpTMP: {fileID: 834277604}
   healthSlider: {fileID: 1195637398}
+  nameTMP: {fileID: 1154699281}
 --- !u!1 &1511911163
 GameObject:
   m_ObjectHideFlags: 0
@@ -11284,7 +11285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b065052fb53d404d84689fc0a467338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: Dalaran
   hpMax: 10
+  hp: 5
 --- !u!1 &1897406489
 GameObject:
   m_ObjectHideFlags: 0
