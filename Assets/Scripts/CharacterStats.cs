@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum Stats {HP_MAX}
+public enum Stats {HP, HP_MAX}
 public class CharacterStats:MonoBehaviour
 {
     [SerializeField] float hpMax;
@@ -20,6 +20,18 @@ public class CharacterStats:MonoBehaviour
 			hpMax = value;
 		}
 	}
+
+	[SerializeField] float hp;
+	public float Hp
+	{
+		get { return hp; }
+		set
+		{
+			if (value > HpMax) hp = HpMax;
+			else hp = value;
+		}
+	}
+	
 
 	List<StatModifier> additiveBonuses;
 	List<StatModifier> multiplyingBonuses;

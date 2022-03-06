@@ -21,11 +21,10 @@ public class CharacterUI : MonoBehaviour
 
     void SetHealthUI()
 	{
-        float tempVal = 10;
 
-        maxHpTMP.text = tempVal.ToString() + "/" + characterStats.HpMax.ToString();
+        maxHpTMP.text = characterStats.Hp.ToString() + "/" + characterStats.HpMax.ToString();
         healthSlider.maxValue = characterStats.HpMax;
-        healthSlider.value = tempVal;
+        healthSlider.value = characterStats.Hp;
     }
        
     // Update is called once per frame

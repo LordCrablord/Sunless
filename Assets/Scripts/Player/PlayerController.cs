@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("Player hp:" + characterStats.HpMax);
 
+        characterStats.Hp += 400;
         GameManager.Instance.SetCharacterDataOnUI(characterStats);
     }
 
