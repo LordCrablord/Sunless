@@ -4,9 +4,9 @@ using System.Linq;
 using UnityEngine;
 
 public enum Stats {HP}
-public class CharacterStats
+public class CharacterStats:MonoBehaviour
 {
-    float hp;
+    [SerializeField] float hp;
     public int Hp
 	{
 		get
@@ -33,6 +33,16 @@ public class CharacterStats
 	float AddAllBonuses(List<StatModifier> modifiersList, Stats stat)
 	{
 		return modifiersList.FindAll(st => st.modifierTo == stat).Sum(s => s.value);
+	}
+
+	public void AddAdditiveModifierToList(StatModifier statModifier)
+	{
+		additiveBonuses.Add(statModifier);
+	}
+
+	public void AddMultiplyingModifierToList(StatModifier statModifier)
+	{
+		multiplyingBonuses.Add(statModifier);
 	}
 }
 
