@@ -9,6 +9,7 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI maxHpTMP;
     [SerializeField] Slider healthSlider;
     [SerializeField] TextMeshProUGUI nameTMP;
+    [SerializeField] Image characterImage;
     PlayerCharacterStats characterStats;
 
 
@@ -17,6 +18,7 @@ public class CharacterUI : MonoBehaviour
         characterStats = stats;
 
         nameTMP.text = characterStats.characterName;
+        characterImage.sprite = characterStats.sprite;
         SetHealthUI();
 	}
 

@@ -7,6 +7,7 @@ public enum Stats {HP, HP_MAX}
 public class CharacterStats:MonoBehaviour
 {
 	public string characterName;
+	public Sprite sprite;
     [SerializeField] float hpMax;
     public int HpMax
 	{
