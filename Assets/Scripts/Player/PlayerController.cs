@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("Player hp:" + characterStats.Hp);
 
-        
+        GameManager.Instance.SetCharacterDataOnUI(characterStats);
     }
 
     // Update is called once per frame
