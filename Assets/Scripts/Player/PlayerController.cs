@@ -9,17 +9,17 @@ public class PlayerController : MonoBehaviour
     {
         characterStats = gameObject.GetComponent<CharacterStats>();
 
-        StatModifier stat1 = new StatModifier { modifierFromID = 1, modifierTo = Stats.HP, value = 5 };
-        StatModifier stat2 = new StatModifier { modifierFromID = 1, modifierTo = Stats.HP, value = 0.2f};
+        StatModifier stat1 = new StatModifier { modifierFromID = 1, modifierTo = Stats.HP_MAX, value = 5 };
+        StatModifier stat2 = new StatModifier { modifierFromID = 1, modifierTo = Stats.HP_MAX, value = 0.2f};
 
         characterStats.AddAdditiveModToList(stat1);
         characterStats.AddMultiplyingModToList(stat2);
 
-        Debug.Log("Player hp:" + characterStats.Hp);
+        Debug.Log("Player hp:" + characterStats.HpMax);
 
         characterStats.RemoveAdditiveModFromList(stat1);
 
-        Debug.Log("Player hp:" + characterStats.Hp);
+        Debug.Log("Player hp:" + characterStats.HpMax);
 
         GameManager.Instance.SetCharacterDataOnUI(characterStats);
     }

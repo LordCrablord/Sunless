@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum Stats {HP}
+public enum Stats {HP_MAX}
 public class CharacterStats:MonoBehaviour
 {
-    [SerializeField] float hp;
-    public int Hp
+    [SerializeField] float hpMax;
+    public int HpMax
 	{
 		get
 		{
 			return Mathf.RoundToInt(
-				(hp + AddAllBonuses(additiveBonuses, Stats.HP)) + (hp + AddAllBonuses(additiveBonuses, Stats.HP)) * AddAllBonuses(multiplyingBonuses, Stats.HP)
+				(hpMax + AddAllBonuses(additiveBonuses, Stats.HP_MAX)) + (hpMax + AddAllBonuses(additiveBonuses, Stats.HP_MAX)) * AddAllBonuses(multiplyingBonuses, Stats.HP_MAX)
 				);
 		}
 		set
 		{
-			hp = value;
+			hpMax = value;
 		}
 	}
 

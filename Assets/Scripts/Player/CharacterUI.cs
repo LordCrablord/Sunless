@@ -23,8 +23,8 @@ public class CharacterUI : MonoBehaviour
 	{
         float tempVal = 10;
 
-        maxHpTMP.text = tempVal.ToString() + "/" + characterStats.Hp.ToString();
-        healthSlider.maxValue = characterStats.Hp;
+        maxHpTMP.text = tempVal.ToString() + "/" + characterStats.HpMax.ToString();
+        healthSlider.maxValue = characterStats.HpMax;
         healthSlider.value = tempVal;
     }
        
