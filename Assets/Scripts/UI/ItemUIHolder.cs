@@ -6,7 +6,7 @@ public class ItemUIHolder : MonoBehaviour
 {
 	float tooltipWait = 0.25f;
 	[SerializeField] GameObject itemTooltipPrefab;
-	[SerializeField] Vector3 itemTooltipOffset = new Vector3(70, -150, 0);
+	[SerializeField] Vector2 itemTooltipOffset = new Vector2(70, -150);
 	GameObject itemTooltip;
 	public void OnMouseEnter()
 	{
@@ -25,7 +25,7 @@ public class ItemUIHolder : MonoBehaviour
 		Debug.Log("Dfafadfasdfadsfasdfasdfasdf");
 		yield return new WaitForSeconds(tooltipWait);
 		itemTooltip = Instantiate(itemTooltipPrefab, transform.position, Quaternion.identity);
-		itemTooltip.transform.SetParent(gameObject.transform, false);
-		itemTooltip.GetComponent<RectTransform>().anchoredPosition = itemTooltipOffset;
+		itemTooltip.transform.SetParent(transform.parent, false);
+		itemTooltip.GetComponent<RectTransform>().anchoredPosition = itemTooltipOffset + gameObject.GetComponent<RectTransform>().anchoredPosition;
 	}
 }
