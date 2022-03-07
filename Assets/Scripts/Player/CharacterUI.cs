@@ -53,10 +53,17 @@ public class CharacterUI : MonoBehaviour
         xpSlider.value = characterStats.Xp;
     }
 
-    public void SetInventoryItemPicker()
+    public void SetInventoryItemPicker(GameObject itemUIHolder)
 	{
-        Debug.Log("aaaaaaaaaaaaa");
-	}
+        inventoryItemPicker.SetActive(true);
+
+        RectTransform inventoryRect = inventoryItemPicker.GetComponent<RectTransform>();
+        RectTransform itemUIRect = itemUIHolder.GetComponent<RectTransform>();
+
+        inventoryRect.anchoredPosition = new Vector2(
+            itemUIRect.anchoredPosition.x, inventoryRect.anchoredPosition.y) + inventoryItemPicker.GetComponent<InventoryItemPicker>().inventoryOffset;
+
+    }
 
     // Update is called once per frame
     void Update()
