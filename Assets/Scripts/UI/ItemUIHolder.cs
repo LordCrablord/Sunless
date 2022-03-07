@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemUIHolder : MonoBehaviour
 {
 	protected float tooltipWait = 0.25f;
+	protected string UICanvasName = "CharacterCanvasUI";
 	[SerializeField] protected GameObject itemTooltipPrefab;
 	[SerializeField] protected Vector2 itemTooltipOffset = new Vector2(70, -150);
 	protected GameObject itemTooltip;
@@ -18,6 +19,20 @@ public class ItemUIHolder : MonoBehaviour
 		StopCoroutine("ShowItemTooltip");
 		if (itemTooltip != null) 
 			Destroy(itemTooltip);
+	}
+
+	public void OnClick()
+	{
+		if (transform.parent.parent.gameObject.name.ToString() == UICanvasName)
+		{
+			transform.parent.parent.gameObject.GetComponent<CharacterUI>(
+				).SetInventoryItemPicker();
+		}
+		else
+		{
+			Debug.LogError(transform.parent.parent.gameObject.name.ToString() + " is not " + UICanvasName);
+			return;
+		}
 	}
 
 	protected virtual IEnumerator ShowItemTooltip()

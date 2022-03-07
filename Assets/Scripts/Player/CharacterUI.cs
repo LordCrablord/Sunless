@@ -19,6 +19,7 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
     [SerializeField] TextMeshProUGUI goldTMP;
+    [SerializeField] GameObject inventoryItemPicker;
 
 
     PlayerCharacterStats characterStats;
@@ -51,6 +52,11 @@ public class CharacterUI : MonoBehaviour
         xpSlider.minValue = characterStats.levelXpThreshold[characterStats.Level - 1];
         xpSlider.value = characterStats.Xp;
     }
+
+    public void SetInventoryItemPicker()
+	{
+        Debug.Log("aaaaaaaaaaaaa");
+	}
 
     // Update is called once per frame
     void Update()
