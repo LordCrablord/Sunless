@@ -8965,6 +8965,7 @@ MonoBehaviour:
   levelTMP: {fileID: 2138262932}
   nameTMP: {fileID: 1154699281}
   characterImage: {fileID: 737130977}
+  goldTMP: {fileID: 1180467680}
 --- !u!1 &1511911163
 GameObject:
   m_ObjectHideFlags: 0

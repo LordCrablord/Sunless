@@ -39,4 +39,19 @@ public class PlayerCharacterStats : CharacterStats
 	{
 		get { return level; }
 	}
+
+	static int gold;
+	public int Gold
+	{
+		get
+		{
+			return gold;
+		}
+		set
+		{
+			gold = Mathf.RoundToInt(
+				(value + AddAllBonuses(additiveBonuses, Stats.GOLD)) + (value + AddAllBonuses(additiveBonuses, Stats.GOLD)) * AddAllBonuses(multiplyingBonuses, Stats.GOLD)
+				);
+		}
+	}
 }

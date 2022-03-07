@@ -18,6 +18,7 @@ public class CharacterUI : MonoBehaviour
     [Header("Other")]
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
+    [SerializeField] TextMeshProUGUI goldTMP;
 
 
     PlayerCharacterStats characterStats;
@@ -29,6 +30,7 @@ public class CharacterUI : MonoBehaviour
 
         nameTMP.text = characterStats.characterName;
         characterImage.sprite = characterStats.sprite;
+        goldTMP.text = characterStats.Gold.ToString();
         SetHealthUI();
         SetXpUI();
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum Stats {HP, HP_MAX, XP}
+public enum Stats {HP, HP_MAX, XP, GOLD}
 public class CharacterStats:MonoBehaviour
 {
 	public string characterName;
