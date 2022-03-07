@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ItemUIHolder : MonoBehaviour
 {
-	float tooltipWait = 0.15f;
+	float tooltipWait = 0.25f;
 	[SerializeField] GameObject itemTooltipPrefab;
+	[SerializeField] Vector3 itemTooltipOffset = new Vector3(70, -150, 0);
 	GameObject itemTooltip;
 	public void OnMouseEnter()
 	{
-		Debug.Log("aaaaaaaaaaaaaaaa");
 		StartCoroutine("ShowItemTooltip");
 	}
 
@@ -25,6 +25,7 @@ public class ItemUIHolder : MonoBehaviour
 		Debug.Log("Dfafadfasdfadsfasdfasdfasdf");
 		yield return new WaitForSeconds(tooltipWait);
 		itemTooltip = Instantiate(itemTooltipPrefab, transform.position, Quaternion.identity);
-		itemTooltip.transform.SetParent(gameObject.transform);
+		itemTooltip.transform.SetParent(gameObject.transform, false);
+		itemTooltip.GetComponent<RectTransform>().anchoredPosition = itemTooltipOffset;
 	}
 }
