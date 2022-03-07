@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
         characterStats.AddAdditiveModToList(stat1);
         characterStats.AddMultiplyingModToList(stat2);
 
-        characterStats.Xp += 5;
+        characterStats.Xp += 185;
         Debug.Log("Xp: " + characterStats.Xp);
         PlayerCharacterStats otherCharacter = new PlayerCharacterStats();
         Debug.Log("Xp of other character: " + otherCharacter.Xp);
