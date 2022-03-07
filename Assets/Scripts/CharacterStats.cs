@@ -70,6 +70,7 @@ public class CharacterStats:MonoBehaviour
 	}
 }
 
+[System.Serializable]
 public class StatModifier
 {
 	public int modifierFromID;
