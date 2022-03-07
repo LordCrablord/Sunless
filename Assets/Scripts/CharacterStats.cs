@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum Stats {HP, HP_MAX}
+public enum Stats {HP, HP_MAX, XP}
 public class CharacterStats:MonoBehaviour
 {
 	public string characterName;
@@ -35,8 +35,8 @@ public class CharacterStats:MonoBehaviour
 	}
 
 
-	List<StatModifier> additiveBonuses;
-	List<StatModifier> multiplyingBonuses;
+	protected List<StatModifier> additiveBonuses;
+	protected List<StatModifier> multiplyingBonuses;
 
 	protected CharacterStats()
 	{
@@ -44,7 +44,7 @@ public class CharacterStats:MonoBehaviour
 		multiplyingBonuses = new List<StatModifier>();
 	}
 
-	float AddAllBonuses(List<StatModifier> modifiersList, Stats stat)
+	protected float AddAllBonuses(List<StatModifier> modifiersList, Stats stat)
 	{
 		return modifiersList.FindAll(st => st.modifierTo == stat).Sum(s => s.value);
 	}
