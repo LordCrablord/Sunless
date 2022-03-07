@@ -5,14 +5,26 @@ using UnityEngine;
 public class ItemUIHolder : MonoBehaviour
 {
 	float tooltipWait = 0.15f;
-	private void OnMouseEnter()
+	[SerializeField] GameObject itemTooltipPrefab;
+	GameObject itemTooltip;
+	public void OnMouseEnter()
 	{
-		
+		Debug.Log("aaaaaaaaaaaaaaaa");
+		StartCoroutine("ShowItemTooltip");
 	}
 
-	IEnumerator ShowTooltip()
+	public void OnMouseExit()
 	{
-		yield return new WaitForSeconds(tooltipWait);
+		StopCoroutine("ShowItemTooltip");
+		if (itemTooltip != null) 
+			Destroy(itemTooltip);
+	}
 
+	IEnumerator ShowItemTooltip()
+	{
+		Debug.Log("Dfafadfasdfadsfasdfasdfasdf");
+		yield return new WaitForSeconds(tooltipWait);
+		itemTooltip = Instantiate(itemTooltipPrefab, transform.position, Quaternion.identity);
+		itemTooltip.transform.SetParent(gameObject.transform);
 	}
 }
