@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemTooltipPrefab: {fileID: 8375478808131686312, guid: 29177e26ceff23142bcabfe139b38c30,
     type: 3}
-  itemTooltipOffset: {x: 70, y: -150}
+  itemTooltipOffset: {x: 0, y: 250}
 --- !u!114 &1851270459329863686
 MonoBehaviour:
   m_ObjectHideFlags: 0

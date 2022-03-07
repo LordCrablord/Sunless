@@ -9,6 +9,6 @@ public class ItemUIHolderWide : ItemUIHolder
 		yield return new WaitForSeconds(tooltipWait);
 		itemTooltip = Instantiate(itemTooltipPrefab, transform.position, Quaternion.identity);
 		itemTooltip.transform.SetParent(transform.parent.parent.parent, false);
-		itemTooltip.GetComponent<RectTransform>().anchoredPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
+		itemTooltip.GetComponent<RectTransform>().anchoredPosition = gameObject.GetComponent<RectTransform>().anchoredPosition + itemTooltipOffset;
 	}
 }
