@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ItemUIHolder : MonoBehaviour
 {
-	float tooltipWait = 0.25f;
-	[SerializeField] GameObject itemTooltipPrefab;
-	[SerializeField] Vector2 itemTooltipOffset = new Vector2(70, -150);
-	GameObject itemTooltip;
+	protected float tooltipWait = 0.25f;
+	[SerializeField] protected GameObject itemTooltipPrefab;
+	[SerializeField] protected Vector2 itemTooltipOffset = new Vector2(70, -150);
+	protected GameObject itemTooltip;
 	public void OnMouseEnter()
 	{
 		StartCoroutine("ShowItemTooltip");
@@ -20,9 +20,8 @@ public class ItemUIHolder : MonoBehaviour
 			Destroy(itemTooltip);
 	}
 
-	IEnumerator ShowItemTooltip()
+	protected virtual IEnumerator ShowItemTooltip()
 	{
-		Debug.Log("Dfafadfasdfadsfasdfasdfasdf");
 		yield return new WaitForSeconds(tooltipWait);
 		itemTooltip = Instantiate(itemTooltipPrefab, transform.position, Quaternion.identity);
 		itemTooltip.transform.SetParent(transform.parent, false);
