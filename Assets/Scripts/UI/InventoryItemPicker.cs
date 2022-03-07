@@ -13,6 +13,7 @@ public class InventoryItemPicker : MonoBehaviour
 
 	public void ManagePlayerItemChoice()
 	{
-		gameObject.SetActive(false);
+		//TODO later something
+		Destroy(gameObject);
 	}
 }

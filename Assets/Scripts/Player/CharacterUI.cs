@@ -19,9 +19,9 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
     [SerializeField] TextMeshProUGUI goldTMP;
-    [SerializeField] GameObject inventoryItemPicker;
+    [SerializeField] GameObject inventoryItemPickerPrefab;
 
-
+    GameObject inventoryItemPicker;
     PlayerCharacterStats characterStats;
 
 
@@ -55,7 +55,11 @@ public class CharacterUI : MonoBehaviour
 
     public void SetInventoryItemPicker(GameObject itemUIHolder)
 	{
-        inventoryItemPicker.SetActive(true);
+        if (inventoryItemPicker == null)
+        {
+            inventoryItemPicker = Instantiate(inventoryItemPickerPrefab, inventoryItemPickerPrefab.transform.position, Quaternion.identity);
+            inventoryItemPicker.transform.SetParent(gameObject.transform, false);
+        }
 
         RectTransform inventoryRect = inventoryItemPicker.GetComponent<RectTransform>();
         RectTransform itemUIRect = itemUIHolder.GetComponent<RectTransform>();

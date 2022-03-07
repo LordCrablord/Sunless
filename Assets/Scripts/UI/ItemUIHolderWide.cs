@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemUIHolderWide : ItemUIHolder
 {
-	string inventoryPickerName = "InventoryItemPicker";
+	string inventoryPickerName = "InventoryItemPicker(Clone)";
 	protected override IEnumerator ShowItemTooltip()
 	{
 		yield return new WaitForSeconds(tooltipWait);
