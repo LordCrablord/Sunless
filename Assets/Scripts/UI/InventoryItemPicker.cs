@@ -33,4 +33,14 @@ public class InventoryItemPicker : MonoBehaviour
 		transform.parent.gameObject.GetComponent<CharacterUI>().SwapItems(itemUIHolder.GetItem(), pickedItem);
 		Destroy(gameObject);
 	}
+
+	public void OnCancelClick()
+	{
+		Destroy(gameObject);
+	}
+
+	public void OnUnequipClick()
+	{
+		ManagePlayerItemChoice(null);
+	}
 }
