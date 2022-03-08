@@ -1791,6 +1791,7 @@ MonoBehaviour:
   descriptionTMP: {fileID: 5701344852548260287}
   image: {fileID: 4503401217990911408}
   goldCost: {fileID: 977485324339006925}
+  tagsTMP: {fileID: 1980039759093565999}
   weaponObject: {fileID: 4999760848519097907}
   damageTMP: {fileID: 5161109926778381874}
   critChanceTMP: {fileID: 8272837191377239944}
