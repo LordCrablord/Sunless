@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Health Potion
   m_EditorClassIdentifier: 
   id: 1
+  itemType: 3
   itemName: Health Potion
   description: Strange substance, useful in fight
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 5df8640b8ce4f354b9fc75e5c638358a, type: 3}
   goldCost: 10
   additiveBonuses:
   - modifierFromID: 1

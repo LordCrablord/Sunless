@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Longsword
   m_EditorClassIdentifier: 
   id: 4
+  itemType: 2
   itemName: Longsword
   description: The most common and widelu used, this longsword is a good friend to
     any adventurer

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Morning Star
   m_EditorClassIdentifier: 
   id: 5
+  itemType: 2
   itemName: Morning Star
   description: This gruesome weapon is often used by those, that want to pass through
     heavy armor

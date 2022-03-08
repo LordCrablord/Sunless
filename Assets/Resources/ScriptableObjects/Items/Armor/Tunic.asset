@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Tunic
   m_EditorClassIdentifier: 
   id: 2
+  itemType: 1
   itemName: Tunic
   description: Thich tunic, very well made
   sprite: {fileID: 21300000, guid: 47fc684d84893aa4cbdf0f1e2aaa1ae0, type: 3}
   goldCost: 5
   additiveBonuses: []
   multiplyingBonuses: []
-  armorType: 1
   armorWeight: 0
   armorValue: 7
