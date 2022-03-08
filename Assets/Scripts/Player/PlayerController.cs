@@ -24,11 +24,13 @@ public class PlayerController : MonoBehaviour
         characterStats.Hp += 400;
 
         Armor newArmor = (Armor) GameManager.Instance.ItemDatabase.items[2];
-        Debug.Log(newArmor.id + ", name: " + newArmor.name + ", value: " + newArmor.armorValue);
-
         characterStats.InventoryBack.Add(newArmor);
-        characterStats.EquipItem(newArmor);
-        characterStats.UnequipItem(newArmor);
+
+        Weapon newWeapon = (Weapon)GameManager.Instance.ItemDatabase.items[4];
+        characterStats.InventoryBack.Add(newWeapon);
+        newWeapon = (Weapon)GameManager.Instance.ItemDatabase.items[5];
+        characterStats.InventoryBack.Add(newWeapon);
+        characterStats.InventoryBack.Add(newWeapon);
 
         /*Item temp = new Weapon();
 		switch (temp)

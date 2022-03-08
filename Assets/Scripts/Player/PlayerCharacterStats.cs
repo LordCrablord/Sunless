@@ -90,14 +90,14 @@ public class PlayerCharacterStats : CharacterStats
 		}
 	}
 
-	public int CritValue
+	public float CritValue
 	{
 		get
 		{
 			float weaponStat = weapon != null ? weapon.critValue : 0;
 			float addBonusesSum = weaponStat + AddAllBonuses(additiveBonuses, Stats.CRIT_VALUE);
 			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.CRIT_VALUE);
-			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
+			return addBonusesSum + addBonusesSum * multBonusesSum;
 		}
 	}
 
