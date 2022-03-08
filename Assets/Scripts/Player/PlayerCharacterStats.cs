@@ -68,12 +68,44 @@ public class PlayerCharacterStats : CharacterStats
 		set { armorClassBase = value; }
 	}
 
-	static List<Item> inventory = new List<Item>();
-	public List<Item> Inventory { get { return inventory; } }
+	static List<Item> inventoryBack = new List<Item>();
+	public List<Item> InventoryBack { get { return inventoryBack; } }
 
 	public Armor helmet;
 	public Armor chestpiece;
 	public Weapon weapon;
 	public Item trinket1;
+
+	public void EquipItem(Item item)
+	{
+		if (item == null) return;
+
+		switch (item)
+		{
+			case Weapon w: weapon = w;	break;
+			case Armor a:
+				if (a.itemType == ItemType.HELMET)	helmet = a;
+				else if (a.itemType == ItemType.CHESTPIECE)	chestpiece = a;
+				break;
+			case Item t: trinket1 = t; break;
+			default:
+				Debug.LogError("Unable to find class type for " + item.name);
+				return;
+		}
+		AddBonuses(item);
+		inventoryBack.Remove(item);
+	}
+
+	void AddBonuses(Item item)
+	{
+		foreach(StatModifier sm in item.additiveBonuses)
+		{
+			AddAdditiveModToList(sm);
+		}
+		foreach (StatModifier sm in item.multiplyingBonuses)
+		{
+			AddMultiplyingModToList(sm);
+		}
+	}
 
 }

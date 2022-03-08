@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
         Armor newArmor = (Armor) GameManager.Instance.ItemDatabase.items[2];
         Debug.Log(newArmor.id + ", name: " + newArmor.name + ", value: " + newArmor.armorValue);
 
-        characterStats.Inventory.Add(newArmor);
+        characterStats.InventoryBack.Add(newArmor);
+        characterStats.EquipItem(newArmor);
 
         /*Item temp = new Weapon();
 		switch (temp)
