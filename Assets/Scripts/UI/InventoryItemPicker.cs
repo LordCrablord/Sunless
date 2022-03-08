@@ -43,4 +43,5 @@ public class InventoryItemPicker : MonoBehaviour
 	{
 		ManagePlayerItemChoice(null);
 	}
+
 }
