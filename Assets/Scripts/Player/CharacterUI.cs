@@ -48,6 +48,10 @@ public class CharacterUI : MonoBehaviour
         SetHealthUI();
         SetXpUI();
 
+        damageTMP.text = characterStats.Damage.ToString();
+        critChanceTMP.text = characterStats.CritChance + "%";
+        critValueTMP.text = characterStats.CritValue * 100 + "%";
+
         helmetUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.helmet);
         chestpieceUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.chestpiece);
         weaponUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);

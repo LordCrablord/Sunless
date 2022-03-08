@@ -68,6 +68,41 @@ public class PlayerCharacterStats : CharacterStats
 		set { armorClassBase = value; }
 	}
 
+	public int Damage
+	{
+		get
+		{
+			float weaponValue = weapon != null ? weapon.damage : 0;
+			float addBonusesSum = weaponValue + AddAllBonuses(additiveBonuses, Stats.DAMAGE);
+			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.DAMAGE);
+			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
+		}
+	}
+
+	public int CritChance
+	{
+		get
+		{
+			float weaponStat = weapon != null ? weapon.critChance : 0;
+			float addBonusesSum = weaponStat + AddAllBonuses(additiveBonuses, Stats.CRIT_CHANCE);
+			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.CRIT_CHANCE);
+			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
+		}
+	}
+
+	public int CritValue
+	{
+		get
+		{
+			float weaponStat = weapon != null ? weapon.critValue : 0;
+			float addBonusesSum = weaponStat + AddAllBonuses(additiveBonuses, Stats.CRIT_VALUE);
+			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.CRIT_VALUE);
+			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
+		}
+	}
+
+	//TODO maybe make one func for those things above so it would take less space
+
 	static List<Item> inventoryBack = new List<Item>();
 	public List<Item> InventoryBack { get { return inventoryBack; } }
 
