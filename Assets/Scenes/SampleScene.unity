@@ -2308,6 +2308,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6c03cd9816aaf9f4081eba84ec9c6d06,
         type: 3}
+    - target: {fileID: 785237158040315078, guid: 12cb41182370e0742a17f1dc43731730,
+        type: 3}
+      propertyPath: itemType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 785237158040315081, guid: 12cb41182370e0742a17f1dc43731730,
         type: 3}
       propertyPath: m_Name
@@ -5491,6 +5496,7 @@ MonoBehaviour:
     type: 3}
   itemTooltipOffset: {x: 70, y: -150}
   itemImage: {fileID: 0}
+  itemType: 0
 --- !u!114 &899193677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13271,6 +13277,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1050111348}
     m_Modifications:
+    - target: {fileID: 785237158040315078, guid: 12cb41182370e0742a17f1dc43731730,
+        type: 3}
+      propertyPath: itemType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 785237158040315081, guid: 12cb41182370e0742a17f1dc43731730,
         type: 3}
       propertyPath: m_Name

@@ -12,6 +12,7 @@ public class ItemUIHolder : MonoBehaviour
 	[SerializeField] protected Image itemImage;
 	protected GameObject itemTooltip;
 	protected Item item;
+	public ItemType itemType;
 	public void OnMouseEnter()
 	{
 		StartCoroutine("ShowItemTooltip");
