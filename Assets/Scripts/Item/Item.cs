@@ -10,4 +10,7 @@ public class Item : ScriptableObject
     public string description;
     public Sprite sprite;
     public int goldCost;
+
+    public List<StatModifier> additiveBonuses;
+    public List<StatModifier> multiplyingBonuses;
 }

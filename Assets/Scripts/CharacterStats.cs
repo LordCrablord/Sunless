@@ -75,5 +75,6 @@ public class StatModifier
 {
 	public int modifierFromID;
 	public Stats modifierTo;
+	public string description;
 	public float value;
 }
