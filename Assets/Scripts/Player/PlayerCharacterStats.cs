@@ -99,13 +99,37 @@ public class PlayerCharacterStats : CharacterStats
 	void AddBonuses(Item item)
 	{
 		foreach(StatModifier sm in item.additiveBonuses)
-		{
 			AddAdditiveModToList(sm);
-		}
 		foreach (StatModifier sm in item.multiplyingBonuses)
-		{
 			AddMultiplyingModToList(sm);
+	}
+
+	public void UnequipItem(Item item)
+	{
+		if (item == null) return;
+
+		switch (item)
+		{
+			case Weapon w: weapon = null; break;
+			case Armor a:
+				if (a.itemType == ItemType.HELMET) helmet = null;
+				else if (a.itemType == ItemType.CHESTPIECE) chestpiece = null;
+				break;
+			case Item t: trinket1 = null; break;
+			default:
+				Debug.LogError("Unable to find class type for " + item.name);
+				return;
 		}
+		RemoveBonuses(item);
+		inventoryBack.Add(item);
+	}
+
+	void RemoveBonuses(Item item)
+	{
+		foreach (StatModifier sm in item.additiveBonuses)
+			RemoveAdditiveModFromList(sm);
+		foreach (StatModifier sm in item.multiplyingBonuses)
+			RemoveMultiplyingModFromList(sm);
 	}
 
 }

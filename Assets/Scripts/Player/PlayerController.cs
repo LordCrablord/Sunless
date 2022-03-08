@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
         characterStats.InventoryBack.Add(newArmor);
         characterStats.EquipItem(newArmor);
+        characterStats.UnequipItem(newArmor);
 
         /*Item temp = new Weapon();
 		switch (temp)
