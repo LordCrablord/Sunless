@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] ItemDatabase itemDatabase;
+    public ItemDatabase ItemDatabase {get { return itemDatabase; }}
+
     [SerializeField] GameObject characterUI;
     
     public void SetCharacterDataOnUI(PlayerCharacterStats stats)
