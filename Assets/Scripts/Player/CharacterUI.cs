@@ -20,6 +20,11 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] GameObject chestpieceUIHolder;
     [SerializeField] GameObject weaponUIHolder;
 
+    [Header("Damage & Crit")]
+    [SerializeField] TextMeshProUGUI damageTMP;
+    [SerializeField] TextMeshProUGUI critChanceTMP;
+    [SerializeField] TextMeshProUGUI critValueTMP;
+
     [Header("Other")]
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
