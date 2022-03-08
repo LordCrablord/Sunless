@@ -21,7 +21,7 @@ public class ItemUIHolderWide : ItemUIHolder
 		if (inventoryPicker.name.ToString() == inventoryPickerName)
 		{
 			inventoryPicker.GetComponent<InventoryItemPicker>(
-				).ManagePlayerItemChoice();
+				).ManagePlayerItemChoice(item);
 		}
 		else
 		{

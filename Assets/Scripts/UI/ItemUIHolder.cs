@@ -61,4 +61,9 @@ public class ItemUIHolder : MonoBehaviour
 			itemImage.gameObject.SetActive(true);
 		}
 	}
+
+	public Item GetItem()
+	{
+		return item;
+	}
 }

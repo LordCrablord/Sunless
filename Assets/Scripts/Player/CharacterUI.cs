@@ -79,12 +79,13 @@ public class CharacterUI : MonoBehaviour
         inventoryRect.anchoredPosition = new Vector2(
             itemUIRect.anchoredPosition.x, inventoryRect.anchoredPosition.y) + inventoryItemPicker.GetComponent<InventoryItemPicker>().inventoryOffset;
 
-        inventoryItemPicker.GetComponent<InventoryItemPicker>().SetItems(itemUIHolder.GetComponent<ItemUIHolder>().itemType, characterStats.InventoryBack);
+        inventoryItemPicker.GetComponent<InventoryItemPicker>().SetItems(itemUIHolder.GetComponent<ItemUIHolder>(), characterStats.InventoryBack);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void SwapItems(Item oldItem, Item newItem)
+	{
+        characterStats.UnequipItem(oldItem);
+        characterStats.EquipItem(newItem);
+        SetCharacterUI(characterStats);
+	}
 }

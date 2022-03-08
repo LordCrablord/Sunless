@@ -8,10 +8,12 @@ public class InventoryItemPicker : MonoBehaviour
 	public readonly Vector2 inventoryOffset = new Vector2(-48,0);
 	[SerializeField] GameObject itemPickerScrollContent;
 	[SerializeField] GameObject itemUIHolderWidePrefab;
-
-	public void SetItems(ItemType type, List<Item> items)
+	string parentUICanvasName = "CharacterCanvasUI";
+	ItemUIHolder itemUIHolder;
+	public void SetItems(ItemUIHolder itemHolder, List<Item> items)
 	{
-		List<Item> requiredItems = items.Where(i => i.itemType==type).ToList();
+		itemUIHolder = itemHolder;
+		List<Item> requiredItems = items.Where(i => i.itemType== itemUIHolder.itemType).ToList();
 		
 		foreach(Item inventoryItem in requiredItems)
 		{
@@ -21,9 +23,14 @@ public class InventoryItemPicker : MonoBehaviour
 		}
 	}
 
-	public void ManagePlayerItemChoice()
+	public void ManagePlayerItemChoice(Item pickedItem)
 	{
-		//TODO later something
+		if(transform.parent.gameObject.name != parentUICanvasName)
+		{
+			Debug.LogError("Error in item picker, " + transform.parent.gameObject.name + " is not" + parentUICanvasName);
+			return;
+		}
+		transform.parent.gameObject.GetComponent<CharacterUI>().SwapItems(itemUIHolder.GetItem(), pickedItem);
 		Destroy(gameObject);
 	}
 }
