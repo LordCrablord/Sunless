@@ -27,8 +27,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log(newArmor.id + ", name: " + newArmor.name + ", value: " + newArmor.armorValue);
 
         characterStats.Inventory.Add(newArmor);
-        Debug.Log(characterStats.Inventory.Count);
-        Debug.Log(otherCharacter.Inventory.Count);
 
         /*Item temp = new Weapon();
 		switch (temp)
