@@ -67,11 +67,13 @@ public class CharacterUI : MonoBehaviour
 
     public void SetInventoryItemPicker(GameObject itemUIHolder)
 	{
-        if (inventoryItemPicker == null)
+        if (inventoryItemPicker != null)
         {
-            inventoryItemPicker = Instantiate(inventoryItemPickerPrefab, inventoryItemPickerPrefab.transform.position, Quaternion.identity);
-            inventoryItemPicker.transform.SetParent(gameObject.transform, false);
+            Destroy(inventoryItemPicker);
         }
+
+        inventoryItemPicker = Instantiate(inventoryItemPickerPrefab, inventoryItemPickerPrefab.transform.position, Quaternion.identity);
+        inventoryItemPicker.transform.SetParent(gameObject.transform, false);
 
         RectTransform inventoryRect = inventoryItemPicker.GetComponent<RectTransform>();
         RectTransform itemUIRect = itemUIHolder.GetComponent<RectTransform>();
