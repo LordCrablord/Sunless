@@ -43,8 +43,8 @@ public class CharacterUI : MonoBehaviour
         SetHealthUI();
         SetXpUI();
 
-        helmetUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
-        chestpieceUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
+        helmetUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.helmet);
+        chestpieceUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.chestpiece);
         weaponUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
 
     }
