@@ -54,4 +54,23 @@ public class PlayerCharacterStats : CharacterStats
 				);
 		}
 	}
+
+	[SerializeField] int armorClassBase;
+	public int ArmorClass
+	{
+		get 
+		{
+			int res = armorClassBase;
+			if (helmet != null)	res += helmet.armorValue;
+			if (chestpiece != null) res += chestpiece.armorValue;
+			return res; 
+		}
+		set { armorClassBase = value; }
+	}
+
+	public List<Item> inventory;
+	public Armor helmet;
+	public Armor chestpiece;
+	public Weapon weapon;
+	public Item trinket1;
 }

@@ -18,12 +18,12 @@ public class PlayerController : MonoBehaviour
 
         characterStats.Xp += 185;
         characterStats.Gold += 1500;
-        Debug.Log("Gold: " + characterStats.Gold);
-        PlayerCharacterStats otherCharacter = new PlayerCharacterStats();
-        Debug.Log("Gold of other character: " + otherCharacter.Gold);
 
+        PlayerCharacterStats otherCharacter = new PlayerCharacterStats();
 
         characterStats.Hp += 400;
+
+        Debug.Log("Armor:" + characterStats.ArmorClass);
         
 
         GameManager.Instance.SetCharacterDataOnUI(characterStats);

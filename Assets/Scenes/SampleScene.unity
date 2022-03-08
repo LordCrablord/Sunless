@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52561a873676d2e46b5311090173488b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDatabase: {fileID: 11400000, guid: 776c8f449f0fc5a4998bd208e5b115ee, type: 2}
   characterUI: {fileID: 1510468994}
 --- !u!4 &59788441
 Transform:
@@ -11603,6 +11604,12 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: b40333e0a1f61b44d98ca3fc4da593bf, type: 3}
   hpMax: 10
   hp: 5
+  armorClassBase: 1
+  inventory: []
+  helmet: {fileID: 0}
+  chestpiece: {fileID: 0}
+  weapon: {fileID: 0}
+  trinket1: {fileID: 0}
 --- !u!1 &1897406489
 GameObject:
   m_ObjectHideFlags: 0
