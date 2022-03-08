@@ -221,6 +221,7 @@ MonoBehaviour:
   itemTooltipPrefab: {fileID: 8375478808131686312, guid: 29177e26ceff23142bcabfe139b38c30,
     type: 3}
   itemTooltipOffset: {x: 70, y: -150}
+  itemImage: {fileID: 785237156282182669}
 --- !u!114 &785237158040315079
 MonoBehaviour:
   m_ObjectHideFlags: 0

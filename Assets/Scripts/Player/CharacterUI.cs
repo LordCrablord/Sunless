@@ -15,6 +15,11 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] Slider xpSlider;
     [SerializeField] TextMeshProUGUI levelTMP;
 
+    [Header("Equipment")]
+    [SerializeField] GameObject helmetUIHolder;
+    [SerializeField] GameObject chestpieceUIHolder;
+    [SerializeField] GameObject weaponUIHolder;
+
     [Header("Other")]
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
@@ -34,8 +39,13 @@ public class CharacterUI : MonoBehaviour
         characterImage.sprite = characterStats.sprite;
         goldTMP.text = characterStats.Gold.ToString();
         armorClassTMP.text = characterStats.ArmorClass.ToString();
+
         SetHealthUI();
         SetXpUI();
+
+        helmetUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
+        chestpieceUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
+        weaponUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
 
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemUIHolder : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class ItemUIHolder : MonoBehaviour
 	string UICanvasName = "CharacterCanvasUI";
 	[SerializeField] protected GameObject itemTooltipPrefab;
 	[SerializeField] protected Vector2 itemTooltipOffset = new Vector2(70, -150);
+	[SerializeField] protected Image itemImage;
 	protected GameObject itemTooltip;
+	protected Item item;
 	public void OnMouseEnter()
 	{
 		StartCoroutine("ShowItemTooltip");
@@ -41,5 +44,20 @@ public class ItemUIHolder : MonoBehaviour
 		itemTooltip = Instantiate(itemTooltipPrefab, transform.position, Quaternion.identity);
 		itemTooltip.transform.SetParent(transform.parent, false);
 		itemTooltip.GetComponent<RectTransform>().anchoredPosition = itemTooltipOffset + gameObject.GetComponent<RectTransform>().anchoredPosition;
+	}
+
+	public void SetUIHolder(Item newItem)
+	{
+		item = newItem;
+		if(item == null)
+		{
+			itemImage.sprite = null;
+			itemImage.gameObject.SetActive(false);
+		}
+		else
+		{ 
+			itemImage.sprite = item.sprite;
+			itemImage.gameObject.SetActive(true);
+		}
 	}
 }

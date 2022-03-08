@@ -1040,6 +1040,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1050111348}
     m_Modifications:
+    - target: {fileID: 785237156282182669, guid: 12cb41182370e0742a17f1dc43731730,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 785237158040315081, guid: 12cb41182370e0742a17f1dc43731730,
         type: 3}
       propertyPath: m_Name
@@ -1500,11 +1505,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce025c6ffc836948878ffe59c5bfe08, type: 3}
+--- !u!1 &341600997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 785237158040315081, guid: 12cb41182370e0742a17f1dc43731730,
+    type: 3}
+  m_PrefabInstance: {fileID: 785237158237720108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &341600998 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 785237158040315082, guid: 12cb41182370e0742a17f1dc43731730,
     type: 3}
   m_PrefabInstance: {fileID: 785237158237720108}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &346086198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 785237158040315081, guid: 12cb41182370e0742a17f1dc43731730,
+    type: 3}
+  m_PrefabInstance: {fileID: 229641319}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &364783546
 GameObject:
@@ -2974,6 +2991,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fdff6203bd284ab44b783d435b8f3c6c,
     type: 3}
   m_PrefabInstance: {fileID: 2112603959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &613197193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 785237158040315081, guid: 12cb41182370e0742a17f1dc43731730,
+    type: 3}
+  m_PrefabInstance: {fileID: 510075264}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &616988083
 GameObject:
@@ -5467,6 +5490,7 @@ MonoBehaviour:
   itemTooltipPrefab: {fileID: 8375478808131686312, guid: 29177e26ceff23142bcabfe139b38c30,
     type: 3}
   itemTooltipOffset: {x: 70, y: -150}
+  itemImage: {fileID: 0}
 --- !u!114 &899193677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9194,6 +9218,9 @@ MonoBehaviour:
   xpTMP: {fileID: 433364969}
   xpSlider: {fileID: 1057743435}
   levelTMP: {fileID: 2138262932}
+  helmetUIHolder: {fileID: 346086198}
+  chestpieceUIHolder: {fileID: 613197193}
+  weaponUIHolder: {fileID: 341600997}
   nameTMP: {fileID: 1154699281}
   characterImage: {fileID: 737130977}
   goldTMP: {fileID: 1180467680}
@@ -13247,7 +13274,7 @@ PrefabInstance:
     - target: {fileID: 785237158040315081, guid: 12cb41182370e0742a17f1dc43731730,
         type: 3}
       propertyPath: m_Name
-      value: ItemUIHolder
+      value: WeaponUIHolder
       objectReference: {fileID: 0}
     - target: {fileID: 785237158040315082, guid: 12cb41182370e0742a17f1dc43731730,
         type: 3}
