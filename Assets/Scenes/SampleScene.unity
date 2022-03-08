@@ -9274,6 +9274,7 @@ MonoBehaviour:
   nameTMP: {fileID: 1154699281}
   characterImage: {fileID: 737130977}
   goldTMP: {fileID: 1180467680}
+  armorClassTMP: {fileID: 1830100317}
   inventoryItemPickerPrefab: {fileID: 5534417952156725192, guid: eb1374e193664624092ba7d3ea00b753,
     type: 3}
 --- !u!1 &1511911163
@@ -11605,7 +11606,6 @@ MonoBehaviour:
   hpMax: 10
   hp: 5
   armorClassBase: 1
-  inventory: []
   helmet: {fileID: 0}
   chestpiece: {fileID: 0}
   weapon: {fileID: 0}

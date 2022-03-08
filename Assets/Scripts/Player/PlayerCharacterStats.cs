@@ -68,9 +68,12 @@ public class PlayerCharacterStats : CharacterStats
 		set { armorClassBase = value; }
 	}
 
-	public List<Item> inventory;
+	static List<Item> inventory = new List<Item>();
+	public List<Item> Inventory { get { return inventory; } }
+
 	public Armor helmet;
 	public Armor chestpiece;
 	public Weapon weapon;
 	public Item trinket1;
+
 }

@@ -23,8 +23,28 @@ public class PlayerController : MonoBehaviour
 
         characterStats.Hp += 400;
 
-        Debug.Log("Armor:" + characterStats.ArmorClass);
-        
+        Armor newArmor = (Armor) GameManager.Instance.ItemDatabase.items[2];
+        Debug.Log(newArmor.id + ", name: " + newArmor.name + ", value: " + newArmor.armorValue);
+
+        characterStats.Inventory.Add(newArmor);
+        Debug.Log(characterStats.Inventory.Count);
+        Debug.Log(otherCharacter.Inventory.Count);
+
+        /*Item temp = new Weapon();
+		switch (temp)
+		{
+            case Weapon w: 
+                Debug.Log("this is weapon");
+                break;
+            case Armor a:
+                Debug.Log("this is armor");
+                break;
+            default: 
+                Debug.Log("No type recognized"); 
+                break;
+		}*/
+
+
 
         GameManager.Instance.SetCharacterDataOnUI(characterStats);
     }
