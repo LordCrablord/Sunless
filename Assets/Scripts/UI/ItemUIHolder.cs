@@ -15,7 +15,8 @@ public class ItemUIHolder : MonoBehaviour
 	public ItemType itemType;
 	public void OnMouseEnter()
 	{
-		StartCoroutine("ShowItemTooltip");
+		if(item!=null)
+			StartCoroutine("ShowItemTooltip");
 	}
 
 	public void OnMouseExit()
@@ -45,6 +46,7 @@ public class ItemUIHolder : MonoBehaviour
 		itemTooltip = Instantiate(itemTooltipPrefab, transform.position, Quaternion.identity);
 		itemTooltip.transform.SetParent(transform.parent, false);
 		itemTooltip.GetComponent<RectTransform>().anchoredPosition = itemTooltipOffset + gameObject.GetComponent<RectTransform>().anchoredPosition;
+		itemTooltip.GetComponent<ItemTooltip>().SetTooltip(item);
 	}
 
 	public void SetUIHolder(Item newItem)

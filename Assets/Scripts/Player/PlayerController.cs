@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.SetCharacterDataOnUI(characterStats);
     }
 
-    // Update is called once per frame
     void Update()
     {
 		if (Input.GetKeyDown(KeyCode.I))

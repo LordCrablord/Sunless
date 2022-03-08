@@ -13,6 +13,7 @@ public class ItemUIHolderWide : ItemUIHolder
 		itemTooltip = Instantiate(itemTooltipPrefab, transform.position, Quaternion.identity);
 		itemTooltip.transform.SetParent(transform.parent.parent.parent, false);
 		itemTooltip.GetComponent<RectTransform>().anchoredPosition = gameObject.GetComponent<RectTransform>().anchoredPosition + itemTooltipOffset;
+		itemTooltip.GetComponent<ItemTooltip>().SetTooltip(item);
 	}
 
 	public override void OnClick()
