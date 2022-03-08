@@ -15,12 +15,24 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] Slider xpSlider;
     [SerializeField] TextMeshProUGUI levelTMP;
 
+    [Header("Equipment")]
+    [SerializeField] GameObject helmetUIHolder;
+    [SerializeField] GameObject chestpieceUIHolder;
+    [SerializeField] GameObject weaponUIHolder;
+
+    [Header("Damage & Crit")]
+    [SerializeField] TextMeshProUGUI damageTMP;
+    [SerializeField] TextMeshProUGUI critChanceTMP;
+    [SerializeField] TextMeshProUGUI critValueTMP;
+
     [Header("Other")]
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
     [SerializeField] TextMeshProUGUI goldTMP;
+    [SerializeField] TextMeshProUGUI armorClassTMP;
+    [SerializeField] GameObject inventoryItemPickerPrefab;
 
-
+    GameObject inventoryItemPicker;
     PlayerCharacterStats characterStats;
 
 
@@ -31,8 +43,18 @@ public class CharacterUI : MonoBehaviour
         nameTMP.text = characterStats.characterName;
         characterImage.sprite = characterStats.sprite;
         goldTMP.text = characterStats.Gold.ToString();
+        armorClassTMP.text = characterStats.ArmorClass.ToString();
+
         SetHealthUI();
         SetXpUI();
+
+        damageTMP.text = characterStats.Damage.ToString();
+        critChanceTMP.text = characterStats.CritChance + "%";
+        critValueTMP.text = characterStats.CritValue * 100 + "%";
+
+        helmetUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.helmet);
+        chestpieceUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.chestpiece);
+        weaponUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
 
     }
 
@@ -52,9 +74,29 @@ public class CharacterUI : MonoBehaviour
         xpSlider.value = characterStats.Xp;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void SetInventoryItemPicker(GameObject itemUIHolder)
+	{
+        if (inventoryItemPicker != null)
+        {
+            Destroy(inventoryItemPicker);
+        }
+
+        inventoryItemPicker = Instantiate(inventoryItemPickerPrefab, inventoryItemPickerPrefab.transform.position, Quaternion.identity);
+        inventoryItemPicker.transform.SetParent(gameObject.transform, false);
+
+        RectTransform inventoryRect = inventoryItemPicker.GetComponent<RectTransform>();
+        RectTransform itemUIRect = itemUIHolder.GetComponent<RectTransform>();
+
+        inventoryRect.anchoredPosition = new Vector2(
+            itemUIRect.anchoredPosition.x, inventoryRect.anchoredPosition.y) + inventoryItemPicker.GetComponent<InventoryItemPicker>().inventoryOffset;
+
+        inventoryItemPicker.GetComponent<InventoryItemPicker>().SetItems(itemUIHolder.GetComponent<ItemUIHolder>(), characterStats.InventoryBack);
     }
+
+    public void SwapItems(Item oldItem, Item newItem)
+	{
+        characterStats.UnequipItem(oldItem);
+        characterStats.EquipItem(newItem);
+        SetCharacterUI(characterStats);
+	}
 }

@@ -18,21 +18,45 @@ public class PlayerController : MonoBehaviour
 
         characterStats.Xp += 185;
         characterStats.Gold += 1500;
-        Debug.Log("Gold: " + characterStats.Gold);
-        PlayerCharacterStats otherCharacter = new PlayerCharacterStats();
-        Debug.Log("Gold of other character: " + otherCharacter.Gold);
 
+        PlayerCharacterStats otherCharacter = new PlayerCharacterStats();
 
         characterStats.Hp += 400;
-        
+
+        Armor newArmor = (Armor) GameManager.Instance.ItemDatabase.items[2];
+        characterStats.InventoryBack.Add(newArmor);
+
+        Weapon newWeapon = (Weapon)GameManager.Instance.ItemDatabase.items[4];
+        characterStats.InventoryBack.Add(newWeapon);
+        newWeapon = (Weapon)GameManager.Instance.ItemDatabase.items[5];
+        characterStats.InventoryBack.Add(newWeapon);
+        characterStats.InventoryBack.Add(newWeapon);
+
+        /*Item temp = new Weapon();
+		switch (temp)
+		{
+            case Weapon w: 
+                Debug.Log("this is weapon");
+                break;
+            case Armor a:
+                Debug.Log("this is armor");
+                break;
+            default: 
+                Debug.Log("No type recognized"); 
+                break;
+		}*/
+
+
 
         GameManager.Instance.SetCharacterDataOnUI(characterStats);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+		if (Input.GetKeyDown(KeyCode.I))
+		{
+            GameManager.Instance.ToggleCharacterUI(characterStats);
+		}
     }
 
 }

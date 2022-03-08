@@ -54,4 +54,117 @@ public class PlayerCharacterStats : CharacterStats
 				);
 		}
 	}
+
+	[SerializeField] int armorClassBase;
+	public int ArmorClass
+	{
+		get 
+		{
+			int res = armorClassBase;
+			if (helmet != null)	res += helmet.armorValue;
+			if (chestpiece != null) res += chestpiece.armorValue;
+			return res; 
+		}
+		set { armorClassBase = value; }
+	}
+
+	public int Damage
+	{
+		get
+		{
+			float weaponValue = weapon != null ? weapon.damage : 0;
+			float addBonusesSum = weaponValue + AddAllBonuses(additiveBonuses, Stats.DAMAGE);
+			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.DAMAGE);
+			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
+		}
+	}
+
+	public int CritChance
+	{
+		get
+		{
+			float weaponStat = weapon != null ? weapon.critChance : 0;
+			float addBonusesSum = weaponStat + AddAllBonuses(additiveBonuses, Stats.CRIT_CHANCE);
+			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.CRIT_CHANCE);
+			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
+		}
+	}
+
+	public float CritValue
+	{
+		get
+		{
+			float weaponStat = weapon != null ? weapon.critValue : 0;
+			float addBonusesSum = weaponStat + AddAllBonuses(additiveBonuses, Stats.CRIT_VALUE);
+			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.CRIT_VALUE);
+			return addBonusesSum + addBonusesSum * multBonusesSum;
+		}
+	}
+
+	//TODO maybe make one func for those things above so it would take less space
+
+	static List<Item> inventoryBack = new List<Item>();
+	public List<Item> InventoryBack { get { return inventoryBack; } }
+
+	public Armor helmet;
+	public Armor chestpiece;
+	public Weapon weapon;
+	public Item trinket1;
+
+	public void EquipItem(Item item)
+	{
+		if (item == null) return;
+
+		switch (item)
+		{
+			case Weapon w: weapon = w;	break;
+			case Armor a:
+				if (a.itemType == ItemType.HELMET)	helmet = a;
+				else if (a.itemType == ItemType.CHESTPIECE)	chestpiece = a;
+				break;
+			case Item t: trinket1 = t; break;
+			default:
+				Debug.LogError("Unable to find class type for " + item.name);
+				return;
+		}
+		AddBonuses(item);
+		inventoryBack.Remove(item);
+	}
+
+	void AddBonuses(Item item)
+	{
+		foreach(StatModifier sm in item.additiveBonuses)
+			AddAdditiveModToList(sm);
+		foreach (StatModifier sm in item.multiplyingBonuses)
+			AddMultiplyingModToList(sm);
+	}
+
+	public void UnequipItem(Item item)
+	{
+		if (item == null) return;
+
+		switch (item)
+		{
+			case Weapon w: weapon = null; break;
+			case Armor a:
+				if (a.itemType == ItemType.HELMET) helmet = null;
+				else if (a.itemType == ItemType.CHESTPIECE) chestpiece = null;
+				break;
+			case Item t: trinket1 = null; break;
+			default:
+				Debug.LogError("Unable to find class type for " + item.name);
+				return;
+		}
+		RemoveBonuses(item);
+		inventoryBack.Add(item);
+	}
+
+	void RemoveBonuses(Item item)
+	{
+		foreach (StatModifier sm in item.additiveBonuses)
+			RemoveAdditiveModFromList(sm);
+		foreach (StatModifier sm in item.multiplyingBonuses)
+			RemoveMultiplyingModFromList(sm);
+	}
+
 }
