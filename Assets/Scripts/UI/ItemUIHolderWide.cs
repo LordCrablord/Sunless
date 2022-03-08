@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ItemUIHolderWide : ItemUIHolder
 {
 	string inventoryPickerName = "InventoryItemPicker(Clone)";
+	[SerializeField] TextMeshProUGUI nameTMP;
 	protected override IEnumerator ShowItemTooltip()
 	{
 		yield return new WaitForSeconds(tooltipWait);
@@ -26,5 +28,12 @@ public class ItemUIHolderWide : ItemUIHolder
 			Debug.LogError(inventoryPicker.name.ToString() + " is not " + inventoryPickerName);
 			return;
 		}
+	}
+
+	public void SetUIHolderWide(Item newItem)
+	{
+		SetUIHolder(newItem);
+		itemType = newItem.itemType;
+		nameTMP.text = newItem.itemName;
 	}
 }
