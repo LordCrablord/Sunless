@@ -11,11 +11,15 @@ public class SettlementUI : MonoBehaviour
 
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] GameObject buttonContainer;
+    [SerializeField] GameObject eventUIPrefab;
+    [SerializeField] GameObject eventContainer;
 
     [SerializeField] Image Image;
 
-    List<GameObject> buttons;
-    public void SetUIDataOrigin(Settlement data)
+    List<GameObject> buttons = new List<GameObject>();
+    List<GameObject> eventButtons = new List<GameObject>();
+
+	public void SetUIDataOrigin(Settlement data)
 	{
         settlement = data;
 	}
@@ -31,17 +35,32 @@ public class SettlementUI : MonoBehaviour
         newButton.transform.SetParent(buttonContainer.transform, false);
         newButton.GetComponent<Button>().onClick.AddListener(delegate { ButtonCityPartClicked(index); });
         newButton.GetComponentInChildren<TextMeshProUGUI>().text = partName;
+        buttons.Add(newButton);
     }
 
     public void ButtonCityPartClicked(int index)
 	{
-        SettlementPart settlementPart = settlement.GetSettlementPartData(index);
-        Image.sprite = settlementPart.sprite;
-        
-        //settlement Send data plz
-	}
+        ResetEventButtons();
 
-    
+        Image.sprite = settlement.GetSettlementPartImage(index);
+
+        List<SettlementEvent> settlementEvents = settlement.GetAllowedSettlementEvents(index);
+	    foreach(SettlementEvent myEvent in settlementEvents)
+		{
+            GameObject eventButton = Instantiate(eventUIPrefab, transform.position, Quaternion.identity);
+            eventButton.transform.SetParent(eventContainer.transform, false);
+            eventButton.GetComponent<SettlementEventUI>().SetEventButton(myEvent);
+            eventButtons.Add(eventButton);
+		}
+    }
+
+    void ResetEventButtons()
+	{
+        foreach (GameObject button in eventButtons)
+        {
+            Destroy(button);
+        }
+	}
 
     public void ResetUI()
 	{

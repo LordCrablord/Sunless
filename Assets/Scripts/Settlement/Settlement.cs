@@ -7,13 +7,10 @@ public class Settlement : MonoBehaviour
     public SettlementData settlementData;
     public GameObject settlementUI;
     GameObject settUIObject;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    List<SettlementPart> settlementPartsAllowed;
+    List<SettlementEvent> settlementEventsAllowed;
 
-	private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
 	{
         if (collision.gameObject.name == "PlayerCharacter")
         {
@@ -27,17 +24,30 @@ public class Settlement : MonoBehaviour
         settUIObject.GetComponent<SettlementUI>().SetTitle(settlementData.settlementName);
         settUIObject.GetComponent<SettlementUI>().SetUIDataOrigin(this);
 
-        //change later to see which part to see for player
-        for (int i = 0; i< settlementData.settlementParts.Count; i++)
+        settlementPartsAllowed = GetAllowedSettlementParts();
+        
+        for (int i = 0; i< settlementPartsAllowed.Count; i++)
 		{
-            settUIObject.GetComponent<SettlementUI>().SetPartsButton(i, settlementData.settlementParts[i].settlementPartName);
+            settUIObject.GetComponent<SettlementUI>().SetPartsButton(i, settlementPartsAllowed[i].settlementPartName);
         }
 
         settUIObject.GetComponent<SettlementUI>().ButtonCityPartClicked(0);
     }
 
-    public SettlementPart GetSettlementPartData(int index)
+    public Sprite GetSettlementPartImage(int index)
 	{
-        return settlementData.settlementParts[index];
+        return settlementPartsAllowed[index].sprite;
+	}
+
+    List<SettlementPart> GetAllowedSettlementParts()
+	{
+        //change later to see which part to see for player
+        return settlementData.settlementParts;
+	}
+
+    public List<SettlementEvent> GetAllowedSettlementEvents(int index)
+	{
+        //TODO later
+        return settlementPartsAllowed[index].settlementEvents;
 	}
 }

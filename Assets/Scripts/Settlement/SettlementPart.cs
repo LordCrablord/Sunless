@@ -7,6 +7,7 @@ using UnityEngine;
 public class SettlementPart : ScriptableObject
 {
     public string settlementPartName;
+    public int id;
     public Sprite sprite;
     public List<SettlementEvent> settlementEvents;
 }
