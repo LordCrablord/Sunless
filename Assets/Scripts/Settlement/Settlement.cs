@@ -14,8 +14,18 @@ public class Settlement : MonoBehaviour
 	{
         if (collision.gameObject.name == "PlayerCharacter")
         {
+            QuestManager.Instance.TriggerManager.SettlementTriggerListsModified += TriggerListModified;
             SetSettlementUI();
         }
+    }
+
+    public void TriggerListModified()
+	{
+        Debug.Log("Here should be something once i will do it");
+	}
+    public void OnSettlementExit()
+	{
+        QuestManager.Instance.TriggerManager.SettlementTriggerListsModified -= TriggerListModified;
     }
 
     void SetSettlementUI()

@@ -72,6 +72,7 @@ public class SettlementUI : MonoBehaviour
 
     public void CloseUI()
 	{
+        settlement.OnSettlementExit();
         Destroy(gameObject);
 	}
 
