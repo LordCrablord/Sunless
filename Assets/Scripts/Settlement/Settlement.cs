@@ -25,5 +25,19 @@ public class Settlement : MonoBehaviour
 	{
         settUIObject = Instantiate(settlementUI);
         settUIObject.GetComponent<SettlementUI>().SetTitle(settlementData.settlementName);
+        settUIObject.GetComponent<SettlementUI>().SetUIDataOrigin(this);
+
+        //change later to see which part to see for player
+        for (int i = 0; i< settlementData.settlementParts.Count; i++)
+		{
+            settUIObject.GetComponent<SettlementUI>().SetPartsButton(i, settlementData.settlementParts[i].settlementPartName);
+        }
+
+        settUIObject.GetComponent<SettlementUI>().ButtonCityPartClicked(0);
     }
+
+    public SettlementPart GetSettlementPartData(int index)
+	{
+        return settlementData.settlementParts[index];
+	}
 }
