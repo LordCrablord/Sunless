@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -100,8 +101,10 @@ public class PlayerCharacterStats : CharacterStats
 			return addBonusesSum + addBonusesSum * multBonusesSum;
 		}
 	}
-
 	//TODO maybe make one func for those things above so it would take less space
+
+	//public Dictionary<Stats, Func<object>> StatsDictionary;
+	
 
 	static List<Item> inventoryBack = new List<Item>();
 	public List<Item> InventoryBack { get { return inventoryBack; } }
@@ -110,6 +113,20 @@ public class PlayerCharacterStats : CharacterStats
 	public Armor chestpiece;
 	public Weapon weapon;
 	public Item trinket1;
+
+	public PlayerCharacterStats()
+	{
+		/*StatsDictionary = new Dictionary<Stats, Func<object>>();
+		StatsDictionary.Add(Stats.GOLD, () => Gold);
+		StatsDictionary.Add(Stats.XP, () => Xp);
+		StatsDictionary.Add(Stats.DAMAGE, () => Damage);
+		StatsDictionary.Add(Stats.CRIT_CHANCE, () => CritChance);
+		StatsDictionary.Add(Stats.CRIT_VALUE, () => CritValue);*/
+
+		StatsDictionary.Add(Stats.XP, new VariableReference(() => Xp, val => { Xp = (int)val; }));
+		StatsDictionary.Add(Stats.GOLD, new VariableReference(() => Gold, val => { Gold = (int)val; }));
+		StatsDictionary.Add(Stats.DAMAGE, new VariableReference(() => Damage, null));
+	}
 
 	public void EquipItem(Item item)
 	{
@@ -167,4 +184,15 @@ public class PlayerCharacterStats : CharacterStats
 			RemoveMultiplyingModFromList(sm);
 	}
 
+}
+
+sealed public class VariableReference
+{
+	public Func<object> Get { get; private set; }
+	public Action<object> Set { get; private set; }
+	public VariableReference(Func<object> getter, Action<object> setter)
+	{
+		Get = getter;
+		Set = setter;
+	}
 }

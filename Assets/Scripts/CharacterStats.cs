@@ -38,10 +38,14 @@ public class CharacterStats:MonoBehaviour
 	protected List<StatModifier> additiveBonuses;
 	protected List<StatModifier> multiplyingBonuses;
 
+	public Dictionary<Stats, VariableReference> StatsDictionary = new Dictionary<Stats, VariableReference>();
 	protected CharacterStats()
 	{
 		additiveBonuses = new List<StatModifier>();
 		multiplyingBonuses = new List<StatModifier>();
+
+		StatsDictionary.Add(Stats.HP, new VariableReference(() => Hp, val => { Hp = (float)val; }));
+		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (int)val; }));
 	}
 
 	protected float AddAllBonuses(List<StatModifier> modifiersList, Stats stat)

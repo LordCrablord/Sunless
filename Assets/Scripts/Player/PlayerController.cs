@@ -32,19 +32,8 @@ public class PlayerController : MonoBehaviour
         characterStats.InventoryBack.Add(newWeapon);
         characterStats.InventoryBack.Add(newWeapon);
 
-        /*Item temp = new Weapon();
-		switch (temp)
-		{
-            case Weapon w: 
-                Debug.Log("this is weapon");
-                break;
-            case Armor a:
-                Debug.Log("this is armor");
-                break;
-            default: 
-                Debug.Log("No type recognized"); 
-                break;
-		}*/
+        Debug.Log("Current Xp: " + characterStats.StatsDictionary[Stats.XP].Get());
+        Debug.Log("Current Damage: " + characterStats.StatsDictionary[Stats.DAMAGE].Get());
 
 
 
