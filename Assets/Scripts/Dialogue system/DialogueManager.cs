@@ -77,9 +77,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        
         SetUI();
-        
     }
 
     public void ManageActions()
@@ -117,7 +115,11 @@ public class DialogueManager : MonoBehaviour
                 return new RandomDialogueAction(dialogueRandomDataJSON, actionJSON.action_id);
             case DialogueActionTypes.STAT_CHANGE:
                 return new DialogueStatChangeAction(dialogueStatChangeJSON, actionJSON.action_id);
-            case DialogueActionTypes.ADD_FORBID_SETTL_TRIGGER: 
+            case DialogueActionTypes.ADD_FORBID_SETTL_TRIGGER:
+                QuestManager.Instance.TriggerManager.AddToConditionForbidList(actionJSON.action_id);
+                return null;
+            case DialogueActionTypes.REMOVE_FORBID_SETTL_TRIGGER:
+                QuestManager.Instance.TriggerManager.RemoveFromConditionForbidList(actionJSON.action_id);
                 return null;
             default:
                 return null;

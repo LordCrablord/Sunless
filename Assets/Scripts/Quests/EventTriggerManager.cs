@@ -13,4 +13,15 @@ public class EventTriggerManager : MonoBehaviour
     {
         SettlementTriggerListsModified?.Invoke();
     }
+
+    public void AddToConditionForbidList(int triggerID)
+	{
+        settlementConditionForbidID.Add(triggerID);
+        OnSettlementTriggerListsModified();
+    }
+    public void RemoveFromConditionForbidList(int triggerID)
+    {
+        settlementConditionForbidID.Remove(triggerID);
+        OnSettlementTriggerListsModified();
+    }
 }
