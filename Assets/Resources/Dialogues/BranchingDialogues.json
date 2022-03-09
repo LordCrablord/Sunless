@@ -47,7 +47,7 @@
 					"branch_id": 2,
 					"text": "Call guards and try to end this illegal activity",
 					"actions": [
-						
+						{"action_type": 1, "action_id": 8}
 					]
 				},
 				{

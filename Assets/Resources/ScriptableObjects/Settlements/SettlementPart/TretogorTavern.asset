@@ -14,9 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlementPartName: Tavern
   id: 2
+  triggerCondition: 0
   sprite: {fileID: 21300000, guid: e985303f3a587994c98741e6c4a85f43, type: 3}
   settlementEvents:
   - eventName: Tavern Owner
+    eventID: 5
+    triggerCondition: 0
+    sprite: {fileID: 21300000, guid: b40333e0a1f61b44d98ca3fc4da593bf, type: 3}
+    dialogueAction:
+      action_type: 0
+      action_id: 0
+  - eventName: Iriana
+    eventID: 6
+    triggerCondition: 1
     sprite: {fileID: 21300000, guid: b40333e0a1f61b44d98ca3fc4da593bf, type: 3}
     dialogueAction:
       action_type: 0

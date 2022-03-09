@@ -26,7 +26,9 @@ public class DialogueManager : MonoBehaviour
 	{
         foreach(GameObject button in buttons)
 		{
-            button.GetComponent<Button>().onClick.RemoveAllListeners();
+            if(button != buttons[0])
+                button.GetComponent<Button>().onClick.RemoveAllListeners();
+            
             button.SetActive(false);
 		}
 	}
@@ -34,7 +36,8 @@ public class DialogueManager : MonoBehaviour
     void SetContinueButton()
 	{
         buttons[0].SetActive(true);
-        buttons[0].GetComponent<Button>().onClick.AddListener(NextDialogueString);
+        //buttons[0].GetComponent<Button>().onClick.RemoveAllListeners();
+        //buttons[0].GetComponent<Button>().onClick.AddListener(NextDialogueString);
 	}
 
     public void StartDialogueSetup(List<DialogueDataItemString> dialogues)
@@ -67,14 +70,16 @@ public class DialogueManager : MonoBehaviour
 
     public void NextDialogueString()
 	{
+        currentTextIndex++;
         if (currentTextIndex == currentDialogues.Count)
 		{
             ManageActions();
             return;
         }
-            
+
+        
         SetUI();
-        currentTextIndex++;
+        
     }
 
     public void ManageActions()
@@ -93,22 +98,27 @@ public class DialogueManager : MonoBehaviour
                 dialogueAction = currentDialogueAction;
             }
 
-            currentDialogueAction.DoAction(this.gameObject);
+            if(currentDialogueAction!=null)
+                currentDialogueAction.DoAction(this.gameObject);
         }
     }
 
+    enum DialogueActionTypes {NONE, SIMPLE, BRANCH, RANDOM, 
+        STAT_CHANGE, ADD_FORBID_SETTL_TRIGGER, REMOVE_FORBID_SETTL_TRIGGER }
     IDialogueAction GetDialogueAction(DialogueAction actionJSON)
 	{
-        switch (actionJSON.action_type)
+        switch ((DialogueActionTypes)actionJSON.action_type)
 		{
-            case 1:
+            case DialogueActionTypes.SIMPLE:
                 return new SimpleDialogueAction(dialoguesDataJSON, actionJSON.action_id);
-            case 2:
+            case DialogueActionTypes.BRANCH:
                 return new BranchDialogueAction(dialogueBranchesDataJSON, actionJSON.action_id);
-            case 3:
+            case DialogueActionTypes.RANDOM:
                 return new RandomDialogueAction(dialogueRandomDataJSON, actionJSON.action_id);
-            case 4:
+            case DialogueActionTypes.STAT_CHANGE:
                 return new DialogueStatChangeAction(dialogueStatChangeJSON, actionJSON.action_id);
+            case DialogueActionTypes.ADD_FORBID_SETTL_TRIGGER: 
+                return null;
             default:
                 return null;
 		}
