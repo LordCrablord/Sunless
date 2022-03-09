@@ -35,6 +35,24 @@
 			"actions":[
 				
 			]
+	  },
+	  {
+	  		"id":3,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "On one of the streets noise caught your attension"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "You see a group of people, which fight among one another without weapons. You can also see the owner of this self-proclaimed street arena, gathering money from all that want to participate"
+				}
+			],
+			"actions":[
+				{"action_type": 2, "action_id": 2}
+			]
 	  }
 	]
 }

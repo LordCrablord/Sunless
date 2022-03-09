@@ -25,6 +25,39 @@
 					]
 				}
 			]
+	  },
+	  {
+		  	"id":2,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "Such street arenas are illegal, but maybe you can earn some money in fights"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 1,
+					"text": "Participate in arena",
+					"actions": [
+						
+					]
+				},
+				{
+					"branch_id": 2,
+					"text": "Call guards and try to end this illegal activity",
+					"actions": [
+						
+					]
+				},
+				{
+					"branch_id": 3,
+					"text": "Go away",
+					"actions": [
+						
+					]
+				}
+			]
 	  }
 	]
 }
