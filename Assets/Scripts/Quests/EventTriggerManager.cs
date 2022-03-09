@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class EventTriggerManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<int> settlementConditionForbidID = new List<int>();
+    public List<int> settlementConditionAllowID = new List<int>();
 }
