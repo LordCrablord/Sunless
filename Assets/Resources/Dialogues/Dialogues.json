@@ -64,6 +64,7 @@
 				}
 			],
 			"actions":[
+				{"action_type": 4, "action_id": 4},
 				{"action_type": 2, "action_id": 2}
 			]
 	  },
@@ -77,6 +78,7 @@
 				}
 			],
 			"actions":[
+				{"action_type": 4, "action_id": 2},
 				{"action_type": 2, "action_id": 2}
 			]
 	  },
@@ -90,6 +92,7 @@
 				}
 			],
 			"actions":[
+				{"action_type": 4, "action_id": 3},
 				{"action_type": 2, "action_id": 2}
 			]
 	  },
@@ -103,6 +106,7 @@
 				}
 			],
 			"actions":[
+				{"action_type": 4, "action_id": 5},
 				{"action_type": 2, "action_id": 2}
 			]
 	  }

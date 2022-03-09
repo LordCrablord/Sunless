@@ -72,6 +72,11 @@ public class CharacterStats:MonoBehaviour
 	{
 		multiplyingBonuses.Remove(mod);
 	}
+
+	public void ModifyStats(Stats stat, float value)
+	{
+		StatsDictionary[stat].Set((float)StatsDictionary[stat].Get() + value);
+	}
 }
 
 [System.Serializable]

@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextAsset dialoguesDataJSON;
     [SerializeField] TextAsset dialogueBranchesDataJSON;
     [SerializeField] TextAsset dialogueRandomDataJSON;
+    [SerializeField] TextAsset dialogueStatChangeJSON;
 
     [SerializeField] GameObject dialogueUI;
     [SerializeField] TextMeshProUGUI textTMP;
@@ -106,6 +107,8 @@ public class DialogueManager : MonoBehaviour
                 return new BranchDialogueAction(dialogueBranchesDataJSON, actionJSON.action_id);
             case 3:
                 return new RandomDialogueAction(dialogueRandomDataJSON, actionJSON.action_id);
+            case 4:
+                return new DialogueStatChangeAction(dialogueStatChangeJSON, actionJSON.action_id);
             default:
                 return null;
 		}

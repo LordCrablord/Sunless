@@ -53,6 +53,7 @@ public class PlayerCharacterStats : CharacterStats
 			gold = Mathf.RoundToInt(
 				(value + AddAllBonuses(additiveBonuses, Stats.GOLD)) + (value + AddAllBonuses(additiveBonuses, Stats.GOLD)) * AddAllBonuses(multiplyingBonuses, Stats.GOLD)
 				);
+			Debug.Log("Gold: " + gold);
 		}
 	}
 
