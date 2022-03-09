@@ -137,6 +137,7 @@
 			"actions":[
 				{"action_type": 4, "action_id": 6},
 				{"action_type": 5, "action_id": 4},
+				{"action_type": 6, "action_id": 6},
 				{"action_type": 1, "action_id": 9}
 				
 			]

@@ -11,6 +11,7 @@ public class Settlement : MonoBehaviour
     List<SettlementPart> settlementPartsAllowed;
     List<SettlementEvent> settlementEventsAllowed;
 
+    public int settlementPartIndex;
     private void OnCollisionEnter(Collision collision)
 	{
         if (collision.gameObject.name == "PlayerCharacter")
@@ -22,8 +23,10 @@ public class Settlement : MonoBehaviour
 
     public void TriggerListModified()
 	{
-        Debug.Log("Here should be something once i will do it");
+        settUIObject.GetComponent<SettlementUI>().ClearUI();
+        SetUpUI();
 	}
+
     public void OnSettlementExit()
 	{
         QuestManager.Instance.TriggerManager.SettlementTriggerListsModified -= TriggerListModified;
@@ -34,15 +37,21 @@ public class Settlement : MonoBehaviour
         settUIObject = Instantiate(settlementUI);
         settUIObject.GetComponent<SettlementUI>().SetTitle(settlementData.settlementName);
         settUIObject.GetComponent<SettlementUI>().SetUIDataOrigin(this);
+        settlementPartIndex = 0;
 
+        SetUpUI();
+    }
+
+    void SetUpUI()
+	{
         settlementPartsAllowed = GetAllowedSettlementParts();
-        
-        for (int i = 0; i< settlementPartsAllowed.Count; i++)
-		{
+
+        for (int i = 0; i < settlementPartsAllowed.Count; i++)
+        {
             settUIObject.GetComponent<SettlementUI>().SetPartsButton(i, settlementPartsAllowed[i].settlementPartName);
         }
 
-        settUIObject.GetComponent<SettlementUI>().ButtonCityPartClicked(0);
+        settUIObject.GetComponent<SettlementUI>().ButtonCityPartClicked(settlementPartIndex);
     }
 
     public Sprite GetSettlementPartImage(int index)

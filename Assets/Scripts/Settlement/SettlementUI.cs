@@ -40,7 +40,9 @@ public class SettlementUI : MonoBehaviour
 
     public void ButtonCityPartClicked(int index)
 	{
-        ResetEventButtons();
+        settlement.settlementPartIndex = index;
+
+        ClearEventButtons();
 
         Image.sprite = settlement.GetSettlementPartImage(index);
 
@@ -54,7 +56,7 @@ public class SettlementUI : MonoBehaviour
 		}
     }
 
-    void ResetEventButtons()
+    void ClearEventButtons()
 	{
         foreach (GameObject button in eventButtons)
         {
@@ -62,12 +64,13 @@ public class SettlementUI : MonoBehaviour
         }
 	}
 
-    public void ResetUI()
+    public void ClearUI()
 	{
         foreach(GameObject button in buttons)
 		{
             Destroy(button);
 		}
+        ClearEventButtons();
 	}
 
     public void CloseUI()
