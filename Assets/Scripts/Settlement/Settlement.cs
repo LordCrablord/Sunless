@@ -17,9 +17,13 @@ public class Settlement : MonoBehaviour
 	{
         if (collision.gameObject.name == "PlayerCharacter")
         {
-            settUIObject = Instantiate(settlementUI);
-            settUIObject.GetComponent<SettlementUI>().SetTitle(settlementData.settlementName);
-            
+            SetSettlementUI();
         }
+    }
+
+    void SetSettlementUI()
+	{
+        settUIObject = Instantiate(settlementUI);
+        settUIObject.GetComponent<SettlementUI>().SetTitle(settlementData.settlementName);
     }
 }
