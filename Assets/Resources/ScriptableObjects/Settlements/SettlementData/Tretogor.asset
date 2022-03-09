@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Tretogor
   m_EditorClassIdentifier: 
   settlementName: Tretogor
-  temp: 000000000000000000000000
+  settlementParts:
+  - {fileID: 11400000, guid: b02690f301135ae47b148367b5415acc, type: 2}
+  - {fileID: 11400000, guid: 144d5e53d85824b42a1f226b715cfefe, type: 2}

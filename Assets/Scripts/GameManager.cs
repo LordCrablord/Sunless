@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     public ItemDatabase ItemDatabase {get { return itemDatabase; }}
 
     [SerializeField] GameObject characterUI;
+    [SerializeField] GameObject dialogueManager;
 
     bool charatcerUIActive = false;
     
@@ -22,4 +23,9 @@ public class GameManager : Singleton<GameManager>
         characterUI.SetActive(charatcerUIActive);
         if (charatcerUIActive) SetCharacterDataOnUI(stats);
     }
+
+    public void StartDialogue(DialogueAction dialogueAction)
+	{
+        dialogueManager.GetComponent<DialogueManager>().StartDialogue(dialogueAction);
+	}
 }

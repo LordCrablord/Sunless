@@ -13,4 +13,16 @@ MonoBehaviour:
   m_Name: TretogorStreets
   m_EditorClassIdentifier: 
   settlementPartName: Streets
+  id: 1
   sprite: {fileID: 21300000, guid: 4fb0ba5f32ef08e479b5b4ba7779af15, type: 3}
+  settlementEvents:
+  - eventName: Bernan
+    sprite: {fileID: 21300000, guid: 86c339a21792dd94392aff7b66c30bac, type: 3}
+    dialogueAction:
+      action_type: 1
+      action_id: 1
+  - eventName: Street fight
+    sprite: {fileID: 21300000, guid: d6e79c54ca471a346a56333bce314307, type: 3}
+    dialogueAction:
+      action_type: 0
+      action_id: 0

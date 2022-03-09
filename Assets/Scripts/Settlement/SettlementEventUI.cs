@@ -16,4 +16,9 @@ public class SettlementEventUI : MonoBehaviour
         eventName.text = settlementEvent.eventName;
         image.sprite = settlementEvent.sprite;
 	}
+
+    public void EventButtonClicked()
+	{
+        GameManager.Instance.StartDialogue(settlementEvent.dialogueAction);
+	}
 }

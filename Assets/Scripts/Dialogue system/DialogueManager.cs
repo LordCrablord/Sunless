@@ -19,11 +19,6 @@ public class DialogueManager : MonoBehaviour
     IDialogueAction dialogueAction;
     List<DialogueDataItemString> currentDialogues;
     int currentTextIndex;
-    void Start()
-    {
-        dialogueAction = new SimpleDialogueAction(dialoguesDataJSON, 1);
-        dialogueAction.DoAction(this.gameObject);
-    }
 
     public void ResetButtons()
 	{
@@ -112,6 +107,13 @@ public class DialogueManager : MonoBehaviour
                 return null;
 		}
 	}
+
+    public void StartDialogue(DialogueAction newDialogueAction)
+	{
+        dialogueUI.SetActive(true);
+        dialogueAction = GetDialogueAction(newDialogueAction);
+        dialogueAction.DoAction(this.gameObject);
+    }
 
     void CloseDialogueUI()
 	{
