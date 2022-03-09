@@ -53,6 +53,58 @@
 			"actions":[
 				{"action_type": 2, "action_id": 2}
 			]
+	  },
+	  {
+	  		"id":4,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "Your opponents were a bit drunk, fighting them was not a problem. You earned 15 gold."
+				}
+			],
+			"actions":[
+				{"action_type": 2, "action_id": 2}
+			]
+	  },
+	  {
+	  		"id":5,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "Your opponents were a strong batch, but you overcame them, thought not from the first try. You earned 5 gold."
+				}
+			],
+			"actions":[
+				{"action_type": 2, "action_id": 2}
+			]
+	  },
+	  {
+	  		"id":6,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "At first, everything was fine,but in the end you was too tired and lost a couple of fights. You lost 5 gold."
+				}
+			],
+			"actions":[
+				{"action_type": 2, "action_id": 2}
+			]
+	  },
+	  {
+	  		"id":7,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "Luck was not at your side this time around, you lost all of your fights. You lost 10 gold."
+				}
+			],
+			"actions":[
+				{"action_type": 2, "action_id": 2}
+			]
 	  }
 	]
 }

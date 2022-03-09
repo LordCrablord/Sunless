@@ -2961,6 +2961,8 @@ MonoBehaviour:
   dialoguesDataJSON: {fileID: 4900000, guid: 63ebb77205781ce4088eb8682deb87bb, type: 3}
   dialogueBranchesDataJSON: {fileID: 4900000, guid: c6e9916d3051bcb439c229c8c5a3d7a1,
     type: 3}
+  dialogueRandomDataJSON: {fileID: 4900000, guid: 512cd0cfc7cc2fc4bba57ceacb6cff2c,
+    type: 3}
   dialogueUI: {fileID: 644452133}
   textTMP: {fileID: 1419886196}
   nameTMP: {fileID: 1713602865}
