@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerCharacterStats : CharacterStats
 {
     static int xp;
-    public int Xp
+    public float Xp
 	{
 		get
 		{
@@ -18,7 +18,7 @@ public class PlayerCharacterStats : CharacterStats
 			xp = Mathf.RoundToInt(
 				(value + AddAllBonuses(additiveBonuses, Stats.XP)) + (value + AddAllBonuses(additiveBonuses, Stats.XP)) * AddAllBonuses(multiplyingBonuses, Stats.XP)
 				);
-			while (xp > levelXpThreshold[level])
+			while (xp >= levelXpThreshold[level])
 			{
 				level++;
 				Debug.Log(characterName + " is now level " + level);
@@ -42,7 +42,7 @@ public class PlayerCharacterStats : CharacterStats
 	}
 
 	static int gold;
-	public int Gold
+	public float Gold
 	{
 		get
 		{
@@ -57,7 +57,7 @@ public class PlayerCharacterStats : CharacterStats
 	}
 
 	[SerializeField] int armorClassBase;
-	public int ArmorClass
+	public float ArmorClass
 	{
 		get 
 		{
@@ -66,10 +66,10 @@ public class PlayerCharacterStats : CharacterStats
 			if (chestpiece != null) res += chestpiece.armorValue;
 			return res; 
 		}
-		set { armorClassBase = value; }
+		set { armorClassBase = (int)value; }
 	}
 
-	public int Damage
+	public float Damage
 	{
 		get
 		{
@@ -80,7 +80,7 @@ public class PlayerCharacterStats : CharacterStats
 		}
 	}
 
-	public int CritChance
+	public float CritChance
 	{
 		get
 		{
@@ -116,16 +116,12 @@ public class PlayerCharacterStats : CharacterStats
 
 	public PlayerCharacterStats()
 	{
-		/*StatsDictionary = new Dictionary<Stats, Func<object>>();
-		StatsDictionary.Add(Stats.GOLD, () => Gold);
-		StatsDictionary.Add(Stats.XP, () => Xp);
-		StatsDictionary.Add(Stats.DAMAGE, () => Damage);
-		StatsDictionary.Add(Stats.CRIT_CHANCE, () => CritChance);
-		StatsDictionary.Add(Stats.CRIT_VALUE, () => CritValue);*/
 
-		StatsDictionary.Add(Stats.XP, new VariableReference(() => Xp, val => { Xp = (int)val; }));
-		StatsDictionary.Add(Stats.GOLD, new VariableReference(() => Gold, val => { Gold = (int)val; }));
+		StatsDictionary.Add(Stats.XP, new VariableReference(() => Xp, val => { Xp = (float)val; }));
+		StatsDictionary.Add(Stats.GOLD, new VariableReference(() => Gold, val => { Gold = (float)val; }));
 		StatsDictionary.Add(Stats.DAMAGE, new VariableReference(() => Damage, null));
+		StatsDictionary.Add(Stats.CRIT_CHANCE, new VariableReference(() => CritChance, null));
+		StatsDictionary.Add(Stats.CRIT_VALUE, new VariableReference(() => CritValue, null));
 	}
 
 	public void EquipItem(Item item)

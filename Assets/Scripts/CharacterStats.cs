@@ -9,7 +9,7 @@ public class CharacterStats:MonoBehaviour
 	public string characterName;
 	public Sprite sprite;
     [SerializeField] float hpMax;
-    public int HpMax
+    public float HpMax
 	{
 		get
 		{
@@ -45,7 +45,7 @@ public class CharacterStats:MonoBehaviour
 		multiplyingBonuses = new List<StatModifier>();
 
 		StatsDictionary.Add(Stats.HP, new VariableReference(() => Hp, val => { Hp = (float)val; }));
-		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (int)val; }));
+		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (float)val; }));
 	}
 
 	protected float AddAllBonuses(List<StatModifier> modifiersList, Stats stat)
