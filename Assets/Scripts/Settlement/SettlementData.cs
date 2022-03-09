@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Settlement Data", menuName ="Settlement Data")]
+[CreateAssetMenu(fileName ="New SettlementData", menuName = "Settlement/SettlementData")]
 public class SettlementData : ScriptableObject
 {
     public string settlementName;
