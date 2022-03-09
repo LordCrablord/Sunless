@@ -109,6 +109,55 @@
 				{"action_type": 4, "action_id": 5},
 				{"action_type": 2, "action_id": 2}
 			]
-	  }
+	  },
+	  {
+	  		"id":8,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "You called the guard, and together you try to quell this arena and it's inhabitats"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "It was not easy at first"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "Some hits from brawlers were heavy"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "But in the end you and guards managed to end this arena and arrest it's leader"
+				}
+			],
+			"actions":[
+				{"action_type": 4, "action_id": 6},
+				{"action_type": 5, "action_id": 4},
+				{"action_type": 1, "action_id": 9}
+				
+			]
+	  },
+	  {
+	  		"id":9,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "You also notice that some woman was watching you during this fight"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "She must be in a tavern now"
+				}
+			],
+			"actions":[
+
+			]
+	  },
 	]
 }
