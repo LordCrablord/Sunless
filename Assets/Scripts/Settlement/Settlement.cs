@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Settlement : MonoBehaviour
@@ -51,13 +52,16 @@ public class Settlement : MonoBehaviour
 
     List<SettlementPart> GetAllowedSettlementParts()
 	{
+
         //change later to see which part to see for player
-        return settlementData.settlementParts;
+        return settlementData.settlementParts.Where(r => !QuestManager.Instance.TriggerManager.settlementConditionForbidID.Contains(r.id)).ToList();
 	}
 
     public List<SettlementEvent> GetAllowedSettlementEvents(int index)
 	{
-        //TODO later
-        return settlementPartsAllowed[index].settlementEvents;
+        List<SettlementEvent> res = settlementPartsAllowed[index].settlementEvents.Where(
+            r=>!QuestManager.Instance.TriggerManager.settlementConditionForbidID.Contains(r.eventID)).ToList();
+        Debug.Log(res.Count);
+        return res;
 	}
 }

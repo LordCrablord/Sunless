@@ -6438,7 +6438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e08307ccfba574a81a903b7904e2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settlementConditionForbidID: 00000000
+  settlementConditionForbidID: 06000000
 --- !u!4 &1043512678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35cf7f2729d6f944a81b94cc313a27ae,
