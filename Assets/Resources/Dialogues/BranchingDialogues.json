@@ -58,6 +58,32 @@
 					]
 				}
 			]
+	  },
+	  {
+		  	"id":3,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "You seem to have a heart in correct place, so please, if it is not hard to you, can you go to healer's hut and check if he is ok?"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 1,
+					"text": "Agree to help",
+					"actions": [
+						{"action_type": 1, "action_id": 11}
+					]
+				},
+				{
+					"branch_id": 2,
+					"text": "Say that you have other things to do",
+					"actions": [
+						{"action_type": 1, "action_id": 12}
+					]
+				}
+			]
 	  }
 	]
 }

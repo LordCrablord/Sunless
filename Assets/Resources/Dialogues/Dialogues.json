@@ -159,6 +159,103 @@
 			"actions":[
 
 			]
+	  },
+	  {
+	  		"id":10,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Greetings, i want to thank you for what you have done there, on the streets."
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Guards were probably already bribed by those thugs which organized these fights."
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "So, thanks to your shoutings they had no choice but to do something with it"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "She smiles a bit, while looking at you from up to bottom"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "My name is Iriana, i'm a priestess from the Cathedral of this city"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "We need some help and i think that you may be able to help us"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "The healer not far from this city, on north-west, haven't been in Tretogor for 4 days now"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Without his herbs it will be impossible to heal people of this city"
+				}
+			],
+			"actions":[
+				{"action_type": 2, "action_id": 3}
+			]
+	  },
+	  {
+	  		"id":11,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Thank you"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "I will wait for your arrival in cathedral"
+				}
+			],
+			"actions":[
+				{"action_type": 5, "action_id": 6},
+				{"action_type": 6, "action_id": 7},
+				{"action_type": 1, "action_id": 13}
+			]
+	  },
+	  {
+	  		"id":12,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Of cource, i understand, there are other things that require your attention"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "I am here from time to time, maybe we will meet again when you will change your mind"
+				}
+			],
+			"actions":[
+			]
+	  },
+	  {
+	  		"id":13,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Tell the guards that you do the job for me and they will let you in"
+				}
+			],
+			"actions":[
+			]
 	  }
 	]
 }
