@@ -47,6 +47,10 @@ public class PlayerController : MonoBehaviour
 		{
             GameManager.Instance.ToggleCharacterUI(characterStats);
 		}
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            QuestManager.Instance.ToggleQuestJournalUI();
+        }
     }
 
     public void ModifyStats(Stats stat, float value)

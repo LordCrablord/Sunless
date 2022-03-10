@@ -2236,6 +2236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerManager: {fileID: 1042932482}
   questDatabase: {fileID: 11400000, guid: 3da44bb644adafd4595633d78fd4c56f, type: 2}
+  questUI: {fileID: 3815681868301167235}
   activeQuests: []
   completedQuests: []
 --- !u!1 &320775049
@@ -19788,8 +19789,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CloseUI
+      - m_Target: {fileID: 3815681868301167236}
+        m_MethodName: OnCloseButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20122,6 +20123,7 @@ GameObject:
   - component: {fileID: 3815681868301167232}
   - component: {fileID: 3815681868301167233}
   - component: {fileID: 3815681868301167234}
+  - component: {fileID: 3815681868301167236}
   m_Layer: 5
   m_Name: QuestJournalUI
   m_TagString: Untagged
@@ -20129,6 +20131,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3815681868301167236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3815681868301167235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72671bcc698f2b46a48d2b3896372ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3815681868301167239
 RectTransform:
   m_ObjectHideFlags: 0
