@@ -61,8 +61,6 @@ public class Settlement : MonoBehaviour
 
     List<SettlementPart> GetAllowedSettlementParts()
 	{
-
-        //change later to see which part to see for player
         return settlementData.settlementParts.Where(r => !QuestManager.Instance.TriggerManager.settlementConditionForbidID.Contains(r.id)).ToList();
 	}
 

@@ -20,6 +20,7 @@ public class QuestManager : Singleton<QuestManager>
 	{
         Quest quest = questDatabase.quests.Find(q=>q.questID == id);
         activeQuests.Add(quest);
+        triggerManager.AddToQuestPartAllowList(quest.questParts[0].questPartID);
 	}
 
     public void ToggleQuestJournalUI()
@@ -28,4 +29,9 @@ public class QuestManager : Singleton<QuestManager>
         questUI.SetActive(questUIActive);
         if (questUIActive) questUI.GetComponent<QuestJournalUI>().SetQuestUI();
     }
+
+    public List<QuestPart> GetAllowedQuestParts(Quest quest)
+	{
+        return quest.questParts.Where(p => TriggerManager.questPartAllowID.Contains(p.questPartID)).ToList();
+	}
 }

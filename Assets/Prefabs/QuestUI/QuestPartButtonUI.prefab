@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultHeight: 80
   toggledHeight: 280
+  questPartTitleTMP: {fileID: 4413253608293736164}
   descriptionTMP: {fileID: 4413253609090850398}
 --- !u!1 &4413253608011810873
 GameObject:

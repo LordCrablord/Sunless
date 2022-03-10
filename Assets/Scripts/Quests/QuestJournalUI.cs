@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Linq;
 
 public class QuestJournalUI : MonoBehaviour
 {
@@ -73,8 +74,16 @@ public class QuestJournalUI : MonoBehaviour
 	{
 		questName.text = quest.questTitle;
 		questDescription.text = quest.description;
-		//...for questparts
+
 		ClearQuestButtons(questPartButtons);
+		List<QuestPart> questParts = QuestManager.Instance.GetAllowedQuestParts(quest);
+		for(int i = questParts.Count-1; i>=0; i--)
+		{
+			GameObject questButton = Instantiate(questPartButtonPrefab, transform.position, Quaternion.identity);
+			questButton.transform.SetParent(questPartContainer.transform, false);
+			questButton.GetComponent<QuestPartUI>().SetQuestPartUI(questParts[i]);
+			questPartButtons.Add(questButton);
+		}
 	}
 
    public void OnCloseButtonClicked()

@@ -7351,6 +7351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settlementConditionForbidID: 0600000007000000
+  questPartAllowID: ea030000
 --- !u!4 &1043512678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35cf7f2729d6f944a81b94cc313a27ae,
