@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject characterUI;
     [SerializeField] GameObject dialogueManager;
     [SerializeField] GameObject unitsContainer;
-
+    [SerializeField] GameObject pauseUI;
     bool charatcerUIActive = false;
 
     int pauseGameRequest = 0;
@@ -33,12 +33,14 @@ public class GameManager : Singleton<GameManager>
     public event Notify GamePaused;
     protected virtual void OnGamePaused()
     {
+        pauseUI.SetActive(true);
         GamePaused?.Invoke();
     }
 
     public event Notify GameResumed;
     protected virtual void OnGameResumed()
     {
+        pauseUI.SetActive(false);
         GameResumed?.Invoke();
     }
 
