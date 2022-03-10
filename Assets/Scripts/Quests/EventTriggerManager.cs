@@ -9,6 +9,8 @@ public class EventTriggerManager : MonoBehaviour
     
     public List<int> questPartAllowID = new List<int>();
 
+    public Dictionary<int, Vector3> markPositions = new Dictionary<int, Vector3>();
+
     public event Notify SettlementTriggerListsModified;
     protected virtual void OnSettlementTriggerListsModified()
     {
