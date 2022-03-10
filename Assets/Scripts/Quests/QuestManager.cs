@@ -14,13 +14,30 @@ public class QuestManager : Singleton<QuestManager>
 
     public List<Quest> activeQuests;
     public List<Quest> completedQuests;
-    public Quest currentlyFollowedQuest;
+
+    public event Notify CurrentlyFollowedQuestChanged;
+
+    [SerializeField] Quest currentlyFollowedQuest;
+    public Quest CurrentlyFollowedQuest 
+    { 
+        get { return currentlyFollowedQuest; } 
+        set 
+        { 
+            currentlyFollowedQuest = value;
+            OnCurrentlyFollowedQuestChanged();
+        }
+    }
+
+    protected virtual void OnCurrentlyFollowedQuestChanged()
+	{
+        CurrentlyFollowedQuestChanged?.Invoke();
+    }
 
     public void AddToActiveQuests(int id)
 	{
         Quest quest = questDatabase.quests.Find(q=>q.questID == id);
         activeQuests.Add(quest);
-        currentlyFollowedQuest = quest;
+        CurrentlyFollowedQuest = quest;
         triggerManager.AddToQuestPartAllowList(quest.questParts[0].questPartID);
 	}
 

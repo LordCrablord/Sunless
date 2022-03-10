@@ -63,7 +63,7 @@ public class QuestJournalUI : MonoBehaviour
 			questButton.transform.SetParent(leftPartContainer.transform, false);
 			questButton.GetComponent<QuestButtonUI>().SetQuestButton(this, quests[i]);
 			questButtons.Add(questButton);
-			if (quests[i] == QuestManager.Instance.currentlyFollowedQuest)
+			if (quests[i] == QuestManager.Instance.CurrentlyFollowedQuest)
 			{
 				questButton.GetComponent<QuestButtonUI>().OnQuestButtonClicked();
 				questButton.GetComponent<QuestButtonUI>().ToggleQuestMark(true);

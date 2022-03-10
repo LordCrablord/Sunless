@@ -12,9 +12,15 @@ public class EventTriggerManager : MonoBehaviour
     public Dictionary<int, Vector3> markPositions = new Dictionary<int, Vector3>();
 
     public event Notify SettlementTriggerListsModified;
+    public event Notify QuestPartAllowed;
     protected virtual void OnSettlementTriggerListsModified()
     {
         SettlementTriggerListsModified?.Invoke();
+    }
+
+    protected virtual void OnQuestPartAllowed()
+    {
+        QuestPartAllowed?.Invoke();
     }
 
     public void AddToConditionForbidList(int triggerID)
@@ -31,7 +37,9 @@ public class EventTriggerManager : MonoBehaviour
     public void AddToQuestPartAllowList(int triggerID)
 	{
         questPartAllowID.Add(triggerID);
-	}
+        OnQuestPartAllowed();
+
+    }
 
     public void RemoveFromQuestPartAllowList(int triggerID)
     {

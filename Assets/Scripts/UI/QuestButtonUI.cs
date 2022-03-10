@@ -36,11 +36,11 @@ public class QuestButtonUI : MonoBehaviour
 	{
 		if (activate)
 		{
-            QuestManager.Instance.currentlyFollowedQuest = quest;
+            QuestManager.Instance.CurrentlyFollowedQuest = quest;
 		}
 		else
 		{
-            QuestManager.Instance.currentlyFollowedQuest = null;
+            QuestManager.Instance.CurrentlyFollowedQuest = null;
         }
         followQuestMarker.SetActive(activate);
 
