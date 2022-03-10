@@ -98,11 +98,11 @@ public class Unit : MonoBehaviour
 		}
 	}
 
-	public void OnGamePaused()
+	void OnGamePaused()
 	{
 		currentSpeed = 0;
 	}
-	public void OnGameResumed()
+	void OnGameResumed()
 	{
 		currentSpeed = defaultSpeed;
 	}
