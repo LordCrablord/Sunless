@@ -358,6 +358,7 @@ MonoBehaviour:
   mainCharacter: {fileID: 1862654483}
   characterUI: {fileID: 1510468994}
   dialogueManager: {fileID: 596082211}
+  unitsContainer: {fileID: 1459459905}
 --- !u!4 &59788441
 Transform:
   m_ObjectHideFlags: 0
@@ -5886,7 +5887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 944881573}
-  speed: 10
+  defaultSpeed: 5
   turnSpeed: 3
   turnDistance: 5
 --- !u!136 &821806808
@@ -12207,7 +12208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 629371367}
-  speed: 20
+  defaultSpeed: 5
   turnSpeed: 3
   turnDistance: 5
 --- !u!1 &1678488636
@@ -13637,7 +13638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1862654480}
-  speed: 5
+  defaultSpeed: 5
   turnSpeed: 3
   turnDistance: 1
 --- !u!136 &1862654477
