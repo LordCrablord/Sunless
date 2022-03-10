@@ -55,3 +55,32 @@ public class DialogueBranch
 }
 
 #endregion
+
+#region DialogueRandom
+[Serializable]
+public class DialogueRandomData
+{
+    public List<DialogueRandomDataItem> items;
+}
+
+[Serializable]
+public class DialogueRandomDataItem
+{
+    public int id;
+    public List<DialogueAction> random_options;
+}
+#endregion
+#region DialogueStatChange
+public class DialogueStatChangeData
+{
+    public List<DialogueStatChangeDataItem> items;
+}
+
+[Serializable]
+public class DialogueStatChangeDataItem
+{
+    public int id;
+    public string stat;
+    public float value;
+}
+#endregion

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ using UnityEngine;
 public class PlayerCharacterStats : CharacterStats
 {
     static int xp;
-    public int Xp
+    public float Xp
 	{
 		get
 		{
@@ -17,7 +18,7 @@ public class PlayerCharacterStats : CharacterStats
 			xp = Mathf.RoundToInt(
 				(value + AddAllBonuses(additiveBonuses, Stats.XP)) + (value + AddAllBonuses(additiveBonuses, Stats.XP)) * AddAllBonuses(multiplyingBonuses, Stats.XP)
 				);
-			while (xp > levelXpThreshold[level])
+			while (xp >= levelXpThreshold[level])
 			{
 				level++;
 				Debug.Log(characterName + " is now level " + level);
@@ -41,7 +42,7 @@ public class PlayerCharacterStats : CharacterStats
 	}
 
 	static int gold;
-	public int Gold
+	public float Gold
 	{
 		get
 		{
@@ -52,11 +53,12 @@ public class PlayerCharacterStats : CharacterStats
 			gold = Mathf.RoundToInt(
 				(value + AddAllBonuses(additiveBonuses, Stats.GOLD)) + (value + AddAllBonuses(additiveBonuses, Stats.GOLD)) * AddAllBonuses(multiplyingBonuses, Stats.GOLD)
 				);
+			Debug.Log("Gold: " + gold);
 		}
 	}
 
 	[SerializeField] int armorClassBase;
-	public int ArmorClass
+	public float ArmorClass
 	{
 		get 
 		{
@@ -65,10 +67,10 @@ public class PlayerCharacterStats : CharacterStats
 			if (chestpiece != null) res += chestpiece.armorValue;
 			return res; 
 		}
-		set { armorClassBase = value; }
+		set { armorClassBase = (int)value; }
 	}
 
-	public int Damage
+	public float Damage
 	{
 		get
 		{
@@ -79,7 +81,7 @@ public class PlayerCharacterStats : CharacterStats
 		}
 	}
 
-	public int CritChance
+	public float CritChance
 	{
 		get
 		{
@@ -100,8 +102,10 @@ public class PlayerCharacterStats : CharacterStats
 			return addBonusesSum + addBonusesSum * multBonusesSum;
 		}
 	}
-
 	//TODO maybe make one func for those things above so it would take less space
+
+	//public Dictionary<Stats, Func<object>> StatsDictionary;
+	
 
 	static List<Item> inventoryBack = new List<Item>();
 	public List<Item> InventoryBack { get { return inventoryBack; } }
@@ -110,6 +114,16 @@ public class PlayerCharacterStats : CharacterStats
 	public Armor chestpiece;
 	public Weapon weapon;
 	public Item trinket1;
+
+	public PlayerCharacterStats()
+	{
+
+		StatsDictionary.Add(Stats.XP, new VariableReference(() => Xp, val => { Xp = (float)val; }));
+		StatsDictionary.Add(Stats.GOLD, new VariableReference(() => Gold, val => { Gold = (float)val; }));
+		StatsDictionary.Add(Stats.DAMAGE, new VariableReference(() => Damage, null));
+		StatsDictionary.Add(Stats.CRIT_CHANCE, new VariableReference(() => CritChance, null));
+		StatsDictionary.Add(Stats.CRIT_VALUE, new VariableReference(() => CritValue, null));
+	}
 
 	public void EquipItem(Item item)
 	{
@@ -167,4 +181,15 @@ public class PlayerCharacterStats : CharacterStats
 			RemoveMultiplyingModFromList(sm);
 	}
 
+}
+
+sealed public class VariableReference
+{
+	public Func<object> Get { get; private set; }
+	public Action<object> Set { get; private set; }
+	public VariableReference(Func<object> getter, Action<object> setter)
+	{
+		Get = getter;
+		Set = setter;
+	}
 }

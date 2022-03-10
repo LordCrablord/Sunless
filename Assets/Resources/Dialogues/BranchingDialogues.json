@@ -25,6 +25,65 @@
 					]
 				}
 			]
+	  },
+	  {
+		  	"id":2,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "Such street arenas are illegal, but maybe you can earn some money in fights"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 1,
+					"text": "Participate in arena",
+					"actions": [
+						{"action_type": 3, "action_id": 1}
+					]
+				},
+				{
+					"branch_id": 2,
+					"text": "Call guards and try to end this illegal activity",
+					"actions": [
+						{"action_type": 1, "action_id": 8}
+					]
+				},
+				{
+					"branch_id": 3,
+					"text": "Go away",
+					"actions": [
+						
+					]
+				}
+			]
+	  },
+	  {
+		  	"id":3,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "You seem to have a heart in correct place, so please, if it is not hard to you, can you go to healer's hut and check if he is ok?"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 1,
+					"text": "Agree to help",
+					"actions": [
+						{"action_type": 1, "action_id": 11}
+					]
+				},
+				{
+					"branch_id": 2,
+					"text": "Say that you have other things to do",
+					"actions": [
+						{"action_type": 1, "action_id": 12}
+					]
+				}
+			]
 	  }
 	]
 }

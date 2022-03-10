@@ -1,0 +1,11 @@
+{
+	"items":[
+	  {"id":1, "stat": "GOLD", "value": -3},
+	  {"id":2, "stat": "GOLD", "value": 5},
+	  {"id":3, "stat": "GOLD", "value": -5},
+	  {"id":4, "stat": "GOLD", "value": 15},
+	  {"id":5, "stat": "GOLD", "value": -10},
+	  {"id":6, "stat": "HP", "value": -5}
+	  
+	]
+}

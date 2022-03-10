@@ -35,6 +35,227 @@
 			"actions":[
 				
 			]
+	  },
+	  {
+	  		"id":3,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "On one of the streets noise caught your attension"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "You see a group of people, which fight among one another without weapons. You can also see the owner of this self-proclaimed street arena, gathering money from all that want to participate"
+				}
+			],
+			"actions":[
+				{"action_type": 2, "action_id": 2}
+			]
+	  },
+	  {
+	  		"id":4,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "Your opponents were a bit drunk, fighting them was not a problem. You earned 15 gold."
+				}
+			],
+			"actions":[
+				{"action_type": 4, "action_id": 4},
+				{"action_type": 2, "action_id": 2}
+			]
+	  },
+	  {
+	  		"id":5,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "Your opponents were a strong batch, but you overcame them, thought not from the first try. You earned 5 gold."
+				}
+			],
+			"actions":[
+				{"action_type": 4, "action_id": 2},
+				{"action_type": 2, "action_id": 2}
+			]
+	  },
+	  {
+	  		"id":6,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "At first, everything was fine,but in the end you was too tired and lost a couple of fights. You lost 5 gold."
+				}
+			],
+			"actions":[
+				{"action_type": 4, "action_id": 3},
+				{"action_type": 2, "action_id": 2}
+			]
+	  },
+	  {
+	  		"id":7,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "Luck was not at your side this time around, you lost all of your fights. You lost 10 gold."
+				}
+			],
+			"actions":[
+				{"action_type": 4, "action_id": 5},
+				{"action_type": 2, "action_id": 2}
+			]
+	  },
+	  {
+	  		"id":8,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "You called the guard, and together you try to quell this arena and it's inhabitats"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "It was not easy at first"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "Some hits from brawlers were heavy"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Settlement/Events/Streetfight",
+					"text": "But in the end you and guards managed to end this arena and arrest it's leader"
+				}
+			],
+			"actions":[
+				{"action_type": 4, "action_id": 6},
+				{"action_type": 5, "action_id": 4},
+				{"action_type": 6, "action_id": 6},
+				{"action_type": 1, "action_id": 9}
+				
+			]
+	  },
+	  {
+	  		"id":9,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "You also notice that some woman was watching you during this fight"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "She must be in a tavern now"
+				}
+			],
+			"actions":[
+
+			]
+	  },
+	  {
+	  		"id":10,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Greetings, i want to thank you for what you have done there, on the streets."
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Guards were probably already bribed by those thugs which organized these fights."
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "So, thanks to your shoutings they had no choice but to do something with it"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "She smiles a bit, while looking at you from up to bottom"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "My name is Iriana, i'm a priestess from the Cathedral of this city"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "We need some help and i think that you may be able to help us"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "The healer not far from this city, on north-west, haven't been in Tretogor for 4 days now"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Without his herbs it will be impossible to heal people of this city"
+				}
+			],
+			"actions":[
+				{"action_type": 2, "action_id": 3}
+			]
+	  },
+	  {
+	  		"id":11,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Thank you"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "I will wait for your arrival in cathedral"
+				}
+			],
+			"actions":[
+				{"action_type": 5, "action_id": 6},
+				{"action_type": 6, "action_id": 7},
+				{"action_type": 1, "action_id": 13}
+			]
+	  },
+	  {
+	  		"id":12,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Of cource, i understand, there are other things that require your attention"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "I am here from time to time, maybe we will meet again when you will change your mind"
+				}
+			],
+			"actions":[
+			]
+	  },
+	  {
+	  		"id":13,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Tell the guards that you do the job for me and they will let you in"
+				}
+			],
+			"actions":[
+			]
 	  }
 	]
 }
