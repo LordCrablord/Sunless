@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c4f3c231b20c2643b8194ddd8205579, type: 3}
-  m_Name: QuestDatabase
+  m_Script: {fileID: 11500000, guid: 62595d9bf31a6b14590c925b2ea5e63b, type: 3}
+  m_Name: Temp
   m_EditorClassIdentifier: 
-  quests:
-  - {fileID: 11400000, guid: 2c40b075714c6f44394baa3b3417e535, type: 2}
-  - {fileID: 11400000, guid: addaa63c1ac84ea4d875f1b843f7dc70, type: 2}
+  questID: 1001
+  questTitle: Temp Quest
+  description: this is just to showcase that all works
+  questParts: []

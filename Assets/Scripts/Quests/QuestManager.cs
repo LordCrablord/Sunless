@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class QuestManager : Singleton<QuestManager>
@@ -13,12 +14,18 @@ public class QuestManager : Singleton<QuestManager>
 
     public List<Quest> activeQuests;
     public List<Quest> completedQuests;
+    public Quest currentlyFollowedQuest;
 
+    public void AddToActiveQuests(int id)
+	{
+        Quest quest = questDatabase.quests.Find(q=>q.questID == id);
+        activeQuests.Add(quest);
+	}
 
     public void ToggleQuestJournalUI()
     {
         questUIActive = !questUIActive;
         questUI.SetActive(questUIActive);
-        //if (charatcerUIActive) SetCharacterDataOnUI(stats);
+        if (questUIActive) questUI.GetComponent<QuestJournalUI>().SetQuestUI();
     }
 }
