@@ -66,6 +66,8 @@ public class QuestJournalUI : MonoBehaviour
 			if (quests[i] == QuestManager.Instance.currentlyFollowedQuest)
 			{
 				questButton.GetComponent<QuestButtonUI>().OnQuestButtonClicked();
+				questButton.GetComponent<QuestButtonUI>().ToggleQuestMark(true);
+				selectedQuestButton = questButton;
 			}
 		}
 	}
@@ -89,6 +91,6 @@ public class QuestJournalUI : MonoBehaviour
 
    public void OnCloseButtonClicked()
 	{
-		gameObject.SetActive(false);
+		QuestManager.Instance.ToggleQuestJournalUI();
 	}
 }

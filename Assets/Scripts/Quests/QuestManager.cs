@@ -20,6 +20,7 @@ public class QuestManager : Singleton<QuestManager>
 	{
         Quest quest = questDatabase.quests.Find(q=>q.questID == id);
         activeQuests.Add(quest);
+        currentlyFollowedQuest = quest;
         triggerManager.AddToQuestPartAllowList(quest.questParts[0].questPartID);
 	}
 
