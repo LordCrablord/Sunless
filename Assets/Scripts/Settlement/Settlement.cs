@@ -16,6 +16,7 @@ public class Settlement : MonoBehaviour
 	{
         if (collision.gameObject.name == "PlayerCharacter")
         {
+            GameManager.Instance.PauseGameRequest++;
             QuestManager.Instance.TriggerManager.SettlementTriggerListsModified += TriggerListModified;
             SetSettlementUI();
         }
@@ -30,6 +31,7 @@ public class Settlement : MonoBehaviour
     public void OnSettlementExit()
 	{
         QuestManager.Instance.TriggerManager.SettlementTriggerListsModified -= TriggerListModified;
+        GameManager.Instance.PauseGameRequest--;
     }
 
     void SetSettlementUI()

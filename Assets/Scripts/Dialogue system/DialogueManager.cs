@@ -133,6 +133,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(DialogueAction newDialogueAction)
 	{
         dialogueUI.SetActive(true);
+        GameManager.Instance.PauseGameRequest++;
         dialogueAction = GetDialogueAction(newDialogueAction);
         dialogueAction.DoAction(this.gameObject);
     }
@@ -140,5 +141,6 @@ public class DialogueManager : MonoBehaviour
     void CloseDialogueUI()
 	{
         dialogueUI.SetActive(false);
+        GameManager.Instance.PauseGameRequest--;
 	}
 }
