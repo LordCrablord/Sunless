@@ -1342,6 +1342,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerManager: {fileID: 1042932482}
+  questDatabase: {fileID: 11400000, guid: 3da44bb644adafd4595633d78fd4c56f, type: 2}
+  activeQuests: []
+  completedQuests: []
 --- !u!1 &320775049
 GameObject:
   m_ObjectHideFlags: 0
