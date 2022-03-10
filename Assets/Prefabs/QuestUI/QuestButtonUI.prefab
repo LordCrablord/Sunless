@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questTitle: {fileID: 274148926314920992}
+  followQuestMarker: {fileID: 274148924820601853}
 --- !u!1 &274148926314920994
 GameObject:
   m_ObjectHideFlags: 0

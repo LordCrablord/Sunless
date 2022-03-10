@@ -20,6 +20,9 @@ public class QuestJournalUI : MonoBehaviour
 
 	List<GameObject> questButtons = new List<GameObject>();
 	List<GameObject> questPartButtons = new List<GameObject>();
+
+	public Quest selectedQuest;
+	public GameObject selectedQuestButton;
 	public void SetQuestUI()
 	{
 		ClearUI();
@@ -44,9 +47,6 @@ public class QuestJournalUI : MonoBehaviour
 		SetQuestButtons(QuestManager.Instance.activeQuests);
 		SetLeftPanelDividing(completedTitlePrefab);
 		SetQuestButtons(QuestManager.Instance.completedQuests);
-
-		
-		//SetQuestInfoOnUI(0);
 	}
 
 	void SetLeftPanelDividing(GameObject gameObject)
@@ -65,13 +65,14 @@ public class QuestJournalUI : MonoBehaviour
 			questButtons.Add(questButton);
 			if (quests[i] == QuestManager.Instance.currentlyFollowedQuest)
 			{
-				//markquestonUI;
+				questButton.GetComponent<QuestButtonUI>().OnQuestButtonClicked();
 			}
 		}
 	}
 
 	public void SetQuestInfoOnUI(Quest quest)
 	{
+		selectedQuest = quest;
 		questName.text = quest.questTitle;
 		questDescription.text = quest.description;
 

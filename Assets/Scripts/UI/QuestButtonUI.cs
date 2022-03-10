@@ -6,6 +6,7 @@ using TMPro;
 public class QuestButtonUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI questTitle;
+    [SerializeField] GameObject followQuestMarker;
     Quest quest;
     QuestJournalUI questJournal;
 
@@ -18,7 +19,32 @@ public class QuestButtonUI : MonoBehaviour
 
     public void OnQuestButtonClicked()
 	{
-        //...mark quest as followed if needed
+        if(quest == questJournal.selectedQuest)
+		{
+			if (questJournal.selectedQuestButton != null)
+			{
+                questJournal.selectedQuestButton.GetComponent<QuestButtonUI>().ToggleQuestMark(false);
+            }
+                
+            ToggleQuestMark(true);
+            questJournal.selectedQuestButton = this.gameObject;
+        }
         questJournal.SetQuestInfoOnUI(quest);
     }
+
+    public void ToggleQuestMark(bool activate)
+	{
+		if (activate)
+		{
+            QuestManager.Instance.currentlyFollowedQuest = quest;
+		}
+		else
+		{
+            QuestManager.Instance.currentlyFollowedQuest = null;
+        }
+        followQuestMarker.SetActive(activate);
+
+
+    }
+
 }
