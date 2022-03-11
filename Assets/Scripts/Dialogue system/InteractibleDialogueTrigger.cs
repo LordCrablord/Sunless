@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class InteractibleDialogueTrigger : MonoBehaviour
 {
     [SerializeField] GameObject interactableUI;
+    [SerializeField] int dialogueQuestConditionID;
     [SerializeField] DialogueAction dialogueAction;
     
 	private void OnTriggerEnter(Collider other)
 	{
         if (other.gameObject.name == "PlayerCharacter")
         {
-            other.gameObject.GetComponent<PlayerController>().EventTriggered += OnEventTriggered;
-            interactableUI.SetActive(true);
+			if (QuestManager.Instance.TriggerManager.questPartAllowID.Contains(dialogueQuestConditionID))
+			{
+                other.gameObject.GetComponent<PlayerController>().EventTriggered += OnEventTriggered;
+                interactableUI.SetActive(true);
+            }
+            
         }
     }
 
@@ -20,8 +26,11 @@ public class InteractibleDialogueTrigger : MonoBehaviour
 	{
         if (other.gameObject.name == "PlayerCharacter")
         {
-            other.gameObject.GetComponent<PlayerController>().EventTriggered -= OnEventTriggered;
-            interactableUI.SetActive(false);
+            if (QuestManager.Instance.TriggerManager.questPartAllowID.Contains(dialogueQuestConditionID))
+            {
+                other.gameObject.GetComponent<PlayerController>().EventTriggered -= OnEventTriggered;
+                interactableUI.SetActive(false);
+            }
         }
     }
 
@@ -30,3 +39,9 @@ public class InteractibleDialogueTrigger : MonoBehaviour
         GameManager.Instance.StartDialogue(dialogueAction);
 	}
 }
+
+/*[Serializable]
+class DialogueConditionProck
+{
+
+}*/
