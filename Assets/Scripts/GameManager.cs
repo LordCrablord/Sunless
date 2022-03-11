@@ -12,9 +12,39 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] GameObject characterUI;
     [SerializeField] GameObject dialogueManager;
-
+    [SerializeField] GameObject unitsContainer;
+    [SerializeField] GameObject pauseUI;
     bool charatcerUIActive = false;
-    
+
+    int pauseGameRequest = 0;
+    public int PauseGameRequest
+	{
+		get { return pauseGameRequest; }
+		set 
+        {
+            pauseGameRequest = value;
+            if (pauseGameRequest > 0)
+                OnGamePaused();
+            else
+                OnGameResumed();
+        }
+	}
+
+    public event Notify GamePaused;
+    protected virtual void OnGamePaused()
+    {
+        pauseUI.SetActive(true);
+        GamePaused?.Invoke();
+    }
+
+    public event Notify GameResumed;
+    protected virtual void OnGameResumed()
+    {
+        pauseUI.SetActive(false);
+        GameResumed?.Invoke();
+    }
+
+
     public void SetCharacterDataOnUI(PlayerCharacterStats stats)
 	{
         characterUI.GetComponent<CharacterUI>().SetCharacterUI(stats);

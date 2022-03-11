@@ -102,7 +102,8 @@ public class DialogueManager : MonoBehaviour
     }
 
     enum DialogueActionTypes {NONE, SIMPLE, BRANCH, RANDOM, 
-        STAT_CHANGE, ADD_FORBID_SETTL_TRIGGER, REMOVE_FORBID_SETTL_TRIGGER }
+        STAT_CHANGE, ADD_FORBID_SETTL_TRIGGER, REMOVE_FORBID_SETTL_TRIGGER,
+        START_QUEST}
     IDialogueAction GetDialogueAction(DialogueAction actionJSON)
 	{
         switch ((DialogueActionTypes)actionJSON.action_type)
@@ -121,6 +122,9 @@ public class DialogueManager : MonoBehaviour
             case DialogueActionTypes.REMOVE_FORBID_SETTL_TRIGGER:
                 QuestManager.Instance.TriggerManager.RemoveFromConditionForbidList(actionJSON.action_id);
                 return null;
+            case DialogueActionTypes.START_QUEST:
+                QuestManager.Instance.AddToActiveQuests(actionJSON.action_id);
+                return null;
             default:
                 return null;
 		}
@@ -129,6 +133,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(DialogueAction newDialogueAction)
 	{
         dialogueUI.SetActive(true);
+        GameManager.Instance.PauseGameRequest++;
         dialogueAction = GetDialogueAction(newDialogueAction);
         dialogueAction.DoAction(this.gameObject);
     }
@@ -136,5 +141,6 @@ public class DialogueManager : MonoBehaviour
     void CloseDialogueUI()
 	{
         dialogueUI.SetActive(false);
+        GameManager.Instance.PauseGameRequest--;
 	}
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62595d9bf31a6b14590c925b2ea5e63b, type: 3}
+  m_Name: Temp
+  m_EditorClassIdentifier: 
+  questID: 1001
+  questTitle: Temp Quest
+  description: this is just to showcase that all works
+  questParts:
+  - {fileID: 11400000, guid: e76be63c9bf1f904ea91e4c159f3a448, type: 2}
+  - {fileID: 11400000, guid: 1f344ef155870244b9cd710199280aee, type: 2}

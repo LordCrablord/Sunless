@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     PlayerCharacterStats characterStats;
+
+    bool pauseStateToggled = false;
+
     void Start()
     {
         characterStats = gameObject.GetComponent<PlayerCharacterStats>();
@@ -47,6 +50,31 @@ public class PlayerController : MonoBehaviour
 		{
             GameManager.Instance.ToggleCharacterUI(characterStats);
 		}
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            QuestManager.Instance.ToggleQuestJournalUI();
+        }
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+            SetPauseState(!pauseStateToggled);
+        }
+		if (Input.GetKeyDown(KeyCode.E))
+		{
+            OnEventTriggered();
+		}
+    }
+
+    public event Notify EventTriggered;
+    protected virtual void OnEventTriggered()
+	{
+        EventTriggered?.Invoke();
+	}
+
+    public void SetPauseState(bool state)
+	{
+        pauseStateToggled = state;
+        if (pauseStateToggled) GameManager.Instance.PauseGameRequest++;
+        else GameManager.Instance.PauseGameRequest--;
     }
 
     public void ModifyStats(Stats stat, float value)

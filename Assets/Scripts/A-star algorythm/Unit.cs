@@ -8,14 +8,19 @@ public class Unit : MonoBehaviour
 	const float pathUpdateMoveThreshold = 0.5f;
 
     public Transform target;
-    public float speed = 10;
+    public float defaultSpeed = 10;
 	public float turnSpeed = 3;
 	public float turnDistance = 5;
+
+	float currentSpeed;
 
 	Path path;
 
 	private void Start()
 	{
+		GameManager.Instance.GamePaused += OnGamePaused;
+		GameManager.Instance.GameResumed += OnGameResumed;
+		currentSpeed = defaultSpeed;
 		StartCoroutine(UpdatePath());
 	}
 
@@ -78,7 +83,7 @@ public class Unit : MonoBehaviour
 			{
 				Quaternion targetRotation = Quaternion.LookRotation(path.lookPoints[pathIndex] - transform.position);
 				transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
-				transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.Self);
+				transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.Self);
 			}
 
 			yield return null;
@@ -91,5 +96,14 @@ public class Unit : MonoBehaviour
 		{
 			path.DrawWithGizmos();
 		}
+	}
+
+	void OnGamePaused()
+	{
+		currentSpeed = 0;
+	}
+	void OnGameResumed()
+	{
+		currentSpeed = defaultSpeed;
 	}
 }

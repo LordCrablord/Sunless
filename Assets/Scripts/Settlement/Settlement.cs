@@ -16,6 +16,8 @@ public class Settlement : MonoBehaviour
 	{
         if (collision.gameObject.name == "PlayerCharacter")
         {
+            GameManager.Instance.PauseGameRequest++;
+            collision.gameObject.GetComponent<PlayerController>().SetPauseState(true);
             QuestManager.Instance.TriggerManager.SettlementTriggerListsModified += TriggerListModified;
             SetSettlementUI();
         }
@@ -30,6 +32,7 @@ public class Settlement : MonoBehaviour
     public void OnSettlementExit()
 	{
         QuestManager.Instance.TriggerManager.SettlementTriggerListsModified -= TriggerListModified;
+        GameManager.Instance.PauseGameRequest--;
     }
 
     void SetSettlementUI()
@@ -61,8 +64,6 @@ public class Settlement : MonoBehaviour
 
     List<SettlementPart> GetAllowedSettlementParts()
 	{
-
-        //change later to see which part to see for player
         return settlementData.settlementParts.Where(r => !QuestManager.Instance.TriggerManager.settlementConditionForbidID.Contains(r.id)).ToList();
 	}
 

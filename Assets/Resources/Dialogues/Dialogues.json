@@ -256,6 +256,23 @@
 			],
 			"actions":[
 			]
+	  },
+	  {
+	  		"id":14,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "You see two orcs"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "They clearly want to fight you"
+				}
+			],
+			"actions":[
+			]
 	  }
 	]
 }
