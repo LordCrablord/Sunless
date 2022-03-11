@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     PlayerCharacterStats characterStats;
 
     bool pauseStateToggled = false;
+
     void Start()
     {
         characterStats = gameObject.GetComponent<PlayerCharacterStats>();
@@ -59,7 +60,17 @@ public class PlayerController : MonoBehaviour
             if (pauseStateToggled) GameManager.Instance.PauseGameRequest++;
             else GameManager.Instance.PauseGameRequest--;
         }
+		if (Input.GetKeyDown(KeyCode.E))
+		{
+            OnEventTriggered();
+		}
     }
+
+    public event Notify EventTriggered;
+    protected virtual void OnEventTriggered()
+	{
+        EventTriggered?.Invoke();
+	}
 
     public void ModifyStats(Stats stat, float value)
     {
