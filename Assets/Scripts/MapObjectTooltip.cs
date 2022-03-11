@@ -10,6 +10,8 @@ public class MapObjectTooltip : MonoBehaviour
 	public string tooltipBody;
 
 	GameObject tooltip;
+
+
 	private void OnMouseEnter()
 	{
 		StartCoroutine("ShowTooltip");
