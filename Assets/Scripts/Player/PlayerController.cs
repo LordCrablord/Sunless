@@ -56,9 +56,7 @@ public class PlayerController : MonoBehaviour
         }
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-            pauseStateToggled = !pauseStateToggled;
-            if (pauseStateToggled) GameManager.Instance.PauseGameRequest++;
-            else GameManager.Instance.PauseGameRequest--;
+            SetPauseState(!pauseStateToggled);
         }
 		if (Input.GetKeyDown(KeyCode.E))
 		{
@@ -71,6 +69,13 @@ public class PlayerController : MonoBehaviour
 	{
         EventTriggered?.Invoke();
 	}
+
+    public void SetPauseState(bool state)
+	{
+        pauseStateToggled = state;
+        if (pauseStateToggled) GameManager.Instance.PauseGameRequest++;
+        else GameManager.Instance.PauseGameRequest--;
+    }
 
     public void ModifyStats(Stats stat, float value)
     {

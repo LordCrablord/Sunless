@@ -17,6 +17,7 @@ public class Settlement : MonoBehaviour
         if (collision.gameObject.name == "PlayerCharacter")
         {
             GameManager.Instance.PauseGameRequest++;
+            collision.gameObject.GetComponent<PlayerController>().SetPauseState(true);
             QuestManager.Instance.TriggerManager.SettlementTriggerListsModified += TriggerListModified;
             SetSettlementUI();
         }
