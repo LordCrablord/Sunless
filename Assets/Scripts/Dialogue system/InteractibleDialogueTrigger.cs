@@ -37,6 +37,7 @@ public class InteractibleDialogueTrigger : MonoBehaviour
 	void OnEventTriggered()
 	{
         GameManager.Instance.StartDialogue(dialogueAction);
+        Destroy(gameObject);
 	}
 }
 
