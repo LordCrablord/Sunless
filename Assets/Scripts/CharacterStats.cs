@@ -70,6 +70,12 @@ public class CharacterStats:ScriptableObject
 		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (float)val; }));
 	}
 
+	public event Notify TurnStarted;
+	public virtual void OnTurnStarted()
+	{
+		TurnStarted?.Invoke();
+	}
+
 	/*protected CharacterStats(CharacterStats character)
 	{
 		this.characterName = character.characterName;

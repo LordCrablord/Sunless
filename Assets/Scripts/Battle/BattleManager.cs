@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BattleManager : Singleton<BattleManager>
@@ -11,15 +12,25 @@ public class BattleManager : Singleton<BattleManager>
 	public BattleData temp;
 	BattleData currrentBattle;
 
+	Queue<CharacterStats> turnOrder;
+
 	private void Start()
 	{
 		Invoke("StartLate", 0.1f);
 		SetEnemies(temp);
+		
 	}
+	//at the moment late start as testing and it was not really instatiated yet
+	//it wont be a problem later, so late start can be removed, later, after testing
 	private void StartLate()
 	{
 		playerPCs[0] = GameManager.Instance.MainCharacter.CharacterStats;
 		battleUI.SetAllyToken(playerPCs[0], 0);
+
+		SetTurnOrders();
+		foreach (CharacterStats cha in turnOrder)
+			Debug.Log(cha.characterName);
+		turnOrder.Dequeue().OnTurnStarted();
 	}
 
 	void SetEnemies(BattleData data)
@@ -43,5 +54,21 @@ public class BattleManager : Singleton<BattleManager>
 		if (currrentBattle.enemies[pos] != null)
 			enemies[pos] = Instantiate(currrentBattle.enemies[pos]);
 		else enemies[pos] = null;
+	}
+
+	void SetTurnOrders()
+	{
+		turnOrder = new Queue<CharacterStats>();
+		foreach (PlayerCharacterStats pcStat in playerPCs)
+		{
+			if(pcStat!=null)
+				turnOrder.Enqueue(pcStat);
+		}
+		foreach (NonPlayerCharacterStats npcStat in enemies)
+		{
+			if (npcStat != null)
+				turnOrder.Enqueue(npcStat);
+		}
+		turnOrder = new Queue<CharacterStats>(turnOrder.OrderBy(q=>q.Initiative).Reverse());
 	}
 }

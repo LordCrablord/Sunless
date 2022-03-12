@@ -17,10 +17,16 @@ public class Token : MonoBehaviour
 	{
         stat = newStats;
         stat.HealthChanged += SetHealthUI;
+        stat.TurnStarted += OnTurnStartedUI;
         nameTMP.text = stat.characterName;
         image.sprite = stat.sprite;
         SetHealthUI();
     }
+
+    void OnTurnStartedUI()
+	{
+        Debug.Log(stat.characterName + " has started his turn!");
+	}
 
 	void SetHealthUI()
 	{
@@ -42,6 +48,7 @@ public class Token : MonoBehaviour
 	public void DestroyToken()
 	{
         stat.HealthChanged -= SetHealthUI;
+        stat.TurnStarted -= OnTurnStartedUI;
         Destroy(gameObject);
 	}
 }
