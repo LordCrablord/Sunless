@@ -12,7 +12,7 @@ public class BattleUI : MonoBehaviour
 	{
 		GameObject token = Instantiate(tokenPrefab, transform.position, Quaternion.identity);
 		token.GetComponent<Token>().SetToken(stat);
-		token.transform.SetParent(allyTilesTokenUI[position].transform, false);
+		token.transform.SetParent(destinationTiles[position].transform, false);
 		token.transform.localPosition = Vector3.zero;
 	}
 

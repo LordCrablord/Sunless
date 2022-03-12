@@ -20,8 +20,6 @@ public class BattleManager : Singleton<BattleManager>
 	{
 		playerPCs[0] = GameManager.Instance.MainCharacter.CharacterStats;
 		battleUI.SetAllyToken(playerPCs[0], 0);
-		battleUI.SetAllyToken(playerPCs[0], 1);
-		battleUI.SetAllyToken(playerPCs[0], 2);
 	}
 
 	void SetEnemies(BattleData data)
