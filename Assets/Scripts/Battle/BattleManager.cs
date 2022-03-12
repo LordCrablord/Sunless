@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,9 +14,11 @@ public class BattleManager : Singleton<BattleManager>
 	BattleData currrentBattle;
 
 	Queue<CharacterStats> turnOrder;
+	int roundCount;
 
 	private void Start()
 	{
+		roundCount = 0;
 		Invoke("StartLate", 0.1f);
 		SetEnemies(temp);
 		
@@ -38,10 +41,17 @@ public class BattleManager : Singleton<BattleManager>
 		turnOrder = new Queue<CharacterStats>(turnOrder.OrderBy(q => q.Initiative).Reverse());
 		if (turnOrder.Count == 0)
 		{
-			Debug.Log("New Round");
+			roundCount++;
+			OnNewRoundStarted();
 			SetTurnOrder();
 		}
 		turnOrder.Dequeue().OnTurnStarted();
+	}
+
+	public event EventHandler<int> NewRoundStarted;
+	protected virtual void OnNewRoundStarted()
+	{
+		NewRoundStarted?.Invoke(this, roundCount);
 	}
 
 	void SetEnemies(BattleData data)
