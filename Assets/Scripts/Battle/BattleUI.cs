@@ -5,10 +5,26 @@ using UnityEngine;
 public class BattleUI : MonoBehaviour
 {
     public GameObject[] allyTilesTokenUI = new GameObject[3];
+	public GameObject[] enemyTilesTokenUI = new GameObject[3];
+	[SerializeField] GameObject tokenPrefab;
 
-    public void SetToken(CharacterStats stat, int position)
+    public void SetToken(CharacterStats stat, int position, GameObject[] destinationTiles)
 	{
-		allyTilesTokenUI[position].transform.GetChild(0)
-			.gameObject.GetComponent<Token>().SetToken(stat);
+		GameObject token = Instantiate(tokenPrefab, transform.position, Quaternion.identity);
+		token.GetComponent<Token>().SetToken(stat);
+		token.transform.SetParent(allyTilesTokenUI[position].transform, false);
+		token.transform.localPosition = Vector3.zero;
+	}
+
+	public void SetAllyToken(CharacterStats stat, int position)
+	{
+		if (stat == null) return;
+		SetToken(stat, position, allyTilesTokenUI);
+	}
+
+	public void SetEnemyToken(CharacterStats stat, int position)
+	{
+		if (stat == null) return;
+		SetToken(stat, position, enemyTilesTokenUI);
 	}
 }
