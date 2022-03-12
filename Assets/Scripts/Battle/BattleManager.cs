@@ -27,9 +27,20 @@ public class BattleManager : Singleton<BattleManager>
 		playerPCs[0] = GameManager.Instance.MainCharacter.CharacterStats;
 		battleUI.SetAllyToken(playerPCs[0], 0);
 
-		SetTurnOrders();
+		SetTurnOrder();
 		foreach (CharacterStats cha in turnOrder)
 			Debug.Log(cha.characterName);
+		turnOrder.Dequeue().OnTurnStarted();
+	}
+
+	public void MakeNextTurn()
+	{
+		turnOrder = new Queue<CharacterStats>(turnOrder.OrderBy(q => q.Initiative).Reverse());
+		if (turnOrder.Count == 0)
+		{
+			Debug.Log("New Round");
+			SetTurnOrder();
+		}
 		turnOrder.Dequeue().OnTurnStarted();
 	}
 
@@ -56,7 +67,7 @@ public class BattleManager : Singleton<BattleManager>
 		else enemies[pos] = null;
 	}
 
-	void SetTurnOrders()
+	void SetTurnOrder()
 	{
 		turnOrder = new Queue<CharacterStats>();
 		foreach (PlayerCharacterStats pcStat in playerPCs)

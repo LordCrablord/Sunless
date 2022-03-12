@@ -27,4 +27,9 @@ public class BattleUI : MonoBehaviour
 		if (stat == null) return;
 		SetToken(stat, position, enemyTilesTokenUI);
 	}
+
+	public void OnTurnEndButtonClicked()
+	{
+		BattleManager.Instance.MakeNextTurn();
+	}
 }
