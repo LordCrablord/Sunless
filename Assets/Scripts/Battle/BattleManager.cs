@@ -9,6 +9,11 @@ public class BattleManager : Singleton<BattleManager>
 
 	private void Start()
 	{
+		Invoke("StartLate", 0.1f);
+	}
+	private void StartLate()
+	{
+		playerPCs[0] = GameManager.Instance.MainCharacter.CharacterStats;
 		battleUI.SetToken(playerPCs[0], 0);
 	}
 }

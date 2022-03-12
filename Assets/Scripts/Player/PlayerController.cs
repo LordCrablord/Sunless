@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerCharacterStats defaultCharacterStats;
     PlayerCharacterStats characterStats;
+    public PlayerCharacterStats CharacterStats { get { return characterStats; } }
 
     bool pauseStateToggled = false;
 
