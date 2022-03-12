@@ -16,10 +16,22 @@ public class Token : MonoBehaviour
     public void SetToken(CharacterStats newStats)
 	{
         stat = newStats;
+        stat.HealthChanged += SetHealthUI;
         nameTMP.text = stat.characterName;
         image.sprite = stat.sprite;
-        hpTMP.text = stat.Hp.ToString() + "/" + stat.HpMax.ToString();
-        healthSlider.value = stat.Hp;
-        healthSlider.maxValue = stat.HpMax;
+        SetHealthUI();
     }
+
+	void SetHealthUI()
+	{
+        hpTMP.text = stat.Hp.ToString() + "/" + stat.HpMax.ToString();
+        healthSlider.maxValue = stat.HpMax;
+        healthSlider.value = stat.Hp;
+    }
+
+    public void DestroyToken()
+	{
+        stat.HealthChanged -= SetHealthUI;
+        Destroy(gameObject);
+	}
 }

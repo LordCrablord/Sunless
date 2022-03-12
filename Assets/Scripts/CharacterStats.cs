@@ -20,7 +20,14 @@ public class CharacterStats:MonoBehaviour
 		set
 		{
 			hpMax = value;
+			OnMaxHealthChanged();
 		}
+	}
+
+	public event Notify MaxHealthChanged;
+	protected virtual void OnMaxHealthChanged()
+	{
+		MaxHealthChanged?.Invoke();
 	}
 
 	[SerializeField] float hp;
@@ -31,7 +38,14 @@ public class CharacterStats:MonoBehaviour
 		{
 			if (value > HpMax) hp = HpMax;
 			else hp = value;
+			OnHealthChanged();
 		}
+	}
+
+	public event Notify HealthChanged;
+	protected virtual void OnHealthChanged()
+	{
+		HealthChanged?.Invoke();
 	}
 
 
