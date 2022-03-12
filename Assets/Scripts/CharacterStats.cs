@@ -4,7 +4,9 @@ using System.Linq;
 using UnityEngine;
 
 public enum Stats {HP, HP_MAX, XP, GOLD, DAMAGE, CRIT_CHANCE, CRIT_VALUE}
-public class CharacterStats:MonoBehaviour
+[System.Serializable]
+[CreateAssetMenu(fileName = "New Character", menuName = "Character/Character")]
+public class CharacterStats:ScriptableObject
 {
 	public string characterName;
 	public Sprite sprite;
@@ -62,6 +64,26 @@ public class CharacterStats:MonoBehaviour
 		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (float)val; }));
 	}
 
+	protected CharacterStats(CharacterStats character)
+	{
+		this.characterName = character.characterName;
+		this.sprite = character.sprite;
+		this.hpMax = character.hpMax;
+		this.hp = character.hp;
+
+		this.additiveBonuses = new List<StatModifier>();
+		foreach (StatModifier modifier in character.additiveBonuses)
+			this.additiveBonuses.Add(modifier);
+
+		this.multiplyingBonuses = new List<StatModifier>();
+		foreach (StatModifier modifier in character.multiplyingBonuses)
+			this.multiplyingBonuses.Add(modifier);
+
+		StatsDictionary.Add(Stats.HP, new VariableReference(() => Hp, val => { Hp = (float)val; }));
+		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (float)val; }));
+	}
+
+
 	protected float AddAllBonuses(List<StatModifier> modifiersList, Stats stat)
 	{
 		return modifiersList.FindAll(st => st.modifierTo == stat).Sum(s => s.value);
@@ -91,6 +113,7 @@ public class CharacterStats:MonoBehaviour
 	{
 		StatsDictionary[stat].Set((float)StatsDictionary[stat].Get() + value);
 	}
+
 }
 
 [System.Serializable]

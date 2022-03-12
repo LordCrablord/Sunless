@@ -20169,7 +20169,6 @@ GameObject:
   - component: {fileID: 1862654481}
   - component: {fileID: 1862654482}
   - component: {fileID: 1862654483}
-  - component: {fileID: 1862654484}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -20316,27 +20315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bff3fe7a1f5d2e40930d6eeb0235056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1862654484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862654475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0c98f0a70c811c4f80c5f2575c28c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterName: Dalaran
-  sprite: {fileID: 21300000, guid: b40333e0a1f61b44d98ca3fc4da593bf, type: 3}
-  hpMax: 10
-  hp: 5
-  armorClassBase: 1
-  helmet: {fileID: 0}
-  chestpiece: {fileID: 0}
-  weapon: {fileID: 0}
-  trinket1: {fileID: 0}
+  defaultCharacterStats: {fileID: 11400000, guid: 18136a9af3f0af040812fd9fa947067d,
+    type: 2}
 --- !u!1 &1897406489
 GameObject:
   m_ObjectHideFlags: 0
@@ -23056,7 +23036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleUI: {fileID: 1979257593}
   playerPCs:
-  - {fileID: 1862654484}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &2134927035

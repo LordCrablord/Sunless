@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] PlayerCharacterStats defaultCharacterStats;
     PlayerCharacterStats characterStats;
 
     bool pauseStateToggled = false;
 
     void Start()
     {
-        characterStats = gameObject.GetComponent<PlayerCharacterStats>();
+        characterStats = defaultCharacterStats.Clone();
 
         StatModifier stat1 = new StatModifier { modifierFromID = 1, modifierTo = Stats.XP, value = 5 };
         StatModifier stat2 = new StatModifier { modifierFromID = 1, modifierTo = Stats.HP_MAX, value = 0.2f};

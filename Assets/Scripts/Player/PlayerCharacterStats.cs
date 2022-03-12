@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[System.Serializable]
+[CreateAssetMenu(fileName = "New PlayerCharacter", menuName = "Character/PlayerCharacter")]
 public class PlayerCharacterStats : CharacterStats
 {
     static int xp;
@@ -117,12 +118,31 @@ public class PlayerCharacterStats : CharacterStats
 
 	public PlayerCharacterStats()
 	{
-
 		StatsDictionary.Add(Stats.XP, new VariableReference(() => Xp, val => { Xp = (float)val; }));
 		StatsDictionary.Add(Stats.GOLD, new VariableReference(() => Gold, val => { Gold = (float)val; }));
 		StatsDictionary.Add(Stats.DAMAGE, new VariableReference(() => Damage, null));
 		StatsDictionary.Add(Stats.CRIT_CHANCE, new VariableReference(() => CritChance, null));
 		StatsDictionary.Add(Stats.CRIT_VALUE, new VariableReference(() => CritValue, null));
+	}
+
+	public PlayerCharacterStats(PlayerCharacterStats playerCharacterStats):base(playerCharacterStats)
+	{
+		this.level = playerCharacterStats.level;
+		this.armorClassBase = playerCharacterStats.armorClassBase;
+		this.helmet = playerCharacterStats.helmet;
+		this.chestpiece = playerCharacterStats.chestpiece;
+		this.weapon = playerCharacterStats.weapon;
+		this.trinket1 = playerCharacterStats.trinket1;
+		StatsDictionary.Add(Stats.XP, new VariableReference(() => Xp, val => { Xp = (float)val; }));
+		StatsDictionary.Add(Stats.GOLD, new VariableReference(() => Gold, val => { Gold = (float)val; }));
+		StatsDictionary.Add(Stats.DAMAGE, new VariableReference(() => Damage, null));
+		StatsDictionary.Add(Stats.CRIT_CHANCE, new VariableReference(() => CritChance, null));
+		StatsDictionary.Add(Stats.CRIT_VALUE, new VariableReference(() => CritValue, null));
+	}
+
+	public PlayerCharacterStats Clone()
+	{
+		return new PlayerCharacterStats(this);
 	}
 
 	public void EquipItem(Item item)
