@@ -16,4 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 4922ff62c543bdc478e36ee6e5e9b4ce, type: 3}
   hpMax: 14
   hp: 14
+  initiative: 2
   npcID: 1

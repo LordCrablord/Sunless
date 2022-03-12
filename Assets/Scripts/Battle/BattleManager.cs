@@ -25,13 +25,23 @@ public class BattleManager : Singleton<BattleManager>
 	void SetEnemies(BattleData data)
 	{
 		currrentBattle = data;
-		enemies[0] = currrentBattle.enemies[0];
-		enemies[1] = currrentBattle.enemies[1];
-		enemies[2] = currrentBattle.enemies[2];
+		/*enemies[0] = Instantiate(currrentBattle.enemies[0]);
+		enemies[1] = Instantiate(currrentBattle.enemies[1]);
+		enemies[2] = Instantiate(currrentBattle.enemies[2]);*/
+		CloneEnemyToPosition(0);
+		CloneEnemyToPosition(1);
+		CloneEnemyToPosition(2);
 
-		for(int i = 0; i < enemies.Length; i++)
+		for (int i = 0; i < enemies.Length; i++)
 		{
 			battleUI.SetEnemyToken(enemies[i], i);
 		}
+	}
+
+	void CloneEnemyToPosition(int pos)
+	{
+		if (currrentBattle.enemies[pos] != null)
+			enemies[pos] = Instantiate(currrentBattle.enemies[pos]);
+		else enemies[pos] = null;
 	}
 }

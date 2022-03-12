@@ -7,7 +7,7 @@ using UnityEngine;
 public class NonPlayerCharacterStats : CharacterStats
 {
 	public int npcID;
-    NonPlayerCharacterStats(NonPlayerCharacterStats npc)
+    /*NonPlayerCharacterStats(NonPlayerCharacterStats npc)
 	{
 		this.npcID = npc.npcID;
 	}
@@ -15,5 +15,5 @@ public class NonPlayerCharacterStats : CharacterStats
 	public NonPlayerCharacterStats Clone()
 	{
 		return new NonPlayerCharacterStats(this);
-	}
+	}*/
 }

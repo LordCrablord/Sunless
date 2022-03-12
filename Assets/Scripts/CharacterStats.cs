@@ -50,6 +50,12 @@ public class CharacterStats:ScriptableObject
 		HealthChanged?.Invoke();
 	}
 
+	[SerializeField] float initiative;
+	public float Initiative
+	{
+		get { return initiative; }
+		set{ initiative = value;}
+	}
 
 	protected List<StatModifier> additiveBonuses;
 	protected List<StatModifier> multiplyingBonuses;
@@ -64,12 +70,13 @@ public class CharacterStats:ScriptableObject
 		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (float)val; }));
 	}
 
-	protected CharacterStats(CharacterStats character)
+	/*protected CharacterStats(CharacterStats character)
 	{
 		this.characterName = character.characterName;
 		this.sprite = character.sprite;
 		this.hpMax = character.hpMax;
 		this.hp = character.hp;
+		this.initiative = character.initiative;
 
 		this.additiveBonuses = new List<StatModifier>();
 		foreach (StatModifier modifier in character.additiveBonuses)
@@ -81,7 +88,7 @@ public class CharacterStats:ScriptableObject
 
 		StatsDictionary.Add(Stats.HP, new VariableReference(() => Hp, val => { Hp = (float)val; }));
 		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (float)val; }));
-	}
+	}*/
 
 
 	protected float AddAllBonuses(List<StatModifier> modifiersList, Stats stat)

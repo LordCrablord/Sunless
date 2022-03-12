@@ -125,7 +125,7 @@ public class PlayerCharacterStats : CharacterStats
 		StatsDictionary.Add(Stats.CRIT_VALUE, new VariableReference(() => CritValue, null));
 	}
 
-	public PlayerCharacterStats(PlayerCharacterStats playerCharacterStats):base(playerCharacterStats)
+	/*public PlayerCharacterStats(PlayerCharacterStats playerCharacterStats):base(playerCharacterStats)
 	{
 		this.level = playerCharacterStats.level;
 		this.armorClassBase = playerCharacterStats.armorClassBase;
@@ -143,7 +143,7 @@ public class PlayerCharacterStats : CharacterStats
 	public PlayerCharacterStats Clone()
 	{
 		return new PlayerCharacterStats(this);
-	}
+	}*/
 
 	public void EquipItem(Item item)
 	{
