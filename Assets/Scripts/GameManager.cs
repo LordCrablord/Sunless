@@ -45,7 +45,7 @@ public class GameManager : Singleton<GameManager>
     }
 
 
-    public void SetCharacterDataOnUI(PlayerCharacterStats stats)
+	public void SetCharacterDataOnUI(PlayerCharacterStats stats)
 	{
         characterUI.GetComponent<CharacterUI>().SetCharacterUI(stats);
 	}
