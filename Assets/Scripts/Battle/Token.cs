@@ -29,7 +29,17 @@ public class Token : MonoBehaviour
         healthSlider.value = stat.Hp;
     }
 
-    public void DestroyToken()
+	public void OnMouseEnter()
+	{
+        nameTMP.gameObject.SetActive(true);
+    }
+
+	public void OnMouseExit()
+	{
+        nameTMP.gameObject.SetActive(false);
+    }
+
+	public void DestroyToken()
 	{
         stat.HealthChanged -= SetHealthUI;
         Destroy(gameObject);
