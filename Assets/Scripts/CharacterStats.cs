@@ -64,8 +64,16 @@ public class CharacterStats:ScriptableObject
 		set { position = value; }
 	}
 
-	int ap;
-	public int AP { get { return ap; } set { ap = value; } }
+	int ap = 0;
+	public int Ap 
+	{ 
+		get { return ap; } 
+		set 
+		{
+			if (value > ApMax) ap = ApMax;
+			else ap = value; 
+		} 
+	}
 
 	[SerializeField] int apMax;
 	public int ApMax 
@@ -106,6 +114,7 @@ public class CharacterStats:ScriptableObject
 	public event Notify TurnStarted;
 	public virtual void OnTurnStarted()
 	{
+		Ap += ApRecovery;
 		TurnStarted?.Invoke();
 	}
 

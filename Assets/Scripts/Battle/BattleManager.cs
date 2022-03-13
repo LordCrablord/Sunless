@@ -30,7 +30,8 @@ public class BattleManager : Singleton<BattleManager>
 	private void StartLate()
 	{
 		playerPCs[0] = GameManager.Instance.MainCharacter.CharacterStats;
-		for(int i = 0; i < playerPCs.Length; i++)
+		CloneAllyToPosition(2);
+		for (int i = 0; i < playerPCs.Length; i++)
 		{
 			battleUI.SetAllyToken(playerPCs[i], i);
 		}
@@ -79,6 +80,16 @@ public class BattleManager : Singleton<BattleManager>
 	{
 		if (currrentBattle.enemies[pos] != null)
 			enemies[pos] = Instantiate(currrentBattle.enemies[pos]);
+		else enemies[pos] = null;
+	}
+
+	void CloneAllyToPosition(int pos)
+	{
+		if (playerPCs[pos] != null)
+		{
+			playerPCs[pos] = Instantiate(playerPCs[pos]);
+		}
+			
 		else enemies[pos] = null;
 	}
 

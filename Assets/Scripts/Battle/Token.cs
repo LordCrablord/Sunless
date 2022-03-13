@@ -32,7 +32,8 @@ public class Token : MonoBehaviour
     void OnTurnStartedUI()
 	{
         Debug.Log(stat.characterName + " has started his turn!");
-	}
+        Debug.Log("AP of " + stat.characterName + ": " + stat.Ap);
+    }
 
 	void SetHealthUI()
 	{
