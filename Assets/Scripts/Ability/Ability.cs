@@ -1,0 +1,21 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public enum TargetPosition { POS_ZERO, POS_ONE, POS_TWO, NONE, SELF}
+
+[System.Serializable]
+[CreateAssetMenu(fileName = "New Ability", menuName = "Ability/Ability")]
+public class Ability : ScriptableObject
+{
+    public int abilityID;
+    public string abilityName;
+    public string description;
+    public Sprite sprite;
+    public List<TargetPosition> targetEnemy;
+    public List<TargetPosition> targetAlly;
+    public bool allTargetsFromSelected;
+    public List<TargetPosition> allowedFromPosition;
+    
+    public int apCost;
+}
