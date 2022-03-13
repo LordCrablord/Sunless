@@ -30,7 +30,11 @@ public class BattleManager : Singleton<BattleManager>
 	private void StartLate()
 	{
 		playerPCs[0] = GameManager.Instance.MainCharacter.CharacterStats;
-		battleUI.SetAllyToken(playerPCs[0], 0);
+		for(int i = 0; i < playerPCs.Length; i++)
+		{
+			battleUI.SetAllyToken(playerPCs[i], i);
+		}
+		
 
 		SetTurnOrder();
 		foreach (CharacterStats cha in turnOrder)

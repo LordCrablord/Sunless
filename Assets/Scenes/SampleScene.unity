@@ -21177,7 +21177,7 @@ MonoBehaviour:
   playerPCs:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7e5655f3673d5864e9b0210e71f3cca3, type: 2}
   enemies:
   - {fileID: 0}
   - {fileID: 0}
