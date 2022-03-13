@@ -15,6 +15,8 @@ public class BattleManager : Singleton<BattleManager>
 
 	Queue<CharacterStats> turnOrder;
 	int roundCount;
+	CharacterStats currentCharacter;
+	public CharacterStats CurrentCharacter { get { return currentCharacter; } }
 
 	private void Start()
 	{
@@ -33,7 +35,8 @@ public class BattleManager : Singleton<BattleManager>
 		SetTurnOrder();
 		foreach (CharacterStats cha in turnOrder)
 			Debug.Log(cha.characterName);
-		turnOrder.Dequeue().OnTurnStarted();
+		currentCharacter = turnOrder.Dequeue();
+		currentCharacter.OnTurnStarted();
 	}
 
 	public void MakeNextTurn()
@@ -45,7 +48,8 @@ public class BattleManager : Singleton<BattleManager>
 			OnNewRoundStarted();
 			SetTurnOrder();
 		}
-		turnOrder.Dequeue().OnTurnStarted();
+		currentCharacter = turnOrder.Dequeue();
+		currentCharacter.OnTurnStarted();
 	}
 
 	public event EventHandler<int> NewRoundStarted;

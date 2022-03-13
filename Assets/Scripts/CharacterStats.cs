@@ -57,8 +57,8 @@ public class CharacterStats:ScriptableObject
 		set{ initiative = value;}
 	}
 
-	[SerializeField] float position;
-	public float Position
+	[SerializeField] int position;
+	public int Position
 	{
 		get { return position; }
 		set { position = value; }
