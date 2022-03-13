@@ -38,13 +38,10 @@ public class BattleManager : Singleton<BattleManager>
 		
 
 		SetTurnOrder();
-		foreach (CharacterStats cha in turnOrder)
-			Debug.Log(cha.characterName);
-		currentCharacter = turnOrder.Dequeue();
-		currentCharacter.OnTurnStarted();
+		DoNextTurn();
 	}
 
-	public void MakeNextTurn()
+	public void DoNextTurn()
 	{
 		turnOrder = new Queue<CharacterStats>(turnOrder.OrderBy(q => q.Initiative).Reverse());
 		if (turnOrder.Count == 0)
@@ -55,6 +52,10 @@ public class BattleManager : Singleton<BattleManager>
 		}
 		currentCharacter = turnOrder.Dequeue();
 		currentCharacter.OnTurnStarted();
+		if(currentCharacter is PlayerCharacterStats)
+		{
+			battleUI.SetCharacterUI();
+		}
 	}
 
 	public event EventHandler<int> NewRoundStarted;

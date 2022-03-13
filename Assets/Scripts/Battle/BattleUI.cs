@@ -14,6 +14,13 @@ public class BattleUI : MonoBehaviour
 	[SerializeField] Button moveLeftButton;
 	[SerializeField] Button moveRightButton;
 
+	[SerializeField] TextMeshProUGUI characterNameTMP;
+	[SerializeField] Image image;
+	[SerializeField] TextMeshProUGUI hpTMP;
+	[SerializeField] Slider healthSlider;
+	[SerializeField] TextMeshProUGUI armorTMP;
+	[SerializeField] TextMeshProUGUI actionPointsTMP;
+
 	private void Start()
 	{
 		BattleManager.Instance.NewRoundStarted += NewRound;
@@ -41,11 +48,12 @@ public class BattleUI : MonoBehaviour
 
 	public void OnTurnEndButtonClicked()
 	{
-		BattleManager.Instance.MakeNextTurn();
+		BattleManager.Instance.DoNextTurn();
 	}
 
 	public void OnMoveButtonClicked(int value)
 	{
+
 		int newPos = BattleManager.Instance.CurrentCharacter.Position + value;
 		if(newPos>=0 && newPos < 3)
 		{
@@ -74,6 +82,9 @@ public class BattleUI : MonoBehaviour
 			PlayerCharacterStats temp = BattleManager.Instance.playerPCs[firstPos];
 			BattleManager.Instance.playerPCs[firstPos] = BattleManager.Instance.playerPCs[newPos];
 			BattleManager.Instance.playerPCs[newPos] = temp;
+
+			BattleManager.Instance.CurrentCharacter.Ap--;
+			SetCharacterUI();
 		}
 		
 	}
@@ -83,14 +94,30 @@ public class BattleUI : MonoBehaviour
 		roundTMP.text = "Round: " + roundCount;
 	}
 
+	public void SetCharacterUI()
+	{
+		if (BattleManager.Instance.CurrentCharacter is PlayerCharacterStats)
+		{
+			PlayerCharacterStats playerCharacter = (PlayerCharacterStats)BattleManager.Instance.CurrentCharacter;
+			characterNameTMP.text = playerCharacter.characterName;
+			image.sprite = playerCharacter.sprite;
+			hpTMP.text = playerCharacter.Hp + "/" + playerCharacter.HpMax;
+			healthSlider.maxValue = playerCharacter.HpMax;
+			healthSlider.value = playerCharacter.Hp;
+			armorTMP.text = playerCharacter.ArmorClass.ToString();
+			actionPointsTMP.text = "AP: " + playerCharacter.Ap + " / " + playerCharacter.ApMax;
+			//ManageMoveButtons();
+		}
+	}
+
 	//this will be later used in setUIForCharacter
 	void ManageMoveButtons()
 	{
 		if (BattleManager.Instance.CurrentCharacter.Position != 0)
-			moveRightButton.interactable = false;
-		else moveRightButton.interactable = true;
+			moveRightButton.interactable = true;
+		else moveRightButton.interactable = false;
 		if (BattleManager.Instance.CurrentCharacter.Position != 2)
-			moveLeftButton.interactable = false;
-		else moveLeftButton.interactable = true;
+			moveLeftButton.interactable = true;
+		else moveLeftButton.interactable = false;
 	}
 }

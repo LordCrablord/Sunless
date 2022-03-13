@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: teeemp
   sprite: {fileID: 21300000, guid: 38a06a4c323c748479e28a268f636634, type: 3}
   hpMax: 246
-  hp: 159
+  hp: 169
   initiative: 2
   position: 2
   apMax: 4
