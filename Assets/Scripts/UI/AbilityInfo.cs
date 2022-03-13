@@ -21,6 +21,7 @@ public class AbilityInfo : MonoBehaviour
 
     public void SetAbilityTooltip(Ability ability)
 	{
+        if (ability == null) return;
         abilityName.text = ability.abilityName;
         description.text = ability.description;
 

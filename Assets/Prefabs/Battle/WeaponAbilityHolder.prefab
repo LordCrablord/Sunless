@@ -147,7 +147,7 @@ MonoBehaviour:
   image: {fileID: 8271898255769462965}
   AbilityInfoPrefab: {fileID: 4758348161946970713, guid: a189196b98793b74d99e28577a634f79,
     type: 3}
-  itemTooltipOffset: {x: 70, y: -150}
+  itemTooltipOffset: {x: -280, y: 150}
 --- !u!114 &8271898255406644589
 MonoBehaviour:
   m_ObjectHideFlags: 0

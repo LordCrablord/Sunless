@@ -9,7 +9,7 @@ public class WeaponAbilityUIHolder : MonoBehaviour
     [SerializeField] Image image;
     [SerializeField] GameObject AbilityInfoPrefab;
     GameObject abilityInfo;
-	[SerializeField] protected Vector2 itemTooltipOffset = new Vector2(70, -150);
+	[SerializeField] protected Vector2 itemTooltipOffset = new Vector2(-800, 0);
 	float tooltipWait = 0.25f;
 
 	public void SetWeaponAbilityUI(WeaponAttackAbility ab)
