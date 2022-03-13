@@ -14,12 +14,17 @@ public class BattleUI : MonoBehaviour
 	[SerializeField] Button moveLeftButton;
 	[SerializeField] Button moveRightButton;
 
+	[Header ("Lower Left")]
 	[SerializeField] TextMeshProUGUI characterNameTMP;
 	[SerializeField] Image image;
 	[SerializeField] TextMeshProUGUI hpTMP;
 	[SerializeField] Slider healthSlider;
 	[SerializeField] TextMeshProUGUI armorTMP;
 	[SerializeField] TextMeshProUGUI actionPointsTMP;
+
+	[Header("Lower right")]
+	[SerializeField] GameObject weaponAbilityMain;
+	[SerializeField] GameObject weaponAbilitySecond;
 
 	private void Start()
 	{
@@ -106,7 +111,12 @@ public class BattleUI : MonoBehaviour
 			healthSlider.value = playerCharacter.Hp;
 			armorTMP.text = playerCharacter.ArmorClass.ToString();
 			actionPointsTMP.text = "AP: " + playerCharacter.Ap + " / " + playerCharacter.ApMax;
-			//ManageMoveButtons();
+
+			if (playerCharacter.weapon != null)
+			{
+				weaponAbilityMain.GetComponent<WeaponAbilityUIHolder>().SetWeaponAbilityUI(playerCharacter.weapon.mainAbility);
+				weaponAbilitySecond.GetComponent<WeaponAbilityUIHolder>().SetWeaponAbilityUI(playerCharacter.weapon.secondAbility);
+			}
 		}
 	}
 

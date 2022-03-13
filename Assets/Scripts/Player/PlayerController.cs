@@ -31,9 +31,11 @@ public class PlayerController : MonoBehaviour
 
         Weapon newWeapon = (Weapon)GameManager.Instance.ItemDatabase.items[4];
         characterStats.InventoryBack.Add(newWeapon);
+        characterStats.EquipItem(newWeapon);
         newWeapon = (Weapon)GameManager.Instance.ItemDatabase.items[5];
         characterStats.InventoryBack.Add(newWeapon);
         characterStats.InventoryBack.Add(newWeapon);
+        
 
         Debug.Log("Current Xp: " + characterStats.StatsDictionary[Stats.XP].Get());
         Debug.Log("Current Damage: " + characterStats.StatsDictionary[Stats.DAMAGE].Get());
