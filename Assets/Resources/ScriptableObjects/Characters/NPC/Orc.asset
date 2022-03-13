@@ -17,4 +17,7 @@ MonoBehaviour:
   hpMax: 14
   hp: 14
   initiative: 2
+  position: 0
+  apMax: 4
+  apRecovery: 3
   npcID: 1

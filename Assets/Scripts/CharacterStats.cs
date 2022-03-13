@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum Stats {HP, HP_MAX, XP, GOLD, DAMAGE, CRIT_CHANCE, CRIT_VALUE}
+public enum Stats {HP, HP_MAX, XP, GOLD, DAMAGE, CRIT_CHANCE, CRIT_VALUE, AP, AP_MAX, AP_RECOVERY}
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Character", menuName = "Character/Character")]
 public class CharacterStats:ScriptableObject
@@ -63,6 +63,32 @@ public class CharacterStats:ScriptableObject
 		get { return position; }
 		set { position = value; }
 	}
+
+	int ap;
+	public int AP { get { return ap; } set { ap = value; } }
+
+	[SerializeField] int apMax;
+	public int ApMax 
+	{ 
+		get 
+		{
+			float addBonusesSum = apMax + AddAllBonuses(additiveBonuses, Stats.AP_MAX);
+			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.AP_MAX);
+			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
+		} 
+	}
+
+	[SerializeField] int apRecovery;
+	public int ApRecovery
+	{
+		get
+		{
+			float addBonusesSum = apRecovery + AddAllBonuses(additiveBonuses, Stats.AP_RECOVERY);
+			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.AP_RECOVERY);
+			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
+		}
+	}
+
 
 	protected List<StatModifier> additiveBonuses;
 	protected List<StatModifier> multiplyingBonuses;

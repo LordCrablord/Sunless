@@ -17,6 +17,9 @@ MonoBehaviour:
   hpMax: 10
   hp: 5
   initiative: 5
+  position: 0
+  apMax: 4
+  apRecovery: 3
   armorClassBase: 1
   helmet: {fileID: 0}
   chestpiece: {fileID: 0}

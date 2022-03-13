@@ -65,9 +65,6 @@ public class BattleManager : Singleton<BattleManager>
 	void SetEnemies(BattleData data)
 	{
 		currrentBattle = data;
-		/*enemies[0] = Instantiate(currrentBattle.enemies[0]);
-		enemies[1] = Instantiate(currrentBattle.enemies[1]);
-		enemies[2] = Instantiate(currrentBattle.enemies[2]);*/
 		CloneEnemyToPosition(0);
 		CloneEnemyToPosition(1);
 		CloneEnemyToPosition(2);
