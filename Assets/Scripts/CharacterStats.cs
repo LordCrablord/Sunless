@@ -57,6 +57,13 @@ public class CharacterStats:ScriptableObject
 		set{ initiative = value;}
 	}
 
+	[SerializeField] float position;
+	public float Position
+	{
+		get { return position; }
+		set { position = value; }
+	}
+
 	protected List<StatModifier> additiveBonuses;
 	protected List<StatModifier> multiplyingBonuses;
 

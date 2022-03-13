@@ -18,7 +18,7 @@ public class BattleUI : MonoBehaviour
 	public void SetToken(CharacterStats stat, int position, GameObject[] destinationTiles)
 	{
 		GameObject token = Instantiate(tokenPrefab, transform.position, Quaternion.identity);
-		token.GetComponent<Token>().SetToken(stat);
+		token.GetComponent<Token>().SetToken(stat, position);
 		token.transform.SetParent(destinationTiles[position].transform, false);
 		token.transform.localPosition = Vector3.zero;
 	}

@@ -13,9 +13,10 @@ public class Token : MonoBehaviour
 
     CharacterStats stat;
 
-    public void SetToken(CharacterStats newStats)
+    public void SetToken(CharacterStats newStats, int pos)
 	{
         stat = newStats;
+        stat.Position = pos;
         stat.HealthChanged += SetHealthUI;
         stat.TurnStarted += OnTurnStartedUI;
         nameTMP.text = stat.characterName;
