@@ -28,6 +28,11 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 			GetComponent<Button>().interactable = false;
 			panelBlocker.SetActive(true);
 		}
+		if (ab.apCost > BattleManager.Instance.CurrentCharacter.Ap)
+		{
+			GetComponent<Button>().interactable = false;
+			panelBlocker.SetActive(true);
+		}
 	}
 
 	public void ClearWeaponAbilityUI()

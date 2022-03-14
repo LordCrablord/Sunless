@@ -151,7 +151,8 @@ public class BattleManager : Singleton<BattleManager>
 			ability.DoAbility(actionOriginator, ability, initialTarget);
 		}
 		actionOriginator.Ap -= ability.apCost;
-		
-		
+		battleUI.SetCharacterUI();
+
+
 	}
 }
