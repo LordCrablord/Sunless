@@ -11,6 +11,8 @@ public class Token : MonoBehaviour
     [SerializeField] TextMeshProUGUI hpTMP;
     [SerializeField] Slider healthSlider;
     [SerializeField] Image selectImage;
+    [SerializeField] Color highlightedColor;
+    [SerializeField] Color defaultSelectedColor;
 
     CharacterStats stat;
     bool isSelected;
@@ -46,17 +48,20 @@ public class Token : MonoBehaviour
 	public void OnMouseEnter()
 	{
         nameTMP.gameObject.SetActive(true);
+        selectImage.color = highlightedColor;
     }
 
 	public void OnMouseExit()
 	{
         nameTMP.gameObject.SetActive(false);
+        selectImage.color = defaultSelectedColor;
     }
 
     public void SetSelectedStatus(bool selected)
 	{
         isSelected = selected;
         selectImage.gameObject.SetActive(isSelected);
+        selectImage.color = defaultSelectedColor;
 	}
 
     public void OnClick()
