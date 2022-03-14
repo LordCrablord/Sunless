@@ -7,6 +7,7 @@ public class AbilityInfo : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI abilityName;
     [SerializeField] TextMeshProUGUI description;
+    [SerializeField] TextMeshProUGUI apCostTMP;
     [SerializeField] GameObject from0;
     [SerializeField] GameObject from1;
     [SerializeField] GameObject from2;
@@ -24,6 +25,7 @@ public class AbilityInfo : MonoBehaviour
         if (ability == null) return;
         abilityName.text = ability.abilityName;
         description.text = ability.description;
+        apCostTMP.text = "AP: " + ability.apCost;
 
 		if (!ability.allowedFromPosition.Contains(TargetPosition.NONE)&& 
             ability.allowedFromPosition.Count>0)

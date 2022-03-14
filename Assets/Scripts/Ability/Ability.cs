@@ -16,6 +16,8 @@ public class Ability : ScriptableObject
     public List<TargetPosition> targetAlly;
     public bool allTargetsFromSelected;
     public List<TargetPosition> allowedFromPosition;
+    public int echoingToNextTarget;
+    public float echoValMultMod = 1;
     
     public int apCost;
 }
