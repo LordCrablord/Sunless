@@ -25,4 +25,6 @@ MonoBehaviour:
   handUsage: 0
   damage: 6
   critChance: 10
-  critValue: 1.3
+  critValue: 1.8
+  mainAbility: {fileID: 0}
+  secondAbility: {fileID: 0}

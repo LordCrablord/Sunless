@@ -18,11 +18,13 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: cdf7bab7f48126e4f89144176ce1dc38, type: 3}
   targetEnemy: 000000000100000002000000
   targetAlly: 
-  allTargetsFromSelected: 0
+  actionOnAllTargets: 0
   allowedFromPosition: 0000000001000000
+  echoingToNextTarget: 0
+  echoValMultMod: 1
   apCost: 2
   baseDmgValueAddMod: 0
-  baseDmgValueMultMod: 0
+  baseDmgValueMultMod: 1
   baseCrtChanceAddMod: 0
   baseCrtChanceMultMod: 0
   baseCrtValueAddMod: 0

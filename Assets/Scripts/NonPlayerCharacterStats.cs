@@ -7,6 +7,7 @@ using UnityEngine;
 public class NonPlayerCharacterStats : CharacterStats
 {
 	public int npcID;
+	public int armorClass;
     /*NonPlayerCharacterStats(NonPlayerCharacterStats npc)
 	{
 		this.npcID = npc.npcID;

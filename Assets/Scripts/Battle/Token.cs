@@ -68,7 +68,7 @@ public class Token : MonoBehaviour
 	{
 		if (isSelected)
 		{
-            BattleManager.Instance.AttemptAbilityAction(BattleManager.Instance.selectedAbility, stat);
+            BattleManager.Instance.AttemptAbilityAction(BattleManager.Instance.CurrentCharacter, BattleManager.Instance.selectedAbility, stat);
 		}
 	}
 

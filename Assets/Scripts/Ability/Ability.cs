@@ -14,10 +14,15 @@ public class Ability : ScriptableObject
     public Sprite sprite;
     public List<TargetPosition> targetEnemy;
     public List<TargetPosition> targetAlly;
-    public bool allTargetsFromSelected;
+    public bool actionOnAllTargets;
     public List<TargetPosition> allowedFromPosition;
     public int echoingToNextTarget;
     public float echoValMultMod = 1;
     
     public int apCost;
+
+    public virtual void DoAbility(CharacterStats actionOriginator, Ability ability, CharacterStats initialTarget)
+	{
+
+	}
 }

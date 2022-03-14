@@ -124,9 +124,34 @@ public class BattleManager : Singleton<BattleManager>
 		battleUI.ManageSelection();
 	}
 
-	public void AttemptAbilityAction(Ability ability, CharacterStats initialTarget)
+	public void AttemptAbilityAction(CharacterStats actionOriginator, Ability ability, CharacterStats initialTarget)
 	{
 		battleUI.ClearSelection();
-		Debug.Log(ability.abilityName + " is used on " + initialTarget.characterName);
+
+		/*CharacterStats[] targets;
+		switch (actionOriginator)
+		{
+			case PlayerCharacterStats pp:
+				targets = enemies;
+				break;
+			case NonPlayerCharacterStats npp:
+				targets = playerPCs;
+				break;
+		}*/
+
+		if (ability.actionOnAllTargets == true)
+		{
+			foreach (TargetPosition pos in ability.targetEnemy)
+				ability.DoAbility(actionOriginator, ability, enemies[(int)pos]);
+			foreach (TargetPosition pos in ability.targetAlly)
+				ability.DoAbility(actionOriginator, ability, playerPCs[(int)pos]);
+		}
+		else
+		{
+			ability.DoAbility(actionOriginator, ability, initialTarget);
+		}
+		actionOriginator.Ap -= ability.apCost;
+		
+		
 	}
 }

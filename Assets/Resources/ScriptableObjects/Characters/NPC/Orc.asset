@@ -21,3 +21,4 @@ MonoBehaviour:
   apMax: 4
   apRecovery: 3
   npcID: 1
+  armorClass: 1
