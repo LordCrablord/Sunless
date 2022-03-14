@@ -152,6 +152,7 @@ public class BattleUI : MonoBehaviour
 
 	public void ClearSelection()
 	{
+		//TODO later something with ability clear too? like if(clearAbilityToo) BatleManager.Instance.abilitySelected = null;
 		foreach(GameObject holder in enemyTilesTokenUI)
 		{
 			if (holder.transform.childCount > 0)

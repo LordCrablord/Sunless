@@ -66,7 +66,10 @@ public class Token : MonoBehaviour
 
     public void OnClick()
 	{
-        Debug.Log("Clicked on " + stat.characterName);
+		if (isSelected)
+		{
+            BattleManager.Instance.AttemptAbilityAction(BattleManager.Instance.selectedAbility, stat);
+		}
 	}
 
 	public void DestroyToken()

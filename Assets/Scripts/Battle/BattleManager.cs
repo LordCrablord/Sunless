@@ -123,4 +123,10 @@ public class BattleManager : Singleton<BattleManager>
 
 		battleUI.ManageSelection();
 	}
+
+	public void AttemptAbilityAction(Ability ability, CharacterStats initialTarget)
+	{
+		battleUI.ClearSelection();
+		Debug.Log(ability.abilityName + " is used on " + initialTarget.characterName);
+	}
 }
