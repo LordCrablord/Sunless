@@ -48,6 +48,8 @@ public class WeaponAttackAbility : Ability
 
         //TODO normal armor Reduction, but this will do for now
         damage -= target.armorClass;
+        if (damage < 0) damage = 0;
+
         damage = Mathf.RoundToInt(damage);
         target.Hp = target.Hp - damage;
     }
