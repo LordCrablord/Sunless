@@ -20,7 +20,20 @@ public class Token : MonoBehaviour
     bool isSelected;
     bool isSubscribed = false;
 
-    public void SetToken(CharacterStats newStats, int pos)
+    float randDelayMod = 1f;
+	private void Start()
+    { 
+        float rand = Random.Range(0, randDelayMod);
+        StartCoroutine(StartAnim(rand));
+    }
+
+    IEnumerator StartAnim(float val)
+	{
+        yield return new WaitForSeconds(val);
+        gameObject.GetComponent<Animator>().Play("Token Static");
+    }
+
+	public void SetToken(CharacterStats newStats, int pos)
 	{
         stat = newStats;
         stat.Position = pos;
@@ -52,7 +65,7 @@ public class Token : MonoBehaviour
 
     void OnTurnEndedUI()
     {
-        gameObject.GetComponent<Animator>().enabled = false;
+        gameObject.GetComponent<Animator>().Play("Token Static");
     }
 
     void DoCharacterDamageAnimation(object sender, DamageEventArgs e)

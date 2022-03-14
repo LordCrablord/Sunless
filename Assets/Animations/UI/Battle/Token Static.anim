@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Token New Turn
+  m_Name: Token Static
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -30,8 +30,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
-        value: 0
+        time: 0.75
+        value: -0.008470535
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -67,14 +67,14 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
-        value: 30
-        inSlope: 31.240147
-        outSlope: 31.240147
+        time: 0.75
+        value: 4
+        inSlope: -0.21201771
+        outSlope: -0.21201771
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.14201659
-        outWeight: 0.29918993
+        outWeight: 0.27788466
       - serializedVersion: 3
         time: 2
         value: 0
@@ -101,14 +101,14 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 538195251
+      attribute: 1460864421
       script: {fileID: 0}
       typeID: 224
       customType: 28
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 0
-      attribute: 1460864421
+      attribute: 538195251
       script: {fileID: 0}
       typeID: 224
       customType: 28
@@ -148,8 +148,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
-        value: 0
+        time: 0.75
+        value: -0.008470535
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -185,14 +185,14 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
-        value: 30
-        inSlope: 31.240147
-        outSlope: 31.240147
+        time: 0.75
+        value: 4
+        inSlope: -0.21201771
+        outSlope: -0.21201771
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.14201659
-        outWeight: 0.29918993
+        outWeight: 0.27788466
       - serializedVersion: 3
         time: 2
         value: 0
