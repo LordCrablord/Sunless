@@ -18,6 +18,15 @@ public class WeaponAbilityUIHolder : MonoBehaviour
         image.sprite = attackAbility.sprite;
 	}
 
+	public void OnAbilityCliked()
+	{
+		if(attackAbility != null)
+		{
+			BattleManager.Instance.selectedAbility = attackAbility;
+			Debug.Log(BattleManager.Instance.selectedAbility.abilityName + " is selected");
+		}
+	}
+
 	public void OnMouseEnter()
 	{
 		if (attackAbility != null)

@@ -17,6 +17,15 @@ public class BattleManager : Singleton<BattleManager>
 	int roundCount;
 	CharacterStats currentCharacter;
 	public CharacterStats CurrentCharacter { get { return currentCharacter; } }
+	public Ability selectedAbility;
+	/*{
+		get { return selectedAbility; }
+		set
+		{
+			selectedAbility = value;
+			Debug.Log(selectedAbility.abilityName + " is selected");
+		}
+	}*/
 
 	private void Start()
 	{
