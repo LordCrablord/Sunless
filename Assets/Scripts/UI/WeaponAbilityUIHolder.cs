@@ -30,6 +30,14 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 		}
 	}
 
+	public void ClearWeaponAbilityUI()
+	{
+		attackAbility = null;
+		image.sprite = null;
+		GetComponent<Button>().interactable = false;
+		panelBlocker.SetActive(true);
+	}
+
 	public void OnAbilityCliked()
 	{
 		if(attackAbility != null)
