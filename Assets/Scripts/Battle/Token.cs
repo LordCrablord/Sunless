@@ -18,17 +18,25 @@ public class Token : MonoBehaviour
 
     CharacterStats stat;
     bool isSelected;
+    bool isSubscribed = false;
 
     public void SetToken(CharacterStats newStats, int pos)
 	{
         stat = newStats;
         stat.Position = pos;
-        stat.HealthChanged += SetHealthUI;
-        stat.TurnStarted += OnTurnStartedUI;
-        stat.Damaged += DoCharacterDamageAnimation;
         nameTMP.text = stat.characterName;
         image.sprite = stat.sprite;
         SetHealthUI();
+
+		if (!isSubscribed)
+		{
+            stat.HealthChanged += SetHealthUI;
+            stat.TurnStarted += OnTurnStartedUI;
+            stat.TurnEnded += OnTurnEndedUI;
+            stat.Damaged += DoCharacterDamageAnimation;
+            isSubscribed = true;
+        }
+       
     }
 
     public CharacterStats GetStat()
@@ -39,10 +47,19 @@ public class Token : MonoBehaviour
     void OnTurnStartedUI()
 	{
         Debug.Log(stat.characterName + " has started his turn!");
+        gameObject.GetComponent<Animator>().Play("Token New Turn");
+    }
+
+    void OnTurnEndedUI()
+    {
+        gameObject.GetComponent<Animator>().enabled = false;
     }
 
     void DoCharacterDamageAnimation(object sender, DamageEventArgs e)
 	{
+        Animator temp = GetComponent<Animator>();
+
+        gameObject.GetComponent<Animator>().Play("Token Damage Recoil");
         GameObject obj = Instantiate(damageAnimPrefab, transform.position, Quaternion.identity);
         obj.transform.SetParent(gameObject.transform, false);
         obj.GetComponent<DamageAnimation>().StartAnimation(e);
@@ -86,6 +103,7 @@ public class Token : MonoBehaviour
 	{
         stat.HealthChanged -= SetHealthUI;
         stat.TurnStarted -= OnTurnStartedUI;
+        stat.TurnEnded -= OnTurnEndedUI;
         stat.Damaged -= DoCharacterDamageAnimation;
         Destroy(gameObject);
 	}

@@ -45,8 +45,7 @@ public class WeaponAttackAbility : Ability
             isCrit = true;
             damage *= critValue;
             Debug.Log("Crit against " + target.name);
-        }
-            
+        }   
 
         //TODO normal armor Reduction, but this will do for now
         damage -= target.armorClass;

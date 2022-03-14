@@ -75,7 +75,7 @@ public class CharacterStats:ScriptableObject
 			else ap = value;
 			Debug.Log("AP of " + characterName + ": " + Ap);
 			if (ap <= 0 && this == BattleManager.Instance.CurrentCharacter)
-				BattleManager.Instance.DoNextTurn();
+				OnTurnEnded();
 		} 
 	}
 
@@ -120,6 +120,14 @@ public class CharacterStats:ScriptableObject
 	{
 		Ap += ApRecovery;
 		TurnStarted?.Invoke();
+	}
+
+	public event Notify TurnEnded;
+	public virtual void OnTurnEnded()
+	{
+		TurnEnded?.Invoke();
+		BattleManager.Instance.DoNextTurn();
+
 	}
 
 	public event EventHandler<DamageEventArgs> Damaged;

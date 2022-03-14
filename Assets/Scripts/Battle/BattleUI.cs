@@ -54,7 +54,7 @@ public class BattleUI : MonoBehaviour
 
 	public void OnTurnEndButtonClicked()
 	{
-		BattleManager.Instance.DoNextTurn();
+		BattleManager.Instance.CurrentCharacter.OnTurnEnded();
 	}
 
 	public void OnMoveButtonClicked(int value)
