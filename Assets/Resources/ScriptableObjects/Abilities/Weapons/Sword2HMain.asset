@@ -28,4 +28,4 @@ MonoBehaviour:
   baseCrtChanceAddMod: 0
   baseCrtChanceMultMod: 0
   baseCrtValueAddMod: 0
-  baseCrtValueMultMod: 0
+  baseCrtValueMultMod: 1

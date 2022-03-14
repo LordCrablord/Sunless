@@ -14,6 +14,8 @@ public class Token : MonoBehaviour
     [SerializeField] Color highlightedColor;
     [SerializeField] Color defaultSelectedColor;
 
+    [SerializeField] GameObject damageAnimPrefab;
+
     CharacterStats stat;
     bool isSelected;
 
@@ -23,6 +25,7 @@ public class Token : MonoBehaviour
         stat.Position = pos;
         stat.HealthChanged += SetHealthUI;
         stat.TurnStarted += OnTurnStartedUI;
+        stat.Damaged += DoCharacterDamageAnimation;
         nameTMP.text = stat.characterName;
         image.sprite = stat.sprite;
         SetHealthUI();
@@ -37,6 +40,13 @@ public class Token : MonoBehaviour
 	{
         Debug.Log(stat.characterName + " has started his turn!");
     }
+
+    void DoCharacterDamageAnimation(object sender, DamageEventArgs e)
+	{
+        GameObject obj = Instantiate(damageAnimPrefab, transform.position, Quaternion.identity);
+        obj.transform.SetParent(gameObject.transform, false);
+        obj.GetComponent<DamageAnimation>().StartAnimation(e);
+	}
 
 	void SetHealthUI()
 	{
@@ -76,6 +86,7 @@ public class Token : MonoBehaviour
 	{
         stat.HealthChanged -= SetHealthUI;
         stat.TurnStarted -= OnTurnStartedUI;
+        stat.Damaged -= DoCharacterDamageAnimation;
         Destroy(gameObject);
 	}
 }

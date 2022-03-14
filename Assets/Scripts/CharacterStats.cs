@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -120,6 +121,14 @@ public class CharacterStats:ScriptableObject
 		Ap += ApRecovery;
 		TurnStarted?.Invoke();
 	}
+
+	public event EventHandler<DamageEventArgs> Damaged;
+	public virtual void OnDamaged(DamageEventArgs e)
+	{
+		Damaged?.Invoke(this, e);
+	}
+
+
 
 	/*protected CharacterStats(CharacterStats character)
 	{

@@ -38,9 +38,11 @@ public class WeaponAttackAbility : Ability
         var critChance = originator.CritChance + baseCrtChanceAddMod;
         var critValue = (originator.CritValue + baseCrtValueAddMod) * baseCrtValueMultMod;
 
+        bool isCrit = false;
         int currentCritChance = Random.Range(0, 100);
         if (currentCritChance <= critChance)
 		{
+            isCrit = true;
             damage *= critValue;
             Debug.Log("Crit against " + target.name);
         }
@@ -52,5 +54,18 @@ public class WeaponAttackAbility : Ability
 
         damage = Mathf.RoundToInt(damage);
         target.Hp = target.Hp - damage;
+        target.OnDamaged(new DamageEventArgs(damage, isCrit));
     }
+}
+
+public class DamageEventArgs
+{
+    public float damage;
+    public bool isCrit;
+
+	public DamageEventArgs(float dmg, bool crit)
+	{
+        damage = dmg;
+        isCrit = crit;
+	}
 }
