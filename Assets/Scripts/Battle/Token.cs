@@ -51,6 +51,11 @@ public class Token : MonoBehaviour
         nameTMP.gameObject.SetActive(false);
     }
 
+    public void OnClick()
+	{
+        Debug.Log("Clicked on " + stat.characterName);
+	}
+
 	public void DestroyToken()
 	{
         stat.HealthChanged -= SetHealthUI;
