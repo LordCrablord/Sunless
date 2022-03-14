@@ -115,4 +115,10 @@ public class BattleManager : Singleton<BattleManager>
 		}
 		turnOrder = new Queue<CharacterStats>(turnOrder.OrderBy(q=>q.Initiative).Reverse());
 	}
+
+	public void AbilitySelect(Ability ability)
+	{
+		selectedAbility = ability;
+		Debug.Log(selectedAbility.abilityName + " is selected");
+	}
 }

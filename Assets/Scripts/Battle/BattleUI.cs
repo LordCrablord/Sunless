@@ -116,8 +116,8 @@ public class BattleUI : MonoBehaviour
 
 			if (playerCharacter.weapon != null)
 			{
-				weaponAbilityMain.GetComponent<WeaponAbilityUIHolder>().SetWeaponAbilityUI(playerCharacter.weapon.mainAbility);
-				weaponAbilitySecond.GetComponent<WeaponAbilityUIHolder>().SetWeaponAbilityUI(playerCharacter.weapon.secondAbility);
+				weaponAbilityMain.GetComponent<WeaponAbilityUIHolder>().SetWeaponAbilityUI(playerCharacter.weapon.mainAbility, playerCharacter.Position);
+				weaponAbilitySecond.GetComponent<WeaponAbilityUIHolder>().SetWeaponAbilityUI(playerCharacter.weapon.secondAbility, playerCharacter.Position);
 			}
 		}
 		else

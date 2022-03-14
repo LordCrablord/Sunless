@@ -7,23 +7,34 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 {
     WeaponAttackAbility attackAbility;
     [SerializeField] Image image;
+	[SerializeField] GameObject panelBlocker;
     [SerializeField] GameObject AbilityInfoPrefab;
     GameObject abilityInfo;
 	[SerializeField] protected Vector2 itemTooltipOffset = new Vector2(-800, 0);
 	float tooltipWait = 0.25f;
 
-	public void SetWeaponAbilityUI(WeaponAttackAbility ab)
+	public void SetWeaponAbilityUI(WeaponAttackAbility ab, int position)
 	{
         attackAbility = ab;
         image.sprite = attackAbility.sprite;
+		TargetPosition charPos = (TargetPosition)position;
+		if (attackAbility.allowedFromPosition.Contains(charPos))
+		{
+			GetComponent<Button>().interactable = true;
+			panelBlocker.SetActive(false);
+		}
+		else
+		{
+			GetComponent<Button>().interactable = false;
+			panelBlocker.SetActive(true);
+		}
 	}
 
 	public void OnAbilityCliked()
 	{
 		if(attackAbility != null)
 		{
-			BattleManager.Instance.selectedAbility = attackAbility;
-			Debug.Log(BattleManager.Instance.selectedAbility.abilityName + " is selected");
+			BattleManager.Instance.AbilitySelect(attackAbility);
 		}
 	}
 
