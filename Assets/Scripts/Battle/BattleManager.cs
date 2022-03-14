@@ -52,10 +52,7 @@ public class BattleManager : Singleton<BattleManager>
 		}
 		currentCharacter = turnOrder.Dequeue();
 		currentCharacter.OnTurnStarted();
-		if(currentCharacter is PlayerCharacterStats)
-		{
-			battleUI.SetCharacterUI();
-		}
+		battleUI.SetCharacterUI();
 	}
 
 	public event EventHandler<int> NewRoundStarted;

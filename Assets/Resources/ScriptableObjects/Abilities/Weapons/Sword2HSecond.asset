@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityID: 502
   abilityName: Split
-  description: Split two enemies at once. -30% Damage, -50% CritValue
+  description: Long strike against the target, which will also hit the one after
+    the initial target as well. -30% Damage, -50% CritValue
   sprite: {fileID: 21300000, guid: 3ead657bb62e7bf46a8af326a5045160, type: 3}
   targetEnemy: 0000000001000000
   targetAlly: 
   allTargetsFromSelected: 1
   allowedFromPosition: 00000000
+  echoingToNextTarget: 1
+  echoValMultMod: 1
   apCost: 3
   baseDmgValueAddMod: 0
   baseDmgValueMultMod: 0.7

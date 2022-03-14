@@ -21,6 +21,7 @@ public class BattleUI : MonoBehaviour
 	[SerializeField] Slider healthSlider;
 	[SerializeField] TextMeshProUGUI armorTMP;
 	[SerializeField] TextMeshProUGUI actionPointsTMP;
+	[SerializeField] GameObject bottomPanelBlocker;
 
 	[Header("Lower right")]
 	[SerializeField] GameObject weaponAbilityMain;
@@ -103,6 +104,7 @@ public class BattleUI : MonoBehaviour
 	{
 		if (BattleManager.Instance.CurrentCharacter is PlayerCharacterStats)
 		{
+			bottomPanelBlocker.SetActive(false);
 			PlayerCharacterStats playerCharacter = (PlayerCharacterStats)BattleManager.Instance.CurrentCharacter;
 			characterNameTMP.text = playerCharacter.characterName;
 			image.sprite = playerCharacter.sprite;
@@ -117,6 +119,10 @@ public class BattleUI : MonoBehaviour
 				weaponAbilityMain.GetComponent<WeaponAbilityUIHolder>().SetWeaponAbilityUI(playerCharacter.weapon.mainAbility);
 				weaponAbilitySecond.GetComponent<WeaponAbilityUIHolder>().SetWeaponAbilityUI(playerCharacter.weapon.secondAbility);
 			}
+		}
+		else
+		{
+			bottomPanelBlocker.SetActive(true);
 		}
 	}
 
