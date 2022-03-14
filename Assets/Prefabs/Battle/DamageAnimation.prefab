@@ -217,3 +217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTMP: {fileID: 9151897401700610595}
   animator: {fileID: 3274023348143811654}
+  damageColor: {r: 0.5568628, g: 0.09803922, b: 0.09803922, a: 1}
+  healColor: {r: 0.09803921, g: 0.5568628, b: 0.13473982, a: 1}
+  damageCritColor: {r: 1, g: 0, b: 0.00856638, a: 1}

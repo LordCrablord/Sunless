@@ -26,7 +26,7 @@ MonoBehaviour:
   apCost: 3
   baseDmgValueAddMod: 0
   baseDmgValueMultMod: 0.7
-  baseCrtChanceAddMod: 0
+  baseCrtChanceAddMod: 50
   baseCrtChanceMultMod: 1
   baseCrtValueAddMod: 0
-  baseCrtValueMultMod: 0.5
+  baseCrtValueMultMod: 0.75
