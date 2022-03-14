@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2063813658174218330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   image: {fileID: 6734947653248821007}
   hpTMP: {fileID: 6734947654658756846}
   healthSlider: {fileID: 6734947653940180012}
+  selectImage: {fileID: 2341018071383262189}
 --- !u!114 &6734947653248820992
 MonoBehaviour:
   m_ObjectHideFlags: 0

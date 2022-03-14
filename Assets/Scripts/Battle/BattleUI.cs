@@ -131,6 +131,43 @@ public class BattleUI : MonoBehaviour
 		}
 	}
 
+	public void ManageSelection()
+	{
+		ClearSelection();
+		foreach(TargetPosition pos in BattleManager.Instance.selectedAbility.targetEnemy)
+		{
+			if (enemyTilesTokenUI[(int)pos].transform.childCount > 0)
+			{
+				enemyTilesTokenUI[(int)pos].transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(true);
+			}
+		}
+		foreach (TargetPosition pos in BattleManager.Instance.selectedAbility.targetAlly)
+		{
+			if (allyTilesTokenUI[(int)pos].transform.childCount > 0)
+			{
+				allyTilesTokenUI[(int)pos].transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(true);
+			}
+		}
+	}
+
+	public void ClearSelection()
+	{
+		foreach(GameObject holder in enemyTilesTokenUI)
+		{
+			if (holder.transform.childCount > 0)
+			{
+				holder.transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(false);
+			}
+		}
+		foreach (GameObject holder in allyTilesTokenUI)
+		{
+			if (holder.transform.childCount > 0)
+			{
+				holder.transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(false);
+			}
+		}
+	}
+
 	//this will be later used in setUIForCharacter
 	void ManageMoveButtons()
 	{

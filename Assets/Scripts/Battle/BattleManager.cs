@@ -120,5 +120,7 @@ public class BattleManager : Singleton<BattleManager>
 	{
 		selectedAbility = ability;
 		Debug.Log(selectedAbility.abilityName + " is selected");
+
+		battleUI.ManageSelection();
 	}
 }

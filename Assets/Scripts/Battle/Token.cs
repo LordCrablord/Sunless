@@ -10,8 +10,10 @@ public class Token : MonoBehaviour
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI hpTMP;
     [SerializeField] Slider healthSlider;
+    [SerializeField] Image selectImage;
 
     CharacterStats stat;
+    bool isSelected;
 
     public void SetToken(CharacterStats newStats, int pos)
 	{
@@ -50,6 +52,12 @@ public class Token : MonoBehaviour
 	{
         nameTMP.gameObject.SetActive(false);
     }
+
+    public void SetSelectedStatus(bool selected)
+	{
+        isSelected = selected;
+        selectImage.gameObject.SetActive(isSelected);
+	}
 
     public void OnClick()
 	{
