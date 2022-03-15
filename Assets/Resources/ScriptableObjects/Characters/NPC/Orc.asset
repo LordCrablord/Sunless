@@ -23,7 +23,7 @@ MonoBehaviour:
   npcID: 1
   armorClass: 1
   protPierce: 0
-  protSlash: 2
+  protSlash: 1
   protBludge: 1
   protElement: 0
   protEldrich: 0

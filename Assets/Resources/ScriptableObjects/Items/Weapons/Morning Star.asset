@@ -23,8 +23,9 @@ MonoBehaviour:
   multiplyingBonuses: []
   weaponType: 1
   handUsage: 0
-  damage: 6
-  critChance: 10
+  minDamage: 1
+  maxDamage: 6
+  critChance: 13
   critValue: 1.8
   DamageDestination: 12
   mainAbility: {fileID: 0}
