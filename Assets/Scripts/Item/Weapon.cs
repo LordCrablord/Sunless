@@ -14,6 +14,7 @@ public class Weapon : Item
     public int damage;
     public float critChance;
     public float critValue;
+    public Stats DamageDestination;
     public WeaponAttackAbility mainAbility;
     public WeaponAttackAbility secondAbility;
 }

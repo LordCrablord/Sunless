@@ -8,13 +8,22 @@ public class NonPlayerCharacterStats : CharacterStats
 {
 	public int npcID;
 	public int armorClass;
-    /*NonPlayerCharacterStats(NonPlayerCharacterStats npc)
-	{
-		this.npcID = npc.npcID;
-	}
 
-	public NonPlayerCharacterStats Clone()
-	{
-		return new NonPlayerCharacterStats(this);
-	}*/
+    [Header("Armor values")]
+    [SerializeField] float protPierce;
+    [SerializeField] float protSlash;
+    [SerializeField] float protBludge;
+    [SerializeField] float protElement;
+    [SerializeField] float protEldrich;
+    [SerializeField] float protArcane;
+
+    public void PrepareStats()
+    {
+        StatsDictionary.Add(Stats.PROT_PIERCE, new VariableReference(() => protPierce, val => { protPierce = (float)val; }));
+        StatsDictionary.Add(Stats.PROT_SLASH, new VariableReference(() => protSlash, val => { protSlash = (float)val; }));
+        StatsDictionary.Add(Stats.PROT_BLUDGE, new VariableReference(() => protBludge, val => { protBludge = (float)val; }));
+        StatsDictionary.Add(Stats.PROT_ELEMENT, new VariableReference(() => protElement, val => { protElement = (float)val; }));
+        StatsDictionary.Add(Stats.PROT_ELDRICH, new VariableReference(() => protEldrich, val => { protEldrich = (float)val; }));
+        StatsDictionary.Add(Stats.PROT_ARCANE, new VariableReference(() => protArcane, val => { protArcane = (float)val; }));
+    }
 }

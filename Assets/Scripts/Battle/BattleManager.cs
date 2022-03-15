@@ -87,7 +87,11 @@ public class BattleManager : Singleton<BattleManager>
 	void CloneEnemyToPosition(int pos)
 	{
 		if (currrentBattle.enemies[pos] != null)
+		{
 			enemies[pos] = Instantiate(currrentBattle.enemies[pos]);
+			enemies[pos].PrepareStats();
+		}
+			
 		else enemies[pos] = null;
 	}
 
