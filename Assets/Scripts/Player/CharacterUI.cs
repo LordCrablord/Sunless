@@ -25,11 +25,18 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI critChanceTMP;
     [SerializeField] TextMeshProUGUI critValueTMP;
 
+    [Header("Armor")]
+    [SerializeField] TextMeshProUGUI protPierceTMP;
+    [SerializeField] TextMeshProUGUI protSlashTMP;
+    [SerializeField] TextMeshProUGUI protBludgeTMP;
+    [SerializeField] TextMeshProUGUI protElementTMP;
+    [SerializeField] TextMeshProUGUI protEldrichTMP;
+    [SerializeField] TextMeshProUGUI protArcaneTMP;
+
     [Header("Other")]
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
     [SerializeField] TextMeshProUGUI goldTMP;
-    [SerializeField] TextMeshProUGUI protPierceTMP;
     [SerializeField] GameObject inventoryItemPickerPrefab;
 
     GameObject inventoryItemPicker;
@@ -43,7 +50,8 @@ public class CharacterUI : MonoBehaviour
         nameTMP.text = characterStats.characterName;
         characterImage.sprite = characterStats.sprite;
         goldTMP.text = characterStats.Gold.ToString();
-        protPierceTMP.text = characterStats.ProtPierce.ToString();
+
+        SetArmor();
 
         SetHealthUI();
         SetXpUI();
@@ -56,6 +64,16 @@ public class CharacterUI : MonoBehaviour
         chestpieceUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.chestpiece);
         weaponUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
 
+    }
+
+    void SetArmor()
+	{
+        protPierceTMP.text = characterStats.ProtPierce.ToString();
+        protSlashTMP.text = characterStats.ProtSlash.ToString();
+        protBludgeTMP.text = characterStats.ProtBludge.ToString();
+        protElementTMP.text = characterStats.ProtElement.ToString();
+        protEldrichTMP.text = characterStats.ProtEldrich.ToString();
+        protArcaneTMP.text = characterStats.ProtArcane.ToString();
     }
 
     void SetHealthUI()

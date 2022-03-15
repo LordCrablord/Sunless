@@ -22,3 +22,9 @@ MonoBehaviour:
   apRecovery: 3
   npcID: 1
   armorClass: 1
+  protPierce: 0
+  protSlash: 2
+  protBludge: 1
+  protElement: 0
+  protEldrich: 0
+  protArcane: 0

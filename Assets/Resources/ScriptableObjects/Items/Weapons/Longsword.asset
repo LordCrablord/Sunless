@@ -26,5 +26,6 @@ MonoBehaviour:
   damage: 8
   critChance: 5
   critValue: 2
+  DamageDestination: 11
   mainAbility: {fileID: 11400000, guid: 93ad9f2f6f72886428c5dac4c678286d, type: 2}
   secondAbility: {fileID: 11400000, guid: b8a524524d7f4474e8a221a217d3467e, type: 2}
