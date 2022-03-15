@@ -21,7 +21,13 @@ public class ItemTooltip : MonoBehaviour
 
     [Header("Armor")]
     [SerializeField] GameObject armorObject;
-    [SerializeField] TextMeshProUGUI armorTMP;
+    [SerializeField] TextMeshProUGUI protPierceTMP;
+    [SerializeField] TextMeshProUGUI protSlashTMP;
+    [SerializeField] TextMeshProUGUI protBludgeTMP;
+    [SerializeField] TextMeshProUGUI protElementTMP;
+    [SerializeField] TextMeshProUGUI protEldrichTMP;
+    [SerializeField] TextMeshProUGUI protArcaneTMP;
+
     public void SetTooltip(Item item)
 	{
         nameTMP.text = item.itemName;
@@ -42,7 +48,7 @@ public class ItemTooltip : MonoBehaviour
                 break;
             case Armor a:
                 armorObject.SetActive(true);
-                armorTMP.text = a.armorValue.ToString();
+                SetArmor(a);
                 tagsTMP.text += ", " + Enum.GetName(typeof(ArmorWeight), a.armorWeight);
                 break;
             default:
@@ -50,4 +56,14 @@ public class ItemTooltip : MonoBehaviour
                 break;
 		}
 	}
+
+    void SetArmor(Armor armor)
+	{
+        protPierceTMP.text = armor.GetArmorProtVal(Stats.PROT_PIERCE).ToString();
+        protSlashTMP.text = armor.GetArmorProtVal(Stats.PROT_SLASH).ToString();
+        protBludgeTMP.text = armor.GetArmorProtVal(Stats.PROT_BLUDGE).ToString();
+        protElementTMP.text = armor.GetArmorProtVal(Stats.PROT_ELEMENT).ToString();
+        protEldrichTMP.text = armor.GetArmorProtVal(Stats.PROT_ELDRICH).ToString();
+        protArcaneTMP.text = armor.GetArmorProtVal(Stats.PROT_ARCANE).ToString();
+    }
 }
