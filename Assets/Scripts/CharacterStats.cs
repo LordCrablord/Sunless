@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum Stats {HP, HP_MAX, XP, GOLD, DAMAGE, CRIT_CHANCE, CRIT_VALUE, AP, AP_MAX, AP_RECOVERY}
+public enum Stats {HP, HP_MAX, XP, GOLD, DAMAGE, CRIT_CHANCE, CRIT_VALUE, 
+	AP, AP_MAX, AP_RECOVERY,
+	PROT_PIERCE, PROT_SLASH, PROT_BLUDGE, PROT_ELEMENT, PROT_ELDRICH, PROT_ARCANE}
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Character", menuName = "Character/Character")]
 public class CharacterStats:ScriptableObject
@@ -135,28 +137,6 @@ public class CharacterStats:ScriptableObject
 	{
 		Damaged?.Invoke(this, e);
 	}
-
-
-
-	/*protected CharacterStats(CharacterStats character)
-	{
-		this.characterName = character.characterName;
-		this.sprite = character.sprite;
-		this.hpMax = character.hpMax;
-		this.hp = character.hp;
-		this.initiative = character.initiative;
-
-		this.additiveBonuses = new List<StatModifier>();
-		foreach (StatModifier modifier in character.additiveBonuses)
-			this.additiveBonuses.Add(modifier);
-
-		this.multiplyingBonuses = new List<StatModifier>();
-		foreach (StatModifier modifier in character.multiplyingBonuses)
-			this.multiplyingBonuses.Add(modifier);
-
-		StatsDictionary.Add(Stats.HP, new VariableReference(() => Hp, val => { Hp = (float)val; }));
-		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (float)val; }));
-	}*/
 
 
 	protected float AddAllBonuses(List<StatModifier> modifiersList, Stats stat)
