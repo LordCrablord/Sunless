@@ -29,7 +29,7 @@ public class BattleManager : Singleton<BattleManager>
 
 	private void Start()
 	{
-		roundCount = 0;
+		roundCount = 1;
 		Invoke("StartLate", 0.1f);
 		SetEnemies(temp);
 		
@@ -62,6 +62,7 @@ public class BattleManager : Singleton<BattleManager>
 		currentCharacter = turnOrder.Dequeue();
 		currentCharacter.OnTurnStarted();
 		battleUI.SetCharacterUI();
+		battleUI.SetStartTurnTitle();
 	}
 
 	public event EventHandler<int> NewRoundStarted;

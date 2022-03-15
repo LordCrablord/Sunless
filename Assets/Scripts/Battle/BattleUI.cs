@@ -13,6 +13,7 @@ public class BattleUI : MonoBehaviour
 	[SerializeField] TextMeshProUGUI roundTMP;
 	[SerializeField] Button moveLeftButton;
 	[SerializeField] Button moveRightButton;
+	[SerializeField] TextMeshProUGUI startTurnTitleTMP;
 
 	[Header ("Lower Left")]
 	[SerializeField] TextMeshProUGUI characterNameTMP;
@@ -167,6 +168,12 @@ public class BattleUI : MonoBehaviour
 				holder.transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(false);
 			}
 		}
+	}
+
+	public void SetStartTurnTitle()
+	{
+		startTurnTitleTMP.text = BattleManager.Instance.CurrentCharacter.characterName + "`s turn";
+		GetComponent<Animator>().Play("Turn Started", -1, 0f);
 	}
 
 	//this will be later used in setUIForCharacter
