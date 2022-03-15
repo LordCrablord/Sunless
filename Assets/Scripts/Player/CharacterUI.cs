@@ -56,7 +56,7 @@ public class CharacterUI : MonoBehaviour
         SetHealthUI();
         SetXpUI();
 
-        damageTMP.text = characterStats.Damage.ToString();
+        damageTMP.text = characterStats.DamageMin.ToString();
         critChanceTMP.text = characterStats.CritChance + "%";
         critValueTMP.text = characterStats.CritValue * 100 + "%";
 

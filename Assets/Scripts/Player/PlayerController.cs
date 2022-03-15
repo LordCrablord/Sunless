@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         
 
         Debug.Log("Current Xp: " + characterStats.StatsDictionary[Stats.XP].Get());
-        Debug.Log("Current Damage: " + characterStats.StatsDictionary[Stats.DAMAGE].Get());
+        Debug.Log("Current Damage: " + characterStats.StatsDictionary[Stats.DAMAGE_MIN].Get());
         Debug.Log((characterStats.StatsDictionary[Stats.XP].Get().GetType()));
         characterStats.StatsDictionary[Stats.XP].Set((float)characterStats.StatsDictionary[Stats.XP].Get() + 5); ;
         Debug.Log("Current Xp: " + characterStats.StatsDictionary[Stats.XP].Get());

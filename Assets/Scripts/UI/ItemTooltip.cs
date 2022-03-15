@@ -40,7 +40,7 @@ public class ItemTooltip : MonoBehaviour
 		{
             case Weapon w:
                 weaponObject.SetActive(true);
-                damageTMP.text = w.damage.ToString();
+                damageTMP.text = w.minDamage.ToString();
                 critChanceTMP.text = w.critChance + "%";
                 critValueTMP.text = w.critValue * 100 + "%";
                 tagsTMP.text += ", "+Enum.GetName(typeof(WeaponType), w.weaponType)

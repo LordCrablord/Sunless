@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum Stats {HP, HP_MAX, XP, GOLD, DAMAGE, CRIT_CHANCE, CRIT_VALUE, 
+public enum Stats {HP, HP_MAX, XP, GOLD, DAMAGE_MIN, DAMAGE_MAX, CRIT_CHANCE, CRIT_VALUE, 
 	AP, AP_MAX, AP_RECOVERY,
 	PROT_PIERCE, PROT_SLASH, PROT_BLUDGE, PROT_ELEMENT, PROT_ELDRICH, PROT_ARCANE}
 [System.Serializable]

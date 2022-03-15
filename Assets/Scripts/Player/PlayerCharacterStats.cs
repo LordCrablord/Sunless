@@ -109,13 +109,24 @@ public class PlayerCharacterStats : CharacterStats
 		return (int)res;
 	}
 
-	public float Damage
+	public float DamageMin
 	{
 		get
 		{
-			float weaponValue = weapon != null ? weapon.damage : 0;
-			float addBonusesSum = weaponValue + AddAllBonuses(additiveBonuses, Stats.DAMAGE);
-			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.DAMAGE);
+			float weaponValue = weapon != null ? weapon.minDamage : 0;
+			float addBonusesSum = weaponValue + AddAllBonuses(additiveBonuses, Stats.DAMAGE_MIN);
+			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.DAMAGE_MIN);
+			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
+		}
+	}
+
+	public float DamageMax
+	{
+		get
+		{
+			float weaponValue = weapon != null ? weapon.maxDamage : 0;
+			float addBonusesSum = weaponValue + AddAllBonuses(additiveBonuses, Stats.DAMAGE_MIN);
+			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.DAMAGE_MIN);
 			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
 		}
 	}
@@ -158,7 +169,8 @@ public class PlayerCharacterStats : CharacterStats
 	{
 		StatsDictionary.Add(Stats.XP, new VariableReference(() => Xp, val => { Xp = (float)val; }));
 		StatsDictionary.Add(Stats.GOLD, new VariableReference(() => Gold, val => { Gold = (float)val; }));
-		StatsDictionary.Add(Stats.DAMAGE, new VariableReference(() => Damage, null));
+		StatsDictionary.Add(Stats.DAMAGE_MIN, new VariableReference(() => DamageMin, null));
+		StatsDictionary.Add(Stats.DAMAGE_MAX, new VariableReference(() => DamageMax, null));
 		StatsDictionary.Add(Stats.CRIT_CHANCE, new VariableReference(() => CritChance, null));
 		StatsDictionary.Add(Stats.CRIT_VALUE, new VariableReference(() => CritValue, null));
 		

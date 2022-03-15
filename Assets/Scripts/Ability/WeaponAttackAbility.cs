@@ -34,7 +34,9 @@ public class WeaponAttackAbility : Ability
     {
         //TODO evasion
         //TODO bonus to hit
-        var damage = (originator.Damage + baseDmgValueAddMod) * baseDmgValueMultMod;
+        var damageMin = (originator.DamageMin + baseDmgValueAddMod) * baseDmgValueMultMod;
+        var damageMax = (originator.DamageMax + baseDmgValueAddMod) * baseDmgValueMultMod;
+        var damage = Random.Range(damageMin, damageMax);
         var critChance = originator.CritChance + baseCrtChanceAddMod;
         var critValue = (originator.CritValue + baseCrtValueAddMod) * baseCrtValueMultMod;
 
@@ -47,7 +49,6 @@ public class WeaponAttackAbility : Ability
             Debug.Log("Crit against " + target.name);
         }   
 
-        //TODO normal armor Reduction, but this will do for now
         damage -= (float)target.StatsDictionary[originator.weapon.DamageDestination].Get();
         if (damage < 0) damage = 0;
 
