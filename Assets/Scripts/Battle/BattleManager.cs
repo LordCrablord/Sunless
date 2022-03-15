@@ -157,7 +157,25 @@ public class BattleManager : Singleton<BattleManager>
 		}
 		actionOriginator.Ap -= ability.apCost;
 		battleUI.SetCharacterUI();
+	}
 
-
+	public void RemoveCharacter(CharacterStats character)
+	{
+		foreach(CharacterStats characterStats in playerPCs)
+		{
+			if(characterStats == character)
+			{
+				playerPCs[characterStats.Position] = null;
+				break;
+			}
+		}
+		foreach (CharacterStats characterStats in enemies)
+		{
+			if (characterStats == character)
+			{
+				enemies[characterStats.Position] = null;
+				break;
+			}
+		}
 	}
 }

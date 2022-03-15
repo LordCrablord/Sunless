@@ -44,6 +44,11 @@ public class CharacterStats:ScriptableObject
 			if (value > HpMax) hp = HpMax;
 			else hp = value;
 			OnHealthChanged();
+			if (hp <= 0)
+			{
+				BattleManager.Instance.RemoveCharacter(this);
+				OnKilled();
+			}
 		}
 	}
 
@@ -51,6 +56,12 @@ public class CharacterStats:ScriptableObject
 	protected virtual void OnHealthChanged()
 	{
 		HealthChanged?.Invoke();
+	}
+
+	public event Notify Killed;
+	protected virtual void OnKilled()
+	{
+		Killed?.Invoke();
 	}
 
 	[SerializeField] float initiative;
