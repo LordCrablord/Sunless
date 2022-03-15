@@ -21889,9 +21889,14 @@ MonoBehaviour:
   image: {fileID: 1016730341}
   hpTMP: {fileID: 81654265}
   healthSlider: {fileID: 1603489376}
-  protPierceTMP: {fileID: 938922762}
   actionPointsTMP: {fileID: 113485049}
   bottomPanelBlocker: {fileID: 1339740589}
+  protPierceTMP: {fileID: 938922762}
+  protSlashTMP: {fileID: 51847001}
+  protBludgeTMP: {fileID: 1755670609}
+  protElementTMP: {fileID: 528074180}
+  protEldrichTMP: {fileID: 1017054930}
+  protArcaneTMP: {fileID: 1096962966}
   weaponAbilityMain: {fileID: 954694138}
   weaponAbilitySecond: {fileID: 156108149}
 --- !u!95 &1979257594

@@ -61,11 +61,43 @@ public class PlayerCharacterStats : CharacterStats
 	[SerializeField] int protPierceBase;
 	public float ProtPierce
 	{
-		get 
-		{
-			return ReturnProtArmorClass(protPierceBase, Stats.PROT_PIERCE); 
-		}
+		get{return ReturnProtArmorClass(protPierceBase, Stats.PROT_PIERCE);}
 		set { protPierceBase = (int)value; }
+	}
+
+	[SerializeField] int protSlashBase;
+	public float ProtSlash
+	{
+		get { return ReturnProtArmorClass(protSlashBase, Stats.PROT_SLASH); }
+		set { protSlashBase = (int)value; }
+	}
+
+	[SerializeField] int protBludgeBase;
+	public float ProtBludge
+	{
+		get { return ReturnProtArmorClass(protBludgeBase, Stats.PROT_BLUDGE); }
+		set { protBludgeBase = (int)value; }
+	}
+
+	[SerializeField] int protElementalBase;
+	public float ProtElement
+	{
+		get { return ReturnProtArmorClass(protElementalBase, Stats.PROT_ELEMENT); }
+		set { protElementalBase = (int)value; }
+	}
+
+	[SerializeField] int protEldrichBase;
+	public float ProtEldrich
+	{
+		get { return ReturnProtArmorClass(protEldrichBase, Stats.PROT_ELDRICH); }
+		set { protEldrichBase = (int)value; }
+	}
+
+	[SerializeField] int protArcaneBase;
+	public float ProtArcane
+	{
+		get { return ReturnProtArmorClass(protArcaneBase, Stats.PROT_ARCANE); }
+		set { protArcaneBase = (int)value; }
 	}
 
 	int ReturnProtArmorClass(float baseStat, Stats protStat)
@@ -129,6 +161,13 @@ public class PlayerCharacterStats : CharacterStats
 		StatsDictionary.Add(Stats.DAMAGE, new VariableReference(() => Damage, null));
 		StatsDictionary.Add(Stats.CRIT_CHANCE, new VariableReference(() => CritChance, null));
 		StatsDictionary.Add(Stats.CRIT_VALUE, new VariableReference(() => CritValue, null));
+		
+		StatsDictionary.Add(Stats.PROT_PIERCE, new VariableReference(() => ProtPierce, val => { ProtPierce = (float)val; }));
+		StatsDictionary.Add(Stats.PROT_SLASH, new VariableReference(() => ProtSlash, val => { ProtSlash = (float)val; }));
+		StatsDictionary.Add(Stats.PROT_BLUDGE, new VariableReference(() => ProtBludge, val => { ProtBludge = (float)val; }));
+		StatsDictionary.Add(Stats.PROT_ELEMENT, new VariableReference(() => ProtElement, val => { ProtElement = (float)val; }));
+		StatsDictionary.Add(Stats.PROT_ELDRICH, new VariableReference(() => ProtEldrich, val => { ProtEldrich = (float)val; }));
+		StatsDictionary.Add(Stats.PROT_ARCANE, new VariableReference(() => ProtArcane, val => { ProtArcane = (float)val; }));
 	}
 
 	public void EquipItem(Item item)

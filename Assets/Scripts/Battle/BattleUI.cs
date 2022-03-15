@@ -20,9 +20,16 @@ public class BattleUI : MonoBehaviour
 	[SerializeField] Image image;
 	[SerializeField] TextMeshProUGUI hpTMP;
 	[SerializeField] Slider healthSlider;
-	[SerializeField] TextMeshProUGUI protPierceTMP;
 	[SerializeField] TextMeshProUGUI actionPointsTMP;
 	[SerializeField] GameObject bottomPanelBlocker;
+
+	[Header("Armor")]
+	[SerializeField] TextMeshProUGUI protPierceTMP;
+	[SerializeField] TextMeshProUGUI protSlashTMP;
+	[SerializeField] TextMeshProUGUI protBludgeTMP;
+	[SerializeField] TextMeshProUGUI protElementTMP;
+	[SerializeField] TextMeshProUGUI protEldrichTMP;
+	[SerializeField] TextMeshProUGUI protArcaneTMP;
 
 	[Header("Lower right")]
 	[SerializeField] GameObject weaponAbilityMain;
@@ -112,7 +119,14 @@ public class BattleUI : MonoBehaviour
 			hpTMP.text = playerCharacter.Hp + "/" + playerCharacter.HpMax;
 			healthSlider.maxValue = playerCharacter.HpMax;
 			healthSlider.value = playerCharacter.Hp;
+
 			protPierceTMP.text = playerCharacter.ProtPierce.ToString();
+			protSlashTMP.text = playerCharacter.ProtSlash.ToString();
+			protBludgeTMP.text = playerCharacter.ProtBludge.ToString();
+			protElementTMP.text = playerCharacter.ProtElement.ToString();
+			protEldrichTMP.text = playerCharacter.ProtEldrich.ToString();
+			protArcaneTMP.text = playerCharacter.ProtArcane.ToString();
+
 			actionPointsTMP.text = "AP: " + playerCharacter.Ap + " / " + playerCharacter.ApMax;
 
 			if (playerCharacter.weapon != null)
