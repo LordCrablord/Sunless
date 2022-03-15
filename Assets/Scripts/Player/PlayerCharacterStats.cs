@@ -63,12 +63,18 @@ public class PlayerCharacterStats : CharacterStats
 	{
 		get 
 		{
-			int res = armorClassBase;
-			if (helmet != null)	res += helmet.armorValue;
-			if (chestpiece != null) res += chestpiece.armorValue;
-			return res; 
+			return ReturnProtArmorClass(armorClassBase, Stats.PROT_PIERCE); 
 		}
 		set { armorClassBase = (int)value; }
+	}
+
+	int ReturnProtArmorClass(float baseStat, Stats protStat)
+	{
+		float res = armorClassBase + AddAllBonuses(additiveBonuses, protStat);
+		res = res + res * AddAllBonuses(multiplyingBonuses, protStat);
+		if (helmet != null) res += helmet.GetArmorProtVal(protStat);
+		if (chestpiece != null) res += chestpiece.GetArmorProtVal(protStat);
+		return (int)res;
 	}
 
 	public float Damage
