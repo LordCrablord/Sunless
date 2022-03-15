@@ -23,3 +23,9 @@ MonoBehaviour:
   multiplyingBonuses: []
   armorWeight: 1
   armorValue: 10
+  protPierce: 2
+  protSlash: 0
+  protBludge: 0
+  protElement: 0
+  protEldrich: 0
+  protArcane: 0

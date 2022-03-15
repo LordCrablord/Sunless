@@ -29,7 +29,7 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
     [SerializeField] TextMeshProUGUI goldTMP;
-    [SerializeField] TextMeshProUGUI armorClassTMP;
+    [SerializeField] TextMeshProUGUI protPierceTMP;
     [SerializeField] GameObject inventoryItemPickerPrefab;
 
     GameObject inventoryItemPicker;
@@ -43,7 +43,7 @@ public class CharacterUI : MonoBehaviour
         nameTMP.text = characterStats.characterName;
         characterImage.sprite = characterStats.sprite;
         goldTMP.text = characterStats.Gold.ToString();
-        armorClassTMP.text = characterStats.ArmorClass.ToString();
+        protPierceTMP.text = characterStats.ProtPierce.ToString();
 
         SetHealthUI();
         SetXpUI();

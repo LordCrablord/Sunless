@@ -58,19 +58,19 @@ public class PlayerCharacterStats : CharacterStats
 		}
 	}
 
-	[SerializeField] int armorClassBase;
-	public float ArmorClass
+	[SerializeField] int protPierceBase;
+	public float ProtPierce
 	{
 		get 
 		{
-			return ReturnProtArmorClass(armorClassBase, Stats.PROT_PIERCE); 
+			return ReturnProtArmorClass(protPierceBase, Stats.PROT_PIERCE); 
 		}
-		set { armorClassBase = (int)value; }
+		set { protPierceBase = (int)value; }
 	}
 
 	int ReturnProtArmorClass(float baseStat, Stats protStat)
 	{
-		float res = armorClassBase + AddAllBonuses(additiveBonuses, protStat);
+		float res = baseStat + AddAllBonuses(additiveBonuses, protStat);
 		res = res + res * AddAllBonuses(multiplyingBonuses, protStat);
 		if (helmet != null) res += helmet.GetArmorProtVal(protStat);
 		if (chestpiece != null) res += chestpiece.GetArmorProtVal(protStat);

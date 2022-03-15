@@ -20,7 +20,7 @@ public class BattleUI : MonoBehaviour
 	[SerializeField] Image image;
 	[SerializeField] TextMeshProUGUI hpTMP;
 	[SerializeField] Slider healthSlider;
-	[SerializeField] TextMeshProUGUI armorTMP;
+	[SerializeField] TextMeshProUGUI protPierceTMP;
 	[SerializeField] TextMeshProUGUI actionPointsTMP;
 	[SerializeField] GameObject bottomPanelBlocker;
 
@@ -112,7 +112,7 @@ public class BattleUI : MonoBehaviour
 			hpTMP.text = playerCharacter.Hp + "/" + playerCharacter.HpMax;
 			healthSlider.maxValue = playerCharacter.HpMax;
 			healthSlider.value = playerCharacter.Hp;
-			armorTMP.text = playerCharacter.ArmorClass.ToString();
+			protPierceTMP.text = playerCharacter.ProtPierce.ToString();
 			actionPointsTMP.text = "AP: " + playerCharacter.Ap + " / " + playerCharacter.ApMax;
 
 			if (playerCharacter.weapon != null)
