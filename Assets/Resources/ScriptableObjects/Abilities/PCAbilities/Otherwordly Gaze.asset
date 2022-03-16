@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182c3e070dad8ec43a1f04592b9108ea, type: 3}
-  m_Name: Slowing Gaze
+  m_Name: Otherwordly Gaze
   m_EditorClassIdentifier: 
   abilityID: 503
   abilityName: Otherwordly Gaze

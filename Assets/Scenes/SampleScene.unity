@@ -15348,6 +15348,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527502761}
   m_CullTransparentMesh: 0
+--- !u!1 &1551802640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6846368362355004253, guid: d2747c8c67da7b24680ce194b8f17f18,
+    type: 3}
+  m_PrefabInstance: {fileID: 135894349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1572939499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17567,6 +17573,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765482726}
   m_CullTransparentMesh: 0
+--- !u!1 &1781363367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6846368362355004253, guid: d2747c8c67da7b24680ce194b8f17f18,
+    type: 3}
+  m_PrefabInstance: {fileID: 2084756004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1801958336
 GameObject:
   m_ObjectHideFlags: 0
@@ -18550,6 +18562,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultCharacterStats: {fileID: 11400000, guid: 18136a9af3f0af040812fd9fa947067d,
     type: 2}
+--- !u!1 &1886825287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6846368362355004253, guid: d2747c8c67da7b24680ce194b8f17f18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1201217134}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1897406489
 GameObject:
   m_ObjectHideFlags: 0
@@ -19699,6 +19717,11 @@ MonoBehaviour:
   protArcaneTMP: {fileID: 1096962966}
   weaponAbilityMain: {fileID: 954694138}
   weaponAbilitySecond: {fileID: 156108149}
+  abilitiesList:
+  - {fileID: 8936472177441687902}
+  - {fileID: 1781363367}
+  - {fileID: 1551802640}
+  - {fileID: 1886825287}
 --- !u!95 &1979257594
 Animator:
   serializedVersion: 3
@@ -28312,6 +28335,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2688ce73169b086419c6b686e6a878f3, type: 3}
+--- !u!1 &8936472177441687902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6846368362355004253, guid: d2747c8c67da7b24680ce194b8f17f18,
+    type: 3}
+  m_PrefabInstance: {fileID: 2524150877253949955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8936472177441687903 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6846368362355004252, guid: d2747c8c67da7b24680ce194b8f17f18,

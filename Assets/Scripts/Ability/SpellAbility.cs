@@ -15,34 +15,36 @@ public class SpellAbility : Ability
 
     public override void DoAbility(CharacterStats actionOriginator, Ability ability, CharacterStats initialTarget)
 	{
-
+        bool hit = autoHit;
+        if (!autoHit)
+		{
+            //TODO somewhere evasion and hitting
+        }
+        hit = MakeAnAttack(actionOriginator, initialTarget);
+        if (hit)
+		{
+            foreach(AbilityCondition abilityCondition in conditions)
+			{
+                initialTarget.AddToConditions(abilityCondition);
+            }
+		}
 	}
+
+    bool MakeAnAttack(CharacterStats originator, CharacterStats target)
+    {
+        //TODO evasion
+        //TODO bonus to hit
+        var damage = Random.Range(minDamage, maxDamage);
+
+        damage -= (float)target.StatsDictionary[damageType].Get();
+        if (damage < 0) damage = 0;
+
+        damage = Mathf.RoundToInt(damage);
+        target.Hp = target.Hp - damage;
+        target.OnDamaged(new DamageEventArgs(damage, false));
+        return true;
+    }
+
+    
 }
 
-[System.Serializable]
-public class AbilityCondition
-{
-    public string conditionName;
-    public Sprite sprite;
-    public float baseSaveDC;
-    public List<Scaling> saveDCScaling;
-    public float duration;
-    public List<ConditionValues> conditionValues;
-}
-
-[System.Serializable]
-public class Scaling
-{
-    public Stats stat;
-    public float statMod;
-}
-
-[System.Serializable]
-public class ConditionValues
-{
-    public Stats stat;
-    public float addVal;
-    public float multVal;
-    public bool hasBaseValue = false;
-    public Stats baseValue;
-}

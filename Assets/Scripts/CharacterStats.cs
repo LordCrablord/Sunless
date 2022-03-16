@@ -149,6 +149,9 @@ public class CharacterStats:ScriptableObject
 	protected List<StatModifier> multiplyingBonuses;
 
 	public Dictionary<Stats, VariableReference> StatsDictionary = new Dictionary<Stats, VariableReference>();
+
+	public Dictionary<AbilityCondition, float> abilityConditions = new Dictionary<AbilityCondition, float>();
+
 	protected CharacterStats()
 	{
 		additiveBonuses = new List<StatModifier>();
@@ -216,6 +219,37 @@ public class CharacterStats:ScriptableObject
 		float addBonus = baseVal + AddAllBonuses(additiveBonuses, stat);
 		float multBonus = addBonus * AddAllBonuses(multiplyingBonuses, stat);
 		return Mathf.RoundToInt(addBonus + multBonus);
+	}
+
+	public void AddToConditions(AbilityCondition condition)
+	{
+		abilityConditions.Add(condition, condition.duration);
+		
+		foreach(ConditionValues value in condition.conditionValues)
+		{
+			if (value.addVal != 0)
+			{
+				AddToBonuses(additiveBonuses, condition, value, value.addVal);
+			}
+			if (value.multVal != 0)
+			{
+				AddToBonuses(multiplyingBonuses, condition, value, value.multVal);
+			}
+		}
+		Debug.Log(abilityConditions.Count + " " + abilityConditions.Keys);
+	}
+
+	void AddToBonuses(List<StatModifier>destination, AbilityCondition condition, ConditionValues value, float bonus)
+	{
+		StatModifier modifier = new StatModifier();
+		modifier.modifierFromID = condition.conditionID;
+		modifier.description = condition.conditionName;
+		modifier.modifierTo = value.stat;
+		if (value.hasBaseValue)
+			modifier.value = (float)StatsDictionary[value.baseValue].Get() + bonus;
+		else
+			modifier.value = bonus;
+		destination.Add(modifier);
 	}
 }
 

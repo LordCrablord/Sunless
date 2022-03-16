@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30f6c826f7c5d14d96f572654e8e183, type: 3}
+  m_Name: Slowed
+  m_EditorClassIdentifier: 
+  conditionName: Slowed
+  conditionID: 504
+  sprite: {fileID: 21300000, guid: a0433138376ef094e99e1d5550b933f5, type: 3}
+  baseSaveDC: 3
+  saveDCScaling:
+  - stat: 21
+    statMod: 0.3
+  duration: 2
+  conditionValues:
+  - stat: 11
+    addVal: -1
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 4
+    addVal: 0
+    multVal: 0.5
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 19
+    addVal: -1
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
