@@ -15,9 +15,7 @@ public class PlayerController : MonoBehaviour
         characterStats = Instantiate(defaultCharacterStats);
 
         StatModifier stat1 = new StatModifier { modifierFromID = 1, modifierTo = Stats.XP, value = 5 };
-        StatModifier stat2 = new StatModifier { modifierFromID = 1, modifierTo = Stats.HP_MAX, value = 0.2f};
         characterStats.AddAdditiveModToList(stat1);
-        characterStats.AddMultiplyingModToList(stat2);
 
         characterStats.Xp += 185;
         characterStats.Gold += 1500;

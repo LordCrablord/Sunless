@@ -134,14 +134,14 @@ public class CharacterStats:ScriptableObject
 	[SerializeField] float con = 1;
 	public float Con
 	{
-		get { return GetGeneralStatWithAllBonuses(con, Stats.DEX); }
+		get { return GetGeneralStatWithAllBonuses(con, Stats.CON); }
 		set { con = value; }
 	}
 
 	[SerializeField] float intel = 1;
 	public float Int
 	{
-		get { return GetGeneralStatWithAllBonuses(intel, Stats.DEX); }
+		get { return GetGeneralStatWithAllBonuses(intel, Stats.INT); }
 		set { intel = value; }
 	}
 
