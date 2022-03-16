@@ -85,7 +85,6 @@ public class BattleManager : Singleton<BattleManager>
 			enemies[pos] = Instantiate(currrentBattle.enemies[pos]);
 			enemies[pos].PrepareStats();
 		}
-			
 		else enemies[pos] = null;
 	}
 
@@ -96,7 +95,7 @@ public class BattleManager : Singleton<BattleManager>
 			playerPCs[pos] = Instantiate(playerPCs[pos]);
 		}
 			
-		else enemies[pos] = null;
+		else playerPCs[pos] = null;
 	}
 
 	void SetTurnOrder()
