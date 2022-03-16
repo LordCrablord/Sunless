@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum Stats {HP, HP_MAX, XP, GOLD, DAMAGE_MIN, DAMAGE_MAX, CRIT_CHANCE, CRIT_VALUE, 
+public enum Stats {HP, HP_MAX, XP, GOLD, 
+	INITIATIVE,	DAMAGE_MIN, DAMAGE_MAX, CRIT_CHANCE, CRIT_VALUE, 
 	AP, AP_MAX, AP_RECOVERY,
 	PROT_PIERCE, PROT_SLASH, PROT_BLUDGE, PROT_ELEMENT, PROT_ELDRICH, PROT_ARCANE,
 	STR, DEX, CON, INT}
@@ -69,7 +70,7 @@ public class CharacterStats:ScriptableObject
 	[SerializeField] float initiative;
 	public float Initiative
 	{
-		get { return initiative; }
+		get { return GetGeneralStatWithAllBonuses(initiative, Stats.INITIATIVE); }
 		set{ initiative = value;}
 	}
 
@@ -155,6 +156,7 @@ public class CharacterStats:ScriptableObject
 
 		StatsDictionary.Add(Stats.HP, new VariableReference(() => Hp, val => { Hp = (float)val; }));
 		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (float)val; }));
+		StatsDictionary.Add(Stats.INITIATIVE, new VariableReference(() => Initiative, val => { Initiative = (float)val; }));
 	}
 
 	public event Notify TurnStarted;
