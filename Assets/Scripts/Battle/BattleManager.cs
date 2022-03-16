@@ -47,6 +47,7 @@ public class BattleManager : Singleton<BattleManager>
 	public void DoNextTurn()
 	{
 		turnOrder = new Queue<CharacterStats>(turnOrder.OrderBy(q => q.Initiative).Reverse());
+
 		if (turnOrder.Count == 0)
 		{
 			roundCount++;
@@ -177,6 +178,7 @@ public class BattleManager : Singleton<BattleManager>
 				break;
 			}
 		}
+		turnOrder = new Queue<CharacterStats>(turnOrder.Where(c => c != character));
 
 		if(CheckIfEmpty(playerPCs) || CheckIfEmpty(enemies))
 		{
