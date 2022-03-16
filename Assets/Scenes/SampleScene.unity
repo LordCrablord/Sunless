@@ -21147,13 +21147,14 @@ MonoBehaviour:
   playerPCs:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 7e5655f3673d5864e9b0210e71f3cca3, type: 2}
+  - {fileID: 0}
   enemies:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   temp: {fileID: 11400000, guid: ea8f1c3b5e9643e49aca833a272f02e6, type: 2}
   selectedAbility: {fileID: 0}
+  NPCThinkingTime: 1
 --- !u!1 &2134927035
 GameObject:
   m_ObjectHideFlags: 0

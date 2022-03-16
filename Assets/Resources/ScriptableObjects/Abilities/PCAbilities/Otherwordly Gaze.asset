@@ -28,29 +28,7 @@ MonoBehaviour:
   autoHit: 0
   minDamage: 1
   maxDamage: 1
-  damageType: 15
+  damageType: 16
   cooldown: 2
   conditions:
-  - conditionName: Otherwordly Gaze
-    sprite: {fileID: 21300000, guid: a0433138376ef094e99e1d5550b933f5, type: 3}
-    baseSaveDC: 10
-    saveDCScaling:
-    - stat: 20
-      statMod: 0.3
-    duration: 2
-    conditionValues:
-    - stat: 10
-      addVal: -1
-      multVal: 0
-      hasBaseValue: 0
-      baseValue: 0
-    - stat: 4
-      addVal: 0
-      multVal: 0.5
-      hasBaseValue: 0
-      baseValue: 0
-    - stat: 19
-      addVal: -1
-      multVal: 0
-      hasBaseValue: 0
-      baseValue: 0
+  - {fileID: 11400000, guid: 352352411154aa0499d94c8619a3a142, type: 2}

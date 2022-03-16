@@ -90,8 +90,8 @@ public class CharacterStats:ScriptableObject
 			if (value > ApMax) ap = ApMax;
 			else ap = value;
 			Debug.Log("AP of " + characterName + ": " + Ap);
-			if (ap <= 0 && this == BattleManager.Instance.CurrentCharacter)
-				OnTurnEnded();
+			/*if (ap <= 0 && this == BattleManager.Instance.CurrentCharacter)
+				OnTurnEnded();*/
 		} 
 	}
 

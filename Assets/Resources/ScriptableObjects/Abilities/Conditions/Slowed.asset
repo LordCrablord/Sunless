@@ -28,7 +28,7 @@ MonoBehaviour:
     baseValue: 0
   - stat: 4
     addVal: 0
-    multVal: 0.5
+    multVal: -0.5
     hasBaseValue: 0
     baseValue: 0
   - stat: 19

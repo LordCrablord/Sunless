@@ -17,15 +17,15 @@ MonoBehaviour:
   description: 
   sprite: {fileID: 0}
   targetEnemy: 
-  targetAlly: 
+  targetAlly: 0000000001000000
   actionOnAllTargets: 0
-  allowedFromPosition: 
+  allowedFromPosition: 0000000001000000
   echoingToNextTarget: 0
   echoValMultMod: 1
-  apCost: 0
+  apCost: 4
   autoHit: 0
-  minDamage: 0
-  maxDamage: 0
-  damageType: 0
+  minDamage: 6
+  maxDamage: 10
+  damageType: 13
   cooldown: 0
   conditions: []

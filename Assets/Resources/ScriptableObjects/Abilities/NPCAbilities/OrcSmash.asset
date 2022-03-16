@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182c3e070dad8ec43a1f04592b9108ea, type: 3}
   m_Name: OrcSmash
   m_EditorClassIdentifier: 
-  abilityID: 0
-  abilityName: 
+  abilityID: 505
+  abilityName: Smash
   description: 
   sprite: {fileID: 0}
   targetEnemy: 
-  targetAlly: 
+  targetAlly: 0000000001000000
   actionOnAllTargets: 0
-  allowedFromPosition: 
+  allowedFromPosition: 0000000001000000
   echoingToNextTarget: 0
   echoValMultMod: 1
-  apCost: 0
+  apCost: 2
   autoHit: 0
-  minDamage: 0
-  maxDamage: 0
-  damageType: 0
+  minDamage: 2
+  maxDamage: 6
+  damageType: 13
   cooldown: 0
   conditions: []

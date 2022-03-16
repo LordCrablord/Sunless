@@ -33,3 +33,8 @@ MonoBehaviour:
   protElement: 0
   protEldrich: 0
   protArcane: 0
+  abilities:
+  - {fileID: 11400000, guid: cca0862499ed782418a5b32d45e2b714, type: 2}
+  - {fileID: 11400000, guid: 8a3ae9fecc45c434eb2ddbf3d1d67017, type: 2}
+  - {fileID: 11400000, guid: 0fdfd47c34732ca4d902c99f7cc5d6e7, type: 2}
+  - {fileID: 11400000, guid: 7ba0fdf76e385e04aa7f3ad386889365, type: 2}

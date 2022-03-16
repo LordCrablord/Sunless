@@ -18,14 +18,8 @@ public class BattleManager : Singleton<BattleManager>
 	CharacterStats currentCharacter;
 	public CharacterStats CurrentCharacter { get { return currentCharacter; } }
 	public Ability selectedAbility;
-	/*{
-		get { return selectedAbility; }
-		set
-		{
-			selectedAbility = value;
-			Debug.Log(selectedAbility.abilityName + " is selected");
-		}
-	}*/
+
+	[SerializeField] float NPCThinkingTime;
 
 	private void Start()
 	{
@@ -120,6 +114,24 @@ public class BattleManager : Singleton<BattleManager>
 		}
 		turnOrder = new Queue<CharacterStats>(turnOrder.OrderBy(q=>q.Initiative).Reverse());
 	}
+
+	public event Notify NPCThinkingFinished;
+	protected virtual void OnNPCThinkingFinished()
+	{
+		NPCThinkingFinished?.Invoke();
+	}
+
+	public void StartThinking()
+	{
+		StartCoroutine("NPCThinking");
+	}
+
+	IEnumerator NPCThinking()
+	{
+		yield return new WaitForSeconds(NPCThinkingTime);
+		OnNPCThinkingFinished();
+	}
+
 
 	public void AbilitySelect(Ability ability)
 	{
