@@ -130,6 +130,12 @@ public class PlayerCharacterStats : CharacterStats
 		get { return GetGeneralStatWithAllBonuses(weapon != null ? weapon.critValue : 0, Stats.CRIT_VALUE); }
 	}
 
+	public override void OnTurnStarted()
+	{
+		base.OnTurnStarted();
+		//reduce ability cooldowns
+	}
+
 	static List<Item> inventoryBack = new List<Item>();
 	public List<Item> InventoryBack { get { return inventoryBack; } }
 

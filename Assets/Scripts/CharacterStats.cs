@@ -224,20 +224,26 @@ public class CharacterStats:ScriptableObject
 
 	public void AddToConditions(AbilityCondition condition)
 	{
-		abilityConditions.Add(condition, condition.duration);
-		
-		foreach(ConditionValues value in condition.conditionValues)
+		if (abilityConditions.ContainsKey(condition))
 		{
-			if (value.addVal != 0)
+			abilityConditions[condition] = condition.duration;
+		}
+		else
+		{
+			abilityConditions.Add(condition, condition.duration);
+
+			foreach (ConditionValues value in condition.conditionValues)
 			{
-				AddToBonuses(additiveBonuses, condition, value, value.addVal);
-			}
-			if (value.multVal != 0)
-			{
-				AddToBonuses(multiplyingBonuses, condition, value, value.multVal);
+				if (value.addVal != 0)
+				{
+					AddToBonuses(additiveBonuses, condition, value, value.addVal);
+				}
+				if (value.multVal != 0)
+				{
+					AddToBonuses(multiplyingBonuses, condition, value, value.multVal);
+				}
 			}
 		}
-		Debug.Log(abilityConditions.Count + " " + abilityConditions.Keys);
 	}
 
 	void AddToBonuses(List<StatModifier>destination, AbilityCondition condition, ConditionValues value, float bonus)

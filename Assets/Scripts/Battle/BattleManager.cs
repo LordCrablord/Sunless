@@ -133,17 +133,6 @@ public class BattleManager : Singleton<BattleManager>
 	{
 		battleUI.ClearSelection();
 
-		/*CharacterStats[] targets;
-		switch (actionOriginator)
-		{
-			case PlayerCharacterStats pp:
-				targets = enemies;
-				break;
-			case NonPlayerCharacterStats npp:
-				targets = playerPCs;
-				break;
-		}*/
-
 		if (ability.actionOnAllTargets == true)
 		{
 			foreach (TargetPosition pos in ability.targetEnemy)
