@@ -24,7 +24,7 @@ MonoBehaviour:
   echoValMultMod: 1
   apCost: 1
   autoHit: 0
-  minDamage: 2
+  minDamage: 1
   maxDamage: 4
   damageType: 14
   cooldown: 0

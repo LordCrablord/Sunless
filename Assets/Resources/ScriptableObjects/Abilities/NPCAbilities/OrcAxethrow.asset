@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: OrcAxethrow
   m_EditorClassIdentifier: 
   abilityID: 507
-  abilityName: Axr Throw
+  abilityName: Axe Throw
   description: 
   sprite: {fileID: 0}
   targetEnemy: 
-  targetAlly: 0100000002000000
+  targetAlly: 000000000100000002000000
   actionOnAllTargets: 0
   allowedFromPosition: 02000000
   echoingToNextTarget: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
   apCost: 2
   autoHit: 0
   minDamage: 1
-  maxDamage: 5
+  maxDamage: 4
   damageType: 13
   cooldown: 0
   conditions: []
