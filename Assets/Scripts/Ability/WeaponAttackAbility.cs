@@ -26,7 +26,8 @@ public class WeaponAttackAbility : Ability
 		{
             currEchoVal--;
             target = BattleManager.Instance.enemies[initialTarget.Position + echoingToNextTarget - currEchoVal];
-            MakeAnAttack(originator, target);
+            if(target != null)
+                MakeAnAttack(originator, target);
         }
     }
 
