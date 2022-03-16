@@ -180,6 +180,12 @@ public class CharacterStats:ScriptableObject
 
 	}
 
+	public event EventHandler<string> ActionStarted;
+	public virtual void OnActionStarted(string actionName)
+	{
+		ActionStarted?.Invoke(this, actionName);
+	}
+
 	public event EventHandler<DamageEventArgs> Damaged;
 	public virtual void OnDamaged(DamageEventArgs e)
 	{

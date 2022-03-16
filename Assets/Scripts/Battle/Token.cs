@@ -48,6 +48,7 @@ public class Token : MonoBehaviour
             stat.TurnEnded += OnTurnEndedUI;
             stat.Damaged += DoCharacterDamageAnimation;
             stat.Killed += DestroyToken;
+            stat.ActionStarted += ShowWhatActiondone;
             isSubscribed = true;
         }
        
@@ -78,6 +79,13 @@ public class Token : MonoBehaviour
         obj.transform.SetParent(gameObject.transform, false);
         obj.GetComponent<DamageAnimation>().StartAnimation(e);
 	}
+
+    void ShowWhatActiondone(object sender, string actionName)
+	{
+        GameObject obj = Instantiate(damageAnimPrefab, transform.position, Quaternion.identity);
+        obj.transform.SetParent(gameObject.transform, false);
+        obj.GetComponent<DamageAnimation>().StartAnimation(actionName);
+    }
 
 	void SetHealthUI()
 	{
@@ -120,6 +128,7 @@ public class Token : MonoBehaviour
         stat.TurnEnded -= OnTurnEndedUI;
         stat.Damaged -= DoCharacterDamageAnimation;
         stat.Killed -= DestroyToken;
+        stat.ActionStarted -= ShowWhatActiondone;
         gameObject.GetComponent<Animator>().Play("Token Death");
         
 	}

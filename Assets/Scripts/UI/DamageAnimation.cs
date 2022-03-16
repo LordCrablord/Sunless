@@ -34,6 +34,12 @@ public class DamageAnimation : MonoBehaviour
 			animator.Play("Damage Animation");
 	}
 
+	public void StartAnimation(string actionName)
+	{
+		damageTMP.text = actionName;
+		animator.Play("Damage Animation");
+	}
+
 	public void OnAnimationComplete()
 	{
 		Destroy(gameObject);

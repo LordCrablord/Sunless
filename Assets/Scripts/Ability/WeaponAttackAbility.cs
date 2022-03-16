@@ -16,6 +16,7 @@ public class WeaponAttackAbility : Ability
     public override void DoAbility(CharacterStats actionOriginator, Ability ability, CharacterStats initialTarget)
     {
         Debug.Log(abilityName + " is used on " + initialTarget.characterName);
+        actionOriginator.OnActionStarted(ability.abilityName);
         PlayerCharacterStats originator = (PlayerCharacterStats)actionOriginator;
         NonPlayerCharacterStats target = (NonPlayerCharacterStats)initialTarget;
 

@@ -15,6 +15,7 @@ public class SpellAbility : Ability
 
     public override void DoAbility(CharacterStats actionOriginator, Ability ability, CharacterStats initialTarget)
 	{
+        actionOriginator.OnActionStarted(ability.abilityName);
         bool hit = autoHit;
         if (!autoHit)
 		{
