@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WeaponAbilityUIHolder : MonoBehaviour
 {
-    WeaponAttackAbility attackAbility;
+	Ability ability;
     [SerializeField] Image image;
 	[SerializeField] GameObject panelBlocker;
     [SerializeField] GameObject AbilityInfoPrefab;
@@ -13,12 +13,12 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 	[SerializeField] protected Vector2 itemTooltipOffset = new Vector2(-800, 0);
 	float tooltipWait = 0.25f;
 
-	public void SetWeaponAbilityUI(WeaponAttackAbility ab, int position)
+	public void SetWeaponAbilityUI(Ability ab, int position)
 	{
-        attackAbility = ab;
-        image.sprite = attackAbility.sprite;
+		ability = ab;
+        image.sprite = ability.sprite;
 		TargetPosition charPos = (TargetPosition)position;
-		if (attackAbility.allowedFromPosition.Contains(charPos))
+		if (ability.allowedFromPosition.Contains(charPos))
 		{
 			GetComponent<Button>().interactable = true;
 			panelBlocker.SetActive(false);
@@ -37,7 +37,7 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 
 	public void ClearWeaponAbilityUI()
 	{
-		attackAbility = null;
+		ability = null;
 		image.sprite = null;
 		GetComponent<Button>().interactable = false;
 		panelBlocker.SetActive(true);
@@ -45,15 +45,15 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 
 	public void OnAbilityCliked()
 	{
-		if(attackAbility != null)
+		if(ability != null)
 		{
-			BattleManager.Instance.AbilitySelect(attackAbility);
+			BattleManager.Instance.AbilitySelect(ability);
 		}
 	}
 
 	public void OnMouseEnter()
 	{
-		if (attackAbility != null)
+		if (ability != null)
 			StartCoroutine("ShowAbilityInfo");
 	}
 
@@ -70,6 +70,6 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 		abilityInfo = Instantiate(AbilityInfoPrefab, transform.position, Quaternion.identity);
 		abilityInfo.transform.SetParent(transform.parent.parent, false);
 		abilityInfo.GetComponent<RectTransform>().anchoredPosition = itemTooltipOffset + gameObject.GetComponent<RectTransform>().anchoredPosition;
-		abilityInfo.GetComponent<AbilityInfo>().SetAbilityTooltip(attackAbility);
+		abilityInfo.GetComponent<AbilityInfo>().SetAbilityTooltip(ability);
 	}
 }

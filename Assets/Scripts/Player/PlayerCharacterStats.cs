@@ -109,6 +109,7 @@ public class PlayerCharacterStats : CharacterStats
 		return (int)res;
 	}
 
+
 	public float DamageMin
 	{
 		get
