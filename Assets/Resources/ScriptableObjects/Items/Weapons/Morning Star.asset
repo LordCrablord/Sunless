@@ -27,6 +27,6 @@ MonoBehaviour:
   maxDamage: 6
   critChance: 13
   critValue: 1.8
-  DamageDestination: 12
+  DamageDestination: 14
   mainAbility: {fileID: 0}
   secondAbility: {fileID: 0}

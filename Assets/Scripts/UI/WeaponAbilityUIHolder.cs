@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class WeaponAbilityUIHolder : MonoBehaviour
 {
-	Ability ability;
-    [SerializeField] Image image;
-	[SerializeField] GameObject panelBlocker;
-    [SerializeField] GameObject AbilityInfoPrefab;
-    GameObject abilityInfo;
+	protected Ability ability;
+    [SerializeField] protected Image image;
+	[SerializeField] protected GameObject panelBlocker;
+    [SerializeField] protected GameObject AbilityInfoPrefab;
+	protected GameObject abilityInfo;
 	[SerializeField] protected Vector2 itemTooltipOffset = new Vector2(-800, 0);
-	float tooltipWait = 0.25f;
+	protected float tooltipWait = 0.25f;
 
 	public void SetWeaponAbilityUI(Ability ab, int position)
 	{
