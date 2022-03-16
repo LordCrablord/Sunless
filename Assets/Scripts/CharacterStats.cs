@@ -19,9 +19,8 @@ public class CharacterStats:ScriptableObject
 	{
 		get
 		{
-			return Mathf.RoundToInt(
-				(hpMax + AddAllBonuses(additiveBonuses, Stats.HP_MAX)) + (hpMax + AddAllBonuses(additiveBonuses, Stats.HP_MAX)) * AddAllBonuses(multiplyingBonuses, Stats.HP_MAX)
-				);
+			float baseVal = hpMax + healthConModifier * Con;
+			return GetGeneralStatWithAllBonuses(baseVal, Stats.HP_MAX);
 		}
 		set
 		{
@@ -29,6 +28,8 @@ public class CharacterStats:ScriptableObject
 			OnMaxHealthChanged();
 		}
 	}
+
+	[SerializeField] float healthConModifier;
 
 	public event Notify MaxHealthChanged;
 	protected virtual void OnMaxHealthChanged()
@@ -115,28 +116,28 @@ public class CharacterStats:ScriptableObject
 		}
 	}
 
-	[SerializeField] float str;
+	[SerializeField] float str = 1;
 	public float Str
 	{
 		get{return GetGeneralStatWithAllBonuses(str, Stats.STR);}
 		set{str = value;}
 	}
 
-	[SerializeField] float dex;
+	[SerializeField] float dex = 1;
 	public float Dex
 	{
 		get { return GetGeneralStatWithAllBonuses(dex, Stats.DEX); }
 		set { dex = value; }
 	}
 
-	[SerializeField] float con;
+	[SerializeField] float con = 1;
 	public float Con
 	{
 		get { return GetGeneralStatWithAllBonuses(con, Stats.DEX); }
 		set { con = value; }
 	}
 
-	[SerializeField] float intel;
+	[SerializeField] float intel = 1;
 	public float Int
 	{
 		get { return GetGeneralStatWithAllBonuses(intel, Stats.DEX); }
