@@ -34,6 +34,7 @@ public class BattleUI : MonoBehaviour
 	[Header("Lower right")]
 	[SerializeField] GameObject weaponAbilityMain;
 	[SerializeField] GameObject weaponAbilitySecond;
+	[SerializeField] List<GameObject> abilitiesList;
 
 	private void Start()
 	{
@@ -126,6 +127,11 @@ public class BattleUI : MonoBehaviour
 			protElementTMP.text = playerCharacter.ProtElement.ToString();
 			protEldrichTMP.text = playerCharacter.ProtEldrich.ToString();
 			protArcaneTMP.text = playerCharacter.ProtArcane.ToString();
+
+			for(int i = 0; i<playerCharacter.ActiveAbilities.Count; i++)
+			{
+				abilitiesList[i].GetComponent<AbilityUIHolder>().SetAbilityUI(playerCharacter.ActiveAbilities[i], playerCharacter.Position);
+			}
 
 			actionPointsTMP.text = "AP: " + playerCharacter.Ap + " / " + playerCharacter.ApMax;
 

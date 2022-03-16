@@ -7,7 +7,23 @@ public class AbilityUIHolder : WeaponAbilityUIHolder
 	public void SetAbilityUI(Ability ab, int position)
 	{
 		ability = ab;
-		image.sprite = ability.sprite;
-		SetUIHolder(position);
+		if(ability != null)
+		{
+			image.sprite = ability.sprite;
+			SetImageTransparency(1);
+			SetUIHolder(position);
+		}
+		else
+		{
+			image.sprite = null;
+			SetImageTransparency(0);
+		}
+	}
+
+	void SetImageTransparency(float transparency)
+	{
+		Color color = image.color;
+		color.a = transparency;
+		image.color = color;
 	}
 }
