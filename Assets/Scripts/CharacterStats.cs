@@ -6,7 +6,8 @@ using UnityEngine;
 
 public enum Stats {HP, HP_MAX, XP, GOLD, DAMAGE_MIN, DAMAGE_MAX, CRIT_CHANCE, CRIT_VALUE, 
 	AP, AP_MAX, AP_RECOVERY,
-	PROT_PIERCE, PROT_SLASH, PROT_BLUDGE, PROT_ELEMENT, PROT_ELDRICH, PROT_ARCANE}
+	PROT_PIERCE, PROT_SLASH, PROT_BLUDGE, PROT_ELEMENT, PROT_ELDRICH, PROT_ARCANE,
+	STR, DEX, CON, INT}
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Character", menuName = "Character/Character")]
 public class CharacterStats:ScriptableObject
@@ -114,6 +115,33 @@ public class CharacterStats:ScriptableObject
 		}
 	}
 
+	[SerializeField] float str;
+	public float Str
+	{
+		get{return GetGeneralStatWithAllBonuses(str, Stats.STR);}
+		set{str = value;}
+	}
+
+	[SerializeField] float dex;
+	public float Dex
+	{
+		get { return GetGeneralStatWithAllBonuses(dex, Stats.DEX); }
+		set { dex = value; }
+	}
+
+	[SerializeField] float con;
+	public float Con
+	{
+		get { return GetGeneralStatWithAllBonuses(con, Stats.DEX); }
+		set { con = value; }
+	}
+
+	[SerializeField] float intel;
+	public float Int
+	{
+		get { return GetGeneralStatWithAllBonuses(intel, Stats.DEX); }
+		set { intel = value; }
+	}
 
 	protected List<StatModifier> additiveBonuses;
 	protected List<StatModifier> multiplyingBonuses;
@@ -180,6 +208,12 @@ public class CharacterStats:ScriptableObject
 		StatsDictionary[stat].Set((float)StatsDictionary[stat].Get() + value);
 	}
 
+	float GetGeneralStatWithAllBonuses(float baseVal, Stats stat)
+	{
+		float addBonus = baseVal + AddAllBonuses(additiveBonuses, stat);
+		float multBonus = addBonus * AddAllBonuses(multiplyingBonuses, stat);
+		return Mathf.RoundToInt(addBonus + multBonus);
+	}
 }
 
 [System.Serializable]
