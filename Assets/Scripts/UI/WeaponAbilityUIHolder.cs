@@ -17,6 +17,11 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 	{
 		ability = ab;
         image.sprite = ability.sprite;
+		SetUIHolder(position);
+	}
+
+	protected void SetUIHolder(int position)
+	{
 		TargetPosition charPos = (TargetPosition)position;
 		if (ability.allowedFromPosition.Contains(charPos))
 		{
@@ -28,7 +33,7 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 			GetComponent<Button>().interactable = false;
 			panelBlocker.SetActive(true);
 		}
-		if (ab.apCost > BattleManager.Instance.CurrentCharacter.Ap)
+		if (ability.apCost > BattleManager.Instance.CurrentCharacter.Ap)
 		{
 			GetComponent<Button>().interactable = false;
 			panelBlocker.SetActive(true);

@@ -11,11 +11,16 @@ public class SpellAbility : Ability
     public float maxDamage;
     public Stats damageType;
     public float cooldown;
-    public List<Condition> conditions;
+    public List<AbilityCondition> conditions;
+
+    public override void DoAbility(CharacterStats actionOriginator, Ability ability, CharacterStats initialTarget)
+	{
+
+	}
 }
 
 [System.Serializable]
-public class Condition
+public class AbilityCondition
 {
     public string conditionName;
     public Sprite sprite;

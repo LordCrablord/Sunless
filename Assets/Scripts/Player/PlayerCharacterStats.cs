@@ -166,6 +166,10 @@ public class PlayerCharacterStats : CharacterStats
 	public Weapon weapon;
 	public Item trinket1;
 
+
+	[SerializeField] List<SpellAbility> activeAbilities;
+	public List<SpellAbility> ActiveAbilities { get { return activeAbilities; } }
+
 	public PlayerCharacterStats()
 	{
 		StatsDictionary.Add(Stats.XP, new VariableReference(() => Xp, val => { Xp = (float)val; }));
