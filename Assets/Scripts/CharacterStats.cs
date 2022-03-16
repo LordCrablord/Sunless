@@ -151,6 +151,7 @@ public class CharacterStats:ScriptableObject
 	public Dictionary<Stats, VariableReference> StatsDictionary = new Dictionary<Stats, VariableReference>();
 
 	public Dictionary<AbilityCondition, float> abilityConditions = new Dictionary<AbilityCondition, float>();
+	public Dictionary<SpellAbility, float> abilityCooldowns = new Dictionary<SpellAbility, float>();
 
 	protected CharacterStats()
 	{
@@ -167,6 +168,7 @@ public class CharacterStats:ScriptableObject
 	{
 		Ap += ApRecovery;
 		ReduceConditionDuration();
+		ReduceAbilityCooldowns();
 		TurnStarted?.Invoke();
 	}
 
@@ -270,6 +272,18 @@ public class CharacterStats:ScriptableObject
 				additiveBonuses.RemoveAll(a => a.modifierFromID == ability.conditionID);
 				multiplyingBonuses.RemoveAll(a => a.modifierFromID == ability.conditionID);
 				abilityConditions.Remove(ability);
+			}
+		}
+	}
+	void ReduceAbilityCooldowns()
+	{
+		List<SpellAbility> myAbilities = new List<SpellAbility>(abilityCooldowns.Keys);
+		foreach(SpellAbility spellAbility in myAbilities)
+		{
+			abilityCooldowns[spellAbility]--;
+			if (abilityCooldowns[spellAbility] <= 0)
+			{
+				abilityCooldowns.Remove(spellAbility);
 			}
 		}
 	}

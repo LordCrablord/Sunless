@@ -28,6 +28,7 @@ public class SpellAbility : Ability
                 initialTarget.AddToConditions(abilityCondition);
             }
 		}
+        actionOriginator.abilityCooldowns.Add(this, cooldown);
 	}
 
     bool MakeAnAttack(CharacterStats originator, CharacterStats target)

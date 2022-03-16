@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AbilityUIHolder : WeaponAbilityUIHolder
 {
+	[SerializeField] TextMeshProUGUI cooldownTMP;
 	public void SetAbilityUI(Ability ab, int position)
 	{
 		ability = ab;
@@ -13,6 +15,17 @@ public class AbilityUIHolder : WeaponAbilityUIHolder
 			image.sprite = ability.sprite;
 			SetImageTransparency(1);
 			SetUIHolder(position);
+			if (BattleManager.Instance.CurrentCharacter.abilityCooldowns.ContainsKey((SpellAbility)ability))
+			{
+				GetComponent<Button>().interactable = false;
+				panelBlocker.SetActive(true);
+				cooldownTMP.gameObject.SetActive(true);
+				cooldownTMP.text = BattleManager.Instance.CurrentCharacter.abilityCooldowns[(SpellAbility)ability].ToString();
+			}
+			else
+			{
+				cooldownTMP.gameObject.SetActive(false);
+			}
 		}
 		else
 		{
@@ -20,6 +33,7 @@ public class AbilityUIHolder : WeaponAbilityUIHolder
 			SetImageTransparency(0);
 			GetComponent<Button>().interactable = true;
 			panelBlocker.SetActive(false);
+			cooldownTMP.gameObject.SetActive(false);
 		}
 	}
 
