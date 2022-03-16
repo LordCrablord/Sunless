@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AbilityUIHolder : WeaponAbilityUIHolder
 {
@@ -17,6 +18,8 @@ public class AbilityUIHolder : WeaponAbilityUIHolder
 		{
 			image.sprite = null;
 			SetImageTransparency(0);
+			GetComponent<Button>().interactable = true;
+			panelBlocker.SetActive(false);
 		}
 	}
 
