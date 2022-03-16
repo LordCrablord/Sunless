@@ -17,6 +17,10 @@ public class NonPlayerCharacterStats : CharacterStats
     [SerializeField] float protEldrich;
     [SerializeField] float protArcane;
 
+    [SerializeField] List<SpellAbility> abilities;
+
+    float actionWaiting = 0.15f;
+
     public void PrepareStats()
     {
         StatsDictionary.Add(Stats.PROT_PIERCE, new VariableReference(() => protPierce, val => { protPierce = (float)val; }));
@@ -26,4 +30,10 @@ public class NonPlayerCharacterStats : CharacterStats
         StatsDictionary.Add(Stats.PROT_ELDRICH, new VariableReference(() => protEldrich, val => { protEldrich = (float)val; }));
         StatsDictionary.Add(Stats.PROT_ARCANE, new VariableReference(() => protArcane, val => { protArcane = (float)val; }));
     }
+
+	public override void OnTurnStarted()
+	{
+		base.OnTurnStarted();
+        Debug.Log("Arrrrrr");
+	}
 }

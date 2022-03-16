@@ -23,12 +23,14 @@ public class SpellAbility : Ability
         hit = MakeAnAttack(actionOriginator, initialTarget);
         if (hit)
 		{
-            foreach(AbilityCondition abilityCondition in conditions)
+
+            foreach (AbilityCondition abilityCondition in conditions)
 			{
                 initialTarget.AddToConditions(abilityCondition);
             }
 		}
-        actionOriginator.abilityCooldowns.Add(this, cooldown);
+        if(cooldown!=0)
+            actionOriginator.abilityCooldowns.Add(this, cooldown);
 	}
 
     bool MakeAnAttack(CharacterStats originator, CharacterStats target)
@@ -43,6 +45,7 @@ public class SpellAbility : Ability
         damage = Mathf.RoundToInt(damage);
         target.Hp = target.Hp - damage;
         target.OnDamaged(new DamageEventArgs(damage, false));
+
         return true;
     }
 
