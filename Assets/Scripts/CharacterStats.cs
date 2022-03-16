@@ -166,6 +166,7 @@ public class CharacterStats:ScriptableObject
 	public virtual void OnTurnStarted()
 	{
 		Ap += ApRecovery;
+		ReduceConditionDuration();
 		TurnStarted?.Invoke();
 	}
 
@@ -250,6 +251,21 @@ public class CharacterStats:ScriptableObject
 		else
 			modifier.value = bonus;
 		destination.Add(modifier);
+	}
+
+	void ReduceConditionDuration()
+	{
+		List<AbilityCondition> myAbCond = new List<AbilityCondition>(abilityConditions.Keys);
+		foreach(AbilityCondition ability in myAbCond)
+		{
+			abilityConditions[ability]--;
+			if (abilityConditions[ability] <= 0)
+			{
+				additiveBonuses.RemoveAll(a => a.modifierFromID == ability.conditionID);
+				multiplyingBonuses.RemoveAll(a => a.modifierFromID == ability.conditionID);
+				abilityConditions.Remove(ability);
+			}
+		}
 	}
 }
 
