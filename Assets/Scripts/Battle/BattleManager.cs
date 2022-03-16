@@ -177,5 +177,20 @@ public class BattleManager : Singleton<BattleManager>
 				break;
 			}
 		}
+
+		if(CheckIfEmpty(playerPCs) || CheckIfEmpty(enemies))
+		{
+			battleUI.gameObject.SetActive(false);
+		}
+	}
+
+	bool CheckIfEmpty(CharacterStats[] statsArr)
+	{
+		foreach(CharacterStats stats in statsArr)
+		{
+			if (stats != null)
+				return false;
+		}
+		return true;
 	}
 }
