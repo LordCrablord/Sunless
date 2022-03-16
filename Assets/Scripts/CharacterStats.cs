@@ -215,7 +215,7 @@ public class CharacterStats:ScriptableObject
 		StatsDictionary[stat].Set((float)StatsDictionary[stat].Get() + value);
 	}
 
-	float GetGeneralStatWithAllBonuses(float baseVal, Stats stat)
+	protected float GetGeneralStatWithAllBonuses(float baseVal, Stats stat)
 	{
 		float addBonus = baseVal + AddAllBonuses(additiveBonuses, stat);
 		float multBonus = addBonus * AddAllBonuses(multiplyingBonuses, stat);

@@ -112,51 +112,23 @@ public class PlayerCharacterStats : CharacterStats
 
 	public float DamageMin
 	{
-		get
-		{
-			float weaponValue = weapon != null ? weapon.minDamage : 0;
-			float addBonusesSum = weaponValue + AddAllBonuses(additiveBonuses, Stats.DAMAGE_MIN);
-			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.DAMAGE_MIN);
-			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
-		}
+		get{ return GetGeneralStatWithAllBonuses(weapon != null ? weapon.minDamage : 0, Stats.DAMAGE_MIN);}
 	}
 
 	public float DamageMax
 	{
-		get
-		{
-			float weaponValue = weapon != null ? weapon.maxDamage : 0;
-			float addBonusesSum = weaponValue + AddAllBonuses(additiveBonuses, Stats.DAMAGE_MIN);
-			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.DAMAGE_MIN);
-			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
-		}
+		get { return GetGeneralStatWithAllBonuses(weapon != null ? weapon.maxDamage : 0, Stats.DAMAGE_MAX); }
 	}
 
 	public float CritChance
 	{
-		get
-		{
-			float weaponStat = weapon != null ? weapon.critChance : 0;
-			float addBonusesSum = weaponStat + AddAllBonuses(additiveBonuses, Stats.CRIT_CHANCE);
-			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.CRIT_CHANCE);
-			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
-		}
+		get { return GetGeneralStatWithAllBonuses(weapon != null ? weapon.critChance : 0, Stats.CRIT_CHANCE); }
 	}
 
 	public float CritValue
 	{
-		get
-		{
-			float weaponStat = weapon != null ? weapon.critValue : 0;
-			float addBonusesSum = weaponStat + AddAllBonuses(additiveBonuses, Stats.CRIT_VALUE);
-			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.CRIT_VALUE);
-			return addBonusesSum + addBonusesSum * multBonusesSum;
-		}
+		get { return GetGeneralStatWithAllBonuses(weapon != null ? weapon.critValue : 0, Stats.CRIT_VALUE); }
 	}
-	//TODO maybe make one func for those things above so it would take less space
-
-	//public Dictionary<Stats, Func<object>> StatsDictionary;
-	
 
 	static List<Item> inventoryBack = new List<Item>();
 	public List<Item> InventoryBack { get { return inventoryBack; } }
