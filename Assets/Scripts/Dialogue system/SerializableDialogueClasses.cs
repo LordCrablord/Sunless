@@ -55,11 +55,12 @@ public class DialogueBranch
     public List<DialogueAction> actions;
 }
 
-public enum ConditionType { QUEST, EVENT, STR, DEX, CON, INT}
+public enum BranchConditionType { QUEST_PRESENT, QUEST_NOT_PRESENT, 
+    EVENT_PRESENT, EVENT_NOT_PRESENT, STR, DEX, CON, INT}
 [Serializable]
 public class BranchCondition
 {
-    public ConditionType cond_type;
+    public BranchConditionType cond_type;
     public int cond_val;
 }
 

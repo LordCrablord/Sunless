@@ -24,9 +24,12 @@ public class BranchDialogueAction : IDialogueAction
 
 		foreach(DialogueBranch branch in currentItem.branches)
 		{
-			buttons[branch.branch_id].SetActive(true);
-			buttons[branch.branch_id].GetComponentInChildren<TextMeshProUGUI>().text = branch.text;
-			buttons[branch.branch_id].GetComponent<Button>().onClick.AddListener(delegate { OnBranchChosen(branch.branch_id); });
+			if (CheckConditionIfAllowed(branch.conditions))
+			{
+				buttons[branch.branch_id].SetActive(true);
+				buttons[branch.branch_id].GetComponentInChildren<TextMeshProUGUI>().text = branch.text;
+				buttons[branch.branch_id].GetComponent<Button>().onClick.AddListener(delegate { OnBranchChosen(branch.branch_id); });
+			}
 		}
 	}
 
@@ -45,5 +48,48 @@ public class BranchDialogueAction : IDialogueAction
 	{
 		currentData = JsonUtility.FromJson<DialogueBranchesData>(dialoguesDataJSON.text);
 		currentItem = currentData.items.Find(t => t.id == jsonId);
+	}
+
+	bool CheckConditionIfAllowed(List<BranchCondition> conditions)
+	{
+		foreach (BranchCondition condition in conditions)
+		{
+			switch (condition.cond_type)
+			{
+				case BranchConditionType.QUEST_PRESENT:
+					if (!QuestManager.Instance.TriggerManager.questPartAllowID.Contains(condition.cond_val))
+						return false;
+					break;
+				case BranchConditionType.QUEST_NOT_PRESENT:
+					if (QuestManager.Instance.TriggerManager.questPartAllowID.Contains(condition.cond_val))
+						return false;
+					break;
+				case BranchConditionType.EVENT_PRESENT:
+					if (QuestManager.Instance.TriggerManager.settlementConditionForbidID.Contains(condition.cond_val))
+						return false;
+					break;
+				case BranchConditionType.EVENT_NOT_PRESENT:
+					if (!QuestManager.Instance.TriggerManager.settlementConditionForbidID.Contains(condition.cond_val))
+						return false;
+					break;
+				case BranchConditionType.STR:
+					if (GameManager.Instance.GetMainCharacter().Str<condition.cond_val)
+						return false;
+					break;
+				case BranchConditionType.DEX:
+					if (GameManager.Instance.GetMainCharacter().Dex < condition.cond_val)
+						return false;
+					break;
+				case BranchConditionType.CON:
+					if (GameManager.Instance.GetMainCharacter().Con < condition.cond_val)
+						return false;
+					break;
+				case BranchConditionType.INT:
+					if (GameManager.Instance.GetMainCharacter().Int < condition.cond_val)
+						return false;
+					break;
+			}
+		}
+		return true;
 	}
 }
