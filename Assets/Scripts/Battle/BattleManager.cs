@@ -199,10 +199,9 @@ public class BattleManager : Singleton<BattleManager>
 		return true;
 	}
 
-	public event Notify BattleWon;
-	protected virtual void OnBattleWon()
+	void BattleWon()
 	{
-		BattleWon?.Invoke();
+		battleUI.SetEndBattleAnimation();
 		if (currentBattle.dialogueAfterFight != null)
 		{
 			GameManager.Instance.StartDialogue(currentBattle.dialogueAfterFight);
@@ -211,6 +210,6 @@ public class BattleManager : Singleton<BattleManager>
 
 	void BattleLost()
 	{
-		battleUI.gameObject.SetActive(false);
+		battleUI.SetEndBattleAnimation();
 	}
 }

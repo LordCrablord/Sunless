@@ -206,4 +206,14 @@ public class BattleUI : MonoBehaviour
 			moveLeftButton.interactable = true;
 		else moveLeftButton.interactable = false;
 	}
+
+	public void SetEndBattleAnimation()
+	{
+		GetComponent<Animator>().Play("End Battle");
+	}
+
+	public void OnEndBattleAnimationFinished()
+	{
+		gameObject.SetActive(false);
+	}
 }
