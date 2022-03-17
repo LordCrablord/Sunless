@@ -273,6 +273,28 @@
 			],
 			"actions":[
 			]
+	  },
+	  {
+	  		"id":15,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "After the fight you look around the hut to find the healer, or his remnants"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "Unfortunately, you failed to spot both of those things"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "Iriana would probably like to hear about this"
+				}
+			],
+			"actions":[
+			]
 	  }
 	]
 }

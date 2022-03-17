@@ -17,3 +17,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b9c5cf62696320449108bd3cc0c680f, type: 2}
   - {fileID: 0}
   - {fileID: 11400000, guid: 1b9c5cf62696320449108bd3cc0c680f, type: 2}
+  dialogueAfterFight:
+    action_type: 1
+    action_id: 15

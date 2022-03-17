@@ -10,7 +10,7 @@ public class BattleManager : Singleton<BattleManager>
     public PlayerCharacterStats[] playerPCs = new PlayerCharacterStats[3];
 	public NonPlayerCharacterStats[] enemies = new NonPlayerCharacterStats[3];
 
-	public BattleData temp;
+	public BattleData currentBattle;
 	BattleData currrentBattle;
 
 	Queue<CharacterStats> turnOrder;
@@ -25,7 +25,7 @@ public class BattleManager : Singleton<BattleManager>
 	{
 		roundCount = 1;
 		Invoke("StartLate", 0.1f);
-		SetEnemies(temp);
+		SetEnemies(currentBattle);
 		
 	}
 	//at the moment late start as testing and it was not really instatiated yet
@@ -180,9 +180,12 @@ public class BattleManager : Singleton<BattleManager>
 		}
 		turnOrder = new Queue<CharacterStats>(turnOrder.Where(c => c != character));
 
-		if(CheckIfEmpty(playerPCs) || CheckIfEmpty(enemies))
+		if(CheckIfEmpty(playerPCs))
 		{
-			battleUI.gameObject.SetActive(false);
+			BattleLost();
+		}else if (CheckIfEmpty(enemies))
+		{
+			BattleWon();
 		}
 	}
 
@@ -194,5 +197,20 @@ public class BattleManager : Singleton<BattleManager>
 				return false;
 		}
 		return true;
+	}
+
+	public event Notify BattleWon;
+	protected virtual void OnBattleWon()
+	{
+		BattleWon?.Invoke();
+		if (currentBattle.dialogueAfterFight != null)
+		{
+			GameManager.Instance.StartDialogue(currentBattle.dialogueAfterFight);
+		}
+	}
+
+	void BattleLost()
+	{
+		battleUI.gameObject.SetActive(false);
 	}
 }

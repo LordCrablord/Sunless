@@ -21152,7 +21152,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  temp: {fileID: 11400000, guid: ea8f1c3b5e9643e49aca833a272f02e6, type: 2}
+  currentBattle: {fileID: 11400000, guid: ea8f1c3b5e9643e49aca833a272f02e6, type: 2}
   selectedAbility: {fileID: 0}
   NPCThinkingTime: 1.2
 --- !u!1 &2134927035

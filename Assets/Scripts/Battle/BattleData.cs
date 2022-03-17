@@ -8,4 +8,5 @@ public class BattleData : ScriptableObject
 {
     public int battleID;
     public List<NonPlayerCharacterStats> enemies;
+    public DialogueAction dialogueAfterFight;
 }
