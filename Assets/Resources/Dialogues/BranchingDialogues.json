@@ -92,6 +92,68 @@
 					]
 				}
 			]
+	  },
+	  {
+		  	"id":4,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Ah, i see you found the way to the cathedral. Good, be welcomed here"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 1,
+					"text": "Tell me about yourself",
+					"conditions": [],
+					"actions": [
+						
+					]
+				},
+				{
+					"branch_id": 2,
+					"text": "I went to healer's hut, there is noone there, only orcs",
+					"conditions": [{"cond_type": "QUEST_PRESENT", "cond_val": 3}],
+					"actions": [
+						{"action_type": 1, "action_id": 17}
+					]
+				},
+				{
+					"branch_id": 3,
+					"text": "Leave",
+					"conditions": [],
+					"actions": [
+					]
+				}
+			]
+	  },
+	  {
+		  	"id":5,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "So, what do you say?"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 2,
+					"text": "Accept",
+					"conditions": [],
+					"actions": [
+						
+					]
+				},
+				{
+					"branch_id": 3,
+					"text": "Say that you'd better be traveling alone for now",
+					"conditions": [],
+					"actions": [
+					]
+				}
+			]
 	  }
 	]
 }

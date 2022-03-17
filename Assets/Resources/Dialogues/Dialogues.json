@@ -311,6 +311,35 @@
 			],
 			"actions":[
 			]
+	  },
+	  {
+	  		"id":17,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "What? not even a trail of him?"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Those are really bad news for everyone, without this healer we will have some serious problems"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Say, do you travel a lot? If you do, then i would like to join you in your travels"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "I don't really travel alot, and i'd rather be here in cathedral, but with you i think i will have more chance on the road"
+				}
+				
+			],
+			"actions":[
+			{"action_type": 2, "action_id": 5}
+			]
 	  }
 	]
 }

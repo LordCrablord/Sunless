@@ -16,4 +16,11 @@ MonoBehaviour:
   id: 7
   triggerCondition: 0
   sprite: {fileID: 21300000, guid: dd03a87fb2699d9428cbed09dc93c189, type: 3}
-  settlementEvents: []
+  settlementEvents:
+  - eventName: Iriana
+    eventID: 8
+    triggerCondition: 0
+    sprite: {fileID: 21300000, guid: e20a21b078d030641aaee64b0e5c25a7, type: 3}
+    dialogueAction:
+      action_type: 2
+      action_id: 4
