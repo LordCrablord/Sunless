@@ -32,8 +32,7 @@ public class BattleManager : Singleton<BattleManager>
 	//it wont be a problem later, so late start can be removed, later, after testing
 	private void StartLate()
 	{
-		playerPCs[0] = GameManager.Instance.MainCharacter.CharacterStats;
-		CloneAllyToPosition(2);
+		playerPCs = GameManager.Instance.GetPlayerParty();
 		for (int i = 0; i < playerPCs.Length; i++)
 		{
 			battleUI.SetAllyToken(playerPCs[i], i);

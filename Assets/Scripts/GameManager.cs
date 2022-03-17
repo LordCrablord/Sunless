@@ -7,8 +7,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] ItemDatabase itemDatabase;
     public ItemDatabase ItemDatabase {get { return itemDatabase; }}
 
-    [SerializeField] PlayerController mainCharacter;
-    public PlayerController MainCharacter { get { return mainCharacter; } }
+    [SerializeField] PartyManager partyManager;
 
     [SerializeField] GameObject characterUI;
     [SerializeField] GameObject dialogueManager;
@@ -60,5 +59,20 @@ public class GameManager : Singleton<GameManager>
     public void StartDialogue(DialogueAction dialogueAction)
 	{
         dialogueManager.GetComponent<DialogueManager>().StartDialogue(dialogueAction);
+	}
+
+    public PlayerCharacterStats[] GetPlayerParty()
+	{
+        return partyManager.party;
+	}
+
+    public void ModifyMainCharacterStat(Stats stat, float value)
+	{
+        partyManager.ModifyMainCharacterStats(stat, value);
+    }
+
+    public PlayerCharacterStats GetMainCharacter()
+	{
+        return partyManager.MainCharacter;
 	}
 }
