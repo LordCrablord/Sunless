@@ -51,7 +51,16 @@ public class DialogueBranch
 {
     public int branch_id;
     public string text;
+    public List<BranchCondition> conditions;
     public List<DialogueAction> actions;
+}
+
+public enum ConditionType { QUEST, EVENT, STR, DEX, CON, INT}
+[Serializable]
+public class BranchCondition
+{
+    public ConditionType cond_type;
+    public int cond_val;
 }
 
 #endregion
