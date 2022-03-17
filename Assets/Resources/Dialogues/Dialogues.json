@@ -287,12 +287,26 @@
 				{
 					"name": "Narrator", 
 					"imagePath": "Sprites/Characters/Narrator",
-					"text": "Unfortunately, you failed to spot both of those things"
+					"text": "You were looking in many places"
 				},
 				{
 					"name": "Narrator", 
 					"imagePath": "Sprites/Characters/Narrator",
-					"text": "Iriana would probably like to hear about this"
+					"text": "Unfortunately, you don't see any signs of him"
+				}
+			],
+			"actions":[
+				{"action_type": 10, "action_id": 3},
+				{"action_type": 1, "action_id": 16}
+			]
+	  },
+	  {
+	  		"id":16,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "It is probably best to tell Iriana about this"
 				}
 			],
 			"actions":[

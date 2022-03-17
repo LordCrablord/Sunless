@@ -22,6 +22,7 @@ public class BattleManager : Singleton<BattleManager>
 
 	public void PrepareBattle(BattleData battleData)
 	{
+		GameManager.Instance.PauseGameRequest++;
 		roundCount = 1;
 		currentBattle = battleData;
 		SetEnemies();
@@ -196,10 +197,12 @@ public class BattleManager : Singleton<BattleManager>
 		{
 			GameManager.Instance.StartDialogue(currentBattle.dialogueAfterFight);
 		}
+		GameManager.Instance.PauseGameRequest--;
 	}
 
 	void BattleLost()
 	{
 		battleUI.SetEndBattleAnimation();
+		GameManager.Instance.PauseGameRequest--;
 	}
 }
