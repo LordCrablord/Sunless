@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[System.Serializable]
+[CreateAssetMenu(fileName = "New PlayerCharacter", menuName = "Character/PlayerCharacter")]
 public class PlayerCharacterStats : CharacterStats
 {
     static int xp;
@@ -57,55 +58,83 @@ public class PlayerCharacterStats : CharacterStats
 		}
 	}
 
-	[SerializeField] int armorClassBase;
-	public float ArmorClass
+	[SerializeField] int protPierceBase;
+	public float ProtPierce
 	{
-		get 
-		{
-			int res = armorClassBase;
-			if (helmet != null)	res += helmet.armorValue;
-			if (chestpiece != null) res += chestpiece.armorValue;
-			return res; 
-		}
-		set { armorClassBase = (int)value; }
+		get{return ReturnProtArmorClass(protPierceBase, Stats.PROT_PIERCE);}
+		set { protPierceBase = (int)value; }
 	}
 
-	public float Damage
+	[SerializeField] int protSlashBase;
+	public float ProtSlash
 	{
-		get
-		{
-			float weaponValue = weapon != null ? weapon.damage : 0;
-			float addBonusesSum = weaponValue + AddAllBonuses(additiveBonuses, Stats.DAMAGE);
-			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.DAMAGE);
-			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
-		}
+		get { return ReturnProtArmorClass(protSlashBase, Stats.PROT_SLASH); }
+		set { protSlashBase = (int)value; }
+	}
+
+	[SerializeField] int protBludgeBase;
+	public float ProtBludge
+	{
+		get { return ReturnProtArmorClass(protBludgeBase, Stats.PROT_BLUDGE); }
+		set { protBludgeBase = (int)value; }
+	}
+
+	[SerializeField] int protElementalBase;
+	public float ProtElement
+	{
+		get { return ReturnProtArmorClass(protElementalBase, Stats.PROT_ELEMENT); }
+		set { protElementalBase = (int)value; }
+	}
+
+	[SerializeField] int protEldrichBase;
+	public float ProtEldrich
+	{
+		get { return ReturnProtArmorClass(protEldrichBase, Stats.PROT_ELDRICH); }
+		set { protEldrichBase = (int)value; }
+	}
+
+	[SerializeField] int protArcaneBase;
+	public float ProtArcane
+	{
+		get { return ReturnProtArmorClass(protArcaneBase, Stats.PROT_ARCANE); }
+		set { protArcaneBase = (int)value; }
+	}
+
+	int ReturnProtArmorClass(float baseStat, Stats protStat)
+	{
+		float res = baseStat + AddAllBonuses(additiveBonuses, protStat);
+		res = res + res * AddAllBonuses(multiplyingBonuses, protStat);
+		if (helmet != null) res += helmet.GetArmorProtVal(protStat);
+		if (chestpiece != null) res += chestpiece.GetArmorProtVal(protStat);
+		return (int)res;
+	}
+
+
+	public float DamageMin
+	{
+		get{ return GetGeneralStatWithAllBonuses(weapon != null ? weapon.minDamage : 0, Stats.DAMAGE_MIN);}
+	}
+
+	public float DamageMax
+	{
+		get { return GetGeneralStatWithAllBonuses(weapon != null ? weapon.maxDamage : 0, Stats.DAMAGE_MAX); }
 	}
 
 	public float CritChance
 	{
-		get
-		{
-			float weaponStat = weapon != null ? weapon.critChance : 0;
-			float addBonusesSum = weaponStat + AddAllBonuses(additiveBonuses, Stats.CRIT_CHANCE);
-			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.CRIT_CHANCE);
-			return Mathf.RoundToInt(addBonusesSum + addBonusesSum * multBonusesSum);
-		}
+		get { return GetGeneralStatWithAllBonuses(weapon != null ? weapon.critChance : 0, Stats.CRIT_CHANCE); }
 	}
 
 	public float CritValue
 	{
-		get
-		{
-			float weaponStat = weapon != null ? weapon.critValue : 0;
-			float addBonusesSum = weaponStat + AddAllBonuses(additiveBonuses, Stats.CRIT_VALUE);
-			float multBonusesSum = AddAllBonuses(multiplyingBonuses, Stats.CRIT_VALUE);
-			return addBonusesSum + addBonusesSum * multBonusesSum;
-		}
+		get { return GetGeneralStatWithAllBonuses(weapon != null ? weapon.critValue : 0, Stats.CRIT_VALUE); }
 	}
-	//TODO maybe make one func for those things above so it would take less space
 
-	//public Dictionary<Stats, Func<object>> StatsDictionary;
-	
+	public override void OnTurnStarted()
+	{
+		base.OnTurnStarted();
+		//reduce ability cooldowns
+	}
 
 	static List<Item> inventoryBack = new List<Item>();
 	public List<Item> InventoryBack { get { return inventoryBack; } }
@@ -115,14 +144,25 @@ public class PlayerCharacterStats : CharacterStats
 	public Weapon weapon;
 	public Item trinket1;
 
+
+	[SerializeField] List<SpellAbility> activeAbilities;
+	public List<SpellAbility> ActiveAbilities { get { return activeAbilities; } }
+
 	public PlayerCharacterStats()
 	{
-
 		StatsDictionary.Add(Stats.XP, new VariableReference(() => Xp, val => { Xp = (float)val; }));
 		StatsDictionary.Add(Stats.GOLD, new VariableReference(() => Gold, val => { Gold = (float)val; }));
-		StatsDictionary.Add(Stats.DAMAGE, new VariableReference(() => Damage, null));
+		StatsDictionary.Add(Stats.DAMAGE_MIN, new VariableReference(() => DamageMin, null));
+		StatsDictionary.Add(Stats.DAMAGE_MAX, new VariableReference(() => DamageMax, null));
 		StatsDictionary.Add(Stats.CRIT_CHANCE, new VariableReference(() => CritChance, null));
 		StatsDictionary.Add(Stats.CRIT_VALUE, new VariableReference(() => CritValue, null));
+		
+		StatsDictionary.Add(Stats.PROT_PIERCE, new VariableReference(() => ProtPierce, val => { ProtPierce = (float)val; }));
+		StatsDictionary.Add(Stats.PROT_SLASH, new VariableReference(() => ProtSlash, val => { ProtSlash = (float)val; }));
+		StatsDictionary.Add(Stats.PROT_BLUDGE, new VariableReference(() => ProtBludge, val => { ProtBludge = (float)val; }));
+		StatsDictionary.Add(Stats.PROT_ELEMENT, new VariableReference(() => ProtElement, val => { ProtElement = (float)val; }));
+		StatsDictionary.Add(Stats.PROT_ELDRICH, new VariableReference(() => ProtEldrich, val => { ProtEldrich = (float)val; }));
+		StatsDictionary.Add(Stats.PROT_ARCANE, new VariableReference(() => ProtArcane, val => { ProtArcane = (float)val; }));
 	}
 
 	public void EquipItem(Item item)

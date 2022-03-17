@@ -18,3 +18,4 @@ MonoBehaviour:
     She is worried and sent you to investigate if healer is ok
   questParts:
   - {fileID: 11400000, guid: 5d6837ab2a2aab8428ac8ad906c1e217, type: 2}
+  - {fileID: 11400000, guid: 80d24e4e46ff65f4797faac647027577, type: 2}

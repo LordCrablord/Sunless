@@ -10,7 +10,7 @@ public class DialogueStatChangeAction : IDialogueAction
 	public void DoAction(GameObject dialogueManager)
 	{
 		Stats myStatEnum = (Stats)Enum.Parse(typeof(Stats), currentItem.stat);
-		GameManager.Instance.MainCharacter.ModifyStats(myStatEnum, currentItem.value);
+		GameManager.Instance.ModifyMainCharacterStat(myStatEnum, currentItem.value);
 	}
 
 	public List<DialogueAction> GetFutureDialogueActions()

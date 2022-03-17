@@ -13,6 +13,7 @@
 				{
 					"branch_id": 1,
 					"text": "Accept",
+					"conditions": [],
 					"actions": [
 						{"action_type": 1, "action_id": 2}
 					]
@@ -20,6 +21,7 @@
 				{
 					"branch_id": 2,
 					"text": "Decline",
+					"conditions": [],
 					"actions": [
 						
 					]
@@ -39,6 +41,7 @@
 				{
 					"branch_id": 1,
 					"text": "Participate in arena",
+					"conditions": [],
 					"actions": [
 						{"action_type": 3, "action_id": 1}
 					]
@@ -46,6 +49,7 @@
 				{
 					"branch_id": 2,
 					"text": "Call guards and try to end this illegal activity",
+					"conditions": [],
 					"actions": [
 						{"action_type": 1, "action_id": 8}
 					]
@@ -53,6 +57,7 @@
 				{
 					"branch_id": 3,
 					"text": "Go away",
+					"conditions": [],
 					"actions": [
 						
 					]
@@ -72,6 +77,7 @@
 				{
 					"branch_id": 1,
 					"text": "Agree to help",
+					"conditions": [],
 					"actions": [
 						{"action_type": 7, "action_id": 1},
 						{"action_type": 1, "action_id": 11}
@@ -80,8 +86,71 @@
 				{
 					"branch_id": 2,
 					"text": "Say that you have other things to do",
+					"conditions": [],
 					"actions": [
 						{"action_type": 1, "action_id": 12}
+					]
+				}
+			]
+	  },
+	  {
+		  	"id":4,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Ah, i see you found the way to the cathedral. Good, be welcomed here"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 1,
+					"text": "Tell me about yourself",
+					"conditions": [],
+					"actions": [
+						
+					]
+				},
+				{
+					"branch_id": 2,
+					"text": "I went to healer's hut, there is noone there, only orcs",
+					"conditions": [{"cond_type": "QUEST_PRESENT", "cond_val": 3}],
+					"actions": [
+						{"action_type": 1, "action_id": 17}
+					]
+				},
+				{
+					"branch_id": 3,
+					"text": "Leave",
+					"conditions": [],
+					"actions": [
+					]
+				}
+			]
+	  },
+	  {
+		  	"id":5,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "So, what do you say?"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 2,
+					"text": "Accept",
+					"conditions": [],
+					"actions": [
+						
+					]
+				},
+				{
+					"branch_id": 3,
+					"text": "Say that you'd better be traveling alone for now",
+					"conditions": [],
+					"actions": [
 					]
 				}
 			]

@@ -38,7 +38,6 @@ public class EventTriggerManager : MonoBehaviour
 	{
         questPartAllowID.Add(triggerID);
         OnQuestPartAllowed();
-
     }
 
     public void RemoveFromQuestPartAllowList(int triggerID)

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c98f0a70c811c4f80c5f2575c28c73, type: 3}
+  m_Name: temp
+  m_EditorClassIdentifier: 
+  characterName: teeemp
+  sprite: {fileID: 21300000, guid: 38a06a4c323c748479e28a268f636634, type: 3}
+  hpMax: 246
+  healthConModifier: 0
+  hp: 169
+  initiative: 2
+  position: 2
+  apMax: 4
+  apRecovery: 3
+  str: 0
+  dex: 0
+  con: 0
+  intel: 0
+  protPierceBase: 0
+  protSlashBase: 0
+  protBludgeBase: 0
+  protElementalBase: 0
+  protEldrichBase: 0
+  protArcaneBase: 0
+  helmet: {fileID: 0}
+  chestpiece: {fileID: 0}
+  weapon: {fileID: 0}
+  trinket1: {fileID: 0}
+  activeAbilities:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

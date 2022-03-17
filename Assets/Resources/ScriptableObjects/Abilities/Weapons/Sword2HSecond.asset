@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8911201c0644f74289e14a403efc416, type: 3}
+  m_Name: Sword2HSecond
+  m_EditorClassIdentifier: 
+  abilityID: 502
+  abilityName: Split
+  description: Long strike against the target, which will also hit the one after
+    the initial target as well. -30% Damage, -50% CritValue
+  sprite: {fileID: 21300000, guid: 3ead657bb62e7bf46a8af326a5045160, type: 3}
+  targetEnemy: 0000000001000000
+  targetAlly: 
+  actionOnAllTargets: 0
+  allowedFromPosition: 00000000
+  echoingToNextTarget: 1
+  echoValMultMod: 1
+  apCost: 3
+  baseDmgValueAddMod: 0
+  baseDmgValueMultMod: 0.7
+  baseCrtChanceAddMod: 30
+  baseCrtChanceMultMod: 1
+  baseCrtValueAddMod: 0
+  baseCrtValueMultMod: 0.75

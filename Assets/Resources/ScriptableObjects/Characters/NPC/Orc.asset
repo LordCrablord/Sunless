@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf63879df5dda404cbc880acadb0b8ce, type: 3}
+  m_Name: Orc
+  m_EditorClassIdentifier: 
+  characterName: Orc
+  sprite: {fileID: 21300000, guid: 4922ff62c543bdc478e36ee6e5e9b4ce, type: 3}
+  hpMax: 1
+  healthConModifier: 0
+  hp: 1
+  initiative: 2
+  position: 0
+  apMax: 4
+  apRecovery: 3
+  str: 4
+  dex: 1
+  con: 2
+  intel: 1
+  npcID: 1
+  armorClass: 1
+  protPierce: 0
+  protSlash: 1
+  protBludge: 1
+  protElement: 0
+  protEldrich: 0
+  protArcane: 0
+  abilities:
+  - {fileID: 11400000, guid: cca0862499ed782418a5b32d45e2b714, type: 2}
+  - {fileID: 11400000, guid: 8a3ae9fecc45c434eb2ddbf3d1d67017, type: 2}
+  - {fileID: 11400000, guid: 0fdfd47c34732ca4d902c99f7cc5d6e7, type: 2}
+  - {fileID: 11400000, guid: 7ba0fdf76e385e04aa7f3ad386889365, type: 2}

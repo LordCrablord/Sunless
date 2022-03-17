@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182c3e070dad8ec43a1f04592b9108ea, type: 3}
+  m_Name: Otherwordly Gaze
+  m_EditorClassIdentifier: 
+  abilityID: 503
+  abilityName: Otherwordly Gaze
+  description: Character target the creature, forcing it to look into otherwordly,
+    slowing in the process. On fail, target has -1 AP recovery, -50% initiative and
+    -1 DEX
+  sprite: {fileID: 21300000, guid: a0433138376ef094e99e1d5550b933f5, type: 3}
+  targetEnemy: 000000000100000002000000
+  targetAlly: 
+  actionOnAllTargets: 0
+  allowedFromPosition: 0100000002000000
+  echoingToNextTarget: 0
+  echoValMultMod: 1
+  apCost: 1
+  autoHit: 0
+  minDamage: 1
+  maxDamage: 1
+  damageType: 16
+  cooldown: 2
+  conditions:
+  - {fileID: 11400000, guid: 352352411154aa0499d94c8619a3a142, type: 2}
