@@ -103,7 +103,7 @@ public class DialogueManager : MonoBehaviour
 
     enum DialogueActionTypes {NONE, SIMPLE, BRANCH, RANDOM, 
         STAT_CHANGE, ADD_FORBID_SETTL_TRIGGER, REMOVE_FORBID_SETTL_TRIGGER,
-        START_QUEST, START_BATTLE}
+        START_QUEST, START_BATTLE, CLOSE_DIALOGUE}
     IDialogueAction GetDialogueAction(DialogueAction actionJSON)
 	{
         switch ((DialogueActionTypes)actionJSON.action_type)
@@ -128,7 +128,9 @@ public class DialogueManager : MonoBehaviour
             case DialogueActionTypes.START_BATTLE:
                 BattleManager.Instance.PrepareBattle(GameManager.Instance.BattleDatabase.battles.Find(b=>b.battleID == actionJSON.action_id));
                 return null;
-
+            case DialogueActionTypes.CLOSE_DIALOGUE:
+                CloseDialogueUI();
+                return null;
             default:
                 return null;
 		}

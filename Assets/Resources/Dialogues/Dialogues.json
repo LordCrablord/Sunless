@@ -272,7 +272,8 @@
 				}
 			],
 			"actions":[
-				{"action_type": 8, "action_id": 1}
+				{"action_type": 8, "action_id": 1},
+				{"action_type": 9, "action_id": -1}
 			]
 	  },
 	  {

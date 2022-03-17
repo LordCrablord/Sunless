@@ -46,7 +46,6 @@ public class GameManager : Singleton<GameManager>
         GameResumed?.Invoke();
     }
 
-
 	public void SetCharacterDataOnUI(PlayerCharacterStats stats)
 	{
         characterUI.GetComponent<CharacterUI>().SetCharacterUI(stats);
