@@ -14,6 +14,7 @@ public class PartyManager : MonoBehaviour
 	{
         mainCharacter = Instantiate(mainCharacterStartingStats);
         party[0] = mainCharacter;
+        SetPositionInCharStats();
 
         StatModifier stat1 = new StatModifier { modifierFromID = 1, modifierTo = Stats.XP, value = 5 };
         mainCharacter.AddAdditiveModToList(stat1);
@@ -47,6 +48,15 @@ public class PartyManager : MonoBehaviour
 
         GameManager.Instance.SetCharacterDataOnUI(mainCharacter);
     }
+
+    void SetPositionInCharStats()
+	{
+        for(int i = 0; i<party.Length; i++)
+		{
+            if (party[i] != null)
+                party[i].Position = i;
+		}
+	}
 
     public void ModifyMainCharacterStats(Stats stat, float value)
     {

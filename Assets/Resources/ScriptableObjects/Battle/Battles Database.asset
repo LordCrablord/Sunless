@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9397a4e15c004204abef6d3cba44518b, type: 3}
   m_Name: Battles Database
   m_EditorClassIdentifier: 
-  battles: []
+  battles:
+  - {fileID: 11400000, guid: ea8f1c3b5e9643e49aca833a272f02e6, type: 2}
+  - {fileID: 11400000, guid: ea8f1c3b5e9643e49aca833a272f02e6, type: 2}

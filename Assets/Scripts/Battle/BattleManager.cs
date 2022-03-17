@@ -10,8 +10,7 @@ public class BattleManager : Singleton<BattleManager>
     public PlayerCharacterStats[] playerPCs = new PlayerCharacterStats[3];
 	public NonPlayerCharacterStats[] enemies = new NonPlayerCharacterStats[3];
 
-	public BattleData currentBattle;
-	BattleData currrentBattle;
+	BattleData currentBattle;
 
 	Queue<CharacterStats> turnOrder;
 	int roundCount;
@@ -21,24 +20,17 @@ public class BattleManager : Singleton<BattleManager>
 
 	[SerializeField] float NPCThinkingTime;
 
-	private void Start()
+	public void PrepareBattle(BattleData battleData)
 	{
 		roundCount = 1;
-		Invoke("StartLate", 0.1f);
-		SetEnemies(currentBattle);
-		
-	}
-	//at the moment late start as testing and it was not really instatiated yet
-	//it wont be a problem later, so late start can be removed, later, after testing
-	private void StartLate()
-	{
+		currentBattle = battleData;
+		SetEnemies();
 		playerPCs = GameManager.Instance.GetPlayerParty();
 		for (int i = 0; i < playerPCs.Length; i++)
 		{
 			battleUI.SetAllyToken(playerPCs[i], i);
 		}
-		
-
+		battleUI.SetBattleStart();
 		SetTurnOrder();
 		DoNextTurn();
 	}
@@ -65,9 +57,8 @@ public class BattleManager : Singleton<BattleManager>
 		NewRoundStarted?.Invoke(this, roundCount);
 	}
 
-	void SetEnemies(BattleData data)
+	void SetEnemies()
 	{
-		currrentBattle = data;
 		CloneEnemyToPosition(0);
 		CloneEnemyToPosition(1);
 		CloneEnemyToPosition(2);
@@ -80,9 +71,9 @@ public class BattleManager : Singleton<BattleManager>
 
 	void CloneEnemyToPosition(int pos)
 	{
-		if (currrentBattle.enemies[pos] != null)
+		if (currentBattle.enemies[pos] != null)
 		{
-			enemies[pos] = Instantiate(currrentBattle.enemies[pos]);
+			enemies[pos] = Instantiate(currentBattle.enemies[pos]);
 			enemies[pos].PrepareStats();
 		}
 		else enemies[pos] = null;

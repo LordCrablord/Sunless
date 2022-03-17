@@ -216,4 +216,10 @@ public class BattleUI : MonoBehaviour
 	{
 		gameObject.SetActive(false);
 	}
+
+	public void SetBattleStart()
+	{
+		gameObject.SetActive(true);
+		GetComponent<Animator>().Play("Start Battle");
+	}
 }

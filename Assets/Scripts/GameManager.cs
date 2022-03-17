@@ -8,7 +8,7 @@ public class GameManager : Singleton<GameManager>
     public ItemDatabase ItemDatabase {get { return itemDatabase; }}
 
     [SerializeField] BattleDatabase battleDatabase;
-    public BattleDatabase BattleDatabase { get { return BattleDatabase; } }
+    public BattleDatabase BattleDatabase { get { return battleDatabase; } }
 
     [SerializeField] PartyManager partyManager;
 
