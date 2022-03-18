@@ -196,17 +196,6 @@ public class BattleUI : MonoBehaviour
 		GetComponent<Animator>().Play("Turn Started", -1, 0f);
 	}
 
-	//this will be later used in setUIForCharacter
-	void ManageMoveButtons()
-	{
-		if (BattleManager.Instance.CurrentCharacter.Position != 0)
-			moveRightButton.interactable = true;
-		else moveRightButton.interactable = false;
-		if (BattleManager.Instance.CurrentCharacter.Position != 2)
-			moveLeftButton.interactable = true;
-		else moveLeftButton.interactable = false;
-	}
-
 	public void SetEndBattleAnimation()
 	{
 		GetComponent<Animator>().Play("End Battle");

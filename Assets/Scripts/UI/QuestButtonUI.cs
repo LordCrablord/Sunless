@@ -34,6 +34,9 @@ public class QuestButtonUI : MonoBehaviour
 
     public void ToggleQuestMark(bool activate)
 	{
+        if (QuestManager.Instance.completedQuests.Contains(quest))
+            return;
+
 		if (activate)
 		{
             QuestManager.Instance.CurrentlyFollowedQuest = quest;
@@ -43,8 +46,6 @@ public class QuestButtonUI : MonoBehaviour
             QuestManager.Instance.CurrentlyFollowedQuest = null;
         }
         followQuestMarker.SetActive(activate);
-
-
     }
 
 }
