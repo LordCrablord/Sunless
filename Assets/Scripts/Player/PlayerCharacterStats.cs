@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New PlayerCharacter", menuName = "Character/PlayerCharacter")]
 public class PlayerCharacterStats : CharacterStats
 {
+	public Sprite characterIconUI;
     static int xp;
     public float Xp
 	{

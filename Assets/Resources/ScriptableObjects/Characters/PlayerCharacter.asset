@@ -25,6 +25,7 @@ MonoBehaviour:
   dex: 1
   con: 3
   intel: 1
+  characterIconUI: {fileID: 21300000, guid: 8e7709e20a25ea840a7a27690abf5ce3, type: 3}
   protPierceBase: 0
   protSlashBase: 0
   protBludgeBase: 0

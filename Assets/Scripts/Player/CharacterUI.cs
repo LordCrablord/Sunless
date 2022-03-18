@@ -38,6 +38,7 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] Image characterImage;
     [SerializeField] TextMeshProUGUI goldTMP;
     [SerializeField] GameObject inventoryItemPickerPrefab;
+    [SerializeField] List<PartyMemberHolder> partyMembers;
 
     GameObject inventoryItemPicker;
     PlayerCharacterStats characterStats;
@@ -55,6 +56,7 @@ public class CharacterUI : MonoBehaviour
 
         SetHealthUI();
         SetXpUI();
+        SetPartyMember();
 
         damageTMP.text = characterStats.DamageMin + " - " + characterStats.DamageMax;
         critChanceTMP.text = characterStats.CritChance + "%";
@@ -91,6 +93,15 @@ public class CharacterUI : MonoBehaviour
         xpSlider.minValue = characterStats.levelXpThreshold[characterStats.Level - 1];
         xpSlider.value = characterStats.Xp;
     }
+
+    void SetPartyMember()
+	{
+        PlayerCharacterStats[] stats = GameManager.Instance.GetPlayerParty();
+        for(int i=0; i < stats.Length; i++)
+		{
+            partyMembers[i].SetPartyMemberHolder(stats[i]);
+		}
+	}
 
     public void SetInventoryItemPicker(GameObject itemUIHolder)
 	{
