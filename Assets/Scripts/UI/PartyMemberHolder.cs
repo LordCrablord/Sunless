@@ -9,6 +9,7 @@ public class PartyMemberHolder : MonoBehaviour, IDragHandler, IBeginDragHandler,
     [SerializeField] Image characterSprite;
     PlayerCharacterStats characterStats;
 
+	static PlayerCharacterStats dragDestinationStats;
 	public void SetPartyMemberHolder(PlayerCharacterStats stats)
 	{
         characterStats = stats;
@@ -44,5 +45,15 @@ public class PartyMemberHolder : MonoBehaviour, IDragHandler, IBeginDragHandler,
 	public void OnEndDrag(PointerEventData eventData)
 	{
 		characterSprite.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
+	}
+
+	public void OnPoinerEnter()
+	{
+		dragDestinationStats = characterStats;
+	}
+
+	public void OnPointerExit()
+	{
+		dragDestinationStats = null;
 	}
 }
