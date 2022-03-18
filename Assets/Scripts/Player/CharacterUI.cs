@@ -99,7 +99,7 @@ public class CharacterUI : MonoBehaviour
         PlayerCharacterStats[] stats = GameManager.Instance.GetPlayerParty();
         for(int i=0; i < stats.Length; i++)
 		{
-            partyMembers[i].SetPartyMemberHolder(stats[i]);
+            partyMembers[i].SetPartyMemberHolder(stats[i], i);
 		}
 	}
 

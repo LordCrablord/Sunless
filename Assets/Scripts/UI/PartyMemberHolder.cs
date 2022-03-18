@@ -8,11 +8,13 @@ public class PartyMemberHolder : MonoBehaviour, IDragHandler, IBeginDragHandler,
 {
     [SerializeField] Image characterSprite;
     PlayerCharacterStats characterStats;
+	int pos;
 
-	static PlayerCharacterStats dragDestinationStats;
-	public void SetPartyMemberHolder(PlayerCharacterStats stats)
+	static PartyMemberHolder dragDestinationStats;
+	public void SetPartyMemberHolder(PlayerCharacterStats stats, int position)
 	{
         characterStats = stats;
+		pos = position;
         if(characterStats != null)
 		{
 			SetImageTransparency(1);
@@ -44,12 +46,22 @@ public class PartyMemberHolder : MonoBehaviour, IDragHandler, IBeginDragHandler,
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
+		if(dragDestinationStats != null)
+		{
+			PlayerCharacterStats temp = dragDestinationStats.characterStats;
+			int tempPos = dragDestinationStats.pos;
+			dragDestinationStats.SetPartyMemberHolder(characterStats, pos);
+			SetPartyMemberHolder(temp, tempPos);
+
+			GameManager.Instance.GetPartyManager().SwapPositions(dragDestinationStats.pos, pos);
+		}
+
 		characterSprite.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
 	}
 
 	public void OnPoinerEnter()
 	{
-		dragDestinationStats = characterStats;
+		dragDestinationStats = this;
 	}
 
 	public void OnPointerExit()

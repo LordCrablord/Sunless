@@ -62,4 +62,12 @@ public class PartyManager : MonoBehaviour
     {
         mainCharacter.ModifyStats(stat, value);
     }
+
+    public void SwapPositions(int pos1, int pos2)
+	{
+        PlayerCharacterStats temp = party[pos1];
+        party[pos1] = party[pos2];
+        party[pos2] = temp;
+        SetPositionInCharStats();
+	}
 }

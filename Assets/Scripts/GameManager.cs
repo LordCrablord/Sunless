@@ -77,4 +77,9 @@ public class GameManager : Singleton<GameManager>
 	{
         return partyManager.MainCharacter;
 	}
+
+    public PartyManager GetPartyManager()
+	{
+        return partyManager;
+	}
 }
