@@ -71,7 +71,12 @@ public class QuestManager : Singleton<QuestManager>
 		{
             player.InventoryBack.Add(item);
 		}
-
-        CurrentlyFollowedQuest = null;
+        
+        if(CurrentlyFollowedQuest == quest)
+		{
+            OnCurrentlyFollowedQuestChanged();
+            CurrentlyFollowedQuest = null;
+        }
+            
     }
 }

@@ -31,5 +31,10 @@ public class QuestBuoy : MonoBehaviour
                 gameObject.SetActive(false);
             }
 		}
+
+		if (QuestManager.Instance.completedQuests.Contains(QuestManager.Instance.CurrentlyFollowedQuest))
+		{
+            gameObject.SetActive(false);
+        }
 	}
 }
