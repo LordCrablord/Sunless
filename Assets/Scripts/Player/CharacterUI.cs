@@ -33,6 +33,12 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI protEldrichTMP;
     [SerializeField] TextMeshProUGUI protArcaneTMP;
 
+    [Header("Ability Score")]
+    [SerializeField] TextMeshProUGUI strTMP;
+    [SerializeField] TextMeshProUGUI dexTMP;
+    [SerializeField] TextMeshProUGUI conTMP;
+    [SerializeField] TextMeshProUGUI intTMP;
+
     [Header("Other")]
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
@@ -53,7 +59,7 @@ public class CharacterUI : MonoBehaviour
         goldTMP.text = characterStats.Gold.ToString();
 
         SetArmor();
-
+        SetAbilityScores();
         SetHealthUI();
         SetXpUI();
         SetPartyMember();
@@ -78,6 +84,13 @@ public class CharacterUI : MonoBehaviour
         protArcaneTMP.text = characterStats.ProtArcane.ToString();
     }
 
+    void SetAbilityScores()
+	{
+        strTMP.text = characterStats.Str.ToString();
+        dexTMP.text = characterStats.Dex.ToString();
+        conTMP.text = characterStats.Con.ToString();
+        intTMP.text = characterStats.Int.ToString();
+    }
     void SetHealthUI()
 	{
         maxHpTMP.text = characterStats.Hp.ToString() + "/" + characterStats.HpMax.ToString();
