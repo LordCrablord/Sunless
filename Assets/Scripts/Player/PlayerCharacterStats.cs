@@ -128,7 +128,12 @@ public class PlayerCharacterStats : CharacterStats
 
 	public float CritValue
 	{
-		get { return GetGeneralStatWithAllBonuses(weapon != null ? weapon.critValue : 0, Stats.CRIT_VALUE); }
+		get 
+		{ 
+			float addBonus = weapon != null ? weapon.critValue : 0 + AddAllBonuses(additiveBonuses, Stats.CRIT_VALUE);
+			float multBonus = addBonus * AddAllBonuses(multiplyingBonuses, Stats.CRIT_VALUE);
+			return addBonus + multBonus;
+		}
 	}
 
 	public override void OnTurnStarted()
