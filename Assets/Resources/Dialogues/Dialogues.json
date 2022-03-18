@@ -340,6 +340,41 @@
 			"actions":[
 			{"action_type": 2, "action_id": 5}
 			]
+	  },
+	  {
+	  		"id":18,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Splendid, in that case i'll tell bishop that i'm leaving. Don't worry, it won't take long, i'll find you once this is done"
+				}
+				
+			],
+			"actions":[
+			]
+	  },
+	  {
+	  		"id":19,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Of course, everyone has his own preferenses"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Very well then, i am here from time to time, so, if you need company, you can visit me here"
+				},
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "Take care"
+				}
+			],
+			"actions":[
+			]
 	  }
 	]
 }

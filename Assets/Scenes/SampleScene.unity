@@ -13337,10 +13337,11 @@ MonoBehaviour:
   mainCharacterName: Dalaran
   playerPCDatabase:
   - {fileID: 0}
-  partyPreload:
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 18136a9af3f0af040812fd9fa947067d, type: 2}
   - {fileID: 11400000, guid: 7e5655f3673d5864e9b0210e71f3cca3, type: 2}
+  partyPreload:
+  - {fileID: 11400000, guid: 18136a9af3f0af040812fd9fa947067d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   party:
   - {fileID: 0}
   - {fileID: 0}

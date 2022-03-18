@@ -143,7 +143,8 @@
 					"text": "Accept",
 					"conditions": [],
 					"actions": [
-						
+						{"action_type": 11, "action_id": 1},
+						{"action_type": 1, "action_id": 18}
 					]
 				},
 				{
@@ -151,6 +152,7 @@
 					"text": "Say that you'd better be traveling alone for now",
 					"conditions": [],
 					"actions": [
+						{"action_type": 1, "action_id": 19}
 					]
 				}
 			]

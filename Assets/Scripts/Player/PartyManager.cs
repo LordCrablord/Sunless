@@ -83,4 +83,18 @@ public class PartyManager : MonoBehaviour
         party[pos2] = temp;
         SetPositionInCharStats();
 	}
+
+    public void AddCharacterToParty(int charListID)
+	{
+        PlayerCharacterStats companion = Instantiate(playerPCDatabase[charListID]);
+        for(int i = 0; i<party.Length; i++)
+		{
+			if (party[i] == null)
+			{
+                party[i] = companion;
+                companion.Position = i;
+                return;
+			}
+		}
+	}
 }
