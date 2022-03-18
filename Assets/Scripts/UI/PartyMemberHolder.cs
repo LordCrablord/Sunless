@@ -71,6 +71,7 @@ public class PartyMemberHolder : MonoBehaviour, IDragHandler, IBeginDragHandler,
 
 	public void OnClick()
 	{
-		GameManager.Instance.SetCharacterDataOnUI(characterStats);
+		if(characterStats!=null)
+			GameManager.Instance.SetCharacterDataOnUI(characterStats);
 	}
 }
