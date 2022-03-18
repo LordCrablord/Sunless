@@ -13334,10 +13334,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98690c38c418eba4b8b142f9ad8dcac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCharacterStartingStats: {fileID: 11400000, guid: 18136a9af3f0af040812fd9fa947067d,
-    type: 2}
+  mainCharacterName: Dalaran
   playerPCDatabase:
   - {fileID: 0}
+  partyPreload:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 18136a9af3f0af040812fd9fa947067d, type: 2}
+  - {fileID: 11400000, guid: 7e5655f3673d5864e9b0210e71f3cca3, type: 2}
   party:
   - {fileID: 0}
   - {fileID: 0}

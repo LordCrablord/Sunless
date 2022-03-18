@@ -18,7 +18,7 @@ MonoBehaviour:
   healthConModifier: 0
   hp: 169
   initiative: 2
-  position: 2
+  position: 0
   apMax: 4
   apRecovery: 3
   str: 0

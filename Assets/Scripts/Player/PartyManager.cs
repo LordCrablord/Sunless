@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PartyManager : MonoBehaviour
 {
-    [SerializeField] PlayerCharacterStats mainCharacterStartingStats;
+    [SerializeField] string mainCharacterName;
     PlayerCharacterStats mainCharacter;
     public PlayerCharacterStats MainCharacter { get { return mainCharacter; } }
     [SerializeField] List<PlayerCharacterStats> playerPCDatabase;
+    public PlayerCharacterStats[] partyPreload = new PlayerCharacterStats[3];
     public PlayerCharacterStats[] party = new PlayerCharacterStats[3];
 
 	void Start()
 	{
-        mainCharacter = Instantiate(mainCharacterStartingStats);
-        party[0] = mainCharacter;
+        InstansiateParty();
         SetPositionInCharStats();
 
         StatModifier stat1 = new StatModifier { modifierFromID = 1, modifierTo = Stats.XP, value = 5 };
@@ -48,6 +48,19 @@ public class PartyManager : MonoBehaviour
 
         GameManager.Instance.SetCharacterDataOnUI(mainCharacter);
     }
+
+    void InstansiateParty()
+	{
+        for(int i = 0; i<partyPreload.Length; i++)
+		{
+            if (partyPreload[i] != null)
+			{
+                party[i] = Instantiate(partyPreload[i]);
+                if (party[i].characterName == mainCharacterName)
+                    mainCharacter = party[i];
+            }   
+		}
+	}
 
     void SetPositionInCharStats()
 	{
