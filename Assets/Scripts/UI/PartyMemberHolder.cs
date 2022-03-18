@@ -68,4 +68,9 @@ public class PartyMemberHolder : MonoBehaviour, IDragHandler, IBeginDragHandler,
 	{
 		dragDestinationStats = null;
 	}
+
+	public void OnClick()
+	{
+		GameManager.Instance.SetCharacterDataOnUI(characterStats);
+	}
 }

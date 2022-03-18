@@ -37,7 +37,7 @@ public class PlayerCharacterStats : CharacterStats
 		{ 4, 800},
 	};
 
-	int level;
+	static int level;
 	public int Level
 	{
 		get { return level; }
