@@ -646,6 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDatabase: {fileID: 11400000, guid: 776c8f449f0fc5a4998bd208e5b115ee, type: 2}
   battleDatabase: {fileID: 11400000, guid: ac8708bb1cba09346aea68a4c99a0fdf, type: 2}
+  pcAbilityDatabase: {fileID: 11400000, guid: 6b14ee736983a2d4688a75cb4d4a1b11, type: 2}
   partyManager: {fileID: 1336755331}
   characterUI: {fileID: 1510468994}
   dialogueManager: {fileID: 596082211}

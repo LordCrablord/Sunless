@@ -145,6 +145,8 @@ public class PlayerCharacterStats : CharacterStats
 	public Weapon weapon;
 	public Item trinket1;
 
+	[SerializeField] List<SpellAbility> knownAbilities;
+	public List<SpellAbility> KnownAbilities { get { return knownAbilities; } }
 
 	[SerializeField] List<SpellAbility> activeAbilities;
 	public List<SpellAbility> ActiveAbilities { get { return activeAbilities; } }
