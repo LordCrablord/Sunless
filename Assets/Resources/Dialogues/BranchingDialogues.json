@@ -116,6 +116,7 @@
 					"text": "I went to healer's hut, there is noone there, only orcs",
 					"conditions": [{"cond_type": "QUEST_PRESENT", "cond_val": 3}],
 					"actions": [
+						{"action_type": 12, "action_id": 1},
 						{"action_type": 1, "action_id": 17}
 					]
 				},

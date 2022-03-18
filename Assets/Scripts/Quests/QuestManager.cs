@@ -52,4 +52,24 @@ public class QuestManager : Singleton<QuestManager>
 	{
         return quest.questParts.Where(p => TriggerManager.questPartAllowID.Contains(p.questPartID)).ToList();
 	}
+
+    public void CompleteQuest(int id)
+	{
+        Quest quest = activeQuests.Find(q => q.questID == id);
+        if(quest == null)
+		{
+            Debug.LogError("Error, can't find active quest with index " + id);
+            return;
+		}
+        activeQuests.Remove(quest);
+        completedQuests.Add(quest);
+
+        PlayerCharacterStats player = GameManager.Instance.GetMainCharacter();
+        player.Gold += quest.questReward.gold;
+        player.Xp += quest.questReward.xp;
+        foreach(Item item in quest.questReward.items)
+		{
+            player.InventoryBack.Add(item);
+		}
+	}
 }
