@@ -16,10 +16,9 @@ public class PartyManager : MonoBehaviour
         InstansiateParty();
         SetPositionInCharStats();
 
-        StatModifier stat1 = new StatModifier { modifierFromID = 1, modifierTo = Stats.XP, value = 5 };
-        mainCharacter.AddAdditiveModToList(stat1);
+        //the rest here is for testing purpose
 
-        mainCharacter.Xp += 185;
+        mainCharacter.Xp += 15;
         mainCharacter.Gold += 1500;
 
         PlayerCharacterStats otherCharacter = new PlayerCharacterStats();
@@ -37,14 +36,7 @@ public class PartyManager : MonoBehaviour
         mainCharacter.InventoryBack.Add(newWeapon);
         mainCharacter.InventoryBack.Add(newWeapon);
 
-
-        Debug.Log("Current Xp: " + mainCharacter.StatsDictionary[Stats.XP].Get());
-        Debug.Log("Current Damage: " + mainCharacter.StatsDictionary[Stats.DAMAGE_MIN].Get());
-        Debug.Log((mainCharacter.StatsDictionary[Stats.XP].Get().GetType()));
-        mainCharacter.StatsDictionary[Stats.XP].Set((float)mainCharacter.StatsDictionary[Stats.XP].Get() + 5); ;
-        Debug.Log("Current Xp: " + mainCharacter.StatsDictionary[Stats.XP].Get());
-
-
+        Debug.Log(mainCharacter.LevelUpPoints);
 
         GameManager.Instance.SetCharacterDataOnUI(mainCharacter);
     }
@@ -95,6 +87,18 @@ public class PartyManager : MonoBehaviour
                 companion.Position = i;
                 return;
 			}
+		}
+	}
+
+    public void PartyLevelUp()
+	{
+        foreach(PlayerCharacterStats playerCharacter in party)
+		{
+			if (playerCharacter != null)
+			{
+                playerCharacter.LevelUpPoints += 2;
+                playerCharacter.AbilityToLearn++;
+            }   
 		}
 	}
 }

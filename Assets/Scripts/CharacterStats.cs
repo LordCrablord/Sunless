@@ -161,6 +161,10 @@ public class CharacterStats:ScriptableObject
 		StatsDictionary.Add(Stats.HP, new VariableReference(() => Hp, val => { Hp = (float)val; }));
 		StatsDictionary.Add(Stats.HP_MAX, new VariableReference(() => HpMax, val => { HpMax = (float)val; }));
 		StatsDictionary.Add(Stats.INITIATIVE, new VariableReference(() => Initiative, val => { Initiative = (float)val; }));
+		StatsDictionary.Add(Stats.STR, new VariableReference(() => Str, val => { Str = (float)val; }));
+		StatsDictionary.Add(Stats.DEX, new VariableReference(() => Dex, val => { Dex = (float)val; }));
+		StatsDictionary.Add(Stats.CON, new VariableReference(() => Con, val => { Con = (float)val; }));
+		StatsDictionary.Add(Stats.INT, new VariableReference(() => Int, val => { Int = (float)val; }));
 	}
 
 	public event Notify TurnStarted;

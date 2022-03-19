@@ -45,6 +45,8 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI goldTMP;
     [SerializeField] GameObject inventoryItemPickerPrefab;
     [SerializeField] List<PartyMemberHolder> partyMembers;
+    [SerializeField] GameObject levelUpButton;
+    [SerializeField] LevelUpUI levelUpUIScreen;
 
     GameObject inventoryItemPicker;
     PlayerCharacterStats characterStats;
@@ -72,6 +74,12 @@ public class CharacterUI : MonoBehaviour
         chestpieceUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.chestpiece);
         weaponUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
 
+        if(characterStats != null)
+		{
+            if (characterStats.LevelUpPoints > 0 || characterStats.AbilityToLearn > 0)
+                levelUpButton.SetActive(true);
+        }    
+        else levelUpButton.SetActive(false);
     }
 
     void SetArmor()
@@ -140,5 +148,10 @@ public class CharacterUI : MonoBehaviour
         characterStats.UnequipItem(oldItem);
         characterStats.EquipItem(newItem);
         SetCharacterUI(characterStats);
+	}
+
+    public void SetLevelUpUI()
+	{
+        levelUpUIScreen.SetLevelUpScreen(characterStats);
 	}
 }

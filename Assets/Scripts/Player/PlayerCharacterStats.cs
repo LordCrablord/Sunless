@@ -23,7 +23,7 @@ public class PlayerCharacterStats : CharacterStats
 			while (xp >= levelXpThreshold[level])
 			{
 				level++;
-				Debug.Log(characterName + " is now level " + level);
+				GameManager.Instance.GetPartyManager().PartyLevelUp();
 			}
 		}
 	}
@@ -42,6 +42,12 @@ public class PlayerCharacterStats : CharacterStats
 	{
 		get { return level; }
 	}
+
+	int levelUpPoints;
+	public int LevelUpPoints { get { return levelUpPoints; } set { levelUpPoints = value; } }
+
+	int abilityToLearn;
+	public int AbilityToLearn { get { return abilityToLearn; } set { abilityToLearn = value; } }
 
 	static int gold;
 	public float Gold
