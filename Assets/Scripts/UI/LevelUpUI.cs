@@ -43,4 +43,18 @@ public class LevelUpUI : MonoBehaviour
 	{
         SetLevelUpScreen(characterStats);
     }
+
+    public void OnAcceptClick()
+	{
+        characterStats.Str += int.Parse(strTMP.text) - characterStats.Str;
+        characterStats.Dex += int.Parse(dexTMP.text) - characterStats.Dex;
+        characterStats.Con += int.Parse(conTMP.text) - characterStats.Con;
+        characterStats.Int += int.Parse(intTMP.text) - characterStats.Int;
+        characterStats.LevelUpPoints = levelUpPoints;
+
+        //TODO Ability pick
+
+        gameObject.SetActive(false);
+        GameManager.Instance.SetCharacterDataOnUI(characterStats);
+    }
 }
