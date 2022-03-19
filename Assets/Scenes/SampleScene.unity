@@ -2011,7 +2011,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 161750321}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 403954819}
+        m_MethodName: OnReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &161750321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3103,6 +3114,17 @@ MonoBehaviour:
       - m_Target: {fileID: 403954815}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1510468999}
+        m_MethodName: SetLevelUpUI
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4514,7 +4536,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 394207033}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 403954819}
+        m_MethodName: IncreaseValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1563849230}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &394207033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4563,6 +4596,7 @@ GameObject:
   - component: {fileID: 403954816}
   - component: {fileID: 403954818}
   - component: {fileID: 403954817}
+  - component: {fileID: 403954819}
   m_Layer: 5
   m_Name: LevelUpScreen
   m_TagString: Untagged
@@ -4593,7 +4627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16, y: -0.0000076294}
+  m_AnchoredPosition: {x: -16, y: -0}
   m_SizeDelta: {x: 617.03784, y: 510.7682}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &403954817
@@ -4633,6 +4667,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403954815}
   m_CullTransparentMesh: 0
+--- !u!114 &403954819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403954815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1338d3b2a28f6854099ac1a2f34f2941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelUpPointsTMP: {fileID: 1009573327}
+  strTMP: {fileID: 274173149}
+  dexTMP: {fileID: 176064730}
+  conTMP: {fileID: 1758489186}
+  intTMP: {fileID: 1563849230}
 --- !u!1 &425342510
 GameObject:
   m_ObjectHideFlags: 0
@@ -9053,7 +9104,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 833000240}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 403954815}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &833000240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17180,6 +17242,8 @@ MonoBehaviour:
   - {fileID: 979283504}
   - {fileID: 625129711}
   - {fileID: 6538893749070479783}
+  levelUpButton: {fileID: 271582299}
+  levelUpUIScreen: {fileID: 403954819}
 --- !u!1 &1511911163
 GameObject:
   m_ObjectHideFlags: 0
@@ -17974,7 +18038,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1584114037}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 403954819}
+        m_MethodName: IncreaseValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 274173149}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1584114037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22846,7 +22921,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1982852844}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 403954819}
+        m_MethodName: IncreaseValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1758489186}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1982852844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23599,7 +23685,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2034802650}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 403954819}
+        m_MethodName: IncreaseValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 176064730}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2034802650
 MonoBehaviour:
   m_ObjectHideFlags: 0
