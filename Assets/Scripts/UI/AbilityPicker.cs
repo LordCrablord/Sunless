@@ -8,15 +8,14 @@ public class AbilityPicker : MonoBehaviour
 {
 
 	public readonly Vector2 inventoryOffset = new Vector2(-248, 0);
-	string parentUICanvasName = "CharacterCanvasUI";
-	[SerializeField] GameObject content;
-	[SerializeField] GameObject abilityHolderWidePrefab;
+	[SerializeField] protected GameObject content;
+	[SerializeField] protected GameObject abilityHolderWidePrefab;
 
-	PlayerCharacterStats playerCharacter;
-	Ability oldAbility;
-	int oldPos;
+	protected PlayerCharacterStats playerCharacter;
+	protected Ability oldAbility;
+	protected int oldPos;
 
-	public void SetAbilitiesInPicker(PlayerCharacterStats stats)
+	public virtual void SetAbilitiesInPicker(PlayerCharacterStats stats)
 	{
 		playerCharacter = stats;
 		List<SpellAbility> spellAbilities = stats.KnownAbilities.Where(a=>!stats.ActiveAbilities.Contains(a)).ToList();
@@ -29,7 +28,7 @@ public class AbilityPicker : MonoBehaviour
 	
 	}
 
-	public void ManageChoise(Ability ability)
+	public virtual void ManageChoise(Ability ability)
 	{
 		if (ability == null) OnCancel();
 		

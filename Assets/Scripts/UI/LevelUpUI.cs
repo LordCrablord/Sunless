@@ -12,6 +12,9 @@ public class LevelUpUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI conTMP;
     [SerializeField] TextMeshProUGUI intTMP;
 
+    [SerializeField] TextMeshProUGUI abilityPoints;
+    [SerializeField] AbilityPickerLevelUp abilityLevelUp;
+
 
     PlayerCharacterStats characterStats;
     int levelUpPoints;
@@ -21,10 +24,13 @@ public class LevelUpUI : MonoBehaviour
         characterStats = stats;
         levelUpPoints = characterStats.LevelUpPoints;
         levelUpPointsTMP.text = characterStats.LevelUpPoints.ToString();
+
         strTMP.text = characterStats.Str.ToString();
         dexTMP.text = characterStats.Dex.ToString();
         conTMP.text = characterStats.Con.ToString();
         intTMP.text = characterStats.Int.ToString();
+
+        abilityLevelUp.SetAbilitiesInPicker(stats);
     }
 
     public void IncreaseValue(TextMeshProUGUI statTMP)

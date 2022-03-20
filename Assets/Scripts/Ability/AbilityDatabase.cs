@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New AbilityDB", menuName = "Ability/AbilityDatabase")]
 public class AbilityDatabase : ScriptableObject
 {
-    [SerializeField] List<SpellAbility> abilities;
+    public List<SpellAbility> abilities;
 }
