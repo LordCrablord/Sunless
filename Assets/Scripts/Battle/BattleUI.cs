@@ -70,7 +70,7 @@ public class BattleUI : MonoBehaviour
 	{
 
 		int newPos = BattleManager.Instance.CurrentCharacter.Position + value;
-		if(newPos>=0 && newPos < 3)
+		if(newPos>=0 && newPos < 3 && BattleManager.Instance.CurrentCharacter.Ap>0)
 		{
 
 			//swap in manager

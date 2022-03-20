@@ -16,7 +16,7 @@ public class AbilityUIHolderCharWide : AbilityUIHolderChar
 	{
 		yield return new WaitForSeconds(tooltipWait);
 		abilityInfo = Instantiate(AbilityInfoPrefab, transform.position, Quaternion.identity);
-		abilityInfo.transform.SetParent(transform.parent.parent.parent.parent, false);
+		abilityInfo.transform.SetParent(transform.parent.parent.parent, false);
 		abilityInfo.GetComponent<RectTransform>().anchoredPosition = itemTooltipOffset + gameObject.GetComponent<RectTransform>().anchoredPosition;
 		abilityInfo.GetComponent<AbilityInfo>().SetAbilityTooltip(ability);
 	}

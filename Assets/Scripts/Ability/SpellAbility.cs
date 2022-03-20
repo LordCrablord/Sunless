@@ -30,7 +30,7 @@ public class SpellAbility : Ability
                 initialTarget.AddToConditions(abilityCondition);
             }
 		}
-        if(cooldown!=0)
+        if(cooldown!=0 && !actionOriginator.abilityCooldowns.ContainsKey(this))
             actionOriginator.abilityCooldowns.Add(this, cooldown);
 	}
 

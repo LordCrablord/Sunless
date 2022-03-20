@@ -139,9 +139,16 @@ public class BattleManager : Singleton<BattleManager>
 		if (ability.actionOnAllTargets == true)
 		{
 			foreach (TargetPosition pos in ability.targetEnemy)
-				ability.DoAbility(actionOriginator, ability, enemies[(int)pos]);
+			{
+				if(enemies[(int)pos]!=null)
+					ability.DoAbility(actionOriginator, ability, enemies[(int)pos]);
+			}
 			foreach (TargetPosition pos in ability.targetAlly)
-				ability.DoAbility(actionOriginator, ability, playerPCs[(int)pos]);
+			{
+				if(playerPCs[(int)pos]!=null)
+					ability.DoAbility(actionOriginator, ability, playerPCs[(int)pos]);
+			}
+				
 		}
 		else
 		{
