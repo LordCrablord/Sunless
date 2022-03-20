@@ -37,7 +37,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   trinket1: {fileID: 0}
   knownAbilities:
-  - {fileID: 11400000, guid: af5d0647d3af3d64cb12da3e5975d59a, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 4dbd617986d4f2c40b1137bf9e5a92f8, type: 2}
   activeAbilities:
   - {fileID: 0}
