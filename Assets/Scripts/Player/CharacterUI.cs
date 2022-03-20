@@ -44,12 +44,14 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] Image characterImage;
     [SerializeField] TextMeshProUGUI goldTMP;
     [SerializeField] GameObject inventoryItemPickerPrefab;
+    [SerializeField] GameObject abilityPickerPrefab;
     [SerializeField] List<PartyMemberHolder> partyMembers;
     [SerializeField] GameObject levelUpButton;
     [SerializeField] LevelUpUI levelUpUIScreen;
     [SerializeField] List<AbilityUIHolderCharDefault> abilityUIs;
 
     GameObject inventoryItemPicker;
+    GameObject abilityPicker;
     PlayerCharacterStats characterStats;
 
 
@@ -128,7 +130,7 @@ public class CharacterUI : MonoBehaviour
 
     void SetAbilityInfo()
 	{
-        for(int i = 0; i<characterStats.ActiveAbilities.Count;i++)
+        for(int i = 0; i<characterStats.ActiveAbilities.Count; i++)
 		{
             abilityUIs[i].SetAbilityHolder(characterStats.ActiveAbilities[i]);
 		}
@@ -151,6 +153,25 @@ public class CharacterUI : MonoBehaviour
             itemUIRect.anchoredPosition.x, inventoryRect.anchoredPosition.y) + inventoryItemPicker.GetComponent<InventoryItemPicker>().inventoryOffset;
 
         inventoryItemPicker.GetComponent<InventoryItemPicker>().SetItems(itemUIHolder.GetComponent<ItemUIHolder>(), characterStats.InventoryBack);
+    }
+
+    public void SetAbilityPicker(GameObject abilityUIHolder)
+    {
+        if (abilityPicker != null)
+        {
+            Destroy(abilityPicker);
+        }
+
+        abilityPicker = Instantiate(abilityPickerPrefab, abilityPickerPrefab.transform.position, Quaternion.identity);
+        abilityPicker.transform.SetParent(gameObject.transform, false);
+
+        RectTransform inventoryRect = abilityPicker.GetComponent<RectTransform>();
+        RectTransform abilityUIRect = abilityUIHolder.GetComponent<RectTransform>();
+
+        inventoryRect.anchoredPosition = new Vector2(
+            abilityUIRect.anchoredPosition.x, inventoryRect.anchoredPosition.y) + abilityPicker.GetComponent<AbilityPicker>().inventoryOffset;
+
+        abilityPicker.GetComponent<AbilityPicker>().SetAbilitiesInPicker(characterStats.KnownAbilities);
     }
 
     public void SwapItems(Item oldItem, Item newItem)

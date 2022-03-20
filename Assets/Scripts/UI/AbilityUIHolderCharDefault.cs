@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class AbilityUIHolderCharDefault : AbilityUIHolderChar
 {
+	string UICanvasName = "CharacterCanvasUI";
 	public void OnClick()
 	{
-		Debug.Log("Click-click");
+
+		if (transform.parent.parent.gameObject.name.ToString() == UICanvasName)
+		{
+			transform.parent.parent.gameObject.GetComponent<CharacterUI>(
+				).SetAbilityPicker(gameObject);
+		}
+		else
+		{
+			Debug.LogError(transform.parent.parent.gameObject.name.ToString() + " is not " + UICanvasName);
+			return;
+		}
 	}
 }
