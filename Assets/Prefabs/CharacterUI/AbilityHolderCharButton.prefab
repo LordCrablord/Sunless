@@ -120,7 +120,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8794543869869765508}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6533142922459603456}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8794543869869765510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +190,7 @@ MonoBehaviour:
   AbilityInfoPrefab: {fileID: 4758348161946970713, guid: a189196b98793b74d99e28577a634f79,
     type: 3}
   image: {fileID: 8794543870316471902}
-  itemTooltipOffset: {x: -550, y: 0}
+  itemTooltipOffset: {x: -550, y: -60}
 --- !u!1 &8794543870316471896
 GameObject:
   m_ObjectHideFlags: 0
