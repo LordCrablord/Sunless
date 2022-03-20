@@ -171,7 +171,7 @@ public class CharacterUI : MonoBehaviour
         inventoryRect.anchoredPosition = new Vector2(
             abilityUIRect.anchoredPosition.x, inventoryRect.anchoredPosition.y) + abilityPicker.GetComponent<AbilityPicker>().inventoryOffset;
 
-        abilityPicker.GetComponent<AbilityPicker>().SetAbilitiesInPicker(characterStats.KnownAbilities);
+        abilityPicker.GetComponent<AbilityPicker>().SetAbilitiesInPicker(characterStats);
     }
 
     public void SwapItems(Item oldItem, Item newItem)
