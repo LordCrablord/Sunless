@@ -132,7 +132,7 @@ public class CharacterUI : MonoBehaviour
 	{
         for(int i = 0; i<characterStats.ActiveAbilities.Count; i++)
 		{
-            abilityUIs[i].SetAbilityHolder(characterStats.ActiveAbilities[i]);
+            abilityUIs[i].SetAbilityHolder(characterStats.ActiveAbilities[i], i);
 		}
 	}
 
@@ -172,6 +172,7 @@ public class CharacterUI : MonoBehaviour
             abilityUIRect.anchoredPosition.x, inventoryRect.anchoredPosition.y) + abilityPicker.GetComponent<AbilityPicker>().inventoryOffset;
 
         abilityPicker.GetComponent<AbilityPicker>().SetAbilitiesInPicker(characterStats);
+        abilityPicker.GetComponent<AbilityPicker>().SetOldAbility(abilityUIHolder.GetComponent<AbilityUIHolderCharDefault>());
     }
 
     public void SwapItems(Item oldItem, Item newItem)

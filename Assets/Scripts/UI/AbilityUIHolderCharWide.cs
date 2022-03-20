@@ -6,9 +6,9 @@ using TMPro;
 public class AbilityUIHolderCharWide : AbilityUIHolderChar
 {
 	[SerializeField] TextMeshProUGUI nameTMP;
-	public override void SetAbilityHolder(Ability a)
+	public override void SetAbilityHolder(Ability a, int pos)
 	{
-		base.SetAbilityHolder(a);
+		base.SetAbilityHolder(a, pos);
 		nameTMP.text = ability.abilityName;
 	}
 
@@ -19,5 +19,10 @@ public class AbilityUIHolderCharWide : AbilityUIHolderChar
 		abilityInfo.transform.SetParent(transform.parent.parent.parent.parent, false);
 		abilityInfo.GetComponent<RectTransform>().anchoredPosition = itemTooltipOffset + gameObject.GetComponent<RectTransform>().anchoredPosition;
 		abilityInfo.GetComponent<AbilityInfo>().SetAbilityTooltip(ability);
+	}
+
+	public void OnClick()
+	{
+		transform.parent.parent.parent.gameObject.GetComponent<AbilityPicker>().ManageChoise(ability);
 	}
 }

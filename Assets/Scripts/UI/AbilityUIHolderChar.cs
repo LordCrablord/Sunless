@@ -6,15 +6,17 @@ using UnityEngine.UI;
 public class AbilityUIHolderChar : MonoBehaviour
 {
 	protected Ability ability;
+	protected int abilityPosition;
 	[SerializeField] protected GameObject AbilityInfoPrefab;
 	[SerializeField] Image image;
 	protected GameObject abilityInfo;
 	[SerializeField] protected Vector2 itemTooltipOffset = new Vector2(-800, 0);
 	protected float tooltipWait = 0.25f;
 	
-	public virtual void SetAbilityHolder(Ability a)
+	public virtual void SetAbilityHolder(Ability a, int position)
 	{
 		ability = a;
+		abilityPosition = position;
 		if(ability != null)
 		{
 			image.sprite = ability.sprite;
@@ -54,5 +56,15 @@ public class AbilityUIHolderChar : MonoBehaviour
 		abilityInfo.transform.SetParent(transform.parent.parent, false);
 		abilityInfo.GetComponent<RectTransform>().anchoredPosition = itemTooltipOffset + gameObject.GetComponent<RectTransform>().anchoredPosition;
 		abilityInfo.GetComponent<AbilityInfo>().SetAbilityTooltip(ability);
+	}
+
+	public Ability GetAbility()
+	{
+		return ability;
+	}
+
+	public int GetAbilityPosition()
+	{
+		return abilityPosition;
 	}
 }

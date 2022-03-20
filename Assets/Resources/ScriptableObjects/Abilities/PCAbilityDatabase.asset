@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5b1f54812d05e42b30fc3b369056db, type: 3}
   m_Name: PCAbilityDatabase
   m_EditorClassIdentifier: 
+  abilities:
+  - {fileID: 11400000, guid: 4dbd617986d4f2c40b1137bf9e5a92f8, type: 2}
+  - {fileID: 11400000, guid: af5d0647d3af3d64cb12da3e5975d59a, type: 2}

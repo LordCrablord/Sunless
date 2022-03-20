@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182c3e070dad8ec43a1f04592b9108ea, type: 3}
   m_Name: Pinup
   m_EditorClassIdentifier: 
-  abilityID: 0
-  abilityName: 
-  description: 
-  sprite: {fileID: 0}
-  targetEnemy: 
+  abilityID: 504
+  abilityName: Pinup
+  description: 'Make a heavy blow to leg of the opponent. Deals 4-7 piercing damage
+    and makes opponent lose all of its evasion '
+  sprite: {fileID: 21300000, guid: 58140c04363d416439f0d1a1842d8622, type: 3}
+  targetEnemy: 000000000100000002000000
   targetAlly: 
-  actionOnAllTargets: 0
-  allowedFromPosition: 
+  actionOnAllTargets: 1
+  allowedFromPosition: 02000000
   echoingToNextTarget: 0
   echoValMultMod: 1
-  apCost: 0
+  apCost: 2
   autoHit: 0
-  minDamage: 0
-  maxDamage: 0
-  damageType: 0
-  cooldown: 0
+  minDamage: 4
+  maxDamage: 7
+  damageType: 12
+  cooldown: 3
   conditions: []
