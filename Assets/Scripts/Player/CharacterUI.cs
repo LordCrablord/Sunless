@@ -47,6 +47,7 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] List<PartyMemberHolder> partyMembers;
     [SerializeField] GameObject levelUpButton;
     [SerializeField] LevelUpUI levelUpUIScreen;
+    [SerializeField] List<AbilityUIHolderCharDefault> abilityUIs;
 
     GameObject inventoryItemPicker;
     PlayerCharacterStats characterStats;
@@ -65,6 +66,7 @@ public class CharacterUI : MonoBehaviour
         SetHealthUI();
         SetXpUI();
         SetPartyMember();
+        SetAbilityInfo();
 
         damageTMP.text = characterStats.DamageMin + " - " + characterStats.DamageMax;
         critChanceTMP.text = characterStats.CritChance + "%";
@@ -121,6 +123,14 @@ public class CharacterUI : MonoBehaviour
         for(int i=0; i < stats.Length; i++)
 		{
             partyMembers[i].SetPartyMemberHolder(stats[i], i);
+		}
+	}
+
+    void SetAbilityInfo()
+	{
+        for(int i = 0; i<characterStats.ActiveAbilities.Count;i++)
+		{
+            abilityUIs[i].SetAbilityHolder(characterStats.ActiveAbilities[i]);
 		}
 	}
 
