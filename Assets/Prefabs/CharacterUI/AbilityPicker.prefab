@@ -385,8 +385,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnUnequipClick
+      - m_Target: {fileID: 3762180371067708321}
+        m_MethodName: OnUnequip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -40,6 +40,14 @@ public class AbilityPicker : MonoBehaviour
 
 	}
 
+	public void OnUnequip()
+	{
+		playerCharacter.ActiveAbilities[oldPos] = null;
+
+		GameManager.Instance.SetCharacterDataOnUI(playerCharacter);
+		OnCancel();
+	}
+
 	public void OnCancel()
 	{
 		Destroy(gameObject);
