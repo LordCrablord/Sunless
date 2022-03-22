@@ -7,6 +7,7 @@ using System;
 public class LevelUpUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI levelUpPointsTMP;
+    [SerializeField] TextMeshProUGUI abilityToLearnTMP;
     [SerializeField] TextMeshProUGUI strTMP;
     [SerializeField] TextMeshProUGUI dexTMP;
     [SerializeField] TextMeshProUGUI conTMP;
@@ -18,12 +19,15 @@ public class LevelUpUI : MonoBehaviour
 
     PlayerCharacterStats characterStats;
     int levelUpPoints;
+    int abilityToLearn;
 
     public void SetLevelUpScreen(PlayerCharacterStats stats)
 	{
         characterStats = stats;
         levelUpPoints = characterStats.LevelUpPoints;
         levelUpPointsTMP.text = characterStats.LevelUpPoints.ToString();
+        abilityToLearn = characterStats.AbilityToLearn;
+        abilityToLearnTMP.text = abilityToLearn.ToString();
 
         strTMP.text = characterStats.Str.ToString();
         dexTMP.text = characterStats.Dex.ToString();
@@ -49,6 +53,11 @@ public class LevelUpUI : MonoBehaviour
 	{
         SetLevelUpScreen(characterStats);
     }
+
+    public void ToggleAbilityPick(GameObject originator, Ability ability)
+	{
+
+	}
 
     public void OnAcceptClick()
 	{

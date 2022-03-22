@@ -18,7 +18,7 @@ public class AbilityPickerLevelUp : AbilityPicker
 
 	}
 
-	public override void ManageChoise(Ability ability)
+	public void ManageLevelUpAbilityChoise(GameObject originator, Ability ability)
 	{
 		Debug.Log("It works");
 	}

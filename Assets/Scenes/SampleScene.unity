@@ -606,7 +606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 59862401}
   m_Layer: 5
-  m_Name: AbilityLevelUpPoints
+  m_Name: AbilityToLearnPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4662,6 +4662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpPointsTMP: {fileID: 1009573327}
+  abilityToLearnTMP: {fileID: 1249588308}
   strTMP: {fileID: 274173149}
   dexTMP: {fileID: 176064730}
   conTMP: {fileID: 1758489186}

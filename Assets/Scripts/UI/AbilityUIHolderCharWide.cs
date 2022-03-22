@@ -25,4 +25,9 @@ public class AbilityUIHolderCharWide : AbilityUIHolderChar
 	{
 		transform.parent.parent.parent.gameObject.GetComponent<AbilityPicker>().ManageChoise(ability);
 	}
+
+	public void OnLevelUpAbilityClick()
+	{
+		transform.parent.parent.parent.gameObject.GetComponent<AbilityPickerLevelUp>().ManageLevelUpAbilityChoise(gameObject, ability);
+	}
 }
