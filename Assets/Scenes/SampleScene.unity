@@ -30837,7 +30837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 1250313465540441061}
-  abilityHolderWidePrefab: {fileID: 1735266447509678631, guid: c5a44ddbde235f5459e40029a4c51098,
+  abilityHolderWidePrefab: {fileID: 1626580514030607590, guid: 08a5a962bd5abaf47aa579a34b0a6056,
     type: 3}
 --- !u!222 &1250313465263388152
 CanvasRenderer:

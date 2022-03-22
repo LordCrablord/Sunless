@@ -56,7 +56,7 @@ public class LevelUpUI : MonoBehaviour
 
     public void ToggleAbilityPick(GameObject originator, Ability ability)
 	{
-
+        Debug.Log("one two threeeee");
 	}
 
     public void OnAcceptClick()

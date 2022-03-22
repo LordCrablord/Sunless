@@ -30,6 +30,6 @@ public class AbilityPickerLevelUp : AbilityPicker
 
 	public void ManageLevelUpAbilityChoise(GameObject originator, Ability ability)
 	{
-		Debug.Log("It works");
+		transform.parent.GetComponent<LevelUpUI>().ToggleAbilityPick(originator, ability);
 	}
 }
