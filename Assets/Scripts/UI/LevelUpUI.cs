@@ -20,6 +20,7 @@ public class LevelUpUI : MonoBehaviour
     PlayerCharacterStats characterStats;
     int levelUpPoints;
     int abilityToLearn;
+    List<Ability> newAbilities = new List<Ability>();
 
     public void SetLevelUpScreen(PlayerCharacterStats stats)
 	{
@@ -28,6 +29,7 @@ public class LevelUpUI : MonoBehaviour
         levelUpPointsTMP.text = characterStats.LevelUpPoints.ToString();
         abilityToLearn = characterStats.AbilityToLearn;
         abilityToLearnTMP.text = abilityToLearn.ToString();
+        newAbilities.Clear();
 
         strTMP.text = characterStats.Str.ToString();
         dexTMP.text = characterStats.Dex.ToString();
@@ -56,7 +58,22 @@ public class LevelUpUI : MonoBehaviour
 
     public void ToggleAbilityPick(GameObject originator, Ability ability)
 	{
-        Debug.Log("one two threeeee");
+		if (newAbilities.Contains(ability))
+		{
+            abilityToLearn++;
+            abilityToLearnTMP.text = abilityToLearn.ToString();
+            newAbilities.Remove(ability);
+			//color for button
+		}
+		else
+		{
+            if (abilityToLearn <= 0) return;
+
+            abilityToLearn--;
+            abilityToLearnTMP.text = abilityToLearn.ToString();
+            newAbilities.Add(ability);
+        }
+		
 	}
 
     public void OnAcceptClick()
@@ -67,7 +84,9 @@ public class LevelUpUI : MonoBehaviour
         characterStats.Int += int.Parse(intTMP.text) - characterStats.Int;
         characterStats.LevelUpPoints = levelUpPoints;
 
-        //TODO Ability pick
+        characterStats.AbilityToLearn = abilityToLearn;
+        foreach (Ability ability in newAbilities)
+            characterStats.KnownAbilities.Add((SpellAbility)ability);
 
         gameObject.SetActive(false);
         GameManager.Instance.SetCharacterDataOnUI(characterStats);
