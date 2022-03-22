@@ -9,6 +9,8 @@ public class AbilityPickerLevelUp : AbilityPicker
 	{
 		playerCharacter = stats;
 		List<SpellAbility> spellAbilities = GameManager.Instance.PCAbilityDatabase.abilities.Where(a => !stats.KnownAbilities.Contains(a)).ToList();
+
+		ClearContent();
 		foreach (SpellAbility ability in spellAbilities)
 		{
 			GameObject UIHolderWide = Instantiate(abilityHolderWidePrefab, transform.position, Quaternion.identity);
@@ -16,6 +18,14 @@ public class AbilityPickerLevelUp : AbilityPicker
 			UIHolderWide.GetComponent<AbilityUIHolderCharWide>().SetAbilityHolder(ability, 0);
 		}
 
+	}
+
+	public void ClearContent()
+	{
+		for (int i = 0; i < content.transform.childCount; i++)
+		{
+			Destroy(content.transform.GetChild(i).gameObject);
+		}
 	}
 
 	public void ManageLevelUpAbilityChoise(GameObject originator, Ability ability)
