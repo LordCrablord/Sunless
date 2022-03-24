@@ -82,8 +82,9 @@ public class CharacterUI : MonoBehaviour
 		{
             if (characterStats.LevelUpPoints > 0 || characterStats.AbilityToLearn > 0)
                 levelUpButton.SetActive(true);
+            else levelUpButton.SetActive(false);
         }    
-        else levelUpButton.SetActive(false);
+        
     }
 
     void SetArmor()
