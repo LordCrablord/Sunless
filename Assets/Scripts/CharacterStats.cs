@@ -8,7 +8,7 @@ public enum Stats {HP, HP_MAX, XP, GOLD,
 	INITIATIVE,	DAMAGE_MIN, DAMAGE_MAX, CRIT_CHANCE, CRIT_VALUE, 
 	AP, AP_MAX, AP_RECOVERY,
 	PROT_PIERCE, PROT_SLASH, PROT_BLUDGE, PROT_ELEMENT, PROT_ELDRICH, PROT_ARCANE,
-	STR, DEX, CON, INT}
+	STR, DEX, CON, INT, LEVEL}
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Character", menuName = "Character/Character")]
 public class CharacterStats:ScriptableObject

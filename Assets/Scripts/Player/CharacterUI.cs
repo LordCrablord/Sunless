@@ -113,9 +113,9 @@ public class CharacterUI : MonoBehaviour
     void SetXpUI()
     {
         levelTMP.text = characterStats.Level.ToString();
-        xpTMP.text = characterStats.Xp.ToString() + "/" + characterStats.levelXpThreshold[characterStats.Level];
-        xpSlider.maxValue = characterStats.levelXpThreshold[characterStats.Level];
-        xpSlider.minValue = characterStats.levelXpThreshold[characterStats.Level - 1];
+        xpTMP.text = characterStats.Xp.ToString() + "/" + characterStats.levelXpThreshold[(int)characterStats.Level];
+        xpSlider.maxValue = characterStats.levelXpThreshold[(int)characterStats.Level];
+        xpSlider.minValue = characterStats.levelXpThreshold[(int)characterStats.Level - 1];
         xpSlider.value = characterStats.Xp;
     }
 

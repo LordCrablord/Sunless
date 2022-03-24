@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class LevelUpUI : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class LevelUpUI : MonoBehaviour
             abilityToLearn++;
             abilityToLearnTMP.text = abilityToLearn.ToString();
             newAbilities.Remove(ability);
-			//color for button
+            abilityLevelUp.SetActiveColorForAbility(originator, false);
 		}
 		else
 		{
@@ -72,8 +73,19 @@ public class LevelUpUI : MonoBehaviour
             abilityToLearn--;
             abilityToLearnTMP.text = abilityToLearn.ToString();
             newAbilities.Add(ability);
+            abilityLevelUp.SetActiveColorForAbility(originator, true);
         }
 		
+	}
+
+    public bool CanTakeAbilityOnLevelUpCheck(SpellAbility ability)
+	{
+        foreach(ConditionValues condition in ability.levelUpConditions)
+		{
+            if ((float)characterStats.StatsDictionary[condition.stat].Get() < condition.addVal)
+                return false;
+		}
+        return true;
 	}
 
     public void OnAcceptClick()

@@ -38,7 +38,7 @@ public class PlayerCharacterStats : CharacterStats
 	};
 
 	static int level;
-	public int Level
+	public float Level
 	{
 		get { return level; }
 	}
@@ -170,7 +170,8 @@ public class PlayerCharacterStats : CharacterStats
 		StatsDictionary.Add(Stats.DAMAGE_MAX, new VariableReference(() => DamageMax, null));
 		StatsDictionary.Add(Stats.CRIT_CHANCE, new VariableReference(() => CritChance, null));
 		StatsDictionary.Add(Stats.CRIT_VALUE, new VariableReference(() => CritValue, null));
-		
+		StatsDictionary.Add(Stats.LEVEL, new VariableReference(() => Level, null));
+
 		StatsDictionary.Add(Stats.PROT_PIERCE, new VariableReference(() => ProtPierce, val => { ProtPierce = (float)val; }));
 		StatsDictionary.Add(Stats.PROT_SLASH, new VariableReference(() => ProtSlash, val => { ProtSlash = (float)val; }));
 		StatsDictionary.Add(Stats.PROT_BLUDGE, new VariableReference(() => ProtBludge, val => { ProtBludge = (float)val; }));
