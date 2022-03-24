@@ -6,10 +6,12 @@ using TMPro;
 public class AbilityUIHolderCharWide : AbilityUIHolderChar
 {
 	[SerializeField] TextMeshProUGUI nameTMP;
+	[SerializeField] TextMeshProUGUI levelUpConditionTMP;
 	public override void SetAbilityHolder(Ability a, int pos)
 	{
 		base.SetAbilityHolder(a, pos);
 		nameTMP.text = ability.abilityName;
+		levelUpConditionTMP.text = ((SpellAbility)a).levelUpConditionsString;
 	}
 
 	protected override IEnumerator ShowAbilityInfo()

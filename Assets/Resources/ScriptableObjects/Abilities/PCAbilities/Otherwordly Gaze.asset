@@ -32,3 +32,5 @@ MonoBehaviour:
   cooldown: 2
   conditions:
   - {fileID: 11400000, guid: 352352411154aa0499d94c8619a3a142, type: 2}
+  levelUpConditionsString: NONE
+  levelUpConditions: []

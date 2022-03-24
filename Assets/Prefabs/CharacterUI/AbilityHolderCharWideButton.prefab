@@ -269,6 +269,7 @@ MonoBehaviour:
   image: {fileID: 1735266447075557369}
   itemTooltipOffset: {x: -550, y: 0}
   nameTMP: {fileID: 547933393370963981}
+  levelUpConditionTMP: {fileID: 1601078567682751539}
 --- !u!1 &1863309217734173635
 GameObject:
   m_ObjectHideFlags: 0

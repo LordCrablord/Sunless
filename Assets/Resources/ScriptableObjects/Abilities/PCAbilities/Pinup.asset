@@ -30,6 +30,7 @@ MonoBehaviour:
   damageType: 12
   cooldown: 3
   conditions: []
+  levelUpConditionsString: 'STR: 3, LEVEL: 1'
   levelUpConditions:
   - stat: 19
     addVal: 3
