@@ -12,6 +12,7 @@ public class SpellAbility : Ability
     public Stats damageType;
     public float cooldown;
     public List<AbilityCondition> conditions;
+    public List<ConditionValues> levelUpConditions;
 
     public override void DoAbility(CharacterStats actionOriginator, Ability ability, CharacterStats initialTarget)
 	{

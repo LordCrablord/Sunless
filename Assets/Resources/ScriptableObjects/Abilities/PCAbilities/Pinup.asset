@@ -30,3 +30,9 @@ MonoBehaviour:
   damageType: 12
   cooldown: 3
   conditions: []
+  levelUpConditions:
+  - stat: 19
+    addVal: 3
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
