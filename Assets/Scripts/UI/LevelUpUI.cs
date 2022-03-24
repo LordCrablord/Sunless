@@ -49,6 +49,7 @@ public class LevelUpUI : MonoBehaviour
             statTMP.text = stat.ToString();
             levelUpPoints--;
             levelUpPointsTMP.text = (Int32.Parse(levelUpPointsTMP.text) - 1).ToString();
+            abilityLevelUp.SetAbilitiesInPicker(characterStats);
         } 
 	}
 
@@ -80,9 +81,15 @@ public class LevelUpUI : MonoBehaviour
 
     public bool CanTakeAbilityOnLevelUpCheck(SpellAbility ability)
 	{
-        foreach(ConditionValues condition in ability.levelUpConditions)
+        CharacterStats temp = Instantiate(characterStats);
+        temp.Str += int.Parse(strTMP.text) - characterStats.Str;
+        temp.Dex += int.Parse(dexTMP.text) - characterStats.Dex;
+        temp.Con += int.Parse(conTMP.text) - characterStats.Con;
+        temp.Int += int.Parse(intTMP.text) - characterStats.Int;
+
+        foreach (ConditionValues condition in ability.levelUpConditions)
 		{
-            if ((float)characterStats.StatsDictionary[condition.stat].Get() < condition.addVal)
+            if ((float)temp.StatsDictionary[condition.stat].Get() < condition.addVal)
                 return false;
 		}
         return true;

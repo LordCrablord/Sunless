@@ -30839,6 +30839,9 @@ MonoBehaviour:
   content: {fileID: 1250313465540441061}
   abilityHolderWidePrefab: {fileID: 1626580514030607590, guid: 08a5a962bd5abaf47aa579a34b0a6056,
     type: 3}
+  disabledColor: {r: 0.5686275, g: 0.18431373, b: 0.18431373, a: 0.8}
+  activeColor: {r: 0, g: 0.18039216, b: 0.7647059, a: 0.8}
+  selectedColor: {r: 1, g: 1, b: 1, a: 0.8}
 --- !u!222 &1250313465263388152
 CanvasRenderer:
   m_ObjectHideFlags: 0
