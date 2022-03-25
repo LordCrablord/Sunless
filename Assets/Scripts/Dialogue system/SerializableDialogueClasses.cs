@@ -56,7 +56,8 @@ public class DialogueBranch
 }
 
 public enum BranchConditionType { QUEST_PRESENT, QUEST_NOT_PRESENT, 
-    EVENT_PRESENT, EVENT_NOT_PRESENT, STR, DEX, CON, INT}
+    EVENT_PRESENT, EVENT_NOT_PRESENT, STR, DEX, CON, INT,
+    IS_IN_PARTY, IS_NOT_IN_PARTY, HAS_FREE_PARTY_CELL, HAS_NO_FREE_PARTY_CELL}
 [Serializable]
 public class BranchCondition
 {

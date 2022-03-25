@@ -7,6 +7,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New PlayerCharacter", menuName = "Character/PlayerCharacter")]
 public class PlayerCharacterStats : CharacterStats
 {
+	[SerializeField] int id;
+	public int Id { get { return id; } }
 	public Sprite characterIconUI;
     static int xp;
     public float Xp
@@ -161,6 +163,8 @@ public class PlayerCharacterStats : CharacterStats
 
 	[SerializeField] List<SpellAbility> activeAbilities;
 	public List<SpellAbility> ActiveAbilities { get { return activeAbilities; } }
+
+	public DialogueAction characterPartyTalk;
 
 	public PlayerCharacterStats()
 	{

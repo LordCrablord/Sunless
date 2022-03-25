@@ -49,6 +49,7 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] GameObject levelUpButton;
     [SerializeField] LevelUpUI levelUpUIScreen;
     [SerializeField] List<AbilityUIHolderCharDefault> abilityUIs;
+    [SerializeField] GameObject characterTalkButton;
 
     GameObject inventoryItemPicker;
     GameObject abilityPicker;
@@ -83,8 +84,15 @@ public class CharacterUI : MonoBehaviour
             if (characterStats.LevelUpPoints > 0 || characterStats.AbilityToLearn > 0)
                 levelUpButton.SetActive(true);
             else levelUpButton.SetActive(false);
-        }    
-        
+        }
+
+        if (GameManager.Instance.GetMainCharacter() != characterStats)
+        {
+            characterTalkButton.SetActive(true);
+        }
+        else
+            characterTalkButton.SetActive(false);
+
     }
 
     void SetArmor()
@@ -186,5 +194,10 @@ public class CharacterUI : MonoBehaviour
     public void SetLevelUpUI()
 	{
         levelUpUIScreen.SetLevelUpScreen(characterStats);
+	}
+
+    public void TalkWithCharacterClick()
+	{
+        GameManager.Instance.StartDialogue(characterStats.characterPartyTalk);
 	}
 }

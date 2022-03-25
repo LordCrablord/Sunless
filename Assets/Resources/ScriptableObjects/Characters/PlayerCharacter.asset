@@ -25,6 +25,7 @@ MonoBehaviour:
   dex: 1
   con: 3
   intel: 1
+  id: 1
   characterIconUI: {fileID: 21300000, guid: 8e7709e20a25ea840a7a27690abf5ce3, type: 3}
   protPierceBase: 0
   protSlashBase: 0
@@ -44,3 +45,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4dbd617986d4f2c40b1137bf9e5a92f8, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+  characterPartyTalk:
+    action_type: 0
+    action_id: 0

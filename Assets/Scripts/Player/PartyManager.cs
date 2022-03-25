@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PartyManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class PartyManager : MonoBehaviour
     PlayerCharacterStats mainCharacter;
     public PlayerCharacterStats MainCharacter { get { return mainCharacter; } }
     [SerializeField] List<PlayerCharacterStats> playerPCDatabase;
+    List<PlayerCharacterStats> interactedPlayerPCDatabase = new List<PlayerCharacterStats>();
     public PlayerCharacterStats[] partyPreload = new PlayerCharacterStats[3];
     public PlayerCharacterStats[] party = new PlayerCharacterStats[3];
 
@@ -78,8 +80,19 @@ public class PartyManager : MonoBehaviour
 
     public void AddCharacterToParty(int charListID)
 	{
-        PlayerCharacterStats companion = Instantiate(playerPCDatabase[charListID]);
-        for(int i = 0; i<party.Length; i++)
+        PlayerCharacterStats companion;
+        if (interactedPlayerPCDatabase.Find(x => x.Id == charListID) != null)
+		{
+            companion = interactedPlayerPCDatabase.Find(x => x.Id == charListID);
+            interactedPlayerPCDatabase.Remove(companion);
+		}
+		else
+		{
+            companion = Instantiate(playerPCDatabase[charListID]);
+        }
+            
+
+        for (int i = 0; i<party.Length; i++)
 		{
 			if (party[i] == null)
 			{
@@ -89,6 +102,20 @@ public class PartyManager : MonoBehaviour
 			}
 		}
 	}
+
+    public void RemoveCharacterFromParty(int charID)
+    {
+        for (int i = 0; i < party.Length; i++)
+        {
+            if (party[i] != null)
+                if (party[i].Id == charID)
+				{
+                    interactedPlayerPCDatabase.Add(party[i]);
+                    party[i] = null;
+                }
+            GameManager.Instance.SetCharacterDataOnUI(mainCharacter);
+        }
+    }
 
     public void PartyLevelUp()
 	{
@@ -101,4 +128,25 @@ public class PartyManager : MonoBehaviour
             }   
 		}
 	}
+
+    public bool CheckIfInParty(int ID)
+	{
+        for(int i = 0; i < party.Length; i++)
+		{
+            if (party[i] != null)
+                if (party[i].Id == ID)
+                    return true;
+		}
+        return false;
+	}
+
+    public bool CheckForFreeSpace()
+	{
+        for (int i = 0; i < party.Length; i++)
+        {
+            if (party[i] == null)
+                return true;
+        }
+        return false;
+    }
 }
