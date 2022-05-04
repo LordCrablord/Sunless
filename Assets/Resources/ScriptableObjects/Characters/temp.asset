@@ -12,19 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c98f0a70c811c4f80c5f2575c28c73, type: 3}
   m_Name: temp
   m_EditorClassIdentifier: 
-  characterName: teeemp
+  characterName: Iriana
   sprite: {fileID: 21300000, guid: 38a06a4c323c748479e28a268f636634, type: 3}
-  hpMax: 246
-  healthConModifier: 0
-  hp: 169
+  hpMax: 10
+  healthConModifier: 3
+  hp: 10
   initiative: 2
-  position: 2
+  position: 0
   apMax: 4
   apRecovery: 3
-  str: 0
-  dex: 0
-  con: 0
-  intel: 0
+  str: 1
+  dex: 2
+  con: 1
+  intel: 3
+  id: 2
+  characterIconUI: {fileID: 21300000, guid: e20a21b078d030641aaee64b0e5c25a7, type: 3}
+  personalCharacterLevel: 0
   protPierceBase: 0
   protSlashBase: 0
   protBludgeBase: 0
@@ -35,8 +38,12 @@ MonoBehaviour:
   chestpiece: {fileID: 0}
   weapon: {fileID: 0}
   trinket1: {fileID: 0}
+  knownAbilities: []
   activeAbilities:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  characterPartyTalk:
+    action_type: 2
+    action_id: 6

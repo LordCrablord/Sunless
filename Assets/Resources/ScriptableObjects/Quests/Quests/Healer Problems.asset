@@ -19,3 +19,8 @@ MonoBehaviour:
   questParts:
   - {fileID: 11400000, guid: 5d6837ab2a2aab8428ac8ad906c1e217, type: 2}
   - {fileID: 11400000, guid: 80d24e4e46ff65f4797faac647027577, type: 2}
+  questReward:
+    gold: 15
+    xp: 150
+    items:
+    - {fileID: 11400000, guid: 5a5183a69e5eb294ba136f0ab89fece8, type: 2}

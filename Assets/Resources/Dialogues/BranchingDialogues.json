@@ -116,6 +116,7 @@
 					"text": "I went to healer's hut, there is noone there, only orcs",
 					"conditions": [{"cond_type": "QUEST_PRESENT", "cond_val": 3}],
 					"actions": [
+						{"action_type": 12, "action_id": 1},
 						{"action_type": 1, "action_id": 17}
 					]
 				},
@@ -143,12 +144,59 @@
 					"text": "Accept",
 					"conditions": [],
 					"actions": [
-						
+						{"action_type": 11, "action_id": 2},
+						{"action_type": 1, "action_id": 18}
 					]
 				},
 				{
 					"branch_id": 3,
 					"text": "Say that you'd better be traveling alone for now",
+					"conditions": [],
+					"actions": [
+						{"action_type": 1, "action_id": 19}
+					]
+				}
+			]
+	  },
+	  {
+		  	"id":6,
+			"dialogue":[
+				{
+					"name": "Iriana", 
+					"imagePath": "Sprites/Characters/Iriana",
+					"text": "I see you wanted to talk"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 1,
+					"text": "Tell me about yourself",
+					"conditions": [],
+					"actions": [
+						
+					]
+				},
+				{
+					"branch_id": 2,
+					"text": "I want you to be in my party, what do you say?",
+					"conditions": [{"cond_type": "IS_NOT_IN_PARTY", "cond_val": 2}, {"cond_type": "HAS_FREE_PARTY_CELL", "cond_val": -1}],
+					"actions": [
+						{"action_type": 11, "action_id": 1},
+						{"action_type": 1, "action_id": 18}
+					]
+				},
+				{
+					"branch_id": 3,
+					"text": "I think it is time to depart our ways",
+					"conditions": [{"cond_type": "IS_IN_PARTY", "cond_val": 2}],
+					"actions": [
+						{"action_type": 13, "action_id": 2},
+						{"action_type": 1, "action_id": 19}
+					]
+				},
+				{
+					"branch_id": 4,
+					"text": "Leave",
 					"conditions": [],
 					"actions": [
 					]

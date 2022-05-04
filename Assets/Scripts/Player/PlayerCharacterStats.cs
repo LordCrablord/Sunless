@@ -7,6 +7,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New PlayerCharacter", menuName = "Character/PlayerCharacter")]
 public class PlayerCharacterStats : CharacterStats
 {
+	[SerializeField] int id;
+	public int Id { get { return id; } }
+	public Sprite characterIconUI;
     static int xp;
     public float Xp
 	{
@@ -22,7 +25,7 @@ public class PlayerCharacterStats : CharacterStats
 			while (xp >= levelXpThreshold[level])
 			{
 				level++;
-				Debug.Log(characterName + " is now level " + level);
+				GameManager.Instance.GetPartyManager().PartyLevelUp();
 			}
 		}
 	}
@@ -36,11 +39,24 @@ public class PlayerCharacterStats : CharacterStats
 		{ 4, 800},
 	};
 
-	int level;
-	public int Level
+	static int level;
+	public float Level
 	{
 		get { return level; }
 	}
+
+	[SerializeField] int personalCharacterLevel;
+	public int PersonalCharacterLevel
+	{
+		get { return personalCharacterLevel; }
+		set { personalCharacterLevel = value; }
+	}
+
+	int levelUpPoints;
+	public int LevelUpPoints { get { return levelUpPoints; } set { levelUpPoints = value; } }
+
+	int abilityToLearn;
+	public int AbilityToLearn { get { return abilityToLearn; } set { abilityToLearn = value; } }
 
 	static int gold;
 	public float Gold
@@ -127,7 +143,12 @@ public class PlayerCharacterStats : CharacterStats
 
 	public float CritValue
 	{
-		get { return GetGeneralStatWithAllBonuses(weapon != null ? weapon.critValue : 0, Stats.CRIT_VALUE); }
+		get 
+		{ 
+			float addBonus = weapon != null ? weapon.critValue : 0 + AddAllBonuses(additiveBonuses, Stats.CRIT_VALUE);
+			float multBonus = addBonus * AddAllBonuses(multiplyingBonuses, Stats.CRIT_VALUE);
+			return addBonus + multBonus;
+		}
 	}
 
 	public override void OnTurnStarted()
@@ -144,9 +165,13 @@ public class PlayerCharacterStats : CharacterStats
 	public Weapon weapon;
 	public Item trinket1;
 
+	[SerializeField] List<SpellAbility> knownAbilities;
+	public List<SpellAbility> KnownAbilities { get { return knownAbilities; } }
 
 	[SerializeField] List<SpellAbility> activeAbilities;
 	public List<SpellAbility> ActiveAbilities { get { return activeAbilities; } }
+
+	public DialogueAction characterPartyTalk;
 
 	public PlayerCharacterStats()
 	{
@@ -156,7 +181,8 @@ public class PlayerCharacterStats : CharacterStats
 		StatsDictionary.Add(Stats.DAMAGE_MAX, new VariableReference(() => DamageMax, null));
 		StatsDictionary.Add(Stats.CRIT_CHANCE, new VariableReference(() => CritChance, null));
 		StatsDictionary.Add(Stats.CRIT_VALUE, new VariableReference(() => CritValue, null));
-		
+		StatsDictionary.Add(Stats.LEVEL, new VariableReference(() => Level, null));
+
 		StatsDictionary.Add(Stats.PROT_PIERCE, new VariableReference(() => ProtPierce, val => { ProtPierce = (float)val; }));
 		StatsDictionary.Add(Stats.PROT_SLASH, new VariableReference(() => ProtSlash, val => { ProtSlash = (float)val; }));
 		StatsDictionary.Add(Stats.PROT_BLUDGE, new VariableReference(() => ProtBludge, val => { ProtBludge = (float)val; }));

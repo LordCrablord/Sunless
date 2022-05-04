@@ -103,7 +103,8 @@ public class DialogueManager : MonoBehaviour
 
     enum DialogueActionTypes {NONE, SIMPLE, BRANCH, RANDOM, 
         STAT_CHANGE, ADD_FORBID_SETTL_TRIGGER, REMOVE_FORBID_SETTL_TRIGGER,
-        START_QUEST, START_BATTLE, CLOSE_DIALOGUE, ADD_QUEST_PART}
+        START_QUEST, START_BATTLE, CLOSE_DIALOGUE, ADD_QUEST_PART, ADD_CHARACTER,
+        COMPLETE_QUEST, REMOVE_CHARACTER}
     IDialogueAction GetDialogueAction(DialogueAction actionJSON)
 	{
         switch ((DialogueActionTypes)actionJSON.action_type)
@@ -133,6 +134,15 @@ public class DialogueManager : MonoBehaviour
                 return null;
             case DialogueActionTypes.ADD_QUEST_PART:
                 QuestManager.Instance.TriggerManager.AddToQuestPartAllowList(actionJSON.action_id);
+                return null;
+            case DialogueActionTypes.ADD_CHARACTER:
+                GameManager.Instance.GetPartyManager().AddCharacterToParty(actionJSON.action_id);
+                return null;
+            case DialogueActionTypes.COMPLETE_QUEST:
+                QuestManager.Instance.CompleteQuest(actionJSON.action_id);
+                return null;
+            case DialogueActionTypes.REMOVE_CHARACTER:
+                GameManager.Instance.GetPartyManager().RemoveCharacterFromParty(actionJSON.action_id);
                 return null;
             default:
                 return null;

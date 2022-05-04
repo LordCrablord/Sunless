@@ -88,6 +88,22 @@ public class BranchDialogueAction : IDialogueAction
 					if (GameManager.Instance.GetMainCharacter().Int < condition.cond_val)
 						return false;
 					break;
+				case BranchConditionType.IS_IN_PARTY:
+					if (!GameManager.Instance.GetPartyManager().CheckIfInParty(condition.cond_val))
+						return false;
+					break;
+				case BranchConditionType.IS_NOT_IN_PARTY:
+					if (GameManager.Instance.GetPartyManager().CheckIfInParty(condition.cond_val))
+						return false;
+					break;
+				case BranchConditionType.HAS_FREE_PARTY_CELL:
+					if (!GameManager.Instance.GetPartyManager().CheckForFreeSpace())
+						return false;
+					break;
+				case BranchConditionType.HAS_NO_FREE_PARTY_CELL:
+					if (GameManager.Instance.GetPartyManager().CheckForFreeSpace())
+						return false;
+					break;
 			}
 		}
 		return true;

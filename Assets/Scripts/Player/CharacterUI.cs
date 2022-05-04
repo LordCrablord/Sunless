@@ -33,13 +33,26 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI protEldrichTMP;
     [SerializeField] TextMeshProUGUI protArcaneTMP;
 
+    [Header("Ability Score")]
+    [SerializeField] TextMeshProUGUI strTMP;
+    [SerializeField] TextMeshProUGUI dexTMP;
+    [SerializeField] TextMeshProUGUI conTMP;
+    [SerializeField] TextMeshProUGUI intTMP;
+
     [Header("Other")]
     [SerializeField] TextMeshProUGUI nameTMP;
     [SerializeField] Image characterImage;
     [SerializeField] TextMeshProUGUI goldTMP;
     [SerializeField] GameObject inventoryItemPickerPrefab;
+    [SerializeField] GameObject abilityPickerPrefab;
+    [SerializeField] List<PartyMemberHolder> partyMembers;
+    [SerializeField] GameObject levelUpButton;
+    [SerializeField] LevelUpUI levelUpUIScreen;
+    [SerializeField] List<AbilityUIHolderCharDefault> abilityUIs;
+    [SerializeField] GameObject characterTalkButton;
 
     GameObject inventoryItemPicker;
+    GameObject abilityPicker;
     PlayerCharacterStats characterStats;
 
 
@@ -52,9 +65,11 @@ public class CharacterUI : MonoBehaviour
         goldTMP.text = characterStats.Gold.ToString();
 
         SetArmor();
-
+        SetAbilityScores();
         SetHealthUI();
         SetXpUI();
+        SetPartyMember();
+        SetAbilityInfo();
 
         damageTMP.text = characterStats.DamageMin + " - " + characterStats.DamageMax;
         critChanceTMP.text = characterStats.CritChance + "%";
@@ -63,6 +78,20 @@ public class CharacterUI : MonoBehaviour
         helmetUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.helmet);
         chestpieceUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.chestpiece);
         weaponUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
+
+        if(characterStats != null)
+		{
+            if (characterStats.LevelUpPoints > 0 || characterStats.AbilityToLearn > 0)
+                levelUpButton.SetActive(true);
+            else levelUpButton.SetActive(false);
+        }
+
+        if (GameManager.Instance.GetMainCharacter() != characterStats)
+        {
+            characterTalkButton.SetActive(true);
+        }
+        else
+            characterTalkButton.SetActive(false);
 
     }
 
@@ -76,6 +105,13 @@ public class CharacterUI : MonoBehaviour
         protArcaneTMP.text = characterStats.ProtArcane.ToString();
     }
 
+    void SetAbilityScores()
+	{
+        strTMP.text = characterStats.Str.ToString();
+        dexTMP.text = characterStats.Dex.ToString();
+        conTMP.text = characterStats.Con.ToString();
+        intTMP.text = characterStats.Int.ToString();
+    }
     void SetHealthUI()
 	{
         maxHpTMP.text = characterStats.Hp.ToString() + "/" + characterStats.HpMax.ToString();
@@ -86,11 +122,28 @@ public class CharacterUI : MonoBehaviour
     void SetXpUI()
     {
         levelTMP.text = characterStats.Level.ToString();
-        xpTMP.text = characterStats.Xp.ToString() + "/" + characterStats.levelXpThreshold[characterStats.Level];
-        xpSlider.maxValue = characterStats.levelXpThreshold[characterStats.Level];
-        xpSlider.minValue = characterStats.levelXpThreshold[characterStats.Level - 1];
+        xpTMP.text = characterStats.Xp.ToString() + "/" + characterStats.levelXpThreshold[(int)characterStats.Level];
+        xpSlider.maxValue = characterStats.levelXpThreshold[(int)characterStats.Level];
+        xpSlider.minValue = characterStats.levelXpThreshold[(int)characterStats.Level - 1];
         xpSlider.value = characterStats.Xp;
     }
+
+    void SetPartyMember()
+	{
+        PlayerCharacterStats[] stats = GameManager.Instance.GetPlayerParty();
+        for(int i=0; i < stats.Length; i++)
+		{
+            partyMembers[i].SetPartyMemberHolder(stats[i], i);
+		}
+	}
+
+    void SetAbilityInfo()
+	{
+        for(int i = 0; i<characterStats.ActiveAbilities.Count; i++)
+		{
+            abilityUIs[i].SetAbilityHolder(characterStats.ActiveAbilities[i], i);
+		}
+	}
 
     public void SetInventoryItemPicker(GameObject itemUIHolder)
 	{
@@ -111,10 +164,40 @@ public class CharacterUI : MonoBehaviour
         inventoryItemPicker.GetComponent<InventoryItemPicker>().SetItems(itemUIHolder.GetComponent<ItemUIHolder>(), characterStats.InventoryBack);
     }
 
+    public void SetAbilityPicker(GameObject abilityUIHolder)
+    {
+        if (abilityPicker != null)
+        {
+            Destroy(abilityPicker);
+        }
+
+        abilityPicker = Instantiate(abilityPickerPrefab, abilityPickerPrefab.transform.position, Quaternion.identity);
+        abilityPicker.transform.SetParent(gameObject.transform, false);
+
+        RectTransform inventoryRect = abilityPicker.GetComponent<RectTransform>();
+        RectTransform abilityUIRect = abilityUIHolder.GetComponent<RectTransform>();
+
+        inventoryRect.anchoredPosition = new Vector2(
+            abilityUIRect.anchoredPosition.x, inventoryRect.anchoredPosition.y) + abilityPicker.GetComponent<AbilityPicker>().inventoryOffset;
+
+        abilityPicker.GetComponent<AbilityPicker>().SetAbilitiesInPicker(characterStats);
+        abilityPicker.GetComponent<AbilityPicker>().SetOldAbility(abilityUIHolder.GetComponent<AbilityUIHolderCharDefault>());
+    }
+
     public void SwapItems(Item oldItem, Item newItem)
 	{
         characterStats.UnequipItem(oldItem);
         characterStats.EquipItem(newItem);
         SetCharacterUI(characterStats);
+	}
+
+    public void SetLevelUpUI()
+	{
+        levelUpUIScreen.SetLevelUpScreen(characterStats);
+	}
+
+    public void TalkWithCharacterClick()
+	{
+        GameManager.Instance.StartDialogue(characterStats.characterPartyTalk);
 	}
 }

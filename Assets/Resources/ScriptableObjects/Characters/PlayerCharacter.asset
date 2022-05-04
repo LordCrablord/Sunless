@@ -16,7 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: b40333e0a1f61b44d98ca3fc4da593bf, type: 3}
   hpMax: 10
   healthConModifier: 3
-  hp: 5
+  hp: 10
   initiative: 5
   position: 0
   apMax: 4
@@ -25,6 +25,9 @@ MonoBehaviour:
   dex: 1
   con: 3
   intel: 1
+  id: 1
+  characterIconUI: {fileID: 21300000, guid: 8e7709e20a25ea840a7a27690abf5ce3, type: 3}
+  personalCharacterLevel: 0
   protPierceBase: 0
   protSlashBase: 0
   protBludgeBase: 0
@@ -35,8 +38,14 @@ MonoBehaviour:
   chestpiece: {fileID: 0}
   weapon: {fileID: 0}
   trinket1: {fileID: 0}
+  knownAbilities:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 4dbd617986d4f2c40b1137bf9e5a92f8, type: 2}
   activeAbilities:
   - {fileID: 0}
   - {fileID: 11400000, guid: 4dbd617986d4f2c40b1137bf9e5a92f8, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+  characterPartyTalk:
+    action_type: 0
+    action_id: 0

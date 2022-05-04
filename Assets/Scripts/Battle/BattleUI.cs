@@ -70,7 +70,7 @@ public class BattleUI : MonoBehaviour
 	{
 
 		int newPos = BattleManager.Instance.CurrentCharacter.Position + value;
-		if(newPos>=0 && newPos < 3)
+		if(newPos>=0 && newPos < 3 && BattleManager.Instance.CurrentCharacter.Ap>0)
 		{
 
 			//swap in manager
@@ -194,17 +194,6 @@ public class BattleUI : MonoBehaviour
 	{
 		startTurnTitleTMP.text = BattleManager.Instance.CurrentCharacter.characterName + "`s turn";
 		GetComponent<Animator>().Play("Turn Started", -1, 0f);
-	}
-
-	//this will be later used in setUIForCharacter
-	void ManageMoveButtons()
-	{
-		if (BattleManager.Instance.CurrentCharacter.Position != 0)
-			moveRightButton.interactable = true;
-		else moveRightButton.interactable = false;
-		if (BattleManager.Instance.CurrentCharacter.Position != 2)
-			moveLeftButton.interactable = true;
-		else moveLeftButton.interactable = false;
 	}
 
 	public void SetEndBattleAnimation()

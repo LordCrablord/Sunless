@@ -1,25 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PartyManager : MonoBehaviour
 {
-    [SerializeField] PlayerCharacterStats mainCharacterStartingStats;
+    [SerializeField] string mainCharacterName;
     PlayerCharacterStats mainCharacter;
     public PlayerCharacterStats MainCharacter { get { return mainCharacter; } }
     [SerializeField] List<PlayerCharacterStats> playerPCDatabase;
+    List<PlayerCharacterStats> interactedPlayerPCDatabase = new List<PlayerCharacterStats>();
+    public PlayerCharacterStats[] partyPreload = new PlayerCharacterStats[3];
     public PlayerCharacterStats[] party = new PlayerCharacterStats[3];
 
 	void Start()
 	{
-        mainCharacter = Instantiate(mainCharacterStartingStats);
-        party[0] = mainCharacter;
+        InstansiateParty();
         SetPositionInCharStats();
 
-        StatModifier stat1 = new StatModifier { modifierFromID = 1, modifierTo = Stats.XP, value = 5 };
-        mainCharacter.AddAdditiveModToList(stat1);
+        //the rest here is for testing purpose
 
-        mainCharacter.Xp += 185;
+        mainCharacter.Xp += 15;
         mainCharacter.Gold += 1500;
 
         PlayerCharacterStats otherCharacter = new PlayerCharacterStats();
@@ -37,17 +38,23 @@ public class PartyManager : MonoBehaviour
         mainCharacter.InventoryBack.Add(newWeapon);
         mainCharacter.InventoryBack.Add(newWeapon);
 
-
-        Debug.Log("Current Xp: " + mainCharacter.StatsDictionary[Stats.XP].Get());
-        Debug.Log("Current Damage: " + mainCharacter.StatsDictionary[Stats.DAMAGE_MIN].Get());
-        Debug.Log((mainCharacter.StatsDictionary[Stats.XP].Get().GetType()));
-        mainCharacter.StatsDictionary[Stats.XP].Set((float)mainCharacter.StatsDictionary[Stats.XP].Get() + 5); ;
-        Debug.Log("Current Xp: " + mainCharacter.StatsDictionary[Stats.XP].Get());
-
-
+        Debug.Log(mainCharacter.LevelUpPoints);
 
         GameManager.Instance.SetCharacterDataOnUI(mainCharacter);
     }
+
+    void InstansiateParty()
+	{
+        for(int i = 0; i<partyPreload.Length; i++)
+		{
+            if (partyPreload[i] != null)
+			{
+                party[i] = Instantiate(partyPreload[i]);
+                if (party[i].characterName == mainCharacterName)
+                    mainCharacter = party[i];
+            }   
+		}
+	}
 
     void SetPositionInCharStats()
 	{
@@ -61,5 +68,97 @@ public class PartyManager : MonoBehaviour
     public void ModifyMainCharacterStats(Stats stat, float value)
     {
         mainCharacter.ModifyStats(stat, value);
+    }
+
+    public void SwapPositions(int pos1, int pos2)
+	{
+        PlayerCharacterStats temp = party[pos1];
+        party[pos1] = party[pos2];
+        party[pos2] = temp;
+        SetPositionInCharStats();
+	}
+
+    public void AddCharacterToParty(int charListID)
+	{
+        PlayerCharacterStats companion;
+        if (interactedPlayerPCDatabase.Find(x => x.Id == charListID) != null)
+		{
+            companion = interactedPlayerPCDatabase.Find(x => x.Id == charListID);
+            interactedPlayerPCDatabase.Remove(companion);
+		}
+		else
+		{
+            companion = Instantiate(playerPCDatabase[charListID]);
+        }
+
+		if (companion.PersonalCharacterLevel < companion.Level)
+		{
+            while(companion.PersonalCharacterLevel < companion.Level)
+			{
+                companion.LevelUpPoints += 2;
+                companion.AbilityToLearn++;
+                companion.PersonalCharacterLevel++;
+            }
+		}
+
+        companion.Hp = companion.HpMax;
+
+        for (int i = 0; i<party.Length; i++)
+		{
+			if (party[i] == null)
+			{
+                party[i] = companion;
+                companion.Position = i;
+                return;
+			}
+		}
+	}
+
+    public void RemoveCharacterFromParty(int charID)
+    {
+        for (int i = 0; i < party.Length; i++)
+        {
+            if (party[i] != null)
+                if (party[i].Id == charID)
+				{
+                    interactedPlayerPCDatabase.Add(party[i]);
+                    party[i] = null;
+                }
+            GameManager.Instance.SetCharacterDataOnUI(mainCharacter);
+        }
+    }
+
+    public void PartyLevelUp()
+	{
+        foreach(PlayerCharacterStats playerCharacter in party)
+		{
+			if (playerCharacter != null)
+			{
+                playerCharacter.LevelUpPoints += 2;
+                playerCharacter.AbilityToLearn++;
+                playerCharacter.PersonalCharacterLevel = (int)playerCharacter.Level;
+            }   
+		}
+	}
+
+    public bool CheckIfInParty(int ID)
+	{
+        for(int i = 0; i < party.Length; i++)
+		{
+            if (party[i] != null)
+                if (party[i].Id == ID)
+                    return true;
+		}
+        return false;
+	}
+
+    public bool CheckForFreeSpace()
+	{
+        for (int i = 0; i < party.Length; i++)
+        {
+            if (party[i] == null)
+                return true;
+        }
+        return false;
     }
 }
