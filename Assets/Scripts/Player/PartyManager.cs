@@ -101,6 +101,8 @@ public class PartyManager : MonoBehaviour
             }
 		}
 
+        companion.Hp = companion.HpMax;
+
         for (int i = 0; i<party.Length; i++)
 		{
 			if (party[i] == null)

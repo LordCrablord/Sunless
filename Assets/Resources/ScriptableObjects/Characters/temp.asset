@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c98f0a70c811c4f80c5f2575c28c73, type: 3}
   m_Name: temp
   m_EditorClassIdentifier: 
-  characterName: teeemp
+  characterName: Iriana
   sprite: {fileID: 21300000, guid: 38a06a4c323c748479e28a268f636634, type: 3}
-  hpMax: 246
-  healthConModifier: 0
+  hpMax: 10
+  healthConModifier: 3
   hp: 10
   initiative: 2
   position: 0
