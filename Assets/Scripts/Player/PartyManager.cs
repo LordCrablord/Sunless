@@ -90,7 +90,16 @@ public class PartyManager : MonoBehaviour
 		{
             companion = Instantiate(playerPCDatabase[charListID]);
         }
-            
+
+		if (companion.PersonalCharacterLevel < companion.Level)
+		{
+            while(companion.PersonalCharacterLevel < companion.Level)
+			{
+                companion.LevelUpPoints += 2;
+                companion.AbilityToLearn++;
+                companion.PersonalCharacterLevel++;
+            }
+		}
 
         for (int i = 0; i<party.Length; i++)
 		{
@@ -125,6 +134,7 @@ public class PartyManager : MonoBehaviour
 			{
                 playerCharacter.LevelUpPoints += 2;
                 playerCharacter.AbilityToLearn++;
+                playerCharacter.PersonalCharacterLevel = (int)playerCharacter.Level;
             }   
 		}
 	}

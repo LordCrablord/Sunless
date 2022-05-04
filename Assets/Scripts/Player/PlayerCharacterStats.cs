@@ -45,6 +45,13 @@ public class PlayerCharacterStats : CharacterStats
 		get { return level; }
 	}
 
+	[SerializeField] int personalCharacterLevel;
+	public int PersonalCharacterLevel
+	{
+		get { return personalCharacterLevel; }
+		set { personalCharacterLevel = value; }
+	}
+
 	int levelUpPoints;
 	public int LevelUpPoints { get { return levelUpPoints; } set { levelUpPoints = value; } }
 
