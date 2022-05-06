@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemType { HELMET, CHESTPIECE, WEAPON, TRINKET}
+public enum ItemType { HELMET, CHESTPIECE, WEAPON, TRINKET, ALL}
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Item", menuName ="Items/Item")]

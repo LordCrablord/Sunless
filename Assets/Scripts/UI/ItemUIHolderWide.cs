@@ -12,6 +12,7 @@ public class ItemUIHolderWide : ItemUIHolder
 		yield return new WaitForSeconds(tooltipWait);
 		itemTooltip = Instantiate(itemTooltipPrefab, transform.position, Quaternion.identity);
 		itemTooltip.transform.SetParent(transform.parent.parent.parent, false);
+		//TODO: it is wrong in case of fucking scroll
 		itemTooltip.GetComponent<RectTransform>().anchoredPosition = gameObject.GetComponent<RectTransform>().anchoredPosition + itemTooltipOffset;
 		itemTooltip.GetComponent<ItemTooltip>().SetTooltip(item);
 	}
