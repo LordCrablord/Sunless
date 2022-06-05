@@ -22,8 +22,8 @@ MonoBehaviour:
     triggerCondition: 0
     sprite: {fileID: 21300000, guid: 8e7709e20a25ea840a7a27690abf5ce3, type: 3}
     dialogueAction:
-      action_type: 0
-      action_id: 0
+      action_type: 2
+      action_id: 7
   - eventName: Iriana
     eventID: 6
     triggerCondition: 1

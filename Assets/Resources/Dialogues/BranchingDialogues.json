@@ -202,6 +202,35 @@
 					]
 				}
 			]
+	  },
+	  {
+		  	"id":7,
+			"dialogue":[
+				{
+					"name": "Tavern Owner", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "Oh, greetings. What can i do to you in these daring hard times to our city?"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 2,
+					"text": "I'd like to rest [5 gold]",
+					"conditions": [{"cond_type": 12, "cond_val": 5}],
+					"actions": [
+						{"action_type": 4, "action_id": 7},
+						{"action_type": 1, "action_id": 20}
+					]
+				},
+				{
+					"branch_id": 3,
+					"text": "Go away",
+					"conditions": [],
+					"actions": [
+					
+					]
+				}
+			]
 	  }
 	]
 }

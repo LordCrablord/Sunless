@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject dialogueManager;
     [SerializeField] GameObject unitsContainer;
     [SerializeField] GameObject pauseUI;
+    [SerializeField] GameObject escapekeyUI;
     bool charatcerUIActive = false;
 
     int pauseGameRequest = 0;
@@ -84,5 +85,10 @@ public class GameManager : Singleton<GameManager>
     public PartyManager GetPartyManager()
 	{
         return partyManager;
+	}
+
+    public void ToggleEscapeKeyUI()
+	{
+        escapekeyUI.SetActive(!escapekeyUI.activeInHierarchy);
 	}
 }
