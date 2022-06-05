@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour
 		{
             OnEventTriggered();
 		}
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+            GameManager.Instance.ToggleEscapeKeyUI();
+		}
     }
 
     public event Notify EventTriggered;
