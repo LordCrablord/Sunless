@@ -104,6 +104,10 @@ public class BranchDialogueAction : IDialogueAction
 					if (GameManager.Instance.GetPartyManager().CheckForFreeSpace())
 						return false;
 					break;
+				case BranchConditionType.GOLD_REQUIRED:
+					if (GameManager.Instance.GetMainCharacter().Gold < condition.cond_val)
+						return false;
+					break;
 			}
 		}
 		return true;

@@ -12,10 +12,21 @@
 					"name": "Bernan", 
 					"imagePath": "Sprites/Characters/BernanIcon",
 					"text": "Hey, you! Yes you."
+				},
+				{
+					"name": "Bernan", 
+					"imagePath": "Sprites/Characters/BernanIcon",
+					"text": "Do you see those men there? Poor lads, don't have anything that they could do except of fighting themselves."
+				},
+				{
+					"name": "Bernan", 
+					"imagePath": "Sprites/Characters/BernanIcon",
+					"text": "If you want to show yourself before the church, i'd recomend you to deal with them somehow"
 				}
 			],
 			"actions":[
-				{"action_type": 2, "action_id": 1}
+				{"action_type": 5, "action_id": 3},
+				{"action_type": 1, "action_id": 2}
 			]
 	  },
 	  {
@@ -29,7 +40,7 @@
 				{
 					"name": "Bernan", 
 					"imagePath": "Sprites/Characters/BernanIcon",
-					"text": "Splendid! In that case, lets move."
+					"text": "If what, i'll help"
 				}
 			],
 			"actions":[
@@ -126,7 +137,7 @@
 				{
 					"name": "Narrator", 
 					"imagePath": "Sprites/Settlement/Events/Streetfight",
-					"text": "Some hits from brawlers were heavy"
+					"text": "Some hits from brawlers were heavy [you lost 4 hp]"
 				},
 				{
 					"name": "Narrator", 
@@ -138,6 +149,7 @@
 				{"action_type": 4, "action_id": 6},
 				{"action_type": 5, "action_id": 4},
 				{"action_type": 6, "action_id": 6},
+				{"action_type": 5, "action_id": 3},
 				{"action_type": 1, "action_id": 9}
 				
 			]
@@ -348,6 +360,11 @@
 					"name": "Iriana", 
 					"imagePath": "Sprites/Characters/Iriana",
 					"text": "Splendid, in that case i'll tell bishop that i'm leaving. Don't worry, it won't take long, i'll find you once this is done"
+				},
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "Congraulations! This small alpha version of a game is complete!!"
 				}
 				
 			],
@@ -374,6 +391,19 @@
 				}
 			],
 			"actions":[
+			]
+	  },
+	  {
+	  		"id":20,
+			"dialogue":[
+				{
+					"name": "Tavern Owner", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "You had a good rest [HP restored]"
+				}
+			],
+			"actions":[
+				{"action_type": 2, "action_id": 7}
 			]
 	  }
 	]
