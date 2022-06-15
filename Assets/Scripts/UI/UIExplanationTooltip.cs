@@ -5,8 +5,9 @@ using UnityEngine;
 public class UIExplanationTooltip : MonoBehaviour
 {
 	[SerializeField] GameObject tooltipPrefab;
-	[SerializeField] float tooltipTimeWait;
+	[SerializeField] float tooltipTimeWait = 0.3f;
 	[SerializeField] Vector2 tooltipOffset;
+	[SerializeField] string tooltipText;
 	GameObject tooltip;
 	public void OnMouseEnter()
 	{
@@ -26,6 +27,6 @@ public class UIExplanationTooltip : MonoBehaviour
 		tooltip = Instantiate(tooltipPrefab, transform.position, Quaternion.identity);
 		tooltip.transform.SetParent(transform.parent, false);
 		tooltip.GetComponent<RectTransform>().anchoredPosition = tooltipOffset + gameObject.GetComponent<RectTransform>().anchoredPosition;
-		//tooltip.GetComponent<ItemTooltip>().SetTooltip(item);
+		tooltip.GetComponent<UIExplanationTooltipPrefab>().SetTooltiptext(tooltipText);
 	}
 }
