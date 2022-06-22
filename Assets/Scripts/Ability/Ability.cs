@@ -15,6 +15,7 @@ public class Ability : ScriptableObject
     public List<TargetPosition> targetEnemy;
     public List<TargetPosition> targetAlly;
     public bool actionOnAllTargets;
+    public bool actionOnSelf;
     public List<TargetPosition> allowedFromPosition;
     public int echoingToNextTarget;
     public float echoValMultMod = 1;

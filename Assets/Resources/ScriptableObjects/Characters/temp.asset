@@ -36,7 +36,7 @@ MonoBehaviour:
   protArcaneBase: 0
   helmet: {fileID: 0}
   chestpiece: {fileID: 0}
-  weapon: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 4f3c4af337fffc941bf12efdbc66c3dc, type: 2}
   trinket1: {fileID: 0}
   knownAbilities: []
   activeAbilities:

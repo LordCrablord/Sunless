@@ -155,18 +155,32 @@ public class BattleUI : MonoBehaviour
 	public void ManageSelection()
 	{
 		ClearSelection();
-		foreach(TargetPosition pos in BattleManager.Instance.selectedAbility.targetEnemy)
-		{
-			if (enemyTilesTokenUI[(int)pos].transform.childCount > 0)
+        if (BattleManager.Instance.selectedAbility.actionOnSelf)
+        {
+			if(BattleManager.Instance.CurrentCharacter is PlayerCharacterStats)
+            {
+				allyTilesTokenUI[BattleManager.Instance.CurrentCharacter.Position].transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(true);
+            }
+			if (BattleManager.Instance.CurrentCharacter is NonPlayerCharacterStats)
 			{
-				enemyTilesTokenUI[(int)pos].transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(true);
+				enemyTilesTokenUI[BattleManager.Instance.CurrentCharacter.Position].transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(true);
 			}
 		}
-		foreach (TargetPosition pos in BattleManager.Instance.selectedAbility.targetAlly)
-		{
-			if (allyTilesTokenUI[(int)pos].transform.childCount > 0)
+        else
+        {
+			foreach (TargetPosition pos in BattleManager.Instance.selectedAbility.targetEnemy)
 			{
-				allyTilesTokenUI[(int)pos].transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(true);
+				if (enemyTilesTokenUI[(int)pos].transform.childCount > 0)
+				{
+					enemyTilesTokenUI[(int)pos].transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(true);
+				}
+			}
+			foreach (TargetPosition pos in BattleManager.Instance.selectedAbility.targetAlly)
+			{
+				if (allyTilesTokenUI[(int)pos].transform.childCount > 0)
+				{
+					allyTilesTokenUI[(int)pos].transform.GetChild(0).GetComponent<Token>().SetSelectedStatus(true);
+				}
 			}
 		}
 	}
