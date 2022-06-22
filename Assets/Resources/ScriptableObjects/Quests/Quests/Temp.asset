@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Temp
   m_EditorClassIdentifier: 
   questID: 1001
-  questTitle: Temp Quest
-  description: this is just to showcase that all works
+  questTitle: Escape from Nightvalley
+  description: Your fate lies not in this place, but first, you need to escape the
+    Nightvalley
   questParts:
   - {fileID: 11400000, guid: e76be63c9bf1f904ea91e4c159f3a448, type: 2}
   - {fileID: 11400000, guid: 1f344ef155870244b9cd710199280aee, type: 2}
+  questReward:
+    gold: 0
+    xp: 0
+    items: []

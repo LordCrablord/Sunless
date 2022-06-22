@@ -10,6 +10,7 @@ public class QuestManager : Singleton<QuestManager>
 
     [SerializeField] QuestDatabase questDatabase;
     [SerializeField] GameObject questUI;
+    [SerializeField] QuestNotification questNotificationUI;
     bool questUIActive = false;
 
     public List<Quest> activeQuests;
@@ -39,7 +40,15 @@ public class QuestManager : Singleton<QuestManager>
         activeQuests.Add(quest);
         CurrentlyFollowedQuest = quest;
         triggerManager.AddToQuestPartAllowList(quest.questParts[0].questPartID);
+        questNotificationUI.PlayNotification("Quest started: " + quest.questTitle, quest.questParts[0].partTitle);
 	}
+
+    public void NotifyPlayerOnQuestPart(int partID)
+    {
+        Quest quest = questDatabase.quests.Where(q => q.questParts.Where(p=>p.questPartID==partID).First()).First();
+        QuestPart questPart = quest.questParts.Where(p => p.questPartID == partID).First();
+        questNotificationUI.PlayNotification("Quest updated: " + quest.questTitle, questPart.partTitle);
+    }
 
     public void ToggleQuestJournalUI()
     {
@@ -61,6 +70,7 @@ public class QuestManager : Singleton<QuestManager>
             Debug.LogError("Error, can't find active quest with index " + id);
             return;
 		}
+        questNotificationUI.PlayNotification("Quest completed: " + quest.questTitle, "+" + quest.questReward.xp + " XP");
         activeQuests.Remove(quest);
         completedQuests.Add(quest);
 

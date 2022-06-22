@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: p1
   m_EditorClassIdentifier: 
   questPartID: 1002
-  partTitle: temp1
-  description: hey would look at that
+  partTitle: Find your way out
+  description: There must be a way to find a way ouy of here. Find it!
