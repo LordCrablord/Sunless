@@ -36,6 +36,9 @@ public class PartyManager : MonoBehaviour
         mainCharacter.EquipItem(newWeapon);
         newWeapon = (Weapon)GameManager.Instance.ItemDatabase.items[5];
         mainCharacter.InventoryBack.Add(newWeapon);
+        newWeapon = (Weapon)GameManager.Instance.ItemDatabase.items[6];
+        mainCharacter.InventoryBack.Add(newWeapon);
+        newWeapon = (Weapon)GameManager.Instance.ItemDatabase.items[7];
         mainCharacter.InventoryBack.Add(newWeapon);
 
         Debug.Log(mainCharacter.LevelUpPoints);

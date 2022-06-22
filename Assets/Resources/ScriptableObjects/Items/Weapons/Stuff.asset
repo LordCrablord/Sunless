@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7650c853ffad3f84292183cfbeafea6d, type: 3}
+  m_Name: Stuff
+  m_EditorClassIdentifier: 
+  id: 7
+  itemType: 2
+  itemName: Staff
+  description: This stuff is mostly used by clergy or arcane masters
+  sprite: {fileID: 21300000, guid: cdaa64303eebb6441b03c92cec60e36c, type: 3}
+  goldCost: 8
+  additiveBonuses:
+  - modifierFromID: 7
+    modifierTo: 21
+    description: Staff bonus
+    value: 2
+  multiplyingBonuses: []
+  weaponType: 3
+  handUsage: 1
+  minDamage: 1
+  maxDamage: 5
+  critChance: 7
+  critValue: 3
+  DamageDestination: 17
+  mainAbility: {fileID: 11400000, guid: 292ca8ff4123d3944b1e4d49a3b221e1, type: 2}
+  secondAbility: {fileID: 11400000, guid: a2a20fc9f669ebc4cb36e84c35fac681, type: 2}

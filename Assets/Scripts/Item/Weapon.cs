@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WeaponType { SWORD, MACE}
+public enum WeaponType { SWORD, MACE, DAGGER, STUFF}
 public enum HandUsage { ONE_HANDED, TWO_HANDED}
-public enum damageType { SLASHING, BLUDGEONING, FIRE}
+public enum damageType { SLASHING, BLUDGEONING, ELEMENTAL}
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Items/Weapon")]
 public class Weapon : Item
