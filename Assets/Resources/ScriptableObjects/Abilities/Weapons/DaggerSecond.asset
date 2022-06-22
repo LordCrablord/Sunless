@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8911201c0644f74289e14a403efc416, type: 3}
   m_Name: DaggerSecond
   m_EditorClassIdentifier: 
-  abilityID: 504
+  abilityID: 1504
   abilityName: Sneak Attack
   description: Heavy and prepared strike, which inflicts heavy damage (Critical chance
     is increased by twice, +30% crit damage)
@@ -20,6 +20,7 @@ MonoBehaviour:
   targetEnemy: 0100000002000000
   targetAlly: 
   actionOnAllTargets: 0
+  actionOnSelf: 0
   allowedFromPosition: 0100000002000000
   echoingToNextTarget: 0
   echoValMultMod: 1

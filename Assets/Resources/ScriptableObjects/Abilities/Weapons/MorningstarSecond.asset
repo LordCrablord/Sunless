@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8911201c0644f74289e14a403efc416, type: 3}
   m_Name: MorningstarSecond
   m_EditorClassIdentifier: 
-  abilityID: 506
+  abilityID: 1506
   abilityName: Prepared heavy smash
   description: Heavy strike to hit an enemy like a nail (+50% damage)
   sprite: {fileID: 21300000, guid: 2c0109a6da9877e47bc15ec5df6e7be0, type: 3}
   targetEnemy: 0000000002000000
   targetAlly: 
   actionOnAllTargets: 0
+  actionOnSelf: 0
   allowedFromPosition: 00000000
   echoingToNextTarget: 0
   echoValMultMod: 1

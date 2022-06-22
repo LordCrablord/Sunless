@@ -38,7 +38,8 @@ MonoBehaviour:
   chestpiece: {fileID: 0}
   weapon: {fileID: 11400000, guid: 4f3c4af337fffc941bf12efdbc66c3dc, type: 2}
   trinket1: {fileID: 0}
-  knownAbilities: []
+  knownAbilities:
+  - {fileID: 11400000, guid: 050b929216dcd00408c32cb84c4bce98, type: 2}
   activeAbilities:
   - {fileID: 0}
   - {fileID: 0}

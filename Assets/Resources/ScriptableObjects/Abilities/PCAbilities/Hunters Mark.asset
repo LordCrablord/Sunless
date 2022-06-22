@@ -12,22 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182c3e070dad8ec43a1f04592b9108ea, type: 3}
   m_Name: Hunters Mark
   m_EditorClassIdentifier: 
-  abilityID: 0
-  abilityName: 
-  description: 
-  sprite: {fileID: 0}
-  targetEnemy: 
+  abilityID: 509
+  abilityName: Hunters Mark
+  description: You mark a target, the traget receives "Hunted" condition for 2 turns,
+    granting -3 to slashing, piercing and bludgeoning resistances
+  sprite: {fileID: 21300000, guid: cb6f34e3350f2d642877a0bdd81c0fc4, type: 3}
+  targetEnemy: 000000000100000002000000
   targetAlly: 
   actionOnAllTargets: 0
-  allowedFromPosition: 
+  actionOnSelf: 0
+  allowedFromPosition: 0000000001000000
   echoingToNextTarget: 0
   echoValMultMod: 1
-  apCost: 0
-  autoHit: 0
-  minDamage: 0
-  maxDamage: 0
-  damageType: 0
-  cooldown: 0
-  conditions: []
-  levelUpConditionsString: 
-  levelUpConditions: []
+  apCost: 1
+  autoHit: 1
+  minDamage: 1
+  maxDamage: 1
+  damageType: 17
+  cooldown: 3
+  conditions:
+  - {fileID: 11400000, guid: 3052fb89b3e962c408e6fd160de23d04, type: 2}
+  levelUpConditionsString: 'DEX: 2, LEVEL: 2'
+  levelUpConditions:
+  - stat: 19
+    addVal: 2
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 22
+    addVal: 1
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8911201c0644f74289e14a403efc416, type: 3}
   m_Name: StuffSecond
   m_EditorClassIdentifier: 
-  abilityID: 508
+  abilityID: 1508
   abilityName: Arcane Discharge
   description: Mage`s last resort, melee attack in an attempt of finishing off close
     oponent (+20% crit chance, +3 base damage)
@@ -20,6 +20,7 @@ MonoBehaviour:
   targetEnemy: 00000000
   targetAlly: 
   actionOnAllTargets: 0
+  actionOnSelf: 0
   allowedFromPosition: 00000000
   echoingToNextTarget: 0
   echoValMultMod: 1

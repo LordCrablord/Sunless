@@ -12,23 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182c3e070dad8ec43a1f04592b9108ea, type: 3}
   m_Name: Lay on Hands
   m_EditorClassIdentifier: 
-  abilityID: 0
-  abilityName: 
-  description: 
-  sprite: {fileID: 0}
+  abilityID: 512
+  abilityName: Lay on hands
+  description: You target an ally with divine energy. An ally regains 4-6 HP
+  sprite: {fileID: 21300000, guid: 084c151d5984c214d8e9e59029dd44e9, type: 3}
   targetEnemy: 
-  targetAlly: 
+  targetAlly: 000000000100000002000000
   actionOnAllTargets: 0
   actionOnSelf: 0
-  allowedFromPosition: 
+  allowedFromPosition: 0000000001000000
   echoingToNextTarget: 0
   echoValMultMod: 1
-  apCost: 0
-  autoHit: 0
-  minDamage: 0
-  maxDamage: 0
-  damageType: 0
-  cooldown: 0
+  apCost: 2
+  autoHit: 1
+  minDamage: -4
+  maxDamage: -6
+  damageType: 16
+  cooldown: 3
   conditions: []
-  levelUpConditionsString: 
-  levelUpConditions: []
+  levelUpConditionsString: INT:2, DEX:2
+  levelUpConditions:
+  - stat: 21
+    addVal: 2
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 20
+    addVal: 2
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0

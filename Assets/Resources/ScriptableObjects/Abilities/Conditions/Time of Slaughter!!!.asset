@@ -12,10 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30f6c826f7c5d14d96f572654e8e183, type: 3}
   m_Name: Time of Slaughter!!!
   m_EditorClassIdentifier: 
-  conditionName: 
-  conditionID: 0
-  sprite: {fileID: 0}
+  conditionName: Time of Slaughter!!!
+  conditionID: 514
+  sprite: {fileID: 21300000, guid: dd7a6e44c6f6fef46b871e09323c9173, type: 3}
   baseSaveDC: 0
   saveDCScaling: []
   duration: 0
-  conditionValues: []
+  conditionValues:
+  - stat: 18
+    addVal: 5
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 7
+    addVal: 20
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0

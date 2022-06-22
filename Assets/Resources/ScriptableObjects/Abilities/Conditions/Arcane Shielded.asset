@@ -12,10 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30f6c826f7c5d14d96f572654e8e183, type: 3}
   m_Name: Arcane Shielded
   m_EditorClassIdentifier: 
-  conditionName: 
-  conditionID: 0
-  sprite: {fileID: 0}
+  conditionName: Arcane Shield
+  conditionID: 510
+  sprite: {fileID: 21300000, guid: 442a773d0e5dbec4ea2d24eab88dcd89, type: 3}
   baseSaveDC: 0
   saveDCScaling: []
   duration: 0
-  conditionValues: []
+  conditionValues:
+  - stat: 12
+    addVal: 2
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 13
+    addVal: 2
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 14
+    addVal: 2
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 15
+    addVal: 5
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 16
+    addVal: 5
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 17
+    addVal: 5
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
