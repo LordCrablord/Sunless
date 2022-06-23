@@ -41,7 +41,7 @@ MonoBehaviour:
   knownAbilities:
   - {fileID: 11400000, guid: 050b929216dcd00408c32cb84c4bce98, type: 2}
   activeAbilities:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 050b929216dcd00408c32cb84c4bce98, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
