@@ -17,10 +17,10 @@ MonoBehaviour:
   triggerCondition: 0
   sprite: {fileID: 21300000, guid: 71c56bdb1f12c1740b1640efd81d232b, type: 3}
   settlementEvents:
-  - eventName: 
+  - eventName: Lost in Halls
     eventID: 11001
-    triggerCondition: 0
-    sprite: {fileID: 0}
+    triggerCondition: 1
+    sprite: {fileID: 21300000, guid: d6ad984a7a0a3f1488fa56e94353fbb7, type: 3}
     dialogueAction:
-      action_type: 0
-      action_id: 0
+      action_type: 2
+      action_id: 8

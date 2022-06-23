@@ -48,8 +48,8 @@
 				},
 				{
 					"branch_id": 2,
-					"text": "Call guards and try to end this illegal activity",
-					"conditions": [],
+					"text": "[STR 3] Call guards and try to end this illegal activity",
+					"conditions": [{"cond_type": 4, "cond_val": 3}],
 					"actions": [
 						{"action_type": 1, "action_id": 8}
 					]
@@ -228,6 +228,26 @@
 					"conditions": [],
 					"actions": [
 					
+					]
+				}
+			]
+	  }
+	  ,
+	  {
+		  	"id":8,
+			"dialogue":[
+				{
+					"name": "Narrator", 
+					"imagePath": "Sprites/Characters/Narrator",
+					"text": "This tower seems to be abandoned long time ago, yet the torches are still lit.\n\n It is possible that these are magic torches, but maybe someone still lives here"
+				}
+			],
+			"branches":[
+				{
+					"branch_id": 1,
+					"text": "Go back",
+					"conditions": [],
+					"actions": [
 					]
 				}
 			]
