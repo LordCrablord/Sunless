@@ -18,11 +18,7 @@ MonoBehaviour:
   description: A simple dagger, mostly used by thieves (Grants +1 to DEX))
   sprite: {fileID: 21300000, guid: b7a14b0a68da77547b25bd66280c97fb, type: 3}
   goldCost: 5
-  additiveBonuses:
-  - modifierFromID: 6
-    modifierTo: 19
-    description: From daggers
-    value: 1
+  additiveBonuses: []
   multiplyingBonuses: []
   weaponType: 2
   handUsage: 0
