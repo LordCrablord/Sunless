@@ -20,7 +20,7 @@ public class AbilityUIHolderCharWide : AbilityUIHolderChar
 		abilityInfo = Instantiate(AbilityInfoPrefab, transform.position, Quaternion.identity);
 		abilityInfo.transform.SetParent(transform.parent.parent.parent, false);
 		abilityInfo.GetComponent<RectTransform>().anchoredPosition = itemTooltipOffset + gameObject.GetComponent<RectTransform>().anchoredPosition;
-		if(abilityInfo.GetComponent<RectTransform>().anchoredPosition.y < 200)
+		if(abilityInfo.GetComponent<RectTransform>().anchoredPosition.y < -200)
         {
 			abilityInfo.GetComponent<RectTransform>().anchoredPosition = new Vector2(-420, 0);
 		}
