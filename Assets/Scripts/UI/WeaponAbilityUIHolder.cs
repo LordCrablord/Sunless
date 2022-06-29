@@ -9,6 +9,7 @@ public class WeaponAbilityUIHolder : MonoBehaviour
     [SerializeField] protected Image image;
 	[SerializeField] protected GameObject panelBlocker;
     [SerializeField] protected GameObject AbilityInfoPrefab;
+	[SerializeField] bool isClickable = true;
 	protected GameObject abilityInfo;
 	[SerializeField] protected Vector2 itemTooltipOffset = new Vector2(-800, 0);
 	protected float tooltipWait = 0.25f;
@@ -16,8 +17,12 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 	public void SetWeaponAbilityUI(Ability ab, int position)
 	{
 		ability = ab;
-        image.sprite = ability.sprite;
-		SetUIHolder(position);
+		if (ability == null)
+			image.sprite = null;
+		else
+			image.sprite = ability.sprite;
+		if(isClickable)
+			SetUIHolder(position);
 	}
 
 	protected void SetUIHolder(int position)
@@ -50,7 +55,7 @@ public class WeaponAbilityUIHolder : MonoBehaviour
 
 	public void OnAbilityCliked()
 	{
-		if(ability != null)
+		if(ability != null && isClickable)
 		{
 			BattleManager.Instance.AbilitySelect(ability);
 		}

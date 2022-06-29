@@ -19,6 +19,8 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] GameObject helmetUIHolder;
     [SerializeField] GameObject chestpieceUIHolder;
     [SerializeField] GameObject weaponUIHolder;
+    [SerializeField] GameObject weaponAbility1Holder;
+    [SerializeField] GameObject weaponAbility2Holder;
 
     [Header("Damage & Crit")]
     [SerializeField] TextMeshProUGUI damageTMP;
@@ -78,8 +80,10 @@ public class CharacterUI : MonoBehaviour
         helmetUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.helmet);
         chestpieceUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.chestpiece);
         weaponUIHolder.GetComponent<ItemUIHolder>().SetUIHolder(characterStats.weapon);
+        weaponAbility1Holder.GetComponent<WeaponAbilityUIHolder>().SetWeaponAbilityUI(characterStats.weapon.mainAbility, -1);
+        weaponAbility2Holder.GetComponent<WeaponAbilityUIHolder>().SetWeaponAbilityUI(characterStats.weapon.secondAbility, -1);
 
-        if(characterStats != null)
+        if (characterStats != null)
 		{
             if (characterStats.LevelUpPoints > 0 || characterStats.AbilityToLearn > 0)
                 levelUpButton.SetActive(true);

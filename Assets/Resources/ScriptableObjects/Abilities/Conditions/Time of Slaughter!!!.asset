@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30f6c826f7c5d14d96f572654e8e183, type: 3}
+  m_Name: Time of Slaughter!!!
+  m_EditorClassIdentifier: 
+  conditionName: Time of Slaughter!!!
+  conditionID: 514
+  sprite: {fileID: 21300000, guid: dd7a6e44c6f6fef46b871e09323c9173, type: 3}
+  baseSaveDC: 0
+  saveDCScaling: []
+  duration: 0
+  conditionValues:
+  - stat: 18
+    addVal: 5
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0
+  - stat: 7
+    addVal: 20
+    multVal: 0
+    hasBaseValue: 0
+    baseValue: 0

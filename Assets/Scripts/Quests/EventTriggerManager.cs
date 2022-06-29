@@ -38,6 +38,7 @@ public class EventTriggerManager : MonoBehaviour
 	{
         questPartAllowID.Add(triggerID);
         OnQuestPartAllowed();
+        QuestManager.Instance.NotifyPlayerOnQuestPart(triggerID);
     }
 
     public void RemoveFromQuestPartAllowList(int triggerID)

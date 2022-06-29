@@ -460,7 +460,6 @@ MonoBehaviour:
   itemPickerScrollContent: {fileID: 5534417952433842648}
   itemUIHolderWidePrefab: {fileID: 1851270459329863684, guid: 966df9043ebc7cf4e8ac0b33c020406f,
     type: 3}
-  isMouseOverElement: 0
 --- !u!114 &5534417952156725190
 MonoBehaviour:
   m_ObjectHideFlags: 0

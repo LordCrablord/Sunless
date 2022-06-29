@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8911201c0644f74289e14a403efc416, type: 3}
   m_Name: Sword2HSecond
   m_EditorClassIdentifier: 
-  abilityID: 502
+  abilityID: 1502
   abilityName: Split
   description: Long strike against the target, which will also hit the one after
     the initial target as well. -30% Damage, -50% CritValue
@@ -20,6 +20,7 @@ MonoBehaviour:
   targetEnemy: 0000000001000000
   targetAlly: 
   actionOnAllTargets: 0
+  actionOnSelf: 0
   allowedFromPosition: 00000000
   echoingToNextTarget: 1
   echoValMultMod: 1
