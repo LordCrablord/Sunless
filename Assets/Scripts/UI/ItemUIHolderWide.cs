@@ -14,6 +14,10 @@ public class ItemUIHolderWide : ItemUIHolder
 		itemTooltip.transform.SetParent(transform.parent.parent.parent, false);
 		//TODO: it is wrong in case of fucking scroll
 		itemTooltip.GetComponent<RectTransform>().anchoredPosition = gameObject.GetComponent<RectTransform>().anchoredPosition + itemTooltipOffset;
+		if (itemTooltip.GetComponent<RectTransform>().anchoredPosition.y < -240)
+		{
+			itemTooltip.GetComponent<RectTransform>().anchoredPosition = new Vector2(-340, 0);
+		}
 		itemTooltip.GetComponent<ItemTooltip>().SetTooltip(item);
 	}
 
