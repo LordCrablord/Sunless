@@ -1,6 +1,6 @@
 # Sunless
  
-This was my diploma project, some things were unfortunately not finished but many main core feature work, such as:
+This was my diploma project, some things were unfortunately not finished but many main core features work, such as:
 - camera movement
 - character panel
 - quests
