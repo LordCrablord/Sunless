@@ -6,5 +6,5 @@ This was my diploma project, some things were unfortunately not finished but man
 - quests
 - town manager
 - turn-based battle
-- dialogues
+- dialogue system
 - character level up and abilities
